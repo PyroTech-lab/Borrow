@@ -4,6 +4,23 @@ require('actions/database.php');
 
 
 
+
+
+$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ?');
+    $checkIfLoanExists->execute(array($_GET['id']));
+
+        $LoanInfos = $checkIfLoanExists->fetch();
+
+        $loan_amount = $LoanInfos['loan_amount'];
+        $repayment_amount = $LoanInfos['repayment_amount'];
+        $repayment_date = $LoanInfos['repayment_date'];
+		$id_lender = $LoanInfos['id_lender'];
+		$username_lender = $LoanInfos['username_lender'];
+
+
+
+
+
 if(isset($_POST['confirm_repay'])){
 	
 	if(isset($_GET['id']) AND !empty($_GET['id'])){
@@ -20,16 +37,21 @@ if(isset($_POST['confirm_repay'])){
 	$LoanInfo = $getLoan->fetch();
 
 	$repayment_date = $LoanInfo['repayment_date'];
+	$repayment_date_plusOne = date('Y-m-d', strtotime($repayment_date. ' + 1 days'));
 	
-	if($repaid_date>$repayment_date){
+	if($repaid_date>$repayment_date_plusOne){
 		
-	$loanRepaidLate = $bdd->prepare('UPDATE loan SET repaid_date = ?, status = "paid_late" WHERE id= ?');
+	$loanRepaidLate = $bdd->prepare('UPDATE loan SET repaid_date = ?, status = "paid_late_notseen" WHERE id= ?');
 	$loanRepaidLate->execute(array($repayment_date, $idOfTheQuestion));
+	
+	$successMsg = "Your Loan has been repaid succesfully!";
 		
 	}else{
 
-	$loanRepaidOntime = $bdd->prepare('UPDATE loan SET repaid_date = ?, status = "paid_ontime" WHERE id= ?');
+	$loanRepaidOntime = $bdd->prepare('UPDATE loan SET repaid_date = ?, status = "paid_ontime_notseen" WHERE id= ?');
 	$loanRepaidOntime->execute(array($repaid_date, $idOfTheQuestion));
+	
+	$successMsg = "Your Loan has been repaid succesfully!";
 	}
         
 }
