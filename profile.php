@@ -2,7 +2,10 @@
 require('actions/users/securityAction.php');
 require('actions/users/showYourProfileAction.php');
 require('actions/users/ProfileVerificationsAction.php');
-require('actions/users/PaymentMethodsAction.php'); 
+require('actions/users/PaymentMethodsAction.php');
+require('actions/users/notificationAction.php');
+require('actions/questions/updateDatabases.php');
+require('actions/users/deleteAccountAction.php');
 ?>
 
 <!DOCTYPE html>
@@ -96,6 +99,129 @@ require('actions/users/PaymentMethodsAction.php');
 	margin-left: calc(90% - 20px);
 }
 
+
+.notification-unpaid {
+	background-color: red;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-unpaid {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-unpaid {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-duesoon {
+	background-color: orange;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-duesoon {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-duesoon {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+
+.notification-receivedrepayment {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedrepayment {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedrepayment {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-receivedloan {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedloan {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedloan {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+.notification_acknowledge {
+	margin-top: -29px;
+	background-color: transparent;
+	text-align: right;
+}
+
+.notification_acknowledge-button {
+	background-color: white;
+	color: #1bbf02;
+	border-radius: 0.325rem;
+	height: 30px;
+	padding-left: 6px;
+	padding-right: 6px;
+	border: 0px;
+	font-weight: bold;
+	font-size: 0.9rem;
+	margin-right: calc(10% + 15px);
+	transition: transform 0.5s;
+}
+
+.notification_acknowledge-button:hover {
+	background-color: #1bbf02;
+	color: white;
+}
+
+
 .everything-except-header {
 	position: absolute;
 	width: 100%;
@@ -176,6 +302,59 @@ require('actions/users/PaymentMethodsAction.php');
 	border: 1px solid #00c4ff;
 	border-radius: 0.425rem;
 	margin-top: 50px;
+}
+
+
+.verification-box {
+	margin-left: 3px;
+	border: 1px solid #e03434;
+	border-radius: 0.125rem;
+	padding-left: 2px;
+	padding-right: 3px;
+	background-color: #fafafa;
+	color: #e03434;
+	font-weight: 500;
+	font-size: 0.85rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform .2s;
+}
+
+.verification-box:hover {
+	border: 1px solid #ff2424;
+	color: #ff2424;
+	font-size: 0.9rem;
+}
+
+.verification-box:empty {
+	margin: 0px;
+	padding: 0px;
+	border: 0;
+}
+
+.verification-box2 {
+	margin-left: 3px;
+	border: 1px solid #00ab30;
+	border-radius: 0.125rem;
+	padding-left: 2px;
+	padding-right: 3px;
+	background-color: #fafafa;
+	color: #00ab30;
+	font-weight: 500;
+	font-size: 0.85rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform .2s;
+}
+
+.verification-box2:hover {
+	border: 1px solid #00de3f;
+	color: #00de3f;
+	font-size: 0.9rem;
+}
+
+.verification-box2:empty {
+	margin: 0px;
+	padding: 0px;
+	border: 0;
 }
 
 .column-11 {
@@ -331,6 +510,16 @@ require('actions/users/PaymentMethodsAction.php');
 	margin-right: 8px;
 }
 
+.account-input {
+	border: 0px;
+	background-color: #fcfcfc;
+	text-align: left;
+	padding: 0px;
+	font-size: 1rem;
+	font-family: 'Poppins', sans-serif;
+	margin-top: 17px;
+}
+
 .footer {
 	z-index: 10;
 	width: 100%;
@@ -345,6 +534,7 @@ require('actions/users/PaymentMethodsAction.php');
 .footer-text {
 	margin-left: 10%;
 }
+
 </style>
 
 </head>
@@ -361,6 +551,30 @@ require('actions/users/PaymentMethodsAction.php');
 		<div class="signup"><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black"><span>Log Out</span></a></div>
 	</div>
 </div>
+
+	<?php
+		if(isset($UnpaidMsg)){ 
+		echo '<div class="notification-unpaid"><img src="assets/images/warning-sign-red.png" class="notification-image-unpaid"><a href="unpaid-loans.php" style="text-decoration: none; color: white;"><span class="notification-text-unpaid">'.$UnpaidMsg.'</span></a></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($RepaymentDateSoonMsg)){ 
+		echo '<div class="notification-duesoon"><img src="assets/images/warning-sign-orange.png" class="notification-image-duesoon"><a href="active-loans.php" style="text-decoration: none; color: white;"><span class="notification-text-duesoon">'.$RepaymentDateSoonMsg.'</span></a></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($ReceiveRepaymentMsg)){ 
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_repaid" class="notification_acknowledge-button"></form></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($ReceiveLoanMsg)){ 
+		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image-receivedloan"><span class="notification-text-receivedloan">'.$ReceiveLoanMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_receivedloan" class="notification_acknowledge-button"></form></div>';
+		}
+	?>
 
 <div class="everything-except-header">
 
@@ -396,12 +610,12 @@ require('actions/users/PaymentMethodsAction.php');
 	<div class="verifications">
 	<p class="subsection-title">Verifications</p>
 		<div class="column-11">
-			<p>Email<br><img class="checkmark" src="assets/images/checkmark.png"><span>Verified</span></p>
-			<p>Phone Number<br><img class="checkmark" src="<?php if(isset($checkmark1)){echo ''.$checkmark1.'';}else {echo ''.$cross1.'';}?>"><span><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}else {echo ''.$not_verified_phone.'';}?></span></p>
+			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Email<br><img class="checkmark" src="assets/images/checkmark.png"><span class="verification-box2">Verified</span></p></a>
+			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Phone Number<br><img class="checkmark" src="<?php if(isset($checkmark1)){echo ''.$checkmark1.'';}else {echo ''.$cross1.'';}?>"><span class="verification-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span><span class="verification-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span></p></a>
 		</div>
 		<div class="column-12">
-			<p>Address<br><img class="checkmark" src="<?php if(isset($checkmark2)){echo ''.$checkmark2.'';}else {echo ''.$cross2.'';}?>"><span><?php if(isset($verified_address)){echo ''.$verified_address.'';}else {echo ''.$not_verified_address.'';}?></span></p>
-			<p>ID<br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}else {echo ''.$cross3.'';}?>"><span><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}else {echo ''.$not_verified_idcard.'';}?></span></p>
+			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Address<br><img class="checkmark" src="<?php if(isset($checkmark2)){echo ''.$checkmark2.'';}else {echo ''.$cross2.'';}?>"><span class="verification-box2"><?php if(isset($verified_address)){echo ''.$verified_address.'';}?></span><span class="verification-box"><?php if(isset($not_verified_address)){echo ''.$not_verified_address.'';}?></span></p></a>
+			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">ID Card<br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}else {echo ''.$cross3.'';}?>"><span class="verification-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="verification-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span></p></a>
 		</div>
 	</div>
 	
@@ -435,14 +649,13 @@ require('actions/users/PaymentMethodsAction.php');
 			<p>Address: </p>
 			<p>City: </p>
 			<p>Country: </p>
-			<p>Member Since: 19/04/2022</p>
+			<p>Member Since: <?= date('M jS, Y', strtotime($user_join_date)); ?></p>
 		</div>
 		<div class="column-113">
-			<p>Add Profile Picture</p>
-			<p>Change Password</p>
-			<p>Delete Account</p>
-			<p>Email Preferences</p>
-			<p></p>
+			<p class="add-picture">Add Profile Picture</p>
+			<p class="change-password">Change Password</p>
+			<p class="change-email">Change Email</p>
+			<p class="delete-account" style="color: red; font-weight: 500;">Delete Account</p>
 		</div>
 	</div>
 </div>
@@ -452,6 +665,7 @@ require('actions/users/PaymentMethodsAction.php');
 </div>
 
 </div>
+
 
 </body>
 

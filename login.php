@@ -1,5 +1,6 @@
 <?php
 require('actions/users/loginAction.php');
+require('actions/questions/updateDatabases.php');
 ?>
 
 <!DOCTYPE html>

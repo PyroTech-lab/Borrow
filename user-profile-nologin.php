@@ -1,6 +1,7 @@
 <?php
 require('actions/users/showOneUsersProfileAction.php'); 
 require('actions/users/showOneUsersVerificationsActions.php');
+require('actions/questions/updateDatabases.php');
 ?>
 
 <!DOCTYPE html>
@@ -92,6 +93,127 @@ require('actions/users/showOneUsersVerificationsActions.php');
 	height: 23px;
 	margin-top: -23px;
 	margin-left: calc(90% - 20px);
+}
+
+.notification-unpaid {
+	background-color: red;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-unpaid {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-unpaid {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-duesoon {
+	background-color: orange;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-duesoon {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-duesoon {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+
+.notification-receivedrepayment {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedrepayment {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedrepayment {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-receivedloan {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedloan {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedloan {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+.notification_acknowledge {
+	margin-top: -29px;
+	background-color: transparent;
+	text-align: right;
+}
+
+.notification_acknowledge-button {
+	background-color: white;
+	color: #1bbf02;
+	border-radius: 0.325rem;
+	height: 30px;
+	padding-left: 6px;
+	padding-right: 6px;
+	border: 0px;
+	font-weight: bold;
+	font-size: 0.9rem;
+	margin-right: calc(10% + 15px);
+	transition: transform 0.5s;
+}
+
+.notification_acknowledge-button:hover {
+	background-color: #1bbf02;
+	color: white;
 }
 
 .everything-except-header {
@@ -311,6 +433,58 @@ require('actions/users/showOneUsersVerificationsActions.php');
 	margin-right: 8px;
 }
 
+.verification-box {
+	margin-left: 3px;
+	border: 1px solid #e03434;
+	border-radius: 0.125rem;
+	padding-left: 2px;
+	padding-right: 3px;
+	background-color: #fafafa;
+	color: #e03434;
+	font-weight: 500;
+	font-size: 0.85rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform .2s;
+}
+
+.verification-box:hover {
+	border: 1px solid #ff2424;
+	color: #ff2424;
+	font-size: 0.9rem;
+}
+
+.verification-box:empty {
+	margin: 0px;
+	padding: 0px;
+	border: 0;
+}
+
+.verification-box2 {
+	margin-left: 3px;
+	border: 1px solid #00ab30;
+	border-radius: 0.125rem;
+	padding-left: 2px;
+	padding-right: 3px;
+	background-color: #fafafa;
+	color: #00ab30;
+	font-weight: 500;
+	font-size: 0.85rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform .2s;
+}
+
+.verification-box2:hover {
+	border: 1px solid #00de3f;
+	color: #00de3f;
+	font-size: 0.9rem;
+}
+
+.verification-box2:empty {
+	margin: 0px;
+	padding: 0px;
+	border: 0;
+}
+
 .thumbs-up {
 	height: 30px;
 	width: auto;
@@ -350,17 +524,32 @@ require('actions/users/showOneUsersVerificationsActions.php');
 	height: 730px;
 }
 
+.subtext {
+	font-weight: bold;
+	font-size: 1.8rem;
+	color: #00c4ff;
+}
+
+
 .subsection-title {
 	font-weight: 500;
 	margin-left: 20px;
 	font-size: 1.5rem;
 }
 
+.recent-loans-title {
+	margin-left: 10%;
+	font-weight: bold;
+	font-size: 1.6rem;
+	margin-top: 50px;
+	color: #00c4ff
+}
+
 .transaction-details {
 	margin-left: 10%;
 	width: 80%;
 	padding-bottom: 15px;
-	margin-top: 50px;
+	margin-top: -15px;
 	margin-bottom: 28px;
 	border: 1px solid #bababa;
 	background-color: #f7f7f7;
@@ -369,11 +558,6 @@ require('actions/users/showOneUsersVerificationsActions.php');
 }
 
 
-.subtext {
-	font-weight: bold;
-	font-size: 1.8rem;
-	color: #00c4ff;
-}
 
 
 .loan-amount {
@@ -491,6 +675,13 @@ require('actions/users/showOneUsersVerificationsActions.php');
 }
 
 
+.error-message {
+	font-weight: 500;
+	font-size: 1.05rem;
+	margin-bottom: 30px;
+}
+
+
 .footer {
 	z-index: 10;
 	width: 100%;
@@ -531,21 +722,21 @@ require('actions/users/showOneUsersVerificationsActions.php');
 	<p class="subsection-title">User Information</p>
 		<div class="borrower-presentation">
 		<a href=""><img class="profile-picture" src="assets/images/profile-picture.png"></a>
-		<div style="margin-top: -49px; margin-left: 50px;"><span style="color: #00c4ff;"><?= $user_username; ?></span><img class="country-icon" src="assets/images/country-icon.jpg"></br><span>Member since March 2023</span></div>
+		<div style="margin-top: -49px; margin-left: 50px;"><span style="color: #00c4ff;"><?= $user_username; ?></span><img class="country-icon" src="assets/images/country-icon.jpg"></br><span>Member since <?= date('M Y', strtotime($user_join_date)); ?></span></div>
 		</div>
 		
 		<button class="chat-button">Chat</button>
 		
 		<div class="column-1">
 		<span>Positive feedback</br><img class="thumbs-up" src="assets/images/thumbs-up.png"><span style="font-weight: bold; font-size: 1.35rem;">45</span></span>
-		<div class="line" style="margin-top: 25px;"><img class="checkmark" src="assets/images/checkmark.png"><span>Email</span></br><span style="margin-left: 29px;">Verified</span></div>
-		<div class="line"><img class="checkmark" src="<?php if(isset($checkmark2)){echo ''.$checkmark2.'';}else {echo ''.$cross2.'';}?>"><p style="margin-top: -25px; margin-left: 30px;">Address</br><span><?php if(isset($verified_address)){echo ''.$verified_address.'';}else {echo ''.$not_verified_address.'';}?></span></p></div>
+		<div class="line" style="margin-top: 25px;"><span>Email</span></br><img class="checkmark" src="assets/images/checkmark.png"><span class="verification-box2">Verified</span></div>
+		<div class="line"><p>Address</br><img class="checkmark" src="<?php if(isset($checkmark2)){echo ''.$checkmark2.'';}else {echo ''.$cross2.'';}?>"><span class="verification-box2"><?php if(isset($verified_address)){echo ''.$verified_address.'';}?></span><span class="verification-box"><?php if(isset($not_verified_address)){echo ''.$not_verified_address.'';}?></span></p></div>
 		</div>
 		
 		<div class="column-2">
 		<span>Negative feedback</br><img class="thumbs-down" src="assets/images/thumbs-down.png"><span style="font-weight: bold; font-size: 1.35rem;">0</span></span>
-		<div class="line"><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}else {echo ''.$cross3.'';}?>"><p style="margin-top: -25px; margin-left: 30px;">ID</br><span><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}else {echo ''.$not_verified_idcard.'';}?></span></p></div>
-		<div class="line"><img class="checkmark" src="<?php if(isset($checkmark1)){echo ''.$checkmark1.'';}else {echo ''.$cross1.'';}?>"><p style="margin-top: -25px; margin-left: 30px;">Phone Number</br><span><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}else {echo ''.$not_verified_phone.'';}?></span></p></div>
+		<div class="line"><p style="margin-top: 25px;">ID Card</br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}else {echo ''.$cross3.'';}?>"><span class="verification-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="verification-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span></p></div>
+		<div class="line"><p>Phone Number</br><img class="checkmark" src="<?php if(isset($checkmark1)){echo ''.$checkmark1.'';}else {echo ''.$cross1.'';}?>"><span class="verification-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span><span class="verification-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span></p></div>
 		</div>
 </div>
 
@@ -565,45 +756,44 @@ require('actions/users/showOneUsersVerificationsActions.php');
 	</div>
 </div>
 
- 			<div class="transaction-details">
-						<div class="loan-amount"><span>Loan Amount</span></div>
-						<div class="repay-amount"><span >Repayment Amount</span></div>
-						<div class="interest-rate"><span>Repayment Date</span></div>
-						<div class="repay-date"><span>Status</span></div>
-						<div class="feedback"><span>Feedback</span></div>
-						<div class="payment-method"><span>Payment Method</span></div>
-			</div>
+<p class="recent-loans-title">Recent Loans</p>
+
+<div class="transaction-details">
+			<div class="loan-amount"><span>Loan Amount</span></div>
+			<div class="repay-amount"><span >Repayment Amount</span></div>
+			<div class="interest-rate"><span>Repayment Date</span></div>
+			<div class="repay-date"><span>Status</span></div>
+			<div class="feedback"><span>Feedback</span></div>
+			<div class="payment-method"><span>Lender</span></div>
+</div>
+
+<div style="margin-left: 10%;">
+	<?php
+	
+	 if(isset($errorMsg)){ 
+		echo '<p class="error-message">'.$errorMsg.'</p>'; 
+	 }?>
+</div>	
+	<?php
+	while($question = $getHisQuestions->fetch()){
+		?>
+		
+
+<div class="loan-request">
+	<div class="loan-details">	
+			<div class="loan-amount"><span><?= $question['loan_amount']; ?>$</span></div>
+			<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
+			<div class="interest-rate"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
+			<div class="repay-date"><span><?= $status_public; ?></span></div>
+			<div class="feedback"><span>Positive</span></div>
+			<div class="payment-method"><a style="text-decoration: none; color: #3d91e0;" href="user-profile-nologin.php?id=<?= $question['id_lender']; ?>"><span><?= $question['username_lender']; ?></span></a></div>
+	</div>
+</div>
+<?php
+	}
+?>
 			
-			<div style="margin-left: 10%;">
-				<?php
-				
-				 if(isset($errorMsg)){ 
-					echo '<p>'.$errorMsg.'</p>'; 
-				 }?>
-			</div>	
-				<?php
-				while($question = $getHisQuestions->fetch()){
-					?>
-					
-
-			<div class="loan-request">
-				<div class="loan-details">	
-						<div class="loan-amount"><span><?= $question['loan_amount']; ?>$</span></div>
-						<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
-						<div class="interest-rate"><span><?= $question['repayment_date']; ?></span></div>
-						<div class="repay-date"><span><?= $question['status']; ?></span></div>
-						<div class="feedback"><span>Positive</span></div>
-						<div class="payment-method"><span>Paypal</span></div>
-				</div>
-			</div>
-			<?php
-				}
-			?>
 			
-
-
-                   
-
 
 
 <div class="footer">

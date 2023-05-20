@@ -1,6 +1,8 @@
 <?php
 require('actions/users/securityAction.php');
 require('actions/questions/publishRequestAction.php');
+require('actions/users/notificationAction.php');
+require('actions/questions/updateDatabases.php');
 ?>
 
 <!DOCTYPE html>
@@ -92,6 +94,127 @@ require('actions/questions/publishRequestAction.php');
 	height: 23px;
 	margin-top: -23px;
 	margin-left: calc(90% - 20px);
+}
+
+.notification-unpaid {
+	background-color: red;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-unpaid {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-unpaid {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-duesoon {
+	background-color: orange;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-duesoon {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-duesoon {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+
+.notification-receivedrepayment {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedrepayment {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedrepayment {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-receivedloan {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedloan {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedloan {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+.notification_acknowledge {
+	margin-top: -29px;
+	background-color: transparent;
+	text-align: right;
+}
+
+.notification_acknowledge-button {
+	background-color: white;
+	color: #1bbf02;
+	border-radius: 0.325rem;
+	height: 30px;
+	padding-left: 6px;
+	padding-right: 6px;
+	border: 0px;
+	font-weight: bold;
+	font-size: 0.9rem;
+	margin-right: calc(10% + 15px);
+	transition: transform 0.5s;
+}
+
+.notification_acknowledge-button:hover {
+	background-color: #1bbf02;
+	color: white;
 }
 
 .everything-except-header {
@@ -213,6 +336,14 @@ input::-webkit-datetime-edit-year-field:focus {
 	transform: scale(1.015); 
 }
 
+.success-message {
+	color: green;
+}
+
+.error-message {
+	color: red;
+}
+
 .under-container {
 	margin-top: 40px;
 }
@@ -292,6 +423,30 @@ input::-webkit-datetime-edit-year-field:focus {
 	</div>
 </div>
 
+	<?php
+		if(isset($UnpaidMsg)){ 
+		echo '<div class="notification-unpaid"><img src="assets/images/warning-sign-red.png" class="notification-image-unpaid"><a href="unpaid-loans.php" style="text-decoration: none; color: white;"><span class="notification-text-unpaid">'.$UnpaidMsg.'</span></a></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($RepaymentDateSoonMsg)){ 
+		echo '<div class="notification-duesoon"><img src="assets/images/warning-sign-orange.png" class="notification-image-duesoon"><a href="active-loans.php" style="text-decoration: none; color: white;"><span class="notification-text-duesoon">'.$RepaymentDateSoonMsg.'</span></a></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($ReceiveRepaymentMsg)){ 
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_repaid" class="notification_acknowledge-button"></form></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($ReceiveLoanMsg)){ 
+		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image-receivedloan"><span class="notification-text-receivedloan">'.$ReceiveLoanMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_receivedloan" class="notification_acknowledge-button"></form></div>';
+		}
+	?>
+
 <div class="everything-except-header">
 
 <div class="main">
@@ -311,9 +466,9 @@ input::-webkit-datetime-edit-year-field:focus {
 		<input name="submit" type="submit" class="borrow-button" value="Borrow Money">
 		        <?php 
             if(isset($errorMsg)){ 
-                echo '<p>'.$errorMsg.'</p>'; 
+                echo '<p class="error-message">'.$errorMsg.'</p>'; 
             }elseif(isset($successMsg)){ 
-                echo '<p>'.$successMsg.'</p>'; 
+                echo '<p class="success-message">'.$successMsg.'</p>'; 
             }
         ?>
 		</form>
@@ -324,7 +479,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		
 		<div class="under-container">
 			<a href="#explain"><button class="how-to">How to Borrow?</button></a>
-			<a href="index.php"><button class="lend-button">Lend Money</button></a>
+			<a href="dashboard.php"><button class="lend-button">Lend Money</button></a>
 		</div>
 
 			<div class="explain" id="explain">

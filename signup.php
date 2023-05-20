@@ -2,6 +2,7 @@
 
 <?php
 require('actions/users/signupAction.php');
+require('actions/questions/updateDatabases.php');
 ?>
 <html>
 

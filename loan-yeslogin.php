@@ -2,6 +2,8 @@
 require('actions/questions/showArticleContentAction.php'); 
 require('actions/users/showOneUsersVerificationsActionsLending.php');
 require('actions/users/securityAction.php');
+require('actions/users/notificationAction.php');
+require('actions/questions/updateDatabases.php');
 ?>
 
 <!DOCTYPE html>
@@ -94,6 +96,129 @@ require('actions/users/securityAction.php');
 	margin-top: -23px;
 	margin-left: calc(90% - 20px);
 }
+
+
+.notification-unpaid {
+	background-color: red;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-unpaid {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-unpaid {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-duesoon {
+	background-color: orange;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-duesoon {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-duesoon {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+
+.notification-receivedrepayment {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedrepayment {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedrepayment {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-receivedloan {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedloan {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedloan {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+.notification_acknowledge {
+	margin-top: -29px;
+	background-color: transparent;
+	text-align: right;
+}
+
+.notification_acknowledge-button {
+	background-color: white;
+	color: #1bbf02;
+	border-radius: 0.325rem;
+	height: 30px;
+	padding-left: 6px;
+	padding-right: 6px;
+	border: 0px;
+	font-weight: bold;
+	font-size: 0.9rem;
+	margin-right: calc(10% + 15px);
+	transition: transform 0.5s;
+}
+
+.notification_acknowledge-button:hover {
+	background-color: #1bbf02;
+	color: white;
+}
+
 
 .everything-except-header {
 	position: absolute;
@@ -315,6 +440,58 @@ require('actions/users/securityAction.php');
 	margin-right: 8px;
 }
 
+.verification-box {
+	margin-left: 3px;
+	border: 1px solid #e03434;
+	border-radius: 0.125rem;
+	padding-left: 2px;
+	padding-right: 3px;
+	background-color: #fafafa;
+	color: #e03434;
+	font-weight: 500;
+	font-size: 0.85rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform .2s;
+}
+
+.verification-box:hover {
+	border: 1px solid #ff2424;
+	color: #ff2424;
+	font-size: 0.9rem;
+}
+
+.verification-box:empty {
+	margin: 0px;
+	padding: 0px;
+	border: 0;
+}
+
+.verification-box2 {
+	margin-left: 3px;
+	border: 1px solid #00ab30;
+	border-radius: 0.125rem;
+	padding-left: 2px;
+	padding-right: 3px;
+	background-color: #fafafa;
+	color: #00ab30;
+	font-weight: 500;
+	font-size: 0.85rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform .2s;
+}
+
+.verification-box2:hover {
+	border: 1px solid #00de3f;
+	color: #00de3f;
+	font-size: 0.9rem;
+}
+
+.verification-box2:empty {
+	margin: 0px;
+	padding: 0px;
+	border: 0;
+}
+
 .thumbs-up {
 	height: 30px;
 	width: auto;
@@ -414,11 +591,32 @@ require('actions/users/securityAction.php');
 	</div>
 </div>
 
+	<?php
+		if(isset($UnpaidMsg)){ 
+		echo '<div class="notification-unpaid"><img src="assets/images/warning-sign-red.png" class="notification-image-unpaid"><a href="unpaid-loans.php" style="text-decoration: none; color: white;"><span class="notification-text-unpaid">'.$UnpaidMsg.'</span></a></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($RepaymentDateSoonMsg)){ 
+		echo '<div class="notification-duesoon"><img src="assets/images/warning-sign-orange.png" class="notification-image-duesoon"><a href="active-loans.php" style="text-decoration: none; color: white;"><span class="notification-text-duesoon">'.$RepaymentDateSoonMsg.'</span></a></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($ReceiveRepaymentMsg)){ 
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_repaid" class="notification_acknowledge-button"></form></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($ReceiveLoanMsg)){ 
+		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image-receivedloan"><span class="notification-text-receivedloan">'.$ReceiveLoanMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_receivedloan" class="notification_acknowledge-button"></form></div>';
+		}
+	?>
+
 <div class="everything-except-header">
 
-<?php 
-            if(isset($errorMsg)){ echo $errorMsg; }
-                ?>
 
 <div class="main">
 
@@ -429,7 +627,7 @@ require('actions/users/securityAction.php');
 		<div class="repay-amount"><span >Repayment Amount</span><div class="figures"><span style="margin-left: -85px;"><?= $repayment_amount; ?>$</span></div></div>
 	</div>
 	<div class="second-line">
-		<div class="repay-date"><span>Repayment Date: </span><span style="color: #00c4ff; font-weight: bold;"><?= $repayment_date; ?></span></div>
+		<div class="repay-date"><span>Repayment Date: </span><span style="color: #00c4ff; font-weight: bold;"><?= date('M jS, Y', strtotime($repayment_date)); ?></span></div>
 		<a href="lend-panel.php?id=<?= $questionsInfos['id']; ?>"><button class="lend-button">Lend Money</button></a>
 	</div>
 	
@@ -439,21 +637,21 @@ require('actions/users/securityAction.php');
 	<p class="subsection-title">Borrower Information</p>
 		<div class="borrower-presentation">
 		<a href=""><img class="profile-picture" src="assets/images/profile-picture.png"></a>
-		<div style="margin-top: -49px; margin-left: 50px;"><a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;"><span style="color: #00c4ff;"><?= $username_borrower; ?></span></a><img class="country-icon" src="assets/images/country-icon.jpg"></br><span>Member since March 2023</span></div>
+		<div style="margin-top: -49px; margin-left: 50px;"><a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;"><span style="color: #00c4ff;"><?= $username_borrower; ?></span></a><img class="country-icon" src="assets/images/country-icon.jpg"></br><span>Member since <?= date('M Y', strtotime($user_join_date)); ?></span></div>
 		</div>
 		
 		<button class="chat-button">Chat</button>
 		
 		<div class="column-1">
 		<span>Positive feedback</br><img class="thumbs-up" src="assets/images/thumbs-up.png"><span style="font-weight: bold; font-size: 1.35rem;">45</span></span>
-		<div class="line" style="margin-top: 25px;"><img class="checkmark" src="assets/images/checkmark.png"><span>Email</span></br><span style="margin-left: 29px;">Verified</span></div>
-		<div class="line"><img class="checkmark" src="<?php if(isset($checkmark2)){echo ''.$checkmark2.'';}else {echo ''.$cross2.'';}?>"><p style="margin-top: -25px; margin-left: 30px;">Address</br><span><?php if(isset($verified_address)){echo ''.$verified_address.'';}else {echo ''.$not_verified_address.'';}?></span></p></div>
+		<div class="line" style="margin-top: 25px;"><span>Email</span></br><img class="checkmark" src="assets/images/checkmark.png"><span class="verification-box2">Verified</span></div>
+		<div class="line"><p>Address</br><img class="checkmark" src="<?php if(isset($checkmark2)){echo ''.$checkmark2.'';}else {echo ''.$cross2.'';}?>"><span class="verification-box2"><?php if(isset($verified_address)){echo ''.$verified_address.'';}?></span><span class="verification-box"><?php if(isset($not_verified_address)){echo ''.$not_verified_address.'';}?></span></p></div>
 		</div>
 		
 		<div class="column-2">
 		<span>Negative feedback</br><img class="thumbs-down" src="assets/images/thumbs-down.png"><span style="font-weight: bold; font-size: 1.35rem;">0</span></span>
-		<div class="line"><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}else {echo ''.$cross3.'';}?>"><p style="margin-top: -25px; margin-left: 30px;">ID</br><span><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}else {echo ''.$not_verified_idcard.'';}?></span></p></div>
-		<div class="line"><img class="checkmark" src="<?php if(isset($checkmark1)){echo ''.$checkmark1.'';}else {echo ''.$cross1.'';}?>"><p style="margin-top: -25px; margin-left: 30px;">Phone Number</br><span><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}else {echo ''.$not_verified_phone.'';}?></span></p></div>
+		<div class="line"><p style="margin-top: 25px;">ID Card</br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}else {echo ''.$cross3.'';}?>"><span class="verification-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="verification-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span></p></div>
+		<div class="line"><p>Phone Number</br><img class="checkmark" src="<?php if(isset($checkmark1)){echo ''.$checkmark1.'';}else {echo ''.$cross1.'';}?>"><span class="verification-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span><span class="verification-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span></p></div>
 		</div>
 </div>
 

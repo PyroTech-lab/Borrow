@@ -1,5 +1,6 @@
 <?php
 require('actions/users/login_borrowAction.php');
+require('actions/questions/updateDatabases.php');
 ?>
 
 <!DOCTYPE html>

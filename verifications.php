@@ -1,7 +1,9 @@
 <?php
-require('actions/users/showYourLentLoansAction.php');
+require('actions/users/securityAction.php');
 require('actions/questions/updateDatabases.php');
 require('actions/users/notificationAction.php');
+require('actions/users/addVerificationsAction.php');
+require('actions/users/ProfileVerificationsAction.php');
 ?>
 
 <!DOCTYPE html>
@@ -223,150 +225,161 @@ require('actions/users/notificationAction.php');
 	width: 100%;
 }
 
+.main {
+	margin-top: 160px;
+	width: 50%;
+	margin-left: 25%;
+	background-color: white;
+	text-align: left;
+}
+
 
 .title {
-	margin-left: 10%;
-	color: #00c4ff;
+	color: #2b80ff;
 	font-weight: bold;
 	font-size: 2.32rem
 }
 
-.transaction-details {
-	margin-left: 10%;
-	width: 80%;
-	padding-bottom: 15px;
-	margin-top: 50px;
-	margin-bottom: 28px;
-	border: 1px solid #bababa;
-	background-color: #f7f7f7;
-	border-radius: 0.325rem;
-	text-align: left;
+.subtitle {
+	margin-top: -25px;
 }
 
+.form {
+	margin-top: 100px;
+}
 
-.loan-amount {
-	height: 23px;
-	margin-top: 15px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	padding: 4px;
-	color: #383838;
+.account {
+	color: #2b80ff;
+	margin-left: 5px;
+}
+
+.payment-method-box {
+	margin-left: 3px;
+	border: 1px solid #e03434;
+	border-radius: 0.125rem;
+	padding-left: 2px;
+	padding-right: 3px;
+	background-color: #fafafa;
+	color: #e03434;
 	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.repay-amount {
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -31px;
-	margin-left: 16.6%;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.interest-rate	{
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -31px;
-	margin-left: 33.2%;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.repay-date {
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -31px;
-	margin-left: 49.8%;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.feedback {
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -31px;
-	margin-left: 66%;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.payment-method {
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -31px;
-	margin-left: 82.6%;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-
-.loan-request {
-	margin-left: 10%;
-	width: 80%;
-	margin-top: -23px;
-	text-align: left;
-	margin-bottom: 35px;
-	padding-bottom: 15px;
-	border: 1px solid #bababa;
-	background-color: white;
-	border-radius: 0.325rem;
+	font-size: 0.85rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	transition: transform .2s;
+}
+
+.payment-method-box:hover {
+	border: 1px solid #ff2424;
+	color: #ff2424;
+	font-size: 0.9rem;
+}
+
+.payment-method-box:empty {
+	margin: 0px;
+	padding: 0px;
+	border: 0;
+}
+
+.payment-method-box2 {
+	margin-left: 5px;
+	border: 1px solid #31b52f;
+	border-radius: 0.125rem;
+	padding-left: 2px;
+	padding-right: 3px;
+	background-color: #fafafa;
+	color: #31b52f;
+	font-weight: 500;
+	font-size: 0.85rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform .2s;
+}
+
+.payment-method-box2:hover {
+	border: 1px solid #33d130;
+	color: #33d130;
+	font-size: 0.9rem;
+}
+
+.payment-method-box2:empty {
+	margin: 0px;
+	padding: 0px;
+	border: 0;
+}
+
+.input-text {
+	font-weight: 500;
+	font-size: 1.35rem;
+}
+
+.input {
+	width: calc(100% - 7px);
+	height: 40px;
+	background-color: #f7f7f7;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	border: 1px solid #00c4ff;
+	border-radius: 0.125rem;
+	transition: transform 0.2s;
+	font-size: 1rem;
+	font-weight: bold;
+	color: #757575;
+	padding-left: 7px;
+}
+
+.input:hover {
+	outline: 1px solid #00c4ff;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	-ms-transform: scale(1.015); /* IE 9 */
+	-webkit-transform: scale(1.015); /* Safari 3-8 */
+	transform: scale(1.015); 
+}
+
+.input:focus {
+	outline: 1px solid #00c4ff;
+	background-color: rgba(0, 196, 255, 0.08);
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
-.loan-request:hover {
-	background-color: #fbfbfb;
-  -ms-transform: scale(1.0055); /* IE 9 */
-  -webkit-transform: scale(1.0055); /* Safari 3-8 */
-  transform: scale(1.0055); 
-}
-
-.lend-button {
-	width: 100px;
-	margin-left: 5%;
-	background-color: #04db5a;
+.set-button {
+	margin-top: 5px;
+	width: 100%;
+	height: 50px;
+	background-color: #2b80ff;
+	color: white;
+	font-size: 1.18rem;
+	font-weight: bold;
 	border: 0;
 	border-radius: 0.325rem;
-	height: 31px;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform 0.2s;
+}
+
+.set-button:hover {
+	background-color: red;
+	-ms-transform: scale(1.015); /* IE 9 */
+	-webkit-transform: scale(1.015); /* Safari 3-8 */
+	transform: scale(1.015); 
+}
+
+.delete-form {
+	width: 100%;
+	text-align: right;
+	margin-top: -160px;
+	margin-bottom: 235px;
+}
+
+.delete-button {
+	border-radius: 0.125rem;
+	border: 1px solid #2b80ff;
+	color: #2b80ff;
+	font-size: 0.9rem;
 	font-weight: bold;
-	font-size: 0.95rem;
-	color: white;
-}
-
-.lend-button:hover {
-	background-color: green;
-}
-
-.error-message {
-	font-weight: 500;
-	font-size: 1.05rem;
-	margin-bottom: 30px;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	padding-top: 3px;
+	padding-bottom: 3px;
 }
 
 .under-container {
-	margin-left: 10%;
+	margin-top: 50px;
 	margin-bottom: 100px;
 }
 
@@ -404,8 +417,7 @@ require('actions/users/notificationAction.php');
 }
 
 .explain {
-	margin-left: 10%;
-	wisth: 80%;
+	width: 100%;
 	text-align: left;
 }
 
@@ -450,6 +462,7 @@ require('actions/users/notificationAction.php');
 </div>
 
 
+
 	<?php
 		if(isset($UnpaidMsg)){ 
 		echo '<div class="notification-unpaid"><img src="assets/images/warning-sign-red.png" class="notification-image-unpaid"><a href="unpaid-loans.php" style="text-decoration: none; color: white;"><span class="notification-text-unpaid">'.$UnpaidMsg.'</span></a></div>';
@@ -477,45 +490,45 @@ require('actions/users/notificationAction.php');
 
 <div class="everything-except-header">
 
-	<div style="margin-top: 160px;">
-	<p class="title">Your Lent Loans</p>
+	<div class="main">
+	<p class="title">Account Verifications</p>
+	<p class="subtitle">We collect this information to make our platform more secure and ensure a smooth lending process.</p>
+	
+	
+	<form class="form">
+		<p class="input-text">Email Adress <span class="account"><?= $_SESSION['email']; ?></span><span class="payment-method-box2">Verified</span></p>
+		<input id="loan" class="input" style="text-align: center;" placeholder="<?= $_SESSION['email']; ?>" readonly>
+		<input name="" type="submit" class="set-button" value="Update Email Address">
+	</form>
+	
+	<form method="post" class="form">
+		<p class="input-text">Phone Number <span class="account"><?= $row['phone_number']; ?></span><span class="payment-method-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span></p>
+		<input name="phone_set" id="loan" class="input" required autocomplete="off" placeholder="Enter your phone number">
+		<input name="phone_submit" type="submit" class="set-button" value="Add Phone Number">
+	</form>
 
- 	<div class="transaction-details">
-	<div class="loan-amount"><span>Loan Amount</span></div>
-	<div class="repay-amount"><span >Repayment Amount</span></div>
-	<div class="interest-rate"><span>Repayment Date</span></div>
-	<div class="repay-date"><span>Status</span></div>
-	<div class="feedback"><span>Borrower</span></div>
-	<div class="payment-method"><span>Payment Method</span></div>
-	</div>
-			
-	<div style="margin-left: 10%;">
-		<?php
+	<form method="post" class="form">
+		<p class="input-text">Address <span class="payment-method-box"><?php if(isset($not_verified_address)){echo ''.$not_verified_address.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_address)){echo ''.$verified_address.'';}?></span></p>
 		
-		 if(isset($errorMsg)){ 
-			echo '<p class="error-message">'.$errorMsg.'</p>'; 
-		 }?>
-	</div>	
-		        <?php 
+		<span class="adress-text">Street and House number <span class="account"><?= $row2['address']; ?></span></span>
+		<input name="address_set" id="loan" class="input" required autocomplete="off" placeholder="Enter Steet Name and House Number">
+		
+		<span class="adress-text">City and ZIP Code <span class="account"><?= $row2['city']; ?></span></span>
+		<input name="city_set" id="loan" class="input" required autocomplete="off" placeholder="Enter City and ZIP Code">
+		
+		<span class="adress-text">Country <span class="account"><?= $row2['country']; ?></span></span>
+		<input name="country_set" id="loan" class="input" required autocomplete="off" placeholder="Enter Country">
+		<input name="address_submit" type="submit" class="set-button" value="Add Address">
+	</form>
 
-            while($question = $getAllMyQuestions->fetch()){
-                ?>
-			
+	<form method="post" class="form">
+		<p class="input-text">ID Card <span class="account"><?= $row3['identity_card']; ?></span><span class="payment-method-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span></p>
+		<input name="idcard_set" id="loan" class="input" required autocomplete="off" placeholder="Enter your ID Card">
+		<input name="idcard_submit" type="submit" class="set-button" value="Add ID Card">
+	</form>
 
-	<div class="loan-request">
-		<div class="loan-details">	
-				<div class="loan-amount"><span><?= $question['loan_amount']; ?>$</span></div>
-				<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
-				<div class="interest-rate"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
-				<div class="repay-date"><span><?= $status_public ?></span></div>
-				<div class="feedback"><a style="text-decoration: none; color: #3d91e0;" href="user-profile-yeslogin.php?id=<?= $question['id_borrower']; ?>"><span><?= $question['username_borrower']; ?></span></a></div>
-				<div class="payment-method"><span>Paypal</span></div>
-		</div>
-	</div>
-                <?php
-            }
 
-        ?>
+ 	
 		
 		<div class="under-container">
 		<a href="dashboard.php"><button class="load-more">Lend Money</button></a>

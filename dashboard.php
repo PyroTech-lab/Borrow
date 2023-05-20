@@ -1,6 +1,8 @@
 <?php
 require('actions/users/securityAction.php');
 require('actions/questions/showAllRequestsAction.php');
+require('actions/users/notificationAction.php');
+require('actions/questions/updateDatabases.php');
 ?>
 
 <!DOCTYPE html>
@@ -94,6 +96,129 @@ require('actions/questions/showAllRequestsAction.php');
 	margin-left: calc(90% - 20px);
 }
 
+.notification-unpaid {
+	background-color: red;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-unpaid {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-unpaid {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-duesoon {
+	background-color: orange;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-duesoon {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-duesoon {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+
+.notification-receivedrepayment {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedrepayment {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedrepayment {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-receivedloan {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedloan {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedloan {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+.notification_acknowledge {
+	margin-top: -29px;
+	background-color: transparent;
+	text-align: right;
+}
+
+.notification_acknowledge-button {
+	background-color: white;
+	color: #1bbf02;
+	border-radius: 0.325rem;
+	height: 30px;
+	padding-left: 6px;
+	padding-right: 6px;
+	border: 0px;
+	font-weight: bold;
+	font-size: 0.9rem;
+	margin-right: calc(10% + 15px);
+	transition: transform 0.5s;
+}
+
+.notification_acknowledge-button:hover {
+	background-color: #1bbf02;
+	color: white;
+}
+
+
+
 .everything-except-header {
 	position: absolute;
 }
@@ -134,14 +259,17 @@ require('actions/questions/showAllRequestsAction.php');
 	font-weight: bold;
 	color: #00c4ff;
 	padding-left: 7px;
+	position: relative;
+	z-index: 50;
 }
 
 .sticky-input:hover {
 	outline: 1px solid #00c4ff;
+	background-color: #f7f7f7;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	-ms-transform: scale(1.015); /* IE 9 */
-	-webkit-transform: scale(1.015); /* Safari 3-8 */
-	transform: scale(1.015); 
+	-ms-transform: scale(1.01); /* IE 9 */
+	-webkit-transform: scale(1.01); /* Safari 3-8 */
+	transform: scale(1.01); 
 }
 
 .sticky-input:focus {
@@ -164,6 +292,18 @@ sticky-input[type=number] {
 
 .sticky-input[type="date"] {
   -webkit-text-fill-color: #00c4ff;
+}
+
+.symbol-right {
+	margin-top: -49px;
+	font-size:1.35rem;
+	font-weight: bold;
+	width: 1px;
+	margin-left: calc(100% - 1px);
+	text-align: left;
+	color: #00c4ff;
+	position: relative;
+	z-index: 100
 }
 
 input::-webkit-datetime-edit-day-field:focus,
@@ -411,6 +551,15 @@ input::-webkit-datetime-edit-year-field:focus {
 	background-color: green;
 }
 
+.error-message {
+	margin-left: 60px;
+	font-weight: 500;
+	font-size: 1.15rem;
+	margin-top: -15px;
+	margin-bottom: 50px;
+	color: red;
+}
+
 .under-container {
 	margin-left: 60px;
 	margin-bottom: 100px;
@@ -491,6 +640,31 @@ input::-webkit-datetime-edit-year-field:focus {
 	</div>
 </div>
 
+	<?php
+		if(isset($UnpaidMsg)){ 
+		echo '<div class="notification-unpaid"><img src="assets/images/warning-sign-red.png" class="notification-image-unpaid"><a href="unpaid-loans.php" style="text-decoration: none; color: white;"><span class="notification-text-unpaid">'.$UnpaidMsg.'</span></a></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($RepaymentDateSoonMsg)){ 
+		echo '<div class="notification-duesoon"><img src="assets/images/warning-sign-orange.png" class="notification-image-duesoon"><a href="active-loans.php" style="text-decoration: none; color: white;"><span class="notification-text-duesoon">'.$RepaymentDateSoonMsg.'</span></a></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($ReceiveRepaymentMsg)){ 
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_repaid" class="notification_acknowledge-button"></form></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($ReceiveLoanMsg)){ 
+		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image-receivedloan"><span class="notification-text-receivedloan">'.$ReceiveLoanMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_receivedloan" class="notification_acknowledge-button"></form></div>';
+		}
+	?>
+
+
 <div class="everything-except-header">
 
 <div class="main">
@@ -498,11 +672,11 @@ input::-webkit-datetime-edit-year-field:focus {
 	<form method="GET">
 	<div class="sticky-text">
 		<p>Loan Amount</p>
-		<input class="sticky-input" name="loan_amount_search" type="number" min="10" max="2000" autocomplete="off">
+		<input class="sticky-input" name="loan_amount_search" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-right"><span style="margin-left: -19px;">$</span></div>
 		<p>Interest Rate</p>
-		<input class="sticky-input" name="interest_search" type="number" min="0" autocomplete="off">
+		<input class="sticky-input" name="interest_search" type="number" min="0" autocomplete="off"><div class="symbol-right"><span style="margin-left: -23px;">%</span></div>
 		<p>Borrower Trust Score</p>
-		<input class="sticky-input" name="trust_score_search" type="number" min="0" max="100" autocomplete="off">
+		<input class="sticky-input" name="trust_score_search" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
 		<p>Repayment Date</p>
 		<input class="sticky-input" type="date" name="repayment_date_search" id="datefield" autocomplete="off">
 		</br>
@@ -534,7 +708,7 @@ input::-webkit-datetime-edit-year-field:focus {
 				</div>
 			</div>
 		
-		<div style="margin-left: 60px;"><p style="font-size: 1.15rem; font-weight: 500;">Latest Offers:</p></div>
+		<div style="margin-left: 60px;"><p style="font-size: 1.15rem; font-weight: 500;">Latest Loan Requests:</p></div>
 			<div class="transaction-details">
 						<div class="borrower"><span style="color: #383838;">Borrower</span></div>
 						<div class="loan-amount"><span>Loan Amount</span></div>
@@ -552,7 +726,7 @@ input::-webkit-datetime-edit-year-field:focus {
 						<div class="loan-amount"><span><?= $question['loan_amount']; ?>$</span></div>
 						<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
 						<div class="interest-rate"><span><?= $question['interest']; ?>%</span></div>
-						<div class="repay-date"><span><?= $question['repayment_date']; ?></span></div>
+						<div class="repay-date"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
 				</div>
 				<div style="text-align: right; margin-top: -31px; margin-bottom: 0px;">
 					<a href="loan-yeslogin.php?id=<?= $question['id']; ?>"><button class="lend-button">LEND</button><a>
@@ -560,6 +734,12 @@ input::-webkit-datetime-edit-year-field:focus {
 			</div>
 			<?php
 				}
+			?>
+			
+			<?php 
+            if(isset($errorMsg)){ 
+                echo '<p class="error-message">'.$errorMsg.'</p>'; 
+            }
 			?>
 			
 			

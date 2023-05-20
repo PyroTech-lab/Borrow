@@ -1,3 +1,6 @@
+<?php
+require('actions/questions/updateDatabases.php');
+?>
 
 <!DOCTYPE html>
 
@@ -305,13 +308,6 @@ input::-webkit-datetime-edit-year-field:focus {
 		<p>Notes</p>
 		<textarea name="notes" class="input-notes" autocomplete="off"></textarea>
 		<input name="submit" type="submit" class="borrow-button" value="Borrow Money" formaction="signup-borrow.php">
-		        <?php 
-            if(isset($errorMsg)){ 
-                echo '<p>'.$errorMsg.'</p>'; 
-            }elseif(isset($successMsg)){ 
-                echo '<p>'.$successMsg.'</p>'; 
-            }
-        ?>
 		</form>
 		
 		

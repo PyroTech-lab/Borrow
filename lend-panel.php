@@ -1,7 +1,8 @@
 <?php
 require('actions/users/securityAction.php');
 require('actions/questions/LoanGrantAction.php');
-require('actions/questions/showArticleContentAction.php'); 
+require('actions/questions/showArticleContentAction.php');
+require('actions/questions/updateDatabases.php');
 ?>
 
 <!DOCTYPE html>
@@ -104,58 +105,121 @@ require('actions/questions/showArticleContentAction.php');
 	margin-top: 160px;
 	margin-left: 10%;
 	width: 80%;
+	background-color: #f7f7f7;
 }
 
 .loan-recap {
-	border: 1px solid black;
-	border-radius: 0.325rem;
-	width: 50%;
+	border-radius: 0.425rem;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	border: 1px solid #00c4ff;
+	width: 49%;
+	height: 300px;
 }
 
-.payment-method {
-	border: 1px solid black;
-	border-radius: 0.325rem;
-	width: 50%;
+.chat-div {
+	border-radius: 0.425rem;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	border: 1px solid #00c4ff;
+	width: 49%;
+	height: 200px;
+	margin-top: 50px;
 }
 
-.title {
-	color: #2b80ff;
-	font-weight: bold;
-	font-size: 2.35rem;
-}
 
 .subtitle {
-	color: #2b80ff;
-	font-weight: 500;
-	font-size: 1.55rem;
-	margin-top: 30px;
+	font-weight: bold;
+	margin-top: 20px;
 	margin-bottom: 30px;
+	font-size: 1.8rem;
+	color: #00c4ff;
 }
 
 .text {
-	font-size: 1.11rem;
+	font-size: 1.12rem;
+	margin-top: 10px;
+	color: #383838;
+}
+
+.column-1 {
+	margin-left: 20px;
+	height: 300px;
+	width: 50%;
+}
+
+.column-2 {
+	margin-left: 50%;
+	height: 300px;
+	width: 50%;
+	margin-top: -237px;
+}
+
+.subtext1 {
+	font-weight: bold;
+	font-size: 1.8rem;
+	color: #00c4ff;
+}
+
+.subtext2 {
+	font-weight: bold;
+	font-size: 1.2rem;
+	color: #00c4ff;
+}
+
+
+.subtitle-chat {
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 5px;
+	margin-left: 20px;
+	font-size: 1.8rem;
+	color: #00c4ff;
+}
+
+.chat-text {
+	margin-left: 20px;
+	font-size: 1.05rem;
+	margin-bottom: 30px;
+	color: #383838;
 }
 
 .chat-button {
-	margin-top: 10px;
-	border-radius: 0.325rem;
-	color: white;
+	margin-top: 30px;
+	margin-left: 20px;
 	background-color: #2b80ff;
-	width: 100px;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	border: 0;
+	padding: 10px;
+	border-radius: 0.325rem;
 	font-weight: bold;
-	font-size: 1.1rem;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	transition: transform 0.2s;
+	font-size: 1.02rem;
+	color: white;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform .2s;
 }
 
 .chat-button:hover {
 	background-color: #00c4ff;
-	-ms-transform: scale(1.015); /* IE 9 */
-	-webkit-transform: scale(1.015); /* Safari 3-8 */
-	transform: scale(1.015); 
+	-ms-transform: scale(1.05); /* IE 9 */
+	-webkit-transform: scale(1.05); /* Safari 3-8 */
+	transform: scale(1.05); 
+}
+
+.payment {
+	margin-top: -554px;
+	margin-left: 51%;
+	width: 49%;
+	height: 552px;
+	border-radius: 0.425rem;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	border: 1px solid #00c4ff;
+}
+
+.payment-form {
+	margin-top: 20px;
+	width: 60%;
+	margin-left: 5%;
 }
 
 .footer {
@@ -177,7 +241,7 @@ require('actions/questions/showArticleContentAction.php');
 </head>
 
 
-<body style="margin: 0px; font-family: 'Poppins', sans-serif;">
+<body style="margin: 0px; font-family: 'Poppins', sans-serif; background-color: #f7f7f7;">
 
 <div class="header">
 	<div class="header-text">
@@ -192,38 +256,32 @@ require('actions/questions/showArticleContentAction.php');
 <div class="everything-except-header">
 
 <div class="main">
-
-	<p class="title">Confirm your Loan</p>
 	
-	<div class="subtitle"><span>1) Loan Details</span></div>
 	<div class="loan-recap">
-		<div class="text">Loan Amount: <span><?= $loan_amount; ?>$</span></div>
-		<div class="text">Repayment Amount: <span><?= $repayment_amount; ?>$</span></div>
-		<div class="text">Repayment Date: <span><?= $repayment_date; ?></span></div>
-		<div class="text">Borrower: <a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;"><span><?= $username_borrower; ?></span></a></div>
-		<button class="chat-button">Chat</button>
+		<div class="column-1">
+		<div class="subtitle"><span>Loan Recap</span></div>
+		<div class="text">You Lend</br><span class="subtext1"><?= $loan_amount; ?>$</span></div>
+		<div class="text">You get Repaid</br><span class="subtext1"><?= $repayment_amount; ?>$</span></div>
+		</div>
+		<div class="column-2">
+		<div class="text">Repayment Date</br><span class="subtext2" style="color: red;"><?= date('M jS, Y', strtotime($repayment_date)); ?></span></div>
+		<div class="text"  style="margin-top: 24px;">Borrower</br><a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;"><span class="subtext2"><?= $username_borrower; ?></span></a></div>
+		</div>
 	</div>
 	
-	<div class="subtitle"><span>2) Select Payment Method</span></div>
-	<div class="payment-method">
-		<div class="text"><span>Paypal</span></div>
-		<div class="text"><span>Cashapp</span></div>
-		<div class="text"><span>Venmo</span></div>
-		<div class="text"><span>Zelle</span></div>
-		<div class="text"><span>Chime</span></div>
-		<div class="text"><span>WISE</span></div>
+	<div class="chat-div">
+		<div class="subtitle-chat"><span>Chat with <a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;"><span style="color: #560296;"><?= $username_borrower; ?></span></a></span></div>
+		<div><span class="chat-text">In case you have doubts, requests, want more information or anything else...</span></div>
+		<button class="chat-button">Chat with <span><?= $username_borrower; ?></button>
 	</div>
 	
-	<div class="subtitle"><span>3) Send 100$ to :</span></div>
-	<div class="payment-confirm">
-		<div class="text"><span>adress.money@paypal.com</span></div>
-		<div class="subtitle"><span>4)Confirm Money is Sent</span></div>
-		<div class="text"><span>Borrower will confirm if funds were received</span></div>
+	<div class="payment">
+		<form class="payment-form" method="post">
+			<input type="submit" value="lend  money" class="btn" name="confirm_lend">
+		</form>
 	</div>
+	
 
-	<form method="post">
-	<input type="submit" value="lend  money" name="confirm_lend">
-	</form>
 
 </div>
 

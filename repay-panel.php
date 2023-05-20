@@ -1,6 +1,7 @@
 <?php
 require('actions/users/securityAction.php');
-require('actions/questions/RepayLoanAction.php')
+require('actions/questions/RepayLoanAction.php');
+require('actions/questions/updateDatabases.php');
 ?>
 
 <!DOCTYPE html>
@@ -99,6 +100,131 @@ require('actions/questions/RepayLoanAction.php')
 	width: 100%;
 }
 
+.main {
+	margin-top: 160px;
+	margin-left: 10%;
+	width: 80%;
+	background-color: #f7f7f7;
+}
+
+.loan-recap {
+	border-radius: 0.425rem;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	border: 1px solid #00c4ff;
+	width: 49%;
+	height: 300px;
+}
+
+.chat-div {
+	border-radius: 0.425rem;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	border: 1px solid #00c4ff;
+	width: 49%;
+	height: 200px;
+	margin-top: 50px;
+}
+
+
+.subtitle {
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	font-size: 1.8rem;
+	color: #00c4ff;
+}
+
+.text {
+	font-size: 1.12rem;
+	margin-top: 10px;
+	color: #383838;
+}
+
+.column-1 {
+	margin-left: 20px;
+	height: 300px;
+	width: 50%;
+}
+
+.column-2 {
+	margin-left: 50%;
+	height: 300px;
+	width: 50%;
+	margin-top: -237px;
+}
+
+.subtext1 {
+	font-weight: bold;
+	font-size: 1.8rem;
+	color: #00c4ff;
+}
+
+.subtext2 {
+	font-weight: bold;
+	font-size: 1.2rem;
+	color: #00c4ff;
+}
+
+
+.subtitle-chat {
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 5px;
+	margin-left: 20px;
+	font-size: 1.8rem;
+	color: #00c4ff;
+}
+
+.chat-text {
+	margin-left: 20px;
+	font-size: 1.05rem;
+	margin-bottom: 30px;
+	color: #383838;
+}
+
+.chat-button {
+	margin-top: 30px;
+	margin-left: 20px;
+	background-color: #2b80ff;
+	border: 0;
+	padding: 10px;
+	border-radius: 0.325rem;
+	font-weight: bold;
+	font-size: 1.02rem;
+	color: white;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform .2s;
+}
+
+.chat-button:hover {
+	background-color: #00c4ff;
+	-ms-transform: scale(1.05); /* IE 9 */
+	-webkit-transform: scale(1.05); /* Safari 3-8 */
+	transform: scale(1.05); 
+}
+
+.payment {
+	margin-top: -554px;
+	margin-left: 51%;
+	width: 49%;
+	height: 552px;
+	border-radius: 0.425rem;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	border: 1px solid #00c4ff;
+}
+
+.payment-form {
+	margin-top: 20px;
+	width: 60%;
+	margin-left: 5%;
+}
+
+.success-message {
+	margin-left: 20px;
+	color: green;
+}
 
 .footer {
 	z-index: 10;
@@ -119,7 +245,7 @@ require('actions/questions/RepayLoanAction.php')
 </head>
 
 
-<body style="margin: 0px; font-family: 'Poppins', sans-serif;">
+<body style="margin: 0px; font-family: 'Poppins', sans-serif; background-color: #f7f7f7;">
 
 <div class="header">
 	<div class="header-text">
@@ -133,9 +259,42 @@ require('actions/questions/RepayLoanAction.php')
 
 <div class="everything-except-header">
 
-<form style="margin-top: 160px; margin-left: 10%;" method="post">
-<input type="submit" value="Repay Loan" name="confirm_repay">
-</form>
+<div class="main">
+	
+	<div class="loan-recap">
+		<div class="column-1">
+		<div class="subtitle"><span>Repayment Recap</span></div>
+		<div class="text">You Repay</br><span class="subtext1"><?= $repayment_amount; ?>$</span></div>
+		<div class="text">You Lent</br><span class="subtext1"><?= $loan_amount; ?>$</span></div>
+		</div>
+		<div class="column-2">
+		<div class="text">Repayment Deadline</br><span class="subtext2" style="color: red;"><?= date('M jS, Y', strtotime($repayment_date)); ?></span></div>
+		<div class="text"  style="margin-top: 24px;">Lender</br><a href="user-profile-yeslogin.php?id=<?= $id_lender; ?>" style="text-decoration: none;"><span class="subtext2"><?= $username_lender; ?></span></a></div>
+		</div>
+	</div>
+	
+	<div class="chat-div">
+		<div class="subtitle-chat"><span>Chat with <a href="user-profile-yeslogin.php?id=<?= $id_lender; ?>" style="text-decoration: none;"><span style="color: #560296;"><?= $username_lender; ?></span></a></span></div>
+		<div><span class="chat-text">In case you have doubts, requests, want more information or anything else...</span></div>
+		<button class="chat-button">Chat with <span><?= $username_lender; ?></button>
+	</div>
+	
+	<div class="payment">
+		<form class="payment-form" method="post">
+			<input type="submit" value="Repay Loan" class="btn" name="confirm_repay">
+		</form>
+		
+				        <?php 
+            if(isset($successMsg)){ 
+                echo '<p class="success-message">'.$successMsg.'</p>'; 
+            }
+        ?>
+		
+	</div>
+	
+
+
+</div>
 
 <div class="footer">
 	<p class="footer-text">Instant Borrow</p>

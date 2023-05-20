@@ -1,5 +1,7 @@
 <?php
 require('actions/users/showYourLoanRequestsAction.php'); 
+require('actions/questions/updateDatabases.php');
+require('actions/users/notificationAction.php');
 ?>
 
 <!DOCTYPE html>
@@ -91,6 +93,127 @@ require('actions/users/showYourLoanRequestsAction.php');
 	height: 23px;
 	margin-top: -23px;
 	margin-left: calc(90% - 20px);
+}
+
+.notification-unpaid {
+	background-color: red;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-unpaid {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-unpaid {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-duesoon {
+	background-color: orange;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-duesoon {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-duesoon {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+
+.notification-receivedrepayment {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedrepayment {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedrepayment {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-receivedloan {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedloan {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedloan {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+.notification_acknowledge {
+	margin-top: -29px;
+	background-color: transparent;
+	text-align: right;
+}
+
+.notification_acknowledge-button {
+	background-color: white;
+	color: #1bbf02;
+	border-radius: 0.325rem;
+	height: 30px;
+	padding-left: 6px;
+	padding-right: 6px;
+	border: 0px;
+	font-weight: bold;
+	font-size: 0.9rem;
+	margin-right: calc(10% + 15px);
+	transition: transform 0.5s;
+}
+
+.notification_acknowledge-button:hover {
+	background-color: #1bbf02;
+	color: white;
 }
 
 .everything-except-header {
@@ -218,20 +341,26 @@ require('actions/users/showYourLoanRequestsAction.php');
   transform: scale(1.0055); 
 }
 
-.lend-button {
-	width: 160px;
-	margin-left: 5%;
+.delete-button {
+	width: 140px;
 	background-color: #ff2121;
 	border: 0;
 	border-radius: 0.325rem;
-	height: 31px;
+	height: 40px;
 	font-weight: bold;
-	font-size: 0.95rem;
+	font-size: 1.02rem;
 	color: white;
 }
 
-.lend-button:hover {
+.delete-button:hover {
 	background-color: #d90000;
+}
+
+
+.error-message {
+	font-weight: 500;
+	font-size: 1.05rem;
+	margin-bottom: 30px;
 }
 
 .under-container {
@@ -318,6 +447,31 @@ require('actions/users/showYourLoanRequestsAction.php');
 	</div>
 </div>
 
+	<?php
+		if(isset($UnpaidMsg)){ 
+		echo '<div class="notification-unpaid"><img src="assets/images/warning-sign-red.png" class="notification-image-unpaid"><a href="unpaid-loans.php" style="text-decoration: none; color: white;"><span class="notification-text-unpaid">'.$UnpaidMsg.'</span></a></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($RepaymentDateSoonMsg)){ 
+		echo '<div class="notification-duesoon"><img src="assets/images/warning-sign-orange.png" class="notification-image-duesoon"><a href="active-loans.php" style="text-decoration: none; color: white;"><span class="notification-text-duesoon">'.$RepaymentDateSoonMsg.'</span></a></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($ReceiveRepaymentMsg)){ 
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_repaid" class="notification_acknowledge-button"></form></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($ReceiveLoanMsg)){ 
+		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image-receivedloan"><span class="notification-text-receivedloan">'.$ReceiveLoanMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_receivedloan" class="notification_acknowledge-button"></form></div>';
+		}
+	?>
+
+
 <div class="everything-except-header">
 
 	<div style="margin-top: 160px;">
@@ -327,15 +481,15 @@ require('actions/users/showYourLoanRequestsAction.php');
 	<div class="loan-amount"><span>Loan Amount</span></div>
 	<div class="repay-amount"><span >Repayment Amount</span></div>
 	<div class="interest-rate"><span>Repayment Date</span></div>
-	<div class="repay-date"><span>Status</span></div>
-	<div class="feedback"><span>Request Date</span></div>
+	<div class="repay-date"><span>Request Date</span></div>
+	<div class="feedback"><span>Expiry Date</span></div>
 	</div>
 			
 	<div style="margin-left: 10%;">
 		<?php
 		
 		 if(isset($errorMsg)){ 
-			echo '<p>'.$errorMsg.'</p>'; 
+			echo '<p class="error-message">'.$errorMsg.'</p>'; 
 		 }?>
 	</div>	
 		        <?php 
@@ -348,11 +502,11 @@ require('actions/users/showYourLoanRequestsAction.php');
 		<div class="loan-details">	
 				<div class="loan-amount"><span><?= $question['loan_amount']; ?>$</span></div>
 				<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
-				<div class="interest-rate"><span><?= $question['repayment_date']; ?></span></div>
-				<div class="repay-date"><span><?= $question['status']; ?></span></div>
-				<div class="feedback"><span><?= $question['request_date']; ?></span></div>
+				<div class="interest-rate"><span><?=  date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
+				<div class="repay-date"><span><?= date('M jS, Y H:i', strtotime($question['request_date'])); ?></span></div>
+				<div class="feedback"><span><?= date('M jS, Y H:i', strtotime($question['request_date']. ' + 2 days')); ?></span></div>
 				<div class="payment-method">
-				<form method="post"><input name="delete_request" class="lend-button" value="DELETE REQUEST" type="submit"></form>
+				<form method="post" style="margin-top: -8px;"><input name="delete_request" class="delete-button" value="Delete Request" type="submit"></form>
 				</div>
 		</div>
 	</div>

@@ -1,5 +1,7 @@
 <?php
-require('actions/users/showYourUnpaidLoansAction.php'); 
+require('actions/users/showYourUnpaidLoansAction.php');
+require('actions/questions/updateDatabases.php');
+require('actions/users/notificationAction.php');
 ?>
 
 <!DOCTYPE html>
@@ -92,6 +94,106 @@ require('actions/users/showYourUnpaidLoansAction.php');
 	margin-top: -23px;
 	margin-left: calc(90% - 20px);
 }
+
+
+
+.notification-duesoon {
+	background-color: orange;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-duesoon {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-duesoon {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+
+.notification-receivedrepayment {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedrepayment {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedrepayment {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-receivedloan {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedloan {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedloan {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+.notification_acknowledge {
+	margin-top: -29px;
+	background-color: transparent;
+	text-align: right;
+}
+
+.notification_acknowledge-button {
+	background-color: white;
+	color: #1bbf02;
+	border-radius: 0.325rem;
+	height: 30px;
+	padding-left: 6px;
+	padding-right: 6px;
+	border: 0px;
+	font-weight: bold;
+	font-size: 0.9rem;
+	margin-right: calc(10% + 15px);
+	transition: transform 0.5s;
+}
+
+.notification_acknowledge-button:hover {
+	background-color: #1bbf02;
+	color: white;
+}
+
 
 .everything-except-header {
 	position: absolute;
@@ -188,12 +290,30 @@ require('actions/users/showYourUnpaidLoansAction.php');
 	text-align: center;
 	width: 16.6%;
 	background-color: transparent;
-	margin-top: -31px;
+	margin-top: -35px;
+	margin-bottom: 12px;
 	margin-left: 82.6%;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
+}
+
+
+.repay-button {
+	width: 140px;
+	background-color: red;
+	border: 0;
+	padding: 10px;
+	border-radius: 0.325rem;
+	font-weight: bold;
+	font-size: 1.02rem;
+	color: white;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform .2s;
+}
+
+.repay-button:hover {
+	background-color: #c90000;
+	-ms-transform: scale(1.05); /* IE 9 */
+	-webkit-transform: scale(1.05); /* Safari 3-8 */
+	transform: scale(1.05); 
 }
 
 
@@ -218,20 +338,11 @@ require('actions/users/showYourUnpaidLoansAction.php');
   transform: scale(1.0055); 
 }
 
-.lend-button {
-	width: 100px;
-	margin-left: 5%;
-	background-color: #04db5a;
-	border: 0;
-	border-radius: 0.325rem;
-	height: 31px;
-	font-weight: bold;
-	font-size: 0.95rem;
-	color: white;
-}
-
-.lend-button:hover {
-	background-color: green;
+.error-message {
+	font-weight: 500;
+	font-size: 1.05rem;
+	margin-bottom: 30px;
+	color: green;
 }
 
 .under-container {
@@ -318,6 +429,26 @@ require('actions/users/showYourUnpaidLoansAction.php');
 	</div>
 </div>
 
+	
+	<?php
+		if(isset($RepaymentDateSoonMsg)){ 
+		echo '<div class="notification-duesoon"><img src="assets/images/warning-sign-orange.png" class="notification-image-duesoon"><a href="active-loans.php" style="text-decoration: none; color: white;"><span class="notification-text-duesoon">'.$RepaymentDateSoonMsg.'</span></a></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($ReceiveRepaymentMsg)){ 
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_repaid" class="notification_acknowledge-button"></form></div>';
+		}
+	?>
+	
+	<?php
+		if(isset($ReceiveLoanMsg)){ 
+		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image-receivedloan"><span class="notification-text-receivedloan">'.$ReceiveLoanMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_receivedloan" class="notification_acknowledge-button"></form></div>';
+		}
+	?>
+
+
 <div class="everything-except-header">
 
 	<div style="margin-top: 160px;">
@@ -327,16 +458,15 @@ require('actions/users/showYourUnpaidLoansAction.php');
 	<div class="loan-amount"><span>Loan Amount</span></div>
 	<div class="repay-amount"><span >Repayment Amount</span></div>
 	<div class="interest-rate"><span>Repayment Date</span></div>
-	<div class="repay-date"><span>Status</span></div>
-	<div class="feedback"><span>Lender</span></div>
-	<div class="payment-method"><span>Payment Method</span></div>
+	<div class="repay-date"><span>Lender</span></div>
+	<div class="feedback"><span>Payment Method</span></div>
 	</div>
 			
 	<div style="margin-left: 10%;">
 		<?php
 		
 		 if(isset($errorMsg)){ 
-			echo '<p>'.$errorMsg.'</p>'; 
+			echo '<p class="error-message">'.$errorMsg.'</p>'; 
 		 }?>
 	</div>	
 		        <?php 
@@ -348,20 +478,13 @@ require('actions/users/showYourUnpaidLoansAction.php');
 		<div class="loan-details">	
 				<div class="loan-amount"><span><?= $question['loan_amount']; ?>$</span></div>
 				<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
-				<div class="interest-rate"><span><?= $question['repayment_date']; ?></span></div>
-				<div class="repay-date"><span><?= $question['status']; ?></span></div>
-				<div class="feedback"><a style="text-decoration: none; color: #3d91e0;" href="user-profile-yeslogin.php?id=<?= $question['id_lender']; ?>"><span><?= $question['username_lender']; ?></span></a></div>
-				<div class="payment-method"><span>Paypal</span></div>
+				<div class="interest-rate"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
+				<div class="repay-date"><a style="text-decoration: none; color: #3d91e0;" href="user-profile-yeslogin.php?id=<?= $question['id_lender']; ?>"><span><?= $question['username_lender']; ?></span></a></div>
+				<div class="feedback"><span>Paypal</span></div>
+				<div class="payment-method"><a href="repay-panel.php?id=<?= $question['id']; ?>"><?php if(isset($RepayLoan)){echo '<button class="repay-button">'.$RepayLoan.'</button>';} ?></a></div>
 		</div>
 	</div>
 	
-		<div style="margin-left: 10%;">
-		<a href="repay-panel.php?id=<?= $question['id']; ?>">
-		<?php if(isset($RepayLoan)){
-		echo '<p>'.$RepayLoan.'</p>';
-		} ?>
-		</a>
-		</div>
 	
 	                <?php
             }
