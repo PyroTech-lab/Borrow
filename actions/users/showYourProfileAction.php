@@ -1,7 +1,7 @@
 <?php
 require('actions/database.php');
 
-$getAllactiveLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND status="active"');
+$getAllactiveLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND (status="active" OR status="active_notseen")');
 $getAllactiveLoans->execute(array($_SESSION['id']));
 
 	$activeCountMessage = $getAllactiveLoans->rowCount();
@@ -76,12 +76,12 @@ $getLentAmount->execute(array($_SESSION['id']));
 
 
 
-$checkIfUserAlreadyExists2 = $bdd->prepare('SELECT * FROM loan WHERE id_lender = ? AND status="paid_ontime" OR status="paid_late"');
+$checkIfUserAlreadyExists2 = $bdd->prepare('SELECT * FROM loan WHERE id_lender = ? AND (status="paid_ontime" OR status="paid_late" OR status="paid_ontime_notseen" OR status="paid_late_notseen")');
 $checkIfUserAlreadyExists2->execute(array($_SESSION['id']));
 		
 if($checkIfUserAlreadyExists2->rowCount() !== 0){	
 
-$getRepayedAmount = $bdd->prepare('SELECT SUM(repayment_amount) AS total_repayed FROM loan WHERE id_lender = ? AND status="paid_ontime" OR status="paid_late"');
+$getRepayedAmount = $bdd->prepare('SELECT SUM(repayment_amount) AS total_repayed FROM loan WHERE id_lender = ? AND (status="paid_ontime" OR status="paid_late" OR status="paid_ontime_notseen" OR status="paid_late_notseen")');
 $getRepayedAmount->execute(array($_SESSION['id']));
 
 	$row = $getRepayedAmount->fetch(PDO::FETCH_ASSOC);
@@ -112,7 +112,7 @@ $getBorrowedAmount->execute(array($_SESSION['id']));
 	
 
 	
-$getRepayedBorrowedAmount = $bdd->prepare('SELECT SUM(repayment_amount) AS total_repayment_borrowed FROM loan WHERE id_borrower = ? AND status="paid_ontime" OR status="paid_late"');
+$getRepayedBorrowedAmount = $bdd->prepare('SELECT SUM(repayment_amount) AS total_repayment_borrowed FROM loan WHERE id_borrower = ? AND (status="paid_ontime" OR status="paid_late" OR status="paid_ontime_notseen" OR status="paid_late_notseen")');
 $getRepayedBorrowedAmount->execute(array($_SESSION['id']));
 
 	$row = $getRepayedBorrowedAmount->fetch(PDO::FETCH_ASSOC);
@@ -134,15 +134,4 @@ $getSupposedRepaymentBorrowedAmount->execute(array($_SESSION['id']));
 	$getSupposedRepaymentBorrowedAmountMessage = $row['total_repayment_borrowed'];
 }else{
 	$getSupposedRepaymentBorrowedAmountMessage = "0.0000000001";
-}
-
-
-
-$checkIfLoanIsUnpaid = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND status="active" AND repayment_date < NOW()');
-$checkIfLoanIsUnpaid->execute(array($_SESSION['id']));
-		
-if($checkIfLoanIsUnpaid->rowCount() !== 0){	
-
-$SetLoanUnpaid = $bdd->prepare('UPDATE loan SET status="unpaid" WHERE id_borrower = ? AND status="active" AND repayment_date < NOW()');
-$SetLoanUnpaid->execute(array($_SESSION['id']));
 }

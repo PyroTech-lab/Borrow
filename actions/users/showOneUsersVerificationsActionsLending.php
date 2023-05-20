@@ -14,12 +14,13 @@ $row = $getBorrowerId->fetch(PDO::FETCH_ASSOC);
 	$getIDfromBorrower = $row['id_borrower'];
 	
 
-$verifyAccount = $bdd->prepare('SELECT phone_number FROM users WHERE id = ?');
+$verifyAccount = $bdd->prepare('SELECT phone_number, join_date FROM users WHERE id = ?');
 $verifyAccount->execute(array($getIDfromBorrower));
 
 
 	$row = $verifyAccount->fetch(PDO::FETCH_ASSOC);
 	$verified_orNot = $row['phone_number'];
+	$user_join_date = $row['join_date'];
 	
 	if (strlen($verified_orNot) == 0) {
 		$not_verified_phone = "Not Verified";

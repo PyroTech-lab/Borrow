@@ -9,7 +9,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
     $idOfUser = $_GET['id'];
 
 
-    $checkIfUserExists = $bdd->prepare('SELECT email, name, username FROM users WHERE id = ?');
+    $checkIfUserExists = $bdd->prepare('SELECT email, name, username, join_date FROM users WHERE id = ?');
     $checkIfUserExists->execute(array($idOfUser));
 
     if($checkIfUserExists->rowCount() > 0){
@@ -20,24 +20,15 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
         $user_email = $usersInfos['email'];
         $user_fullname = $usersInfos['name'];
         $user_username = $usersInfos['username'];
+		$user_join_date = $usersInfos['join_date'];
 
 
-        $getHisQuestions = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND status="active" OR status="paid_ontime" OR status="paid_late" OR status="unpaid" ORDER BY id DESC');
-        $getHisQuestions->execute(array($idOfUser));
-		
-		if($getHisQuestions->rowCount() > 0){
-		
-		 $question = $getHisQuestions->fetch();
-		 
-		$loan_amount = $question['loan_amount'];
-        $repayment_amount = $question['repayment_amount'];
-        $repayment_date = $question['repayment_date'];
-		$status = $question['status'];
-		
-		}else{
-			$errorMsg = "User has not Borrowed Money yet";
+		$getHisQuestions = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_lender, username_lender, status FROM loan WHERE id_borrower = ? AND NOT status="request" ORDER BY id DESC');
+		$getHisQuestions->execute(array($idOfUser));
+
+		if($getHisQuestions->rowCount() == 0){
+			$errorMsg = "User Hasn't Borrowed Any Money yet";
 		}
-
 
 
 
@@ -49,13 +40,13 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 
 
 
-				$getAllLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND status="paid_late"');
+				$getAllLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND (status="paid_late" OR status="paid_late_notseen")');
 				$getAllLoans->execute(array($idOfUser));
 
 					$PaidLateCountMessage = $getAllLoans->rowCount();
 
 
-				$getAllLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND status="paid_ontime"');
+				$getAllLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND (status="paid_ontime" OR status="paid_ontime_notseen")');
 				$getAllLoans->execute(array($idOfUser));
 
 					$PaidOntimeCountMessage = $getAllLoans->rowCount();
@@ -92,7 +83,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 					
 
 					
-				$getRepayedBorrowedAmount = $bdd->prepare('SELECT SUM(repayment_amount) AS total_repayment_borrowed FROM loan WHERE id_borrower = ? AND status="paid_ontime" OR status="paid_late"');
+				$getRepayedBorrowedAmount = $bdd->prepare('SELECT SUM(repayment_amount) AS total_repayment_borrowed FROM loan WHERE id_borrower = ? AND (status="paid_ontime" OR status="paid_late" OR status="paid_ontime_notseen" OR status="paid_late_notseen")');
 				$getRepayedBorrowedAmount->execute(array($idOfUser));
 
 					$row = $getRepayedBorrowedAmount->fetch(PDO::FETCH_ASSOC);
@@ -117,17 +108,41 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 				}
 				
 				
-				$checkIfLoanIsUnpaid = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND status="active" AND repayment_date < NOW()');
-				$checkIfLoanIsUnpaid->execute(array($idOfUser));
-						
-				if($checkIfLoanIsUnpaid->rowCount() !== 0){	
+				
+				$getActive = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, status FROM loan WHERE id_borrower = ? AND status="active" OR status="active_notseen"');
+				$getActive->execute(array($idOfUser));
 
-				$SetLoanUnpaid = $bdd->prepare('UPDATE loan SET status="unpaid" WHERE id_borrower = ? AND status="active" AND repayment_date < NOW()');
-				$SetLoanUnpaid->execute(array($idOfUser));
-}
-
+				if($getActive->rowCount() > 0){
+					$status_public = "<span style='color: #2b80ff;'>Active</span>";
+				}
 
 
+				$getPaidOntime = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, status FROM loan WHERE id_borrower = ? AND status="paid_ontime" OR status="paid_ontime_notseen"');
+				$getPaidOntime->execute(array($idOfUser));
+
+				if($getPaidOntime->rowCount() > 0){
+					$status_public = "<span style='color: #1bbf02;'>Paid on Time</span>";
+				}
+
+
+				$getPaidLate = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, status FROM loan WHERE id_borrower = ? AND status="paid_late" OR status="paid_late_notseen"');
+				$getPaidLate->execute(array($idOfUser));
+
+				if($getPaidLate->rowCount() > 0){
+					$status_public = "<span style='color: #f7b228;'>Paid Late</span>";
+				}
+
+				$getPaidLate = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, status FROM loan WHERE id_borrower = ? AND status="unpaid"');
+				$getPaidLate->execute(array($idOfUser));
+
+				if($getPaidLate->rowCount() > 0){
+					$status_public = "<span style='color: red;'>Unpaid</span>";
+				}
+
+				
+				
+
+				
 
     }
 }

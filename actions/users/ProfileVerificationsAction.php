@@ -2,12 +2,13 @@
 
 require('actions/database.php');
 
-$verifyAccount = $bdd->prepare('SELECT phone_number FROM users WHERE id = ?');
+$verifyAccount = $bdd->prepare('SELECT phone_number, join_date FROM users WHERE id = ?');
 $verifyAccount->execute(array($_SESSION['id']));
 
 
 	$row = $verifyAccount->fetch(PDO::FETCH_ASSOC);
 	$verified_orNot = $row['phone_number'];
+	$user_join_date= $row['join_date'];
 	
 	if (strlen($verified_orNot) == 0) {
 		$not_verified_phone = "Not Verified";
@@ -20,12 +21,14 @@ $verifyAccount->execute(array($_SESSION['id']));
 	
 
 
-$verifyAccount2 = $bdd->prepare('SELECT address FROM users WHERE id = ?');
+$verifyAccount2 = $bdd->prepare('SELECT address, city, country FROM users WHERE id = ?');
 $verifyAccount2->execute(array($_SESSION['id']));
 
 
 	$row2 = $verifyAccount2->fetch(PDO::FETCH_ASSOC);
 	$verified_orNot2 = $row2['address'];
+	$city = $row2['city'];
+	$country = $row2['country'];
 	
 	if (strlen($verified_orNot2) == 0) {
 		$not_verified_address = "Not Verified";

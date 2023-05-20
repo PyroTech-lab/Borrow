@@ -13,6 +13,7 @@ if(isset($_POST['signup'])){
         $user_fullname = htmlspecialchars($_POST['name']);
         $user_username = htmlspecialchars($_POST['username']);
         $user_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+		$user_join_date = date('Y-m-d');
 
 
         $checkIfUserAlreadyExists = $bdd->prepare('SELECT email FROM users WHERE email = ?');
@@ -21,12 +22,12 @@ if(isset($_POST['signup'])){
         if($checkIfUserAlreadyExists->rowCount() == 0){
             
 
-            $insertUserOnWebsite = $bdd->prepare('INSERT INTO users(email, name, username, password)VALUES(?, ?, ?, ?)');
-            $insertUserOnWebsite->execute(array($user_email, $user_fullname, $user_username, $user_password));
+            $insertUserOnWebsite = $bdd->prepare('INSERT INTO users(email, name, username, password, join_date)VALUES(?, ?, ?, ?,?)');
+            $insertUserOnWebsite->execute(array($user_email, $user_fullname, $user_username, $user_password, $user_join_date));
 
 
-            $getInfosOfThisUserReq = $bdd->prepare('SELECT id, email, name, username FROM users WHERE email = ? AND name = ? AND username = ?');
-            $getInfosOfThisUserReq->execute(array($user_email, $user_fullname, $user_username));
+            $getInfosOfThisUserReq = $bdd->prepare('SELECT id, email, name, username, join_date FROM users WHERE email = ? AND name = ? AND username = ? AND join_date= ?');
+            $getInfosOfThisUserReq->execute(array($user_email, $user_fullname, $user_username, $user_join_date));
 
             $usersInfos = $getInfosOfThisUserReq->fetch();
 
@@ -36,6 +37,7 @@ if(isset($_POST['signup'])){
             $_SESSION['email'] = $usersInfos['email'];
             $_SESSION['name'] = $usersInfos['name'];
             $_SESSION['username'] = $usersInfos['username'];
+			$_SESSION['join_date'] = $usersInfos['join_date'];
 			
 			
 			$AddUserToPaymentData = $bdd->prepare('INSERT INTO payment_method SET id_user = ?');
