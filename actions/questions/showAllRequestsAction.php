@@ -12,7 +12,7 @@ if($getAllQuestions->rowCount() == 0){
 
 if(isset($_GET['loan_amount_search']) AND !empty($_GET['loan_amount_search'])){
 $usersSearch1 = $_GET['loan_amount_search'];
-$getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*100) AS interest, id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower FROM loan WHERE status = "request" AND loan_amount>'.$usersSearch1.' ORDER BY loan_amount DESC');
+$getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*100) AS interest, id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower FROM loan WHERE status = "request" AND loan_amount>'.$usersSearch1.' ORDER BY loan_amount DESC LIMIT 0,20');
 	
 	if($getAllQuestions->rowCount() == 0){
 	$errorMsg = "No Requests Found. Please try different Filters.";
@@ -21,7 +21,7 @@ $getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*
 
 if(isset($_GET['interest_search']) AND !empty($_GET['interest_search'])){
 $usersSearch2 = $_GET['interest_search'];
-$getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*100) AS interest, id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower FROM loan WHERE status = "request" AND (((repayment_amount/loan_amount)-1)*100)>'.$usersSearch2.' ORDER BY interest DESC');
+$getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*100) AS interest, id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower FROM loan WHERE status = "request" AND (((repayment_amount/loan_amount)-1)*100)>'.$usersSearch2.' ORDER BY interest DESC LIMIT 0,20');
 	
 	if($getAllQuestions->rowCount() == 0){
 	$errorMsg = "No Requests Found. Please try different Filters.";
@@ -29,9 +29,10 @@ $getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*
 }
 
 
+
 if(isset($_GET['repayment_date_search']) AND !empty($_GET['repayment_date_search'])){
-$usersSearch3 = $_GET['repayment_date_search'];
-$getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*100) AS interest, id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower FROM loan WHERE status = "request" AND repayment_date<"%'.$usersSearch3.'%" ORDER BY repayment_date DESC');
+$usersSearch4 = $_GET['repayment_date_search'];
+$getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*100) AS interest, id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower FROM loan WHERE status = "request" AND repayment_date<"%'.$usersSearch4.'%" ORDER BY repayment_date DESC LIMIT 0,20');
 	
 	if($getAllQuestions->rowCount() == 0){
 	$errorMsg = "No Requests Found. Please try different Filters.";

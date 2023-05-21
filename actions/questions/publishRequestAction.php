@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
 					
 					if($checkIfUserAlreadyExists3->rowCount() == 0){
 						
-						$checkIfUserAlreadyExists4 = $bdd->prepare('SELECT * FROM users WHERE id = ? AND (phone_number ="" OR address ="" OR identity_card ="") ');
+						$checkIfUserAlreadyExists4 = $bdd->prepare('SELECT * FROM users WHERE id = ? AND (email_verified="" OR phone_number ="" OR address ="" OR identity_card ="") ');
 						$checkIfUserAlreadyExists4->execute(array($request_id_borrower));
 						
 						if($checkIfUserAlreadyExists4->rowCount() == 0){
