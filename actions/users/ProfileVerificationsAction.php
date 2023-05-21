@@ -56,3 +56,21 @@ $verifyAccount3->execute(array($_SESSION['id']));
 		$verified_idcard = "Verified";
 		$checkmark3 ="assets/images/checkmark.png";
 	}
+	
+	
+
+$verifyAccount4 = $bdd->prepare('SELECT email, email_verified FROM users WHERE id = ?');
+$verifyAccount4->execute(array($_SESSION['id']));
+
+
+	$row4 = $verifyAccount4->fetch(PDO::FETCH_ASSOC);
+	$verified_orNot4 = $row4['email_verified'];
+	
+	if (strlen($verified_orNot4) == 0) {
+		$not_verified_email = "Not Verified";
+		$cross4 = "assets/images/cross.png";
+	
+	}else{
+		$verified_email = "Verified";
+		$checkmark4 ="assets/images/checkmark.png";
+	}

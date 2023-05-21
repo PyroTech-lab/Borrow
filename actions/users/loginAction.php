@@ -35,11 +35,11 @@ if(isset($_POST['login'])){
                 header('Location: dashboard.php');
     
             }else{
-                $errorMsg = "Wrong password";
+                $errorMsg = "Wrong Email or Password";
             }
 
         }else{
-            $errorMsg = "Email not recognized";
+            $errorMsg = "Wrong Email or Password";
         }
 
     }else{

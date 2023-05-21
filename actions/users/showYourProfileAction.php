@@ -50,7 +50,10 @@ $getLentAllLoans->execute(array($_SESSION['id']));
 	$AllLentCountMessage = $getLentAllLoans->rowCount();
 
 
+$getLentPaidLateLoans = $bdd->prepare('SELECT * FROM loan WHERE id_lender = ?');
+$getLentPaidLateLoans->execute(array($_SESSION['id']));
 
+	$AllPaidLateCountMessage = $getLentPaidLateLoans->rowCount();
 
 
 
@@ -135,3 +138,17 @@ $getSupposedRepaymentBorrowedAmount->execute(array($_SESSION['id']));
 }else{
 	$getSupposedRepaymentBorrowedAmountMessage = "0.0000000001";
 }
+
+
+
+
+
+$CheckPhoneAddress = $bdd->prepare('SELECT phone_number, address, city, country FROM users WHERE id = ?');
+$CheckPhoneAddress->execute(array($_SESSION['id']));
+
+
+	$row = $CheckPhoneAddress->fetch(PDO::FETCH_ASSOC);
+	$phone_number = $row['phone_number'];
+	$address= $row['address'];
+	$city= $row['city'];
+	$country= $row['country'];
