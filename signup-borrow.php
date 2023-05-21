@@ -125,7 +125,7 @@ require('actions/questions/updateDatabases.php');
 .error-message {
 	color: red;
 	text-align: left;
-	font-size: 0.92rem;
+	font-size: 0.96rem;
 }
 
 </style>
@@ -152,7 +152,7 @@ require('actions/questions/updateDatabases.php');
 			<input type="checkbox" id="checkmark"  class="checkmark" required><span style="margin-left: 5px; position: absolute; margin-top: -6px; font-weight: normal;">I have read and accept Instant Borrow's <a style="color: #00c4ff; font-weight: 500; text-decoration: none;" href="terms and conditions.html" target="_blank">Terms & Conditions</a> and <a style="color: #00c4ff; font-weight: 500; text-decoration: none;" href="privacy policy.html" target="_blank">Privacy Policy</a>.</span>
 		</div>
 		<input type="submit" class="signup-button" name="signup" value="register">
-		 <?php if(isset($errorMsg)){ echo '<p>'.$errorMsg.'</p>'; } ?>
+		 <?php if(isset($errorMsg)){ echo '<p class="error-message">'.$errorMsg.'</p>'; } ?>
 		</form>
 	</div>
 		

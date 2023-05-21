@@ -6,6 +6,8 @@ require('actions/users/PaymentMethodsAction.php');
 require('actions/users/notificationAction.php');
 require('actions/questions/updateDatabases.php');
 require('actions/users/deleteAccountAction.php');
+require('actions/users/yourTrustScoreAction.php');
+require('actions/users/yourFeedbackAction.php');
 ?>
 
 <!DOCTYPE html>
@@ -67,36 +69,109 @@ require('actions/users/deleteAccountAction.php');
 }
 
 .lend {
-	width: 10%;
+	width: 75px;
 	text-align: center;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(45% - 35px);
+	margin-left: calc(47% - 44px);
+}
+
+.lend-text {
+	font-weight: 500;
+	border-radius: 0.125rem;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: 1px solid #4d4d4d;
+	color: #4d4d4d;
+	transition: background-color 0.2s;
+}
+
+.lend-text:hover {
+	background-color: #4d4d4d;
+	color: white;
 }
 
 .borrow {
-	width: 10%;
+	width: 75px;
 	text-align: right;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(45% + 35px);
+	margin-left: calc(47% + 44px);
+}
+
+.borrow-text {
+	background-color: #00c4ff;
+	color: white;
+	font-weight: 500;
+	border-radius: 0.125rem;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: 1px solid #00c4ff;
+	transition: background-color 0.2s;
+}
+
+.borrow-text:hover {
+	background-color: #2b80ff;
+	outline: 1px solid #2b80ff;
 }
 
 
 .login {
-	width: 10%;
+	width: 120px;
 	text-align: left;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(90% - 60px);
+	margin-left: calc(100% - 207px);
+}
+
+.login-text {
+	font-weight: 500;
+	color: #4d4d4d;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: outline 0.2s;
+	transition: background-color 0.2s;
+}
+
+.login-text:hover {
+	outline: 1px solid #4d4d4d;
+	background-color: #fcfcfc;
+	border-radius: 0.125rem;
 }
 
 .signup {
-	width: 10%;
-	text-align: right;
-	height: 23px;
-	margin-top: -23px;
-	margin-left: calc(90% - 20px);
+	margin-top: -22px;
+	margin-left: calc(100% - 67px);
+}
+
+.logout-button {
+	height: 20px;
+	width: auto;
+	transition: transform 0.2s;
+}
+
+.chat-button {
+	height: 25px;
+	width: auto;
+	transition: transform 0.2s;
+}
+
+.logout-button:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
+}
+
+.chat-button:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
 }
 
 
@@ -296,7 +371,7 @@ require('actions/users/deleteAccountAction.php');
 
 .verifications {
 	height: 300px;
-	width: 39%;
+	width: 32%;
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	border: 1px solid #00c4ff;
@@ -316,7 +391,9 @@ require('actions/users/deleteAccountAction.php');
 	font-weight: 500;
 	font-size: 0.85rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	transition: font-size .2s;
+	transition: color .2s;
+	transition: border .2s;
 }
 
 .verification-box:hover {
@@ -342,7 +419,9 @@ require('actions/users/deleteAccountAction.php');
 	font-weight: 500;
 	font-size: 0.85rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	transition: font-size .2s;
+	transition: color .2s;
+	transition: border .2s;
 }
 
 .verification-box2:hover {
@@ -364,7 +443,7 @@ require('actions/users/deleteAccountAction.php');
 }
 
 .column-12 {
-	margin-left: 50%;
+	margin-left: 55%;
 	height: 300px;
 	width: 50%;
 	margin-top: -316px;
@@ -397,30 +476,51 @@ require('actions/users/deleteAccountAction.php');
 	margin-top: -316px;
 }
 
-.update-button {
-	margin-left: 20px;
-	background-color: #2b80ff;
-	border: 0;
-	padding: 10px;
-	border-radius: 0.325rem;
-	font-weight: bold;
-	font-size: 1.02rem;
-	color: white;
+.profile-trust {
+	height: 300px;
+	width: 32%;
+	margin-left: 34%;
+	margin-top: -304px;
+	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	border: 1px solid #00c4ff;
+	border-radius: 0.425rem;
 }
 
-.update-button:hover {
-	background-color: #00c4ff;
-	-ms-transform: scale(1.05); /* IE 9 */
-	-webkit-transform: scale(1.05); /* Safari 3-8 */
-	transform: scale(1.05); 
+.thumbs-up {
+	height: 30px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -6px;
+	margin-right: 8px;
+	transition: transform 0.2s;
+}
+
+.thumbs-down {
+	height: 30px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -6px;
+	margin-right: 8px;
+	transition: transform 0.2s;
+}
+
+.thumbs-up:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
+}
+
+.thumbs-down:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
 }
 
 .payment-details {
 	height: 300px;
-	width: 59%;
-	margin-left: 41%;
+	width: 32%;
+	margin-left: 68%;
 	margin-top: -304px;
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
@@ -545,10 +645,10 @@ require('actions/users/deleteAccountAction.php');
 <div class="header">
 	<div class="header-text">
 		<div class="logo"><a href="dashboard.php" style="text-decoration: none; color: black"><span>Instant Borrow</span></a></div>
-		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span>Lend</span></a></div>
-		<div class="borrow"><a href="borrow-yeslogin.php" style="text-decoration: none; color: black"><span>Borrow</span></a></div>
-		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span>Your Profile</span></a></div>
-		<div class="signup"><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black"><span>Log Out</span></a></div>
+		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
+		<div class="borrow"><a href="borrow-yeslogin.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
+		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
+		<div class="signup"><a href="actions/users/chat.php" style="text-decoration: none; color: black"><img src="assets/images/chat.png" class="chat-button"></a><div style="margin-top: -32px; margin-left: 45px;"><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
 	</div>
 </div>
 
@@ -610,7 +710,7 @@ require('actions/users/deleteAccountAction.php');
 	<div class="verifications">
 	<p class="subsection-title">Verifications</p>
 		<div class="column-11">
-			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Email<br><img class="checkmark" src="assets/images/checkmark.png"><span class="verification-box2">Verified</span></p></a>
+			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Email<br><img class="checkmark" src="<?php if(isset($checkmark4)){echo ''.$checkmark4.'';}else {echo ''.$cross4.'';}?>"><span class="verification-box2"><?php if(isset($verified_email)){echo ''.$verified_email.'';}?></span><span class="verification-box"><?php if(isset($not_verified_email)){echo ''.$not_verified_email.'';}?></span></p></a>
 			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Phone Number<br><img class="checkmark" src="<?php if(isset($checkmark1)){echo ''.$checkmark1.'';}else {echo ''.$cross1.'';}?>"><span class="verification-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span><span class="verification-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span></p></a>
 		</div>
 		<div class="column-12">
@@ -619,22 +719,28 @@ require('actions/users/deleteAccountAction.php');
 		</div>
 	</div>
 	
+	<div class="profile-trust">
+	<p class="subsection-title">Profile trust</p>
+		<div class="column-11">
+			<div><span>Positive feedback</br><img class="thumbs-up" src="assets/images/thumbs-up.png"><span style="font-weight: bold; font-size: 1.35rem;"><?php echo ''.$positive_feedback.'';?></span></span></div>
+			<div style="margin-top: 15px;"><span>Negative feedback</br><img class="thumbs-down" src="assets/images/thumbs-down.png"><span style="font-weight: bold; font-size: 1.35rem;"><?php echo ''.$negative_feedback.'';?></span></span></div>
+		</div>
+		<div class="column-12">
+			<div style= "margin-top: 15px;"><a href="trustscore.php" style="text-decoration: none; color: black;"><span style="font-weight: 500; font-size: 1.15rem;">Your Trust Score</span></br><span style="font-size: 1.35rem; font-weight: bold; color: #00c4ff;"><?php echo ''.ROUND($trustscore6).'';?>/100</span></a></div>
+		</div>
+	</div>
+	
 	<div class="payment-details">
 	<p class="subsection-title">Payment Details</p>
-		<div class="column-111">
-			<p class="payment-method">Paypal <span class="payment-method-box"><?php if(isset($paypal_no)){echo ''.$paypal_no.'';}?></span><span class="payment-method-box2"><?php if(isset($paypal_yes)){echo ''.$paypal_yes.'';}?></span></p>
-			<p class="payment-method">Cashapp <span class="payment-method-box"><?php if(isset($cashapp_no)){echo ''.$cashapp_no.'';}?></span><span class="payment-method-box2"><?php if(isset($cashapp_yes)){echo ''.$cashapp_yes.'';}?></span></p>
+		<div class="column-11">
+			<p class="payment-method">Paypal <a href="set-payment-method.php" style="text-decoration: none;"><span class="payment-method-box"><?php if(isset($paypal_no)){echo ''.$paypal_no.'';}?></span><span class="payment-method-box2"><?php if(isset($paypal_yes)){echo ''.$paypal_yes.'';}?></span></a></p>
+			<p class="payment-method">Cashapp <a href="set-payment-method.php" style="text-decoration: none;"><span class="payment-method-box"><?php if(isset($cashapp_no)){echo ''.$cashapp_no.'';}?></span><span class="payment-method-box2"><?php if(isset($cashapp_yes)){echo ''.$cashapp_yes.'';}?></span></a></p>
+			<p class="payment-method">Venmo <a href="set-payment-method.php" style="text-decoration: none;"><span class="payment-method-box"><?php if(isset($venmo_no)){echo ''.$venmo_no.'';}?></span><span class="payment-method-box2"><?php if(isset($venmo_yes)){echo ''.$venmo_yes.'';}?></span></a></p>
 		</div>
-		<div class="column-112">
-		<p class="payment-method">Venmo <span class="payment-method-box"><?php if(isset($venmo_no)){echo ''.$venmo_no.'';}?></span><span class="payment-method-box2"><?php if(isset($venmo_yes)){echo ''.$venmo_yes.'';}?></span></p>
-		<p class="payment-method">Zelle <span class="payment-method-box"><?php if(isset($zelle_no)){echo ''.$zelle_no.'';}?></span><span class="payment-method-box2"><?php if(isset($zelle_yes)){echo ''.$zelle_yes.'';}?></span></p>
-		</div>
-		<div class="column-113-2">
-			<p class="payment-method">Chime <span class="payment-method-box"><?php if(isset($chime_no)){echo ''.$chime_no.'';}?></span><span class="payment-method-box2"><?php if(isset($chime_yes)){echo ''.$chime_yes.'';}?></span></p>
-			<p class="payment-method">WISE <span class="payment-method-box"><?php if(isset($wise_no)){echo ''.$wise_no.'';}?></span><span class="payment-method-box2"><?php if(isset($wise_yes)){echo ''.$wise_yes.'';}?></span></p>
-		</div>
-		<div style="width: 100%; text-align: left;">
-		<a href="set-payment-method.php"><button class="update-button">Update your Payment Details</button></a>
+		<div class="column-12">
+		<p class="payment-method">Zelle <a href="set-payment-method.php" style="text-decoration: none;"><span class="payment-method-box"><?php if(isset($zelle_no)){echo ''.$zelle_no.'';}?></span><span class="payment-method-box2"><?php if(isset($zelle_yes)){echo ''.$zelle_yes.'';}?></span></a></p>
+		<p class="payment-method">Chime <a href="set-payment-method.php" style="text-decoration: none;"><span class="payment-method-box"><?php if(isset($chime_no)){echo ''.$chime_no.'';}?></span><span class="payment-method-box2"><?php if(isset($chime_yes)){echo ''.$chime_yes.'';}?></span></a></p>
+		<p class="payment-method">WISE <a href="set-payment-method.php" style="text-decoration: none;"><span class="payment-method-box"><?php if(isset($wise_no)){echo ''.$wise_no.'';}?></span><span class="payment-method-box2"><?php if(isset($wise_yes)){echo ''.$wise_yes.'';}?></span></a></p>	
 		</div>
 	</div>
 	<div class="account-settings">
@@ -643,18 +749,18 @@ require('actions/users/deleteAccountAction.php');
 			<p>Name: <?= $_SESSION['name']; ?></p>
 			<p>Username: <?= $_SESSION['username']; ?></p>
 			<p>Email: <?= $_SESSION['email']; ?></p>
-			<p>Phone Number: </p>
+			<p>Phone Number: <?= $row['phone_number']; ?></p>
 		</div>
 		<div class="column-112">
-			<p>Address: </p>
-			<p>City: </p>
-			<p>Country: </p>
+			<p>Address: <?= $row['address']; ?></p>
+			<p>City: <?= $row['city']; ?></p>
+			<p>Country: <?= $row['country']; ?></p>
 			<p>Member Since: <?= date('M jS, Y', strtotime($user_join_date)); ?></p>
 		</div>
 		<div class="column-113">
 			<p class="add-picture">Add Profile Picture</p>
 			<p class="change-password">Change Password</p>
-			<p class="change-email">Change Email</p>
+			<a href="verifications.php" style="color: black; text-decoration: none;"><p class="update-verifications">Update Verifications</p></a>
 			<p class="delete-account" style="color: red; font-weight: 500;">Delete Account</p>
 		</div>
 	</div>

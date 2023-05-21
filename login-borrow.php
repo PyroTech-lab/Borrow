@@ -126,7 +126,7 @@ require('actions/questions/updateDatabases.php');
 .error-message {
 	color: red;
 	text-align: left;
-	font-size: 0.92rem;
+	font-size: 0.96rem;
 }
 
 
@@ -146,7 +146,7 @@ require('actions/questions/updateDatabases.php');
 		<p style="margin-top: 20px;">Password</p>
 		<input class="input" type="password" name="password" required>
 		<input type="submit" class="login-button" name="login" value="login">
-		 <?php if(isset($errorMsg)){ echo '<p>'.$errorMsg.'</p>'; } ?>
+		 <?php if(isset($errorMsg)){ echo '<p class="error-message">'.$errorMsg.'</p>'; } ?>
 		</form>
 		
 	</div>

@@ -62,36 +62,103 @@ require('actions/questions/updateDatabases.php');
 }
 
 .lend {
-	width: 10%;
+	width: 75px;
 	text-align: center;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(45% - 35px);
+	margin-left: calc(47% - 44px);
+}
+
+.lend-text {
+	font-weight: 500;
+	border-radius: 0.125rem;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: 1px solid #4d4d4d;
+	color: #4d4d4d;
+	transition: background-color 0.2s;
+}
+
+.lend-text:hover {
+	background-color: #4d4d4d;
+	color: white;
 }
 
 .borrow {
-	width: 10%;
-	text-align: right;
+	width: 75px;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(45% + 35px);
+	margin-left: calc(47% + 44px);
+}
+
+.borrow-text {
+	background-color: #00c4ff;
+	color: white;
+	font-weight: 500;
+	border-radius: 0.125rem;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: 1px solid #00c4ff;
+	transition: background-color 0.2s;
+}
+
+.borrow-text:hover {
+	background-color: #2b80ff;
+	outline: 1px solid #2b80ff;
 }
 
 
 .login {
-	width: 10%;
-	text-align: left;
+	width: 75px;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(90% - 60px);
+	margin-left: calc(100% - 175px);
+}
+
+.login-text {
+	font-weight: 500;
+	color: #4d4d4d;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: outline 0.2s;
+	transition: background-color 0.2s;
+}
+
+.login-text:hover {
+	outline: 1px solid #4d4d4d;
+	background-color: #fcfcfc;
+	border-radius: 0.125rem;
 }
 
 .signup {
-	width: 10%;
-	text-align: right;
+	width: 85px;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(90% - 20px);
+	margin-left: calc(100% - 85px);
+}
+
+.signup-text {
+	background-color: #e0c22d;
+	color: white;
+	font-weight: 500;
+	border-radius: 0.125rem;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: 1px solid #e0c22d;
+	transition: background-color 0.2s;
+}
+
+.signup-text:hover {
+	background-color: #f7d631;
+	outline: 1px solid #f7d631;
 }
 
 .everything-except-header {
@@ -218,7 +285,8 @@ input::-webkit-datetime-edit-year-field:focus {
 	background-color: white;
 	font-weight: 500;
 	font-size: 0.85rem;
-	transition: transform 0.2s;
+	transition: color 0.2s;
+	transition: border 0.2s;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -270,10 +338,9 @@ input::-webkit-datetime-edit-year-field:focus {
 	width: 100%;
 	font-weight: bold;
 	font-size: 0.92rem;
+	color: #4d4d4d;
 	text-align: left;
 	background-color: transparent;
-	transition: transform 0.2s;
-	
 }
 
 .sort-by-input:hover {
@@ -310,7 +377,7 @@ input::-webkit-datetime-edit-year-field:focus {
 
 .container {
 	margin-left: 20px;
-	margin-right: 20px;
+	
 }
 
 .transaction-details {
@@ -508,10 +575,10 @@ input::-webkit-datetime-edit-year-field:focus {
 <div class="header">
 	<div class="header-text">
 		<div class="logo"><a href="index.php" style="text-decoration: none; color: black"><span>Instant Borrow</span></a></div>
-		<div class="lend"><a href="index.php" style="text-decoration: none; color: black"><span>Lend</span></a></div>
-		<div class="borrow"><a href="borrow-nologin.php" style="text-decoration: none; color: black"><span>Borrow</span></a></div>
-		<div class="login"><a href="login.php" style="text-decoration: none; color: black"><span>Login</span></a></div>
-		<div class="signup"><a href="signup.php" style="text-decoration: none; color: black"><span>Sign Up</span></a></div>
+		<div class="lend"><a href="index.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
+		<div class="borrow"><a href="borrow-nologin.php" style="text-decoration: none; color: black"><span class="borrow-text">Borrow</span></a></div>
+		<div class="login"><a href="login.php" style="text-decoration: none; color: black"><span class="login-text">Login</span></a></div>
+		<div class="signup"><a href="signup.php" style="text-decoration: none; color: black"><span class="signup-text">Sign Up</span></a></div>
 	</div>
 </div>
 

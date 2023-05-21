@@ -65,36 +65,109 @@ require('actions/users/ProfileVerificationsAction.php');
 }
 
 .lend {
-	width: 10%;
+	width: 75px;
 	text-align: center;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(45% - 35px);
+	margin-left: calc(47% - 44px);
+}
+
+.lend-text {
+	font-weight: 500;
+	border-radius: 0.125rem;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: 1px solid #4d4d4d;
+	color: #4d4d4d;
+	transition: background-color 0.2s;
+}
+
+.lend-text:hover {
+	background-color: #4d4d4d;
+	color: white;
 }
 
 .borrow {
-	width: 10%;
+	width: 75px;
 	text-align: right;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(45% + 35px);
+	margin-left: calc(47% + 44px);
+}
+
+.borrow-text {
+	background-color: #00c4ff;
+	color: white;
+	font-weight: 500;
+	border-radius: 0.125rem;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: 1px solid #00c4ff;
+	transition: background-color 0.2s;
+}
+
+.borrow-text:hover {
+	background-color: #2b80ff;
+	outline: 1px solid #2b80ff;
 }
 
 
 .login {
-	width: 10%;
+	width: 120px;
 	text-align: left;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(90% - 60px);
+	margin-left: calc(100% - 207px);
+}
+
+.login-text {
+	font-weight: 500;
+	color: #4d4d4d;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: outline 0.2s;
+	transition: background-color 0.2s;
+}
+
+.login-text:hover {
+	outline: 1px solid #4d4d4d;
+	background-color: #fcfcfc;
+	border-radius: 0.125rem;
 }
 
 .signup {
-	width: 10%;
-	text-align: right;
-	height: 23px;
-	margin-top: -23px;
-	margin-left: calc(90% - 20px);
+	margin-top: -22px;
+	margin-left: calc(100% - 67px);
+}
+
+.logout-button {
+	height: 20px;
+	width: auto;
+	transition: transform 0.2s;
+}
+
+.chat-button {
+	height: 25px;
+	width: auto;
+	transition: transform 0.2s;
+}
+
+.logout-button:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
+}
+
+.chat-button:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
 }
 
 
@@ -253,6 +326,7 @@ require('actions/users/ProfileVerificationsAction.php');
 	margin-left: 5px;
 }
 
+
 .payment-method-box {
 	margin-left: 3px;
 	border: 1px solid #e03434;
@@ -338,6 +412,41 @@ require('actions/users/ProfileVerificationsAction.php');
 	background-color: rgba(0, 196, 255, 0.08);
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
+
+
+.input-address {
+	width: calc(100% - 7px);
+	height: 40px;
+	background-color: #f7f7f7;
+	margin-top: 5px;
+	margin-bottom: 25px;
+	border: 1px solid #00c4ff;
+	border-radius: 0.125rem;
+	transition: transform 0.2s;
+	font-size: 1rem;
+	font-weight: bold;
+	color: #757575;
+	padding-left: 7px;
+}
+
+.input-address:hover {
+	outline: 1px solid #00c4ff;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	-ms-transform: scale(1.015); /* IE 9 */
+	-webkit-transform: scale(1.015); /* Safari 3-8 */
+	transform: scale(1.015); 
+}
+
+.input-address:focus {
+	outline: 1px solid #00c4ff;
+	background-color: rgba(0, 196, 255, 0.08);
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.address-text {
+	font-size: 1.03rem;
+}
+
 
 .set-button {
 	margin-top: 5px;
@@ -454,10 +563,10 @@ require('actions/users/ProfileVerificationsAction.php');
 <div class="header">
 	<div class="header-text">
 		<div class="logo"><a href="dashboard.php" style="text-decoration: none; color: black"><span>Instant Borrow</span></a></div>
-		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span>Lend</span></a></div>
-		<div class="borrow"><a href="borrow-yeslogin.php" style="text-decoration: none; color: black"><span>Borrow</span></a></div>
-		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span>Your Profile</span></a></div>
-		<div class="signup"><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black"><span>Log Out</span></a></div>
+		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
+		<div class="borrow"><a href="borrow-yeslogin.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
+		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
+		<div class="signup"><a href="actions/users/chat.php" style="text-decoration: none; color: black"><img src="assets/images/chat.png" class="chat-button"></a><div style="margin-top: -32px; margin-left: 45px;"><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
 	</div>
 </div>
 
@@ -496,9 +605,8 @@ require('actions/users/ProfileVerificationsAction.php');
 	
 	
 	<form class="form">
-		<p class="input-text">Email Adress <span class="account"><?= $_SESSION['email']; ?></span><span class="payment-method-box2">Verified</span></p>
-		<input id="loan" class="input" style="text-align: center;" placeholder="<?= $_SESSION['email']; ?>" readonly>
-		<input name="" type="submit" class="set-button" value="Update Email Address">
+		<p class="input-text">Email Address <span class="account"><?= $row4['email']; ?></span><span class="payment-method-box"><?php if(isset($not_verified_email)){echo ''.$not_verified_email.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_email)){echo ''.$verified_email.'';}?></span></p>
+		<input name="email_submit" type="submit" class="set-button" value="Verifiy Email Address">
 	</form>
 	
 	<form method="post" class="form">
@@ -510,14 +618,14 @@ require('actions/users/ProfileVerificationsAction.php');
 	<form method="post" class="form">
 		<p class="input-text">Address <span class="payment-method-box"><?php if(isset($not_verified_address)){echo ''.$not_verified_address.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_address)){echo ''.$verified_address.'';}?></span></p>
 		
-		<span class="adress-text">Street and House number <span class="account"><?= $row2['address']; ?></span></span>
-		<input name="address_set" id="loan" class="input" required autocomplete="off" placeholder="Enter Steet Name and House Number">
+		<span class="address-text">Street and House number <span class="account"><?= $row2['address']; ?></span></span>
+		<input name="address_set" id="loan" class="input-address" required autocomplete="off" placeholder="Enter Steet Name and House Number">
 		
-		<span class="adress-text">City and ZIP Code <span class="account"><?= $row2['city']; ?></span></span>
-		<input name="city_set" id="loan" class="input" required autocomplete="off" placeholder="Enter City and ZIP Code">
+		<span class="address-text">City and ZIP Code <span class="account"><?= $row2['city']; ?></span></span>
+		<input name="city_set" id="loan" class="input-address" required autocomplete="off" placeholder="Enter City and ZIP Code">
 		
-		<span class="adress-text">Country <span class="account"><?= $row2['country']; ?></span></span>
-		<input name="country_set" id="loan" class="input" required autocomplete="off" placeholder="Enter Country">
+		<span class="address-text">Country <span class="account"><?= $row2['country']; ?></span></span>
+		<input name="country_set" id="loan" class="input-address" required autocomplete="off" placeholder="Enter Country" style="margin-bottom: 10px;">
 		<input name="address_submit" type="submit" class="set-button" value="Add Address">
 	</form>
 

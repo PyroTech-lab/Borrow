@@ -2,6 +2,8 @@
 require('actions/questions/showArticleContentAction.php');
 require('actions/users/showOneUsersVerificationsActionsLending.php');
 require('actions/questions/updateDatabases.php');
+require('actions/users/userTrustScore.php');
+require('actions/users/userFeedbackLoanAction.php');
 ?>
 
 <!DOCTYPE html>
@@ -63,36 +65,103 @@ require('actions/questions/updateDatabases.php');
 }
 
 .lend {
-	width: 10%;
+	width: 75px;
 	text-align: center;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(45% - 35px);
+	margin-left: calc(47% - 44px);
+}
+
+.lend-text {
+	font-weight: 500;
+	border-radius: 0.125rem;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: 1px solid #4d4d4d;
+	color: #4d4d4d;
+	transition: background-color 0.2s;
+}
+
+.lend-text:hover {
+	background-color: #4d4d4d;
+	color: white;
 }
 
 .borrow {
-	width: 10%;
-	text-align: right;
+	width: 75px;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(45% + 35px);
+	margin-left: calc(47% + 44px);
+}
+
+.borrow-text {
+	background-color: #00c4ff;
+	color: white;
+	font-weight: 500;
+	border-radius: 0.125rem;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: 1px solid #00c4ff;
+	transition: background-color 0.2s;
+}
+
+.borrow-text:hover {
+	background-color: #2b80ff;
+	outline: 1px solid #2b80ff;
 }
 
 
 .login {
-	width: 10%;
-	text-align: left;
+	width: 75px;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(90% - 60px);
+	margin-left: calc(100% - 175px);
+}
+
+.login-text {
+	font-weight: 500;
+	color: #4d4d4d;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: outline 0.2s;
+	transition: background-color 0.2s;
+}
+
+.login-text:hover {
+	outline: 1px solid #4d4d4d;
+	background-color: #fcfcfc;
+	border-radius: 0.125rem;
 }
 
 .signup {
-	width: 10%;
-	text-align: right;
+	width: 85px;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(90% - 20px);
+	margin-left: calc(100% - 85px);
+}
+
+.signup-text {
+	background-color: #e0c22d;
+	color: white;
+	font-weight: 500;
+	border-radius: 0.125rem;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: 1px solid #e0c22d;
+	transition: background-color 0.2s;
+}
+
+.signup-text:hover {
+	background-color: #f7d631;
+	outline: 1px solid #f7d631;
 }
 
 .everything-except-header {
@@ -459,10 +528,10 @@ require('actions/questions/updateDatabases.php');
 <div class="header">
 	<div class="header-text">
 		<div class="logo"><a href="index.php" style="text-decoration: none; color: black"><span>Instant Borrow</span></a></div>
-		<div class="lend"><a href="index.php" style="text-decoration: none; color: black"><span>Lend</span></a></div>
-		<div class="borrow"><a href="borrow-nologin.php" style="text-decoration: none; color: black"><span>Borrow</span></a></div>
-		<div class="login"><a href="login.php" style="text-decoration: none; color: black"><span>Login</span></a></div>
-		<div class="signup"><a href="signup.php" style="text-decoration: none; color: black"><span>Sign Up</span></a></div>
+		<div class="lend"><a href="index.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
+		<div class="borrow"><a href="borrow-nologin.php" style="text-decoration: none; color: black"><span class="borrow-text">Borrow</span></a></div>
+		<div class="login"><a href="login.php" style="text-decoration: none; color: black"><span class="login-text">Login</span></a></div>
+		<div class="signup"><a href="signup.php" style="text-decoration: none; color: black"><span class="signup-text">Sign Up</span></a></div>
 	</div>
 </div>
 
@@ -497,13 +566,13 @@ require('actions/questions/updateDatabases.php');
 		<button class="chat-button">Chat</button>
 		
 		<div class="column-1">
-		<span>Positive feedback</br><img class="thumbs-up" src="assets/images/thumbs-up.png"><span style="font-weight: bold; font-size: 1.35rem;">45</span></span>
-		<div class="line" style="margin-top: 25px;"><span>Email</span></br><img class="checkmark" src="assets/images/checkmark.png"><span class="verification-box2">Verified</span></div>
+		<span>Positive feedback</br><img class="thumbs-up" src="assets/images/thumbs-up.png"><span style="font-weight: bold; font-size: 1.35rem;"><?php echo ''.$positive_feedback.'';?></span></span>
+		<div class="line" style="margin-top: 25px;"><span>Email</span></br><img class="checkmark" src="<?php if(isset($checkmark4)){echo ''.$checkmark4.'';}else {echo ''.$cross4.'';}?>"><span class="verification-box2"><?php if(isset($verified_email)){echo ''.$verified_email.'';}?></span><span class="verification-box"><?php if(isset($not_verified_email)){echo ''.$not_verified_email.'';}?></span></div>
 		<div class="line"><p>Address</br><img class="checkmark" src="<?php if(isset($checkmark2)){echo ''.$checkmark2.'';}else {echo ''.$cross2.'';}?>"><span class="verification-box2"><?php if(isset($verified_address)){echo ''.$verified_address.'';}?></span><span class="verification-box"><?php if(isset($not_verified_address)){echo ''.$not_verified_address.'';}?></span></p></div>
 		</div>
 		
 		<div class="column-2">
-		<span>Negative feedback</br><img class="thumbs-down" src="assets/images/thumbs-down.png"><span style="font-weight: bold; font-size: 1.35rem;">0</span></span>
+		<span>Negative feedback</br><img class="thumbs-down" src="assets/images/thumbs-down.png"><span style="font-weight: bold; font-size: 1.35rem;"><?php echo ''.$negative_feedback.'';?></span></span>
 		<div class="line"><p style="margin-top: 25px;">ID Card</br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}else {echo ''.$cross3.'';}?>"><span class="verification-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="verification-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span></p></div>
 		<div class="line"><p>Phone Number</br><img class="checkmark" src="<?php if(isset($checkmark1)){echo ''.$checkmark1.'';}else {echo ''.$cross1.'';}?>"><span class="verification-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span><span class="verification-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span></p></div>
 		</div>
@@ -515,7 +584,7 @@ require('actions/questions/updateDatabases.php');
 	<span style="font-weight: 500; font-size: 1.15rem;">Amount Borrowed</span></br><span style="font-size: 1.8rem; font-weight: bold; color: #00c4ff;"><?php echo ''.ROUND($getBorrowedAmountMessage).'';?>$</span>
 	<div class="line" style="margin-top: 25px;"><span><span class="subtext"><?php echo ''.$AllCountMessage.'';?></span> Loans Taken</span></div>
 	<div class="line"><span class="subtext"><?php echo ''.$PaidOntimeCountMessage.'';?></span> Loans Repaid on Time</span></div>
-	<div class="line" style="margin-top: 25px;"><span style="font-weight: 500; font-size: 1.15rem;">Trust Score</span></br><span style="font-size: 1.35rem; font-weight: bold; color: #00c4ff;">91/100</span></div>
+	<div class="line" style="margin-top: 25px;"><span style="font-weight: 500; font-size: 1.15rem;">Trust Score</span></br><span style="font-size: 1.35rem; font-weight: bold; color: #00c4ff;"><?php echo ''.ROUND($trustscore6).'';?>/100</span></div>
 	</div>
 	
 	<div class="column-2">

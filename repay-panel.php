@@ -63,36 +63,109 @@ require('actions/questions/updateDatabases.php');
 }
 
 .lend {
-	width: 10%;
+	width: 75px;
 	text-align: center;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(45% - 35px);
+	margin-left: calc(47% - 44px);
+}
+
+.lend-text {
+	font-weight: 500;
+	border-radius: 0.125rem;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: 1px solid #4d4d4d;
+	color: #4d4d4d;
+	transition: background-color 0.2s;
+}
+
+.lend-text:hover {
+	background-color: #4d4d4d;
+	color: white;
 }
 
 .borrow {
-	width: 10%;
+	width: 75px;
 	text-align: right;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(45% + 35px);
+	margin-left: calc(47% + 44px);
+}
+
+.borrow-text {
+	background-color: #00c4ff;
+	color: white;
+	font-weight: 500;
+	border-radius: 0.125rem;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: 1px solid #00c4ff;
+	transition: background-color 0.2s;
+}
+
+.borrow-text:hover {
+	background-color: #2b80ff;
+	outline: 1px solid #2b80ff;
 }
 
 
 .login {
-	width: 10%;
+	width: 120px;
 	text-align: left;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(90% - 60px);
+	margin-left: calc(100% - 207px);
+}
+
+.login-text {
+	font-weight: 500;
+	color: #4d4d4d;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: outline 0.2s;
+	transition: background-color 0.2s;
+}
+
+.login-text:hover {
+	outline: 1px solid #4d4d4d;
+	background-color: #fcfcfc;
+	border-radius: 0.125rem;
 }
 
 .signup {
-	width: 10%;
-	text-align: right;
-	height: 23px;
-	margin-top: -23px;
-	margin-left: calc(90% - 20px);
+	margin-top: -22px;
+	margin-left: calc(100% - 67px);
+}
+
+.logout-button {
+	height: 20px;
+	width: auto;
+	transition: transform 0.2s;
+}
+
+.chat-button {
+	height: 25px;
+	width: auto;
+	transition: transform 0.2s;
+}
+
+.logout-button:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
+}
+
+.chat-button:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
 }
 
 .everything-except-header {
@@ -250,10 +323,10 @@ require('actions/questions/updateDatabases.php');
 <div class="header">
 	<div class="header-text">
 		<div class="logo"><a href="dashboard.php" style="text-decoration: none; color: black"><span>Instant Borrow</span></a></div>
-		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span>Lend</span></a></div>
-		<div class="borrow"><a href="borrow-yeslogin.php" style="text-decoration: none; color: black"><span>Borrow</span></a></div>
-		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span>Your Profile</span></a></div>
-		<div class="signup"><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black"><span>Log Out</span></a></div>
+		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
+		<div class="borrow"><a href="borrow-yeslogin.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
+		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
+		<div class="signup"><a href="actions/users/chat.php" style="text-decoration: none; color: black"><img src="assets/images/chat.png" class="chat-button"></a><div style="margin-top: -32px; margin-left: 45px;"><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
 	</div>
 </div>
 
