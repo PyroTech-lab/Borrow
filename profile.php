@@ -288,7 +288,7 @@ require('actions/users/yourFeedbackAction.php');
 	font-weight: bold;
 	font-size: 0.9rem;
 	margin-right: calc(10% + 15px);
-	transition: transform 0.5s;
+	transition: background-color 0.2s;
 }
 
 .notification_acknowledge-button:hover {
@@ -543,7 +543,8 @@ require('actions/users/yourFeedbackAction.php');
 	font-weight: 500;
 	font-size: 0.85rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	transition: border 0.2s;
+	transition: color 0.2s;
 }
 
 .payment-method-box:hover {
@@ -569,7 +570,8 @@ require('actions/users/yourFeedbackAction.php');
 	font-weight: 500;
 	font-size: 0.85rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	transition: border 0.2s;
+	transition: color 0.2s;
 }
 
 .payment-method-box2:hover {
@@ -620,6 +622,12 @@ require('actions/users/yourFeedbackAction.php');
 	margin-top: 17px;
 }
 
+.user-details {
+	font-weight: 500;
+	color: #2b80ff;
+	font-size: 1.08rem;
+}
+
 .footer {
 	z-index: 10;
 	width: 100%;
@@ -666,7 +674,7 @@ require('actions/users/yourFeedbackAction.php');
 	
 	<?php
 		if(isset($ReceiveRepaymentMsg)){ 
-		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_repaid" class="notification_acknowledge-button"></form></div>';
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="loan-feedback.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
 		}
 	?>
 	
@@ -746,22 +754,23 @@ require('actions/users/yourFeedbackAction.php');
 	<div class="account-settings">
 	<p class="subsection-title">Account Details & Settings</p>
 		<div class="column-111">
-			<p>Name: <?= $_SESSION['name']; ?></p>
-			<p>Username: <?= $_SESSION['username']; ?></p>
-			<p>Email: <?= $_SESSION['email']; ?></p>
-			<p>Phone Number: <?= $row['phone_number']; ?></p>
+			<p>Name: <span class="user-details"><?= $_SESSION['name']; ?></span></p>
+			<p>Username: <span class="user-details"><?= $_SESSION['username']; ?></span></p>
+			<p>Email: <span class="user-details"><?= $_SESSION['email']; ?></span></p>
+			<p>Phone Number: <span class="user-details"><?= $row['phone_number']; ?></span></p>
 		</div>
 		<div class="column-112">
-			<p>Address: <?= $row['address']; ?></p>
-			<p>City: <?= $row['city']; ?></p>
-			<p>Country: <?= $row['country']; ?></p>
-			<p>Member Since: <?= date('M jS, Y', strtotime($user_join_date)); ?></p>
+			<p>Address: <span class="user-details"><?= $row['address']; ?></span></p>
+			<p>City: <span class="user-details"><?= $row['city']; ?></span></p>
+			<p>Country: <span class="user-details"><?= $row['country']; ?></span></p>
+			<p>Member Since: <span class="user-details"><?= date('M jS, Y', strtotime($user_join_date)); ?></span></p>
 		</div>
-		<div class="column-113">
+		<div class="column-113" style="font-weight: 500;">
 			<p class="add-picture">Add Profile Picture</p>
 			<p class="change-password">Change Password</p>
 			<a href="verifications.php" style="color: black; text-decoration: none;"><p class="update-verifications">Update Verifications</p></a>
-			<p class="delete-account" style="color: red; font-weight: 500;">Delete Account</p>
+			<p class="delete-account" style="color: red;">Delete Account</p>
+			<form method="post"><input name="delete_account" type="submit"></form>
 		</div>
 	</div>
 </div>

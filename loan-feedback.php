@@ -1,7 +1,6 @@
 <?php
 require('actions/users/securityAction.php');
-require('actions/questions/LoanGrantAction.php');
-require('actions/questions/showArticleContentAction.php');
+require('actions/questions/FeedbackAction.php');
 require('actions/questions/updateDatabases.php');
 ?>
 
@@ -176,8 +175,8 @@ require('actions/questions/updateDatabases.php');
 
 .main {
 	margin-top: 160px;
-	margin-left: 10%;
-	width: 80%;
+	margin-left: 20%;
+	width: 60%;
 	background-color: #f7f7f7;
 }
 
@@ -186,17 +185,17 @@ require('actions/questions/updateDatabases.php');
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	border: 1px solid #00c4ff;
-	width: 49%;
+	width: 100%;
 	height: 300px;
 }
 
-.chat-div {
+.feedback-div {
 	border-radius: 0.425rem;
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	border: 1px solid #00c4ff;
-	width: 49%;
-	height: 200px;
+	width: 100%;
+	height: 420px;
 	margin-top: 50px;
 }
 
@@ -204,6 +203,7 @@ require('actions/questions/updateDatabases.php');
 .subtitle {
 	font-weight: bold;
 	margin-top: 20px;
+	margin-left: 20px;
 	margin-bottom: 30px;
 	font-size: 1.8rem;
 	color: #00c4ff;
@@ -218,14 +218,21 @@ require('actions/questions/updateDatabases.php');
 .column-1 {
 	margin-left: 20px;
 	height: 300px;
-	width: 50%;
+	width: 33.3%;
 }
 
 .column-2 {
-	margin-left: 50%;
+	margin-left: 33.3%;
 	height: 300px;
-	width: 50%;
-	margin-top: -237px;
+	width: 33.3%;
+	margin-top: -300px;
+}
+
+.column-3 {
+	margin-left: 66.6%;
+	height: 300px;
+	width: 66.6%;
+	margin-top: -300px;
 }
 
 .subtext1 {
@@ -241,7 +248,7 @@ require('actions/questions/updateDatabases.php');
 }
 
 
-.subtitle-chat {
+.subtitle-feedback {
 	font-weight: bold;
 	margin-top: 20px;
 	margin-bottom: 5px;
@@ -250,49 +257,87 @@ require('actions/questions/updateDatabases.php');
 	color: #00c4ff;
 }
 
-.chat-text {
-	margin-left: 20px;
-	font-size: 1.05rem;
-	margin-bottom: 30px;
-	color: #383838;
-}
-
-.chat-button {
-	margin-top: 30px;
-	margin-left: 20px;
-	background-color: #2b80ff;
-	border: 0;
-	padding: 10px;
-	border-radius: 0.325rem;
+.form-title {
 	font-weight: bold;
-	font-size: 1.02rem;
-	color: white;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	font-size: 1.4rem;
+	color: #00c4ff;
+	margin-bottom: 35px;
 }
 
-.chat-button:hover {
+.wrapper {
+	width: 180px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	transition: transform 0.2s;
+	margin-bottom: 35px;
+
+}
+
+.wrapper:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
+}
+
+.text-feedback {
+	margin-left: 20px;
+}
+
+.label {
+	font-weight: 500;
+}
+
+
+.thumbs-up {
+	height: 40px;
+	width: auto;
+	margin-bottom: -14px;
+	margin-right: 10px;
+	margin-left: 7px;
+}
+
+.thumbs-down {
+	height: 40px;
+	width: auto;
+	margin-bottom: -14px;
+	margin-right: 10px;
+	margin-left: 7px;
+}
+
+
+
+.submit {
+	margin-top: 10px;
+	width: 150px;
+	height: 40px;
 	background-color: #00c4ff;
-	-ms-transform: scale(1.05); /* IE 9 */
-	-webkit-transform: scale(1.05); /* Safari 3-8 */
-	transform: scale(1.05); 
-}
-
-.payment {
-	margin-top: -554px;
-	margin-left: 51%;
-	width: 49%;
-	height: 552px;
-	border-radius: 0.425rem;
-	background-color: #fcfcfc;
+	color: white;
+	font-size: 1.18rem;
+	font-weight: bold;
+	border: 0;
+	border-radius: 0.325rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
+	transition: transform 0.2s;
 }
 
-.payment-form {
-	margin-top: 20px;
-	width: 60%;
-	margin-left: 5%;
+.submit:hover {
+	background-color: red;
+	-ms-transform: scale(1.03); /* IE 9 */
+	-webkit-transform: scale(1.03); /* Safari 3-8 */
+	transform: scale(1.03); 
+}
+
+.error-message {
+	margin-left: 20px;
+	font-weight: 500;
+	color: red;
+}
+
+.success-message {
+	margin-left: 20px;
+	font-weight: 500;
+	color: green;
+	
 }
 
 .footer {
@@ -331,30 +376,46 @@ require('actions/questions/updateDatabases.php');
 <div class="main">
 	
 	<div class="loan-recap">
+		<div class="subtitle"><span>Repayment Collected!</span></div>
 		<div class="column-1">
-		<div class="subtitle"><span>Loan Recap</span></div>
-		<div class="text">You Lend</br><span class="subtext1"><?= $loan_amount; ?>$</span></div>
-		<div class="text">You get Repaid</br><span class="subtext1"><?= $repayment_amount; ?>$</span></div>
+		<div class="text">Amount Received</br><span class="subtext1"><?= $repayment_amount; ?>$</span></div>
+		<div class="text">Net Profit</br><span class="subtext1"><?= ROUND((($repayment_amount/$loan_amount)-1)*100); ?>%</span></div>
 		</div>
 		<div class="column-2">
-		<div class="text">Repayment Date</br><span class="subtext2" style="color: red;"><?= date('M jS, Y', strtotime($repayment_date)); ?></span></div>
-		<div class="text"  style="margin-top: 24px;">Borrower</br><a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span class="subtext2"><?= $username_borrower; ?></span></a></div>
+		<div class="text">Lent Amount</br><span class="subtext1"><?= $loan_amount; ?>$</span></div>
+		<div class="text">Borrower</br><a href="user-profile-yeslogin.php?id=<?= $id_lender; ?>" target="blank" style="text-decoration: none;"><span class="subtext2"><?= $username_lender; ?></span></a></div>
+		</div>
+		<div class="column-3">
+		<div class="text">Status</br><span class="subtext2"><?= $status_public; ?></span></div>
 		</div>
 	</div>
 	
-	<div class="chat-div">
-		<div class="subtitle-chat"><span>Chat with <a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span style="color: #560296;"><?= $username_borrower; ?></span></a></span></div>
-		<div><span class="chat-text">In case you have doubts, requests, want more information or anything else...</span></div>
-		<a href="" target="blank"><button class="chat-button">Chat with <span><?= $username_borrower; ?></span></button></a>
-	</div>
-	
-	<div class="payment">
-		<form class="payment-form" method="post">
-			<input type="submit" value="lend  money" class="btn" name="confirm_lend">
+	<div class="feedback-div">
+		<div  class="subtitle-feedback"><span>Feedback</span></div>
+		<div  class="text-feedback"><span>Give your Opinion on the Borrower to help out other Lenders in the Future.</span></div>
+		
+		<form method="post" style="margin-left: 20px;">
+		<p class="form-title">Your Oppinion on the Borrower:</p>
+		<div class="wrapper">
+		<input type="radio" name="feedback" value="positive" class="input" id="positive" required >
+		<label class="label" for="positive"><img class="thumbs-up" src="assets/images/thumbs-up.png">Positive</label>
+		</div>
+		<div class="wrapper">
+		<input type="radio" name="feedback" value="negative" class="input" id="negative" required>
+		<label class="label" for="negative"><img class="thumbs-down" src="assets/images/thumbs-down.png">Negative</label>
+		</div>
+		<input type="submit" value="Submit" class="submit" name="notification_repaid">
 		</form>
+		
+		 <?php 
+            if(isset($errormessage)){ 
+                echo '<p class="error-message">'.$errormessage.'</p>'; 
+            }elseif(isset($successmessage)){ 
+                echo '<p class="success-message">'.$successmessage.'</p>'; 
+            }
+        ?>
+		
 	</div>
-	
-
 
 </div>
 

@@ -283,7 +283,7 @@ require('actions/users/userTrustScore.php');
 	font-weight: bold;
 	font-size: 0.9rem;
 	margin-right: calc(10% + 15px);
-	transition: transform 0.5s;
+	transition: background-color 0.2s;
 }
 
 .notification_acknowledge-button:hover {
@@ -728,7 +728,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	
 	<?php
 		if(isset($ReceiveRepaymentMsg)){ 
-		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_repaid" class="notification_acknowledge-button"></form></div>';
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="loan-feedback.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
 		}
 	?>
 	

@@ -91,6 +91,7 @@ require('actions/users/userFeedbackProfileAction.php');
 
 .borrow {
 	width: 75px;
+	text-align: right;
 	height: 23px;
 	margin-top: -23px;
 	margin-left: calc(47% + 44px);
@@ -116,10 +117,11 @@ require('actions/users/userFeedbackProfileAction.php');
 
 
 .login {
-	width: 75px;
+	width: 120px;
+	text-align: left;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(100% - 175px);
+	margin-left: calc(100% - 207px);
 }
 
 .login-text {
@@ -140,28 +142,153 @@ require('actions/users/userFeedbackProfileAction.php');
 }
 
 .signup {
-	width: 85px;
-	height: 23px;
-	margin-top: -23px;
-	margin-left: calc(100% - 85px);
+	margin-top: -22px;
+	margin-left: calc(100% - 67px);
 }
 
-.signup-text {
-	background-color: #e0c22d;
+.logout-button {
+	height: 20px;
+	width: auto;
+	transition: transform 0.2s;
+}
+
+.chat-header {
+	height: 25px;
+	width: auto;
+	transition: transform 0.2s;
+}
+
+.logout-button:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
+}
+
+.chat-header:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
+}
+
+.notification-unpaid {
+	background-color: red;
 	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-unpaid {
 	font-weight: 500;
-	border-radius: 0.125rem;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	padding-left: 10px;
-	padding-right: 10px;
-	outline: 1px solid #e0c22d;
+	font-size: 1.04rem;
+}
+
+.notification-image-unpaid {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-duesoon {
+	background-color: orange;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-duesoon {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-duesoon {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+
+.notification-receivedrepayment {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedrepayment {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedrepayment {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+
+.notification-receivedloan {
+	background-color: #1bbf02;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-text-receivedloan {
+	font-weight: 500;
+	font-size: 1.04rem;
+}
+
+.notification-image-receivedloan {
+	height: 28px;
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: -7px;
+}
+
+.notification_acknowledge {
+	margin-top: -29px;
+	background-color: transparent;
+	text-align: right;
+}
+
+.notification_acknowledge-button {
+	background-color: white;
+	color: #1bbf02;
+	border-radius: 0.325rem;
+	height: 30px;
+	padding-left: 6px;
+	padding-right: 6px;
+	border: 0px;
+	font-weight: bold;
+	font-size: 0.9rem;
+	margin-right: calc(10% + 15px);
 	transition: background-color 0.2s;
 }
 
-.signup-text:hover {
-	background-color: #f7d631;
-	outline: 1px solid #f7d631;
+.notification_acknowledge-button:hover {
+	background-color: #1bbf02;
+	color: white;
 }
 
 .everything-except-header {
@@ -310,9 +437,11 @@ require('actions/users/userFeedbackProfileAction.php');
 	margin-top: 50px;
 	width: 39%;
 	margin-left: 10%;
-	border: 1px solid green;
+	border: 1px solid #00c4ff;
 	border-radius: 0.325rem;
-	height: 730px;
+	height: 500px;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 .borrower-presentation {
@@ -392,7 +521,8 @@ require('actions/users/userFeedbackProfileAction.php');
 	font-weight: 500;
 	font-size: 0.85rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	transition: border 0.2s;
+	transition: color 0.2s;
 }
 
 .verification-box:hover {
@@ -418,7 +548,8 @@ require('actions/users/userFeedbackProfileAction.php');
 	font-weight: 500;
 	font-size: 0.85rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	transition: border 0.2s;
+	transition: color 0.2s;
 }
 
 .verification-box2:hover {
@@ -464,12 +595,14 @@ require('actions/users/userFeedbackProfileAction.php');
 }
 
 .loan-history {
-	margin-top: -732px;
+	margin-top: -502px;
 	width: 39%;
 	margin-left: 51%;
-	border: 1px solid red;
+	border: 1px solid #00c4ff;
 	border-radius: 0.325rem;
-	height: 730px;
+	height: 430px;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 .subtext {
@@ -489,7 +622,7 @@ require('actions/users/userFeedbackProfileAction.php');
 	margin-left: 10%;
 	font-weight: bold;
 	font-size: 1.6rem;
-	margin-top: 50px;
+	margin-top: 100px;
 	color: #00c4ff
 }
 
@@ -651,7 +784,7 @@ require('actions/users/userFeedbackProfileAction.php');
 </head>
 
 
-<body style="margin: 0px; font-family: 'Poppins', sans-serif;">
+<body style="margin: 0px; font-family: 'Poppins', sans-serif; background-color: #f7f7f7;">
 
 <div class="header">
 	<div class="header-text">

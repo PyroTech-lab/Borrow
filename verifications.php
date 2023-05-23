@@ -284,7 +284,7 @@ require('actions/users/ProfileVerificationsAction.php');
 	font-weight: bold;
 	font-size: 0.9rem;
 	margin-right: calc(10% + 15px);
-	transition: transform 0.5s;
+	transition: background-color 0.2s;
 }
 
 .notification_acknowledge-button:hover {
@@ -338,7 +338,8 @@ require('actions/users/ProfileVerificationsAction.php');
 	font-weight: 500;
 	font-size: 0.85rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	transition: border 0.2s;
+	transition: color 0.2s;
 }
 
 .payment-method-box:hover {
@@ -364,7 +365,8 @@ require('actions/users/ProfileVerificationsAction.php');
 	font-weight: 500;
 	font-size: 0.85rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	transition: border 0.2s;
+	transition: color 0.2s;
 }
 
 .payment-method-box2:hover {
@@ -586,7 +588,7 @@ require('actions/users/ProfileVerificationsAction.php');
 	
 	<?php
 		if(isset($ReceiveRepaymentMsg)){ 
-		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_repaid" class="notification_acknowledge-button"></form></div>';
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="loan-feedback.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
 		}
 	?>
 	

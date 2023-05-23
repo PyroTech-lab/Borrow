@@ -421,7 +421,8 @@ require('actions/users/userFeedbackLoanAction.php');
 	font-weight: 500;
 	font-size: 0.85rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	transition: border 0.2s;
+	transition: color 0.2s;
 }
 
 .verification-box2:hover {

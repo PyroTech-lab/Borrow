@@ -282,7 +282,7 @@ require('actions/users/notificationAction.php');
 	font-weight: bold;
 	font-size: 0.9rem;
 	margin-right: calc(10% + 15px);
-	transition: transform 0.5s;
+	transition: background-color 0.2s;
 }
 
 .notification_acknowledge-button:hover {
@@ -537,7 +537,7 @@ require('actions/users/notificationAction.php');
 	
 	<?php
 		if(isset($ReceiveRepaymentMsg)){ 
-		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_repaid" class="notification_acknowledge-button"></form></div>';
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="loan-feedback.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
 		}
 	?>
 	
@@ -560,7 +560,7 @@ require('actions/users/notificationAction.php');
 	<div class="interest-rate"><span>Repayment Date</span></div>
 	<div class="repay-date"><span>Status</span></div>
 	<div class="feedback"><span>Lender</span></div>
-	<div class="payment-method"><span>Payment Method</span></div>
+	<div class="payment-method"><span>Feedback</span></div>
 	</div>
 			
 	<div style="margin-left: 10%;">
@@ -583,7 +583,7 @@ require('actions/users/notificationAction.php');
 				<div class="interest-rate"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
 				<div class="repay-date"><span><?= $status_public; ?></span></div>
 				<div class="feedback"><a style="text-decoration: none; color: #3d91e0;" href="user-profile-yeslogin.php?id=<?= $question['id_lender']; ?>"><span><?= $question['username_lender']; ?></span></a></div>
-				<div class="payment-method"><span>Paypal</span></div>
+				<div class="payment-method"><span><?= $question['feedback_given']; ?></span></div>
 		</div>
 	</div>
                 <?php

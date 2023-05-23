@@ -154,7 +154,7 @@ require('actions/users/userFeedbackProfileAction.php');
 	transition: transform 0.2s;
 }
 
-.chat-button {
+.chat-header {
 	height: 25px;
 	width: auto;
 	transition: transform 0.2s;
@@ -166,7 +166,7 @@ require('actions/users/userFeedbackProfileAction.php');
 	transform: scale(1.1); 
 }
 
-.chat-button:hover {
+.chat-header:hover {
 	-ms-transform: scale(1.1); /* IE 9 */
 	-webkit-transform: scale(1.1); /* Safari 3-8 */
 	transform: scale(1.1); 
@@ -285,7 +285,7 @@ require('actions/users/userFeedbackProfileAction.php');
 	font-weight: bold;
 	font-size: 0.9rem;
 	margin-right: calc(10% + 15px);
-	transition: transform 0.5s;
+	transition: background-color 0.2s;
 }
 
 .notification_acknowledge-button:hover {
@@ -439,9 +439,11 @@ require('actions/users/userFeedbackProfileAction.php');
 	margin-top: 50px;
 	width: 39%;
 	margin-left: 10%;
-	border: 1px solid green;
+	border: 1px solid #00c4ff;
 	border-radius: 0.325rem;
-	height: 730px;
+	height: 500px;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 .borrower-presentation {
@@ -521,7 +523,8 @@ require('actions/users/userFeedbackProfileAction.php');
 	font-weight: 500;
 	font-size: 0.85rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	transition: border 0.2s;
+	transition: color 0.2s;
 }
 
 .verification-box:hover {
@@ -547,7 +550,8 @@ require('actions/users/userFeedbackProfileAction.php');
 	font-weight: 500;
 	font-size: 0.85rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	transition: border 0.2s;
+	transition: color 0.2s;
 }
 
 .verification-box2:hover {
@@ -593,12 +597,14 @@ require('actions/users/userFeedbackProfileAction.php');
 }
 
 .loan-history {
-	margin-top: -732px;
+	margin-top: -502px;
 	width: 39%;
 	margin-left: 51%;
-	border: 1px solid red;
+	border: 1px solid #00c4ff;
 	border-radius: 0.325rem;
-	height: 730px;
+	height: 430px;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 .subtext {
@@ -618,7 +624,7 @@ require('actions/users/userFeedbackProfileAction.php');
 	margin-left: 10%;
 	font-weight: bold;
 	font-size: 1.6rem;
-	margin-top: 50px;
+	margin-top: 100px;
 	color: #00c4ff
 }
 
@@ -780,7 +786,7 @@ require('actions/users/userFeedbackProfileAction.php');
 </head>
 
 
-<body style="margin: 0px; font-family: 'Poppins', sans-serif;">
+<body style="margin: 0px; font-family: 'Poppins', sans-serif; background-color: #f7f7f7;">
 
 <div class="header">
 	<div class="header-text">
@@ -788,7 +794,7 @@ require('actions/users/userFeedbackProfileAction.php');
 		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
 		<div class="borrow"><a href="borrow-yeslogin.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
-		<div class="signup"><a href="actions/users/chat.php" style="text-decoration: none; color: black"><img src="assets/images/chat.png" class="chat-button"></a><div style="margin-top: -32px; margin-left: 45px;"><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
+		<div class="signup"><a href="actions/users/chat.php" style="text-decoration: none; color: black"><img src="assets/images/chat.png" class="chat-header"></a><div style="margin-top: -32px; margin-left: 45px;"><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
 	</div>
 </div>
 
@@ -806,7 +812,7 @@ require('actions/users/userFeedbackProfileAction.php');
 	
 	<?php
 		if(isset($ReceiveRepaymentMsg)){ 
-		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_repaid" class="notification_acknowledge-button"></form></div>';
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="loan-feedback.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
 		}
 	?>
 	
@@ -886,7 +892,7 @@ require('actions/users/userFeedbackProfileAction.php');
 			<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
 			<div class="interest-rate"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
 			<div class="repay-date"><span><?= $status_public; ?></span></div>
-			<div class="feedback"><span>Positive</span></div>
+			<div class="feedback"><span><?= $question['feedback_given']; ?></span></div>
 			<div class="payment-method"><a style="text-decoration: none; color: #3d91e0;" href="user-profile-yeslogin.php?id=<?= $question['id_lender']; ?>"><span><?= $question['username_lender']; ?></span></a></div>
 	</div>
 </div>

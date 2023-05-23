@@ -150,7 +150,7 @@ require('actions/questions/updateDatabases.php');
 	transition: transform 0.2s;
 }
 
-.chat-button {
+.chat-header {
 	height: 25px;
 	width: auto;
 	transition: transform 0.2s;
@@ -162,7 +162,7 @@ require('actions/questions/updateDatabases.php');
 	transform: scale(1.1); 
 }
 
-.chat-button:hover {
+.chat-header:hover {
 	-ms-transform: scale(1.1); /* IE 9 */
 	-webkit-transform: scale(1.1); /* Safari 3-8 */
 	transform: scale(1.1); 
@@ -326,7 +326,7 @@ require('actions/questions/updateDatabases.php');
 		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
 		<div class="borrow"><a href="borrow-yeslogin.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
-		<div class="signup"><a href="actions/users/chat.php" style="text-decoration: none; color: black"><img src="assets/images/chat.png" class="chat-button"></a><div style="margin-top: -32px; margin-left: 45px;"><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
+		<div class="signup"><a href="actions/users/chat.php" style="text-decoration: none; color: black"><img src="assets/images/chat.png" class="chat-header"></a><div style="margin-top: -32px; margin-left: 45px;"><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
 	</div>
 </div>
 
@@ -342,14 +342,14 @@ require('actions/questions/updateDatabases.php');
 		</div>
 		<div class="column-2">
 		<div class="text">Repayment Deadline</br><span class="subtext2" style="color: red;"><?= date('M jS, Y', strtotime($repayment_date)); ?></span></div>
-		<div class="text"  style="margin-top: 24px;">Lender</br><a href="user-profile-yeslogin.php?id=<?= $id_lender; ?>" style="text-decoration: none;"><span class="subtext2"><?= $username_lender; ?></span></a></div>
+		<div class="text"  style="margin-top: 24px;">Lender</br><a href="user-profile-yeslogin.php?id=<?= $id_lender; ?>" style="text-decoration: none;" target="blank"><span class="subtext2"><?= $username_lender; ?></span></a></div>
 		</div>
 	</div>
 	
 	<div class="chat-div">
-		<div class="subtitle-chat"><span>Chat with <a href="user-profile-yeslogin.php?id=<?= $id_lender; ?>" style="text-decoration: none;"><span style="color: #560296;"><?= $username_lender; ?></span></a></span></div>
+		<div class="subtitle-chat"><span>Chat with <a href="user-profile-yeslogin.php?id=<?= $id_lender; ?>" style="text-decoration: none;" target="blank"><span style="color: #560296;"><?= $username_lender; ?></span></a></span></div>
 		<div><span class="chat-text">In case you have doubts, requests, want more information or anything else...</span></div>
-		<button class="chat-button">Chat with <span><?= $username_lender; ?></button>
+		<a href="" target="blank"><button class="chat-button">Chat with <span><?= $username_lender; ?></span></button></a>
 	</div>
 	
 	<div class="payment">
