@@ -50,7 +50,7 @@ $getLentAllLoans->execute(array($_SESSION['id']));
 	$AllLentCountMessage = $getLentAllLoans->rowCount();
 
 
-$getLentPaidLateLoans = $bdd->prepare('SELECT * FROM loan WHERE id_lender = ?');
+$getLentPaidLateLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND (status="paid_late" OR status="paid_late_notseen")');
 $getLentPaidLateLoans->execute(array($_SESSION['id']));
 
 	$AllPaidLateCountMessage = $getLentPaidLateLoans->rowCount();

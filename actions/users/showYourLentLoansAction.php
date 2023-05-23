@@ -2,7 +2,7 @@
 session_start();
 require('actions/database.php');
 
-$getAllMyQuestions = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, status FROM loan WHERE id_lender = ? AND NOT status="request" ORDER BY id DESC');
+$getAllMyQuestions = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, status, feedback_given FROM loan WHERE id_lender = ? AND NOT status="request" ORDER BY id DESC');
 $getAllMyQuestions->execute(array($_SESSION['id']));
 
 
@@ -36,9 +36,9 @@ if($getPaidLate->rowCount() > 0){
 	$status_public = "<span style='color: #f7b228;'>Paid Late</span>";
 }
 
-$getPaidLate = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, status FROM loan WHERE id_lender = ? AND status="unpaid"');
-$getPaidLate->execute(array($_SESSION['id']));
+$getUnpaid = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, status FROM loan WHERE id_lender = ? AND status="unpaid"');
+$getUnpaid->execute(array($_SESSION['id']));
 
-if($getPaidLate->rowCount() > 0){
+if($getUnpaid->rowCount() > 0){
 	$status_public = "<span style='color: red;'>Unpaid</span>";
 }

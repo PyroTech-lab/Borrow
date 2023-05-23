@@ -23,7 +23,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 		$user_join_date = $usersInfos['join_date'];
 
 
-		$getHisQuestions = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_lender, username_lender, status FROM loan WHERE id_borrower = ? AND NOT status="request" ORDER BY id DESC');
+		$getHisQuestions = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_lender, username_lender, status, feedback_given FROM loan WHERE id_borrower = ? AND NOT status="request" ORDER BY id DESC LIMIT 0,20');
 		$getHisQuestions->execute(array($idOfUser));
 
 		if($getHisQuestions->rowCount() == 0){

@@ -44,6 +44,7 @@ if($checkReceivedRepayments->rowCount() > 0){
 	 
 	$repayment_amount = $RepaymentInfos['repayment_amount'];
 	$username_borrower = $RepaymentInfos['username_borrower'];
+	$IdforFeedback = $RepaymentInfos['id'];
 	
 	$ReceiveRepaymentMsg = "$username_borrower repaid you $repayment_amount$!";
 }
@@ -76,17 +77,3 @@ $MarkSeen->execute(array($_SESSION['id']));
 header("Refresh:0");
 }
 
-
-
-if(isset($_POST['notification_repaid'])){
-	
-$MarkSeenOntime= $bdd->prepare('UPDATE loan SET status="paid_ontime" WHERE id_borrower = ? AND status="paid_ontime_notseen"');
-$MarkSeenOntime->execute(array($_SESSION['id']));
-
-header("Refresh:0");
-
-$MarkSeenLate = $bdd->prepare('UPDATE loan SET status="paid_late" WHERE id_borrower = ? AND status="paid_late_notseen"');
-$MarkSeenLate->execute(array($_SESSION['id']));
-
-header("Refresh:0");
-}
