@@ -304,6 +304,12 @@ require('actions/users/userTrustScore.php');
 	background-color: white;
 }
 
+.left-bar {
+	background-color: white;
+	width: 30%;
+	position: absolute;
+	height: calc(100% + 90px);
+}
 
 .sticky{
 	z-index: 5;
@@ -403,7 +409,7 @@ input::-webkit-datetime-edit-year-field:focus {
 }
 
 .find-offers:hover {
-	background-color: red;
+	background-color: #2b80ff;
 	-ms-transform: scale(1.015); /* IE 9 */
 	-webkit-transform: scale(1.015); /* Safari 3-8 */
 	transform: scale(1.015); 
@@ -426,6 +432,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	border: 1px solid #00c4ff;
 	color: #00c4ff;
 }
+
 
 .main-right {
 	width: 75%;
@@ -602,6 +609,118 @@ input::-webkit-datetime-edit-year-field:focus {
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
+
+.borrower-2 {
+	height: 23px;
+	text-align: center;
+	width: 18%;
+	background-color: transparent;
+	padding: 4px;
+	color: #3d91e0;
+	font-weight: 500;
+	font-size: 1.02rem;
+}
+
+.loan-amount-2 {
+	height: 23px;
+	text-align: center;
+	width: 18%;
+	background-color: transparent;
+	margin-top: -31px;
+	margin-left: 18%;
+	padding: 4px;
+	color: #383838;
+	font-weight: bold;
+	font-size: 1.15rem;
+}
+
+.repay-amount-2 {
+	height: 23px;
+	text-align: center;
+	width: 18%;
+	background-color: transparent;
+	margin-top: -31px;
+	margin-left: 36%;
+	padding: 4px;
+	color: #383838;
+	font-weight: bold;
+	font-size: 1.15rem;
+}
+
+.interest-rate-2	{
+	height: 23px;
+	text-align: center;
+	width: 18%;
+	background-color: transparent;
+	margin-top: -31px;
+	margin-left: 54%;
+	padding: 4px;
+	color: #383838;
+	font-weight: bold;
+	font-size: 1.15rem;
+}
+
+.repay-date-2 {
+	height: 23px;
+	text-align: center;
+	width: 17%;
+	background-color: transparent;
+	margin-top: -31px;
+	margin-left: 72%;
+	padding: 4px;
+	color: #383838;
+	font-weight: 500;
+	font-size: 1.1rem;
+}
+
+.borrower-information {
+	text-align: center;
+	width: 18%;
+	height: 23px;
+	margin-top: 10px;
+	background-color: transparent;
+	color: #383838;
+	font-weight: 500;
+	font-size: 0.95rem;
+}
+
+.trustscore {
+	text-align: center;
+	width: 18%;
+	margin-left: 18%;
+	height: 23px;
+	margin-top: -23px;
+	background-color: transparent;
+	color: #3d91e0;
+	font-weight: 500;
+	font-size: 0.85rem;
+}
+
+.positive-feedback {
+	text-align: center;
+	width: 18%;
+	margin-left: 36%;
+	height: 23px;
+	margin-top: -23px;
+	background-color: transparent;
+	color: #3d91e0;
+	font-weight: 500;
+	font-size: 0.85rem;
+}
+
+.negative-feedback {
+	text-align: center;
+	width: 18%;
+	margin-left: 54%;
+	height: 23px;
+	margin-top: -23px;
+	background-color: transparent;
+	color: #3d91e0;
+	font-weight: 500;
+	font-size: 0.85rem;
+}
+
+
 .loan-request:hover {
 	background-color: #fbfbfb;
   -ms-transform: scale(1.0055); /* IE 9 */
@@ -639,16 +758,31 @@ input::-webkit-datetime-edit-year-field:focus {
 	margin-bottom: 100px;
 }
 
-.load-more {
+.load-more-visible {
 	padding: 9px;
 	width: 15%;
 	min-width: 140px;
-	background-color: red;
+	background-color: #de0404;
 	color: white;
 	border: 2px solid white;
 	border-radius: 0.325rem;
 	font-weight: bold;
 	font-size: 0.88rem;
+	transition: background-color .2s;
+}
+
+.load-more-hidden {
+	display: none;
+}
+
+.borrow-button-container{
+	margin-left: calc(15% + 7px);
+	margin-top: -38px;
+}
+
+.borrow-button-container-noloadmore{
+	margin-left: 0px;
+	margin-top: 0px;
 }
 
 .borrow-button {
@@ -656,20 +790,21 @@ input::-webkit-datetime-edit-year-field:focus {
 	width: 15%;
 	min-width: 140px;
 	right: 0;
-	background-color: red;
+	background-color: #f2a100;
 	color: white;
 	border: 2px solid white;
 	border-radius: 0.325rem;
 	font-weight: bold;
 	font-size: 0.88rem;
+	transition: background-color .2s;
 }
 
-.load-more:hover {
-	background-color: yellow;
+.load-more-visible:hover {
+	background-color: #ff0303;
 }
 
 .borrow-button:hover {
-	background-color: green;
+	background-color: #edd500;
 }
 
 .explain {
@@ -685,7 +820,9 @@ input::-webkit-datetime-edit-year-field:focus {
 
 .footer {
 	z-index: 10;
+	position: absolute;
 	width: 100%;
+	height: 500px;
 	margin-top: 80px;
 	background-color: white;
 	padding-top: 10px;
@@ -741,6 +878,8 @@ input::-webkit-datetime-edit-year-field:focus {
 
 <div class="everything-except-header">
 
+<div class="left-bar"></div>
+
 <div class="main">
 	<div class="sticky" id="sticky">
 	<form method="GET">
@@ -750,7 +889,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		<p>Interest Rate</p>
 		<input class="sticky-input" name="interest_search" type="number" min="0" autocomplete="off"><div class="symbol-right"><span style="margin-left: -23px;">%</span></div>
 		<p>Borrower Trust Score</p>
-		<input class="sticky-input" name="trust_score_search" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
+		<input class="sticky-input" name="trustscore_search" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
 		<p>Repayment Date</p>
 		<input class="sticky-input" type="date" name="repayment_date_search" id="datefield" autocomplete="off">
 		</br>
@@ -796,13 +935,21 @@ input::-webkit-datetime-edit-year-field:focus {
                 ?>
 			<div class="loan-request">
 				<div class="loan-details">
-						<div class="borrower"><a href="user-profile-yeslogin.php?id=<?=$question['id_borrower']; ?>" style="text-decoration: none; color: #3d91e0;"><span><?= $question['username_borrower']; ?></span></a></div>
-						<div class="loan-amount"><span><?= $question['loan_amount']; ?>$</span></div>
-						<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
-						<div class="interest-rate"><span><?= $question['interest']; ?>%</span></div>
-						<div class="repay-date"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
+						<div style="padding-bottom: 10px;">
+						<div class="borrower-2"><a href="user-profile-yeslogin.php?id=<?=$question['id_borrower']; ?>" style="text-decoration: none; color: #3d91e0;"><span><?= $question['username_borrower']; ?></span></a></div>
+						<div class="loan-amount-2"><span><?= $question['loan_amount']; ?>$</span></div>
+						<div class="repay-amount-2"><span><?= $question['repayment_amount']; ?>$</span></div>
+						<div class="interest-rate-2"><span><?= $question['interest']; ?>%</span></div>
+						<div class="repay-date-2"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
+						</div>
+						<div style="margin-top: 10px; border-top: 1px solid #bababa; padding-top: 15px;">
+							<span>Borrower Info:</span>
+							<span>Trustscore: <?= $question['borrower_trustscore']; ?>/100</span>
+							<span><img src="assets/images/thumbs-up.png"> <?= $question['borrower_trustscore']; ?></span>
+							<span><img src="assets/images/thumbs-down.png"> <?= $question['borrower_trustscore']; ?></span>
+						</div>
 				</div>
-				<div style="text-align: right; margin-top: -31px; margin-bottom: 0px;">
+				<div style="text-align: right; margin-top: -53px; margin-bottom: 22px;">
 					<a href="loan-yeslogin.php?id=<?= $question['id']; ?>"><button class="lend-button">LEND</button><a>
 				</div>
 			</div>
@@ -819,8 +966,39 @@ input::-webkit-datetime-edit-year-field:focus {
 			
 			
 			<div class="under-container">
-				<button class="load-more">Load More Offers</button>
-				<a href="borrow-yeslogin.php"><button class="borrow-button">Borrow Money</button></a>
+			
+				<form method="GET">
+				<input class="<?= $class1 ?>" id="load_more" name="load_more1" type="submit" value="Load More Offers">
+				</form>
+				<form method="GET">
+				<input class="<?= $class2 ?>" id="load_more" name="load_more2" type="submit" value="Load More Offers">
+				</form>
+				<form method="GET">
+				<input class="<?= $class3 ?>" id="load_more" name="load_more3" type="submit" value="Load More Offers">
+				</form>
+				<form method="GET">
+				<input class="<?= $class4 ?>" id="load_more" name="load_more4" type="submit" value="Load More Offers">
+				</form>
+				<form method="GET">
+				<input class="<?= $class5 ?>" id="load_more" name="load_more5" type="submit" value="Load More Offers">
+				</form>
+				<form method="GET">
+				<input class="<?= $class6 ?>" id="load_more" name="load_more6" type="submit" value="Load More Offers">
+				</form>
+				<form method="GET">
+				<input class="<?= $class7 ?>" id="load_more" name="load_more7" type="submit" value="Load More Offers">
+				</form>
+				<form method="GET">
+				<input class="<?= $class8 ?>" id="load_more" name="load_more8" type="submit" value="Load More Offers">
+				</form>
+				<form method="GET">
+				<input class="<?= $class9 ?>" id="load_more" name="load_more9" type="submit" value="Load More Offers">
+				</form>
+				<form method="GET">
+				<input class="<?= $class10 ?>" id="load_more" name="load_more10" type="submit" value="Load More Offers">
+				</form>
+				
+				<div class="<?= $classButton ?>"><a href="borrow-yeslogin.php"><button class="borrow-button">Borrow Money</button></a></div>
 			</div>
 		
 		</div>
@@ -851,8 +1029,24 @@ input::-webkit-datetime-edit-year-field:focus {
 	</div>
 </div>
 
-<div class="footer">
+<div class="footer" id="footer">
 	<p class="footer-text">Instant Borrow</p>
+	<div class="footer-column1">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+	<div class="footer-column2">
+		<p></p>
+	</div>
+	<div class="footer-column3">
+		<p></p>
+	</div>
+	<div class="footer-column4">
+		<p></p>
+	</div>
 </div>
 
 </div>
@@ -860,7 +1054,7 @@ input::-webkit-datetime-edit-year-field:focus {
 <script>
 var today = new Date();
 var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
+var mm = today.getMonth()+1; //January is 0.
 var yyyy = today.getFullYear();
  if(dd<10){
         dd='0'+dd
@@ -876,7 +1070,7 @@ document.getElementById("datefield").setAttribute("min", today);
 <script>
 var today = new Date();
 var dd = today.getDate();
-var mm = today.getMonth()+5; //January is 0! In reality max 4 months.
+var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
 var yyyy = today.getFullYear();
  if(dd<10){
         dd='0'+dd
@@ -889,6 +1083,10 @@ today = yyyy+'-'+mm+'-'+dd;
 document.getElementById("datefield").setAttribute("max", today);
 
 </script>
+
+
+
+
 
 </body>
 

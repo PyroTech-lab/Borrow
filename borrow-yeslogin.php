@@ -400,10 +400,11 @@ input::-webkit-datetime-edit-year-field:focus {
 	border-radius: 0.325rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	transition: transform 0.2s;
+	transition: background-color 0.2s;
 }
 
 .borrow-button:hover {
-	background-color: red;
+	background-color: #2b80ff;
 	-ms-transform: scale(1.015); /* IE 9 */
 	-webkit-transform: scale(1.015); /* Safari 3-8 */
 	transform: scale(1.015); 
@@ -425,7 +426,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	padding: 9px;
 	width: 15%;
 	min-width: 140px;
-	background-color: red;
+	background-color: #de0404;
 	color: white;
 	border: 2px solid white;
 	border-radius: 0.325rem;
@@ -438,7 +439,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	width: 15%;
 	min-width: 140px;
 	right: 0;
-	background-color: red;
+	background-color: #f2a100;
 	color: white;
 	border: 2px solid white;
 	border-radius: 0.325rem;
@@ -447,11 +448,11 @@ input::-webkit-datetime-edit-year-field:focus {
 }
 
 .how-to:hover {
-	background-color: yellow;
+	background-color: #ff0303;
 }
 
 .lend-button:hover {
-	background-color: green;
+	background-color: #edd500;
 }
 
 .explain {

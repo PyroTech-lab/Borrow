@@ -825,15 +825,15 @@ require('actions/users/userFeedbackProfileAction.php');
 	<p class="subsection-title">Loan History</p>
 	<div class="column-1">
 	<span style="font-weight: 500; font-size: 1.15rem;">Amount Borrowed</span></br><span style="font-size: 1.8rem; font-weight: bold; color: #00c4ff;"><?php echo ''.ROUND($getBorrowedAmountMessage).'';?>$</span>
-	<div class="line" style="margin-top: 25px;"><span><span class="subtext"><?php echo ''.$AllCountMessage.'';?></span> Loans Taken</span></div>
-	<div class="line"><span class="subtext"><?php echo ''.$PaidOntimeCountMessage.'';?></span> Loans Repaid on Time</span></div>
+	<div class="line" style="margin-top: 25px;"><span><span class="subtext"><?php echo ''.$AllCountMessage.'';?></span> <?php echo ''.$singular1.'';?> Taken</span></div>
+	<div class="line"><span class="subtext"><?php echo ''.$PaidOntimeCountMessage.'';?></span> <?php echo ''.$singular2.'';?> Repaid on Time</span></div>
 	<div class="line" style="margin-top: 25px;"><span style="font-weight: 500; font-size: 1.15rem;">Trust Score</span></br><span style="font-size: 1.35rem; font-weight: bold; color: #00c4ff;"><?php echo ''.ROUND($trustscore6).'';?>/100</span></div>
 	</div>
 	
 	<div class="column-2">
 	<span style="font-weight: 500; font-size: 1.15rem;">Amount Repaid</span></br><span style="font-size: 1.8rem; font-weight: bold; color: #00c4ff;"><?php echo ''.ROUND(($getRepayedBorrowedAmountMessage/$getSupposedRepaymentBorrowedAmountMessage)*100).'';?>%</span>
-	<div class="line" style="margin-top: 25px;"><span><span class="subtext"><?php echo ''.$PaidLateCountMessage.'';?></span> Loans Repaid Late</span></div>
-	<div class="line"><span><span class="subtext"><?php echo ''.$unpaidCountMessage.'';?></span> Unpaid Loans</span></div>
+	<div class="line" style="margin-top: 25px;"><span><span class="subtext"><?php echo ''.$PaidLateCountMessage.'';?></span> <?php echo ''.$singular3.'';?> Repaid Late</span></div>
+	<div class="line"><span><span class="subtext"><?php echo ''.$unpaidCountMessage.'';?></span> Unpaid <?php echo ''.$singular4.'';?></span></div>
 	</div>
 </div>
 

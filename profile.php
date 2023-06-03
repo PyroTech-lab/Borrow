@@ -8,6 +8,7 @@ require('actions/questions/updateDatabases.php');
 require('actions/users/deleteAccountAction.php');
 require('actions/users/yourTrustScoreAction.php');
 require('actions/users/yourFeedbackAction.php');
+require('actions/users/changePassword.php');
 ?>
 
 <!DOCTYPE html>
@@ -695,7 +696,7 @@ require('actions/users/yourFeedbackAction.php');
 	</div>
 	
 		<div class="column-1">
-		<p class="main-text">Amount Lent<br><span class="main-subtext"><?php echo ''.ROUND($getLentAmountMessage).'';?>$</span><a href="profile-lent-loans.php" style="text-decoration: none;"><span style="color: red;"> <?php echo ''.$AllLentCountMessage.'';?> Loans</span></a></p>
+		<p class="main-text">Amount Lent<br><span class="main-subtext"><?php echo ''.ROUND($getLentAmountMessage).'';?>$</span><a href="profile-lent-loans.php" style="text-decoration: none;"><span style="color: red;"> <?php echo ''.$AllLentCountMessage.'';?> <?php echo ''.$singular2.'';?></span></a></p>
 		<p class="main-text">Amount Collected<br><span class="main-subtext"> <?php echo''.ROUND($getRepayedAmountMessage).'';?>$</span></p>
 		</div>
 		<div class="column-2">
@@ -703,13 +704,13 @@ require('actions/users/yourFeedbackAction.php');
 		<p class="main-text">Return On Investement<br><span class="main-subtext"><?php echo ''.ROUND((($getRepayedAmountMessage/$getLentAmountMessage)-1)*100).'';?>%</span></p>
 		</div>
 		<div class="column-3">
-		<p class="main-text">Amount Borrowed<br><span class="main-subtext"><?php echo ''.ROUND($getBorrowedAmountMessage).'';?>$</span><a href="profile-borrowed-loans.php" style="text-decoration: none;"><span  style="color: red;"> <?php echo ''.$AllCountMessage.'';?> Loans</span></a></p>
+		<p class="main-text">Amount Borrowed<br><span class="main-subtext"><?php echo ''.ROUND($getBorrowedAmountMessage).'';?>$</span><a href="profile-borrowed-loans.php" style="text-decoration: none;"><span  style="color: red;"> <?php echo ''.$AllCountMessage.'';?> <?php echo ''.$singular1.'';?></span></a></p>
 		<p class="main-text">Amount Repaid<br><span class="main-subtext"><?php echo ''.ROUND(($getRepayedBorrowedAmountMessage/$getSupposedRepaymentBorrowedAmountMessage)*100).'';?>%</span></p>
 		</div>
 		<div class="column-4">
-		<a href="active-loans.php" style="text-decoration: none; color: black;"><p class="main-text"><span class="main-subtext"><?php echo ''.$activeCountMessage.'';?></span> Active Loans</p></a>
-		<a href="loan-requests.php" style="text-decoration: none; color: black;"><p class="main-text"><span class="main-subtext"><?php echo ''.$requestCountMessage.'';?></span> Loan Requests</p></a>
-		<a href="unpaid-loans.php" style="text-decoration: none; color: black;"><p class="main-text"><span class="main-subtext"><?php echo ''.$unpaidCountMessage.'';?></span> Unpaid Loans</p></a>
+		<a href="active-loans.php" style="text-decoration: none; color: black;"><p class="main-text"><span class="main-subtext"><?php echo ''.$activeCountMessage.'';?></span> Active <?php echo ''.$singular3.'';?></p></a>
+		<a href="loan-requests.php" style="text-decoration: none; color: black;"><p class="main-text"><span class="main-subtext"><?php echo ''.$requestCountMessage.'';?></span> Loan <?php echo ''.$singular4.'';?></p></a>
+		<a href="unpaid-loans.php" style="text-decoration: none; color: black;"><p class="main-text"><span class="main-subtext"><?php echo ''.$unpaidCountMessage.'';?></span> Unpaid <?php echo ''.$singular5.'';?></p></a>
 		</div>
 	</div>
 	
@@ -768,9 +769,20 @@ require('actions/users/yourFeedbackAction.php');
 		<div class="column-113" style="font-weight: 500;">
 			<p class="add-picture">Add Profile Picture</p>
 			<p class="change-password">Change Password</p>
+			<form method="post">
+			<input name="current_password" type="password">
+			<input name="new_password" type="password">
+			<input name="change_password" type="submit" value="Change Password">
+			</form>
 			<a href="verifications.php" style="color: black; text-decoration: none;"><p class="update-verifications">Update Verifications</p></a>
 			<p class="delete-account" style="color: red;">Delete Account</p>
-			<form method="post"><input name="delete_account" type="submit"></form>
+			<form method="post"><input name="delete_account" type="submit" value="Delete Account"></form>
+			
+			<?php 
+            if(isset($errorMsg)){ 
+                echo '<p class="error-message">'.$errorMsg.'</p>'; 
+            }
+			?>
 		</div>
 	</div>
 </div>

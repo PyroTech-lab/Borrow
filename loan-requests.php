@@ -445,7 +445,7 @@ require('actions/users/notificationAction.php');
 	padding: 9px;
 	width: 15%;
 	min-width: 140px;
-	background-color: red;
+	background-color: #de0404;
 	color: white;
 	border: 2px solid white;
 	border-radius: 0.325rem;
@@ -458,7 +458,7 @@ require('actions/users/notificationAction.php');
 	width: 15%;
 	min-width: 140px;
 	right: 0;
-	background-color: red;
+	background-color:  #f2a100;
 	color: white;
 	border: 2px solid white;
 	border-radius: 0.325rem;
@@ -467,11 +467,11 @@ require('actions/users/notificationAction.php');
 }
 
 .load-more:hover {
-	background-color: yellow;
+	background-color: #ff0303;
 }
 
 .borrow-button:hover {
-	background-color: green;
+	background-color: #edd500;
 }
 
 .explain {

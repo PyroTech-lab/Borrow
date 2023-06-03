@@ -296,11 +296,12 @@ require('actions/users/userFeedbackLoanAction.php');
 	border-radius: 0.125rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	transition: transform 0.2s;
+	transition: background-color 0.2s;
 }
 
 
 .lend-button:hover {
-	background-color: red;
+	background-color: #2b80ff;
 	-ms-transform: scale(1.015); /* IE 9 */
 	-webkit-transform: scale(1.015); /* Safari 3-8 */
 	transform: scale(1.015); 
@@ -314,7 +315,7 @@ require('actions/users/userFeedbackLoanAction.php');
 	border: 1px solid #00c4ff;
 	border-radius: 0.325rem;
 	background-color: #fcfcfc;
-	height: 455px;
+	height: 502px;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -468,7 +469,7 @@ require('actions/users/userFeedbackLoanAction.php');
 }
 
 .loan-history {
-	margin-top: -457px;
+	margin-top: -502px;
 	width: 39%;
 	margin-left: 51%;
 	border: 1px solid #00c4ff;
@@ -492,7 +493,7 @@ require('actions/users/userFeedbackLoanAction.php');
 
 
 .borrower-notes {
-	margin-top: 50px;
+	margin-top: 100px;
 	width: 80%;
 	margin-left: 10%;
 	background-color: #fcfcfc;
@@ -583,15 +584,15 @@ require('actions/users/userFeedbackLoanAction.php');
 	<p class="subsection-title">Loan History</p>
 	<div class="column-1">
 	<span style="font-weight: 500; font-size: 1.15rem;">Amount Borrowed</span></br><span style="font-size: 1.8rem; font-weight: bold; color: #00c4ff;"><?php echo ''.ROUND($getBorrowedAmountMessage).'';?>$</span>
-	<div class="line" style="margin-top: 25px;"><span><span class="subtext"><?php echo ''.$AllCountMessage.'';?></span> Loans Taken</span></div>
-	<div class="line"><span class="subtext"><?php echo ''.$PaidOntimeCountMessage.'';?></span> Loans Repaid on Time</span></div>
+	<div class="line" style="margin-top: 25px;"><span><span class="subtext"><?php echo ''.$AllCountMessage.'';?></span> <?php echo ''.$singular1.'';?> Taken</span></div>
+	<div class="line"><span class="subtext"><?php echo ''.$PaidOntimeCountMessage.'';?></span> <?php echo ''.$singular2.'';?> Repaid on Time</span></div>
 	<div class="line" style="margin-top: 25px;"><span style="font-weight: 500; font-size: 1.15rem;">Trust Score</span></br><span style="font-size: 1.35rem; font-weight: bold; color: #00c4ff;"><?php echo ''.ROUND($trustscore6).'';?>/100</span></div>
 	</div>
 	
 	<div class="column-2">
 	<span style="font-weight: 500; font-size: 1.15rem;">Amount Repaid</span></br><span style="font-size: 1.8rem; font-weight: bold; color: #00c4ff;"><?php echo ''.ROUND(($getRepayedBorrowedAmountMessage/$getSupposedRepaymentBorrowedAmountMessage)*100).'';?>%</span>
-	<div class="line" style="margin-top: 25px;"><span><span class="subtext"><?php echo ''.$PaidLateCountMessage.'';?></span> Loans Repaid Late</span></div>
-	<div class="line"><span><span class="subtext"><?php echo ''.$unpaidCountMessage.'';?></span> Unpaid Loans</span></div>
+	<div class="line" style="margin-top: 25px;"><span><span class="subtext"><?php echo ''.$PaidLateCountMessage.'';?></span> <?php echo ''.$singular3.'';?> Repaid Late</span></div>
+	<div class="line"><span><span class="subtext"><?php echo ''.$unpaidCountMessage.'';?></span> Unpaid <?php echo ''.$singular4.'';?></span></div>
 	</div>
 </div>
 
