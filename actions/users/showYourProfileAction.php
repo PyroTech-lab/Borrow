@@ -6,6 +6,11 @@ $getAllactiveLoans->execute(array($_SESSION['id']));
 
 	$activeCountMessage = $getAllactiveLoans->rowCount();
 
+	if($activeCountMessage==1){
+	$singular3 = "Loan";
+	}else{
+	$singular3 = "Loans";
+	}
 
 
 
@@ -17,8 +22,11 @@ $getAllLoanRequest->execute(array($_SESSION['id']));
 
 	$requestCountMessage = $getAllLoanRequest->rowCount();
 	
-
-
+	if($requestCountMessage==1){
+	$singular4 = "Request";
+	}else{
+	$singular4 = "Requests";
+	}
 
 
 
@@ -28,7 +36,11 @@ $getAllunpaidLoans->execute(array($_SESSION['id']));
 
 	$unpaidCountMessage = $getAllunpaidLoans->rowCount();
 
-
+	if($unpaidCountMessage==1){
+	$singular5 = "Loan";
+	}else{
+	$singular5 = "Loans";
+	}
 
 
 
@@ -39,6 +51,12 @@ $getAllLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND NOT s
 $getAllLoans->execute(array($_SESSION['id']));
 
 	$AllCountMessage = $getAllLoans->rowCount();
+	
+	if($AllCountMessage==1){
+	$singular1 = "Loan";
+	}else{
+	$singular1 = "Loans";
+	}
 
 
 
@@ -48,6 +66,12 @@ $getLentAllLoans = $bdd->prepare('SELECT * FROM loan WHERE id_lender = ?');
 $getLentAllLoans->execute(array($_SESSION['id']));
 
 	$AllLentCountMessage = $getLentAllLoans->rowCount();
+	
+	if($AllLentCountMessage==1){
+	$singular2 = "Loan";
+	}else{
+	$singular2 = "Loans";
+	}
 
 
 $getLentPaidLateLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND (status="paid_late" OR status="paid_late_notseen")');

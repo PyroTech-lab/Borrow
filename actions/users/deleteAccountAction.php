@@ -4,10 +4,11 @@ require('actions/database.php');
 
 if(isset($_POST['delete_account'])){
 	
+	$sesion_id_1 = $_SESSION['id'];
+	$sesion_id_2 = $_SESSION['id'];
 	
-	
-	$getAllLoans = $bdd->prepare('SELECT * FROM loan WHERE (id_borrower OR id_lender) = ?');
-	$getAllLoans->execute(array($_SESSION['id']));
+	$getAllLoans = $bdd->prepare('SELECT * FROM loan WHERE (id_borrower= ? OR id_lender = ?) AND NOT(status="paid_ontime" OR status="paid_late" OR status="paid_ontime_notseen" OR status="paid_late_notseen" OR status="request")');
+	$getAllLoans->execute(array($sesion_id_1, $sesion_id_2));
 
 
 	if($getAllLoans->rowCount() == 0){
@@ -15,7 +16,7 @@ if(isset($_POST['delete_account'])){
 	$TranferUsertoDeletedTable = $bdd->prepare('INSERT INTO deleted_users(email, name, username, phone_number, address, city, country, identity_card) SELECT email, name, username, phone_number, address, city, country, identity_card FROM users WHERE id = ?');
     $TranferUsertoDeletedTable->execute(array($_SESSION['id']));
 		
-	$deleteAllLoans = $bdd->prepare('DELETE FROM loan WHERE (id_borrower OR id_lender)= ?');
+	$deleteAllLoans = $bdd->prepare('DELETE FROM loan WHERE id_borrower= ? AND status="request"');
     $deleteAllLoans->execute(array($_SESSION['id']));
 	
 	$deletePaymentMethods = $bdd->prepare('DELETE FROM payment_method WHERE id_user = ?');
@@ -33,8 +34,5 @@ if(isset($_POST['delete_account'])){
 	}else{
 		$errorMsg = "You cannot delete your account because you have active loans.";
 	}
-
-
-
 
 }

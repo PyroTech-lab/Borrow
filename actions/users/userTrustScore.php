@@ -7,10 +7,10 @@ require('actions/users/userFeedbackLoanAction.php');
 if(isset($_GET['id']) AND !empty($_GET['id'])){
 
  
-    $idOfUser = $_GET['id'];
+    $idOfLoan = $_GET['id'];
 	
 $getBorrowerId = $bdd->prepare('SELECT id_borrower FROM loan WHERE id = ?');
-$getBorrowerId->execute(array($idOfUser));
+$getBorrowerId->execute(array($idOfLoan));
 
 $row = $getBorrowerId->fetch(PDO::FETCH_ASSOC);
 	$getIDfromBorrower = $row['id_borrower'];
@@ -75,4 +75,7 @@ $CheckVerifications->execute(array($getIDfromBorrower));
 	
 	$trustscore6 = max($trustscore5, 0);
 	$trustscore6 = min($trustscore5, 100);
+	
+$UpdateTrustscore = $bdd->prepare('UPDATE loan SET borrower_trustscore = '.$trustscore6.' WHERE id_borrower = ?');
+$UpdateTrustscore->execute(array($getIDfromBorrower));
 }

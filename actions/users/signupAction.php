@@ -20,6 +20,8 @@ if(isset($_POST['signup'])){
         $checkIfUserAlreadyExists->execute(array($user_email));
 
         if($checkIfUserAlreadyExists->rowCount() == 0){
+			
+			if(strlen($_POST['password']) >= 8){
             
 
             $insertUserOnWebsite = $bdd->prepare('INSERT INTO users(email, name, username, password, join_date)VALUES(?, ?, ?, ?,?)');
@@ -47,6 +49,10 @@ if(isset($_POST['signup'])){
             $AddUserToFeedbackSystem->execute(array($_SESSION['id']));
 
             header('Location: dashboard.php');
+			
+			}else{
+				 $errorMsg = "Password must contain at least 8 Characters";
+			}
 
         }else{
             $errorMsg = "Email already registered";

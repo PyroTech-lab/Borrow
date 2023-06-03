@@ -37,19 +37,35 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 
 					$unpaidCountMessage = $getAllunpaidLoans->rowCount();
 
-
+						if($unpaidCountMessage==1){
+						$singular4 = "Loan";
+						}else{
+						$singular4 = "Loans";
+						}
 
 
 				$getAllLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND (status="paid_late" OR status="paid_late_notseen")');
 				$getAllLoans->execute(array($idOfUser));
 
 					$PaidLateCountMessage = $getAllLoans->rowCount();
+					
+						if($PaidLateCountMessage==1){
+						$singular3 = "Loan";
+						}else{
+						$singular3 = "Loans";
+						}
 
 
 				$getAllLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND (status="paid_ontime" OR status="paid_ontime_notseen")');
 				$getAllLoans->execute(array($idOfUser));
 
 					$PaidOntimeCountMessage = $getAllLoans->rowCount();
+					
+						if($PaidOntimeCountMessage==1){
+						$singular2 = "Loan";
+						}else{
+						$singular2 = "Loans";
+						}
 
 
 
@@ -57,6 +73,12 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 				$getAllLoans->execute(array($idOfUser));
 
 					$AllCountMessage = $getAllLoans->rowCount();
+					
+						if($AllCountMessage==1){
+						$singular1 = "Loan";
+						}else{
+						$singular1 = "Loans";
+						}
 
 
 

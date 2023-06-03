@@ -70,4 +70,8 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	$trustscore6 = max($trustscore5, 0);
 	$trustscore6 = min($trustscore5, 100);
 	
+	
+$UpdateTrustscore = $bdd->prepare('UPDATE loan SET borrower_trustscore = '.$trustscore6.' WHERE id_borrower = ?');
+$UpdateTrustscore->execute(array($idOfUser));
+	
 }

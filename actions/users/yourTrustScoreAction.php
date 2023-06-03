@@ -64,3 +64,7 @@ $CheckVerifications->execute(array($_SESSION['id']));
 	$trustscore6 = max($trustscore5, 0);
 	$trustscore6 = min($trustscore5, 100);
 	
+	
+$UpdateTrustscore = $bdd->prepare('UPDATE loan SET borrower_trustscore = '.$trustscore6.' WHERE id_borrower = ?');
+$UpdateTrustscore->execute(array($_SESSION['id']));
+	
