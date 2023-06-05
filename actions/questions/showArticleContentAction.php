@@ -30,7 +30,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	
 
 
-				$getAllunpaidLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND status="unpaid"');
+				$getAllunpaidLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND (status="unpaid" OR status="unpaid_notseen" OR status="unpaid_banned" OR status="unpaid_banned_archived")');
 				$getAllunpaidLoans->execute(array($id_borrower));
 
 					$unpaidCountMessage = $getAllunpaidLoans->rowCount();
@@ -129,6 +129,32 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 				
 				
 
+
+
+				$GetBorrowersCountry = $bdd->prepare('SELECT country FROM users WHERE id = ?');
+				$GetBorrowersCountry->execute(array($id_borrower));
+				
+				$getcountry = $GetBorrowersCountry->fetch(PDO::FETCH_ASSOC);
+				
+				if (empty($getcountry['country'])){
+				$country = "unknown";
+				}
+				else{
+				$country = $getcountry['country'];
+				}
+				
+				
+				$GetProfilePicture = $bdd->prepare('SELECT profile_picture FROM users WHERE id = ?');
+				$GetProfilePicture->execute(array($id_borrower));
+				
+				$GetPicture = $GetProfilePicture->fetch(PDO::FETCH_ASSOC);
+				
+				if (empty($GetPicture['profile_picture'])){
+				$profile_picture = "default.png";
+				}
+				else{
+				$profile_picture = $GetPicture['profile_picture'];
+				}
 }
 
 

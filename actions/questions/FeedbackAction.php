@@ -79,7 +79,7 @@ if(isset($_POST['notification_repaid'])){
 				$SetPositiveFeedback= $bdd->prepare('UPDATE feedback SET positive_feedback=positive_feedback+1 WHERE id_user = ?');
 				$SetPositiveFeedback->execute(array($id_borrower));
 				
-				$addFeedbacktoLoanTable = $bdd->prepare('UPDATE loan SET feedback_given="positive" WHERE id = ?');
+				$addFeedbacktoLoanTable = $bdd->prepare('UPDATE loan SET feedback_given="Positive" WHERE id = ?');
 				$addFeedbacktoLoanTable->execute(array($idOfLoan));
 				
 				$successmessage = "Feedback submitted succesfully!";
@@ -90,7 +90,7 @@ if(isset($_POST['notification_repaid'])){
 				$SetNegativeFeedback= $bdd->prepare('UPDATE feedback SET negative_feedback=negative_feedback+1 WHERE id_user = ?');
 				$SetNegativeFeedback->execute(array($id_borrower));
 				
-				$addFeedbacktoLoanTable = $bdd->prepare('UPDATE loan SET feedback_given="negative" WHERE id = ?');
+				$addFeedbacktoLoanTable = $bdd->prepare('UPDATE loan SET feedback_given="Negative" WHERE id = ?');
 				$addFeedbacktoLoanTable->execute(array($idOfLoan));
 				
 				$successmessage = "Feedback submitted succesfully!";
