@@ -31,7 +31,7 @@ $getAllLoanRequest->execute(array($_SESSION['id']));
 
 
 
-$getAllunpaidLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND status="unpaid"');
+$getAllunpaidLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND (status="unpaid" OR status="unpaid_notseen" OR status="unpaid_banned" OR status="unpaid_banned_archived")');
 $getAllunpaidLoans->execute(array($_SESSION['id']));
 
 	$unpaidCountMessage = $getAllunpaidLoans->rowCount();
@@ -176,3 +176,31 @@ $CheckPhoneAddress->execute(array($_SESSION['id']));
 	$address= $row['address'];
 	$city= $row['city'];
 	$country= $row['country'];
+	
+	
+
+
+				$GetProfilePicture = $bdd->prepare('SELECT profile_picture FROM users WHERE id = ?');
+				$GetProfilePicture->execute(array($_SESSION['id']));
+				
+				$GetPicture = $GetProfilePicture->fetch(PDO::FETCH_ASSOC);
+				
+				if (empty($GetPicture['profile_picture'])){
+				$profile_picture = "default.png";
+				$addOrEdit = "Add";
+				}
+				else{
+				$profile_picture = $GetPicture['profile_picture'];
+				$addOrEdit = "Edit";
+				$removeProfilePicture = "Remove Profile Picture";
+				}
+				
+				if(isset($_POST['delete_picture'])){
+					
+				unlink('assets/images/profile-images/'.$profile_picture.'');
+				
+				$DeleteProfilePicture = $bdd->prepare('UPDATE users SET profile_picture="" WHERE id = ?');
+				$DeleteProfilePicture->execute(array($_SESSION['id']));
+				
+				header('Location: profile.php');
+				}

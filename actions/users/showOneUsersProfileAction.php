@@ -32,7 +32,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 
 
 
-				$getAllunpaidLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND status="unpaid"');
+				$getAllunpaidLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND (status="unpaid" OR status="unpaid_notseen" OR status="unpaid_banned" OR status="unpaid_banned_archived")');
 				$getAllunpaidLoans->execute(array($idOfUser));
 
 					$unpaidCountMessage = $getAllunpaidLoans->rowCount();
@@ -154,7 +154,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 					$status_public = "<span style='color: #f7b228;'>Paid Late</span>";
 				}
 
-				$getPaidLate = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, status FROM loan WHERE id_borrower = ? AND status="unpaid"');
+				$getPaidLate = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, status FROM loan WHERE id_borrower = ? AND (status="unpaid" OR status="unpaid_notseen" OR status="unpaid_banned" OR status="unpaid_banned_archived")');
 				$getPaidLate->execute(array($idOfUser));
 
 				if($getPaidLate->rowCount() > 0){
@@ -163,8 +163,34 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 
 				
 				
-
+				$GetBorrowersCountry = $bdd->prepare('SELECT country FROM users WHERE id = ?');
+				$GetBorrowersCountry->execute(array($idOfUser));
+				
+				$getcountry = $GetBorrowersCountry->fetch(PDO::FETCH_ASSOC);
+				
+				if (empty($getcountry['country'])){
+				$country = "unknown";
+				}
+				else{
+				$country = $getcountry['country'];
+				}
+				
+				
+				
+				$GetProfilePicture = $bdd->prepare('SELECT profile_picture FROM users WHERE id = ?');
+				$GetProfilePicture->execute(array($idOfUser));
+				
+				$GetPicture = $GetProfilePicture->fetch(PDO::FETCH_ASSOC);
+				
+				if (empty($GetPicture['profile_picture'])){
+				$profile_picture = "default.png";
+				}
+				else{
+				$profile_picture = $GetPicture['profile_picture'];
+				}
 				
 
-    }
+    }else{
+		$usernotfound ="yes";
+	}
 }

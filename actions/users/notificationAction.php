@@ -77,3 +77,40 @@ $MarkSeen->execute(array($_SESSION['id']));
 header("Refresh:0");
 }
 
+
+
+
+$GetInfoFromUnpaid = $bdd->prepare('SELECT * FROM loan WHERE status="unpaid_notseen" AND id_lender= ?');
+$GetInfoFromUnpaid->execute(array($_SESSION['id']));
+			
+	if($GetInfoFromUnpaid->rowCount() !== 0){	
+	
+			$GetInfo_unpaid = $GetInfoFromUnpaid->fetch();
+			$username_borrower_unpaid = $GetInfo_unpaid['username_borrower'];
+			$id_loan_unpaid = $GetInfo_unpaid['id'];
+			
+			$UnpaidBorrowerLoanMsg = "$username_borrower_unpaid hasn't Repaid you yet. Click Here for more Information.";
+
+	}
+	
+	
+	
+
+
+$GetInfoFromNotPaying = $bdd->prepare('SELECT * FROM loan WHERE (status="unpaid_banned") AND id_lender= ?');
+$GetInfoFromNotPaying->execute(array($_SESSION['id']));
+			
+	if($GetInfoFromNotPaying->rowCount() !== 0){	
+	
+			$GetInfo = $GetInfoFromNotPaying->fetch();
+			$username_borrower = $GetInfo['username_borrower'];
+			$id_loan = $GetInfo['id'];
+			
+			$BannedBorrowerLoanMsg = "$username_borrower hasn't Repaid you. Click Here to Resolve the Issue.";
+
+	}
+
+
+
+
+

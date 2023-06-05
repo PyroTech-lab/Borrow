@@ -7,7 +7,7 @@ if(isset($_POST['delete_account'])){
 	$sesion_id_1 = $_SESSION['id'];
 	$sesion_id_2 = $_SESSION['id'];
 	
-	$getAllLoans = $bdd->prepare('SELECT * FROM loan WHERE (id_borrower= ? OR id_lender = ?) AND NOT(status="paid_ontime" OR status="paid_late" OR status="paid_ontime_notseen" OR status="paid_late_notseen" OR status="request")');
+	$getAllLoans = $bdd->prepare('SELECT * FROM loan WHERE (id_borrower= ? OR id_lender = ?) AND NOT(status="paid_ontime" OR status="paid_late" OR status="paid_ontime_notseen" OR status="paid_late_notseen" OR status="request" OR Status="unpaid_banned_archived")');
 	$getAllLoans->execute(array($sesion_id_1, $sesion_id_2));
 
 

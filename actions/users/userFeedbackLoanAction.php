@@ -23,4 +23,8 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	$positive_feedback = $FeedbackVerifications['positive_feedback'];
 	$negative_feedback = $FeedbackVerifications['negative_feedback'];
 	
+	$UpdateFeedback = $bdd->prepare('UPDATE loan SET borrower_positive_feedback=?, borrower_negative_feedback=? WHERE id_borrower = ?');
+	$UpdateFeedback->execute(array($positive_feedback,$negative_feedback,$getIDfromBorrower));
+	
+	
 }

@@ -39,7 +39,34 @@ if(isset($_POST['login'])){
             }
 
         }else{
-            $errorMsg = "Wrong Email or Password";
+			
+					$checkIfUserBanned = $bdd->prepare('SELECT * FROM banned_users WHERE email = ?');
+					$checkIfUserBanned->execute(array($user_email));
+					
+					if($checkIfUserBanned->rowCount() > 0){
+						
+						$BannedusersInfos = $checkIfUserBanned->fetch();
+						
+						if(password_verify($user_password, $BannedusersInfos['password'])){
+							
+						$GetUnpaidLoan = $bdd->prepare('SELECT id FROM loan WHERE id_borrower = ? AND (status="unpaid_banned_archived" OR status="unpaid_banned")');
+						$GetUnpaidLoan->execute(array($BannedusersInfos['id_user']));
+						
+						$GetLoanId = $GetUnpaidLoan->fetch();
+						echo $GetLoanId['id'];
+					
+						$_SESSION['banned'] = true;
+						
+						header('Location: banned.php?id='.$GetLoanId['id'].'');
+						
+						
+						}else{
+							$errorMsg = "Wrong Email or Password";
+						}
+					
+					}else{
+						$errorMsg = "Wrong Email or Password";
+					}
         }
 
     }else{
