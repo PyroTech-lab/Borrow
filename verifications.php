@@ -4,6 +4,7 @@ require('actions/questions/updateDatabases.php');
 require('actions/users/notificationAction.php');
 require('actions/users/addVerificationsAction.php');
 require('actions/users/ProfileVerificationsAction.php');
+require('actions/users/bannedAction.php');
 ?>
 
 <!DOCTYPE html>
@@ -182,17 +183,6 @@ require('actions/users/ProfileVerificationsAction.php');
 	text-align: center;
 }
 
-.notification-text-unpaid {
-	font-weight: 500;
-	font-size: 1.04rem;
-}
-
-.notification-image-unpaid {
-	height: 28px;
-	width: auto;
-	margin-top: 5px;
-	margin-bottom: -7px;
-}
 
 
 .notification-duesoon {
@@ -204,18 +194,6 @@ require('actions/users/ProfileVerificationsAction.php');
 	width: 100%;
 	z-index: 10;
 	text-align: center;
-}
-
-.notification-text-duesoon {
-	font-weight: 500;
-	font-size: 1.04rem;
-}
-
-.notification-image-duesoon {
-	height: 28px;
-	width: auto;
-	margin-top: 5px;
-	margin-bottom: -7px;
 }
 
 
@@ -231,17 +209,6 @@ require('actions/users/ProfileVerificationsAction.php');
 	text-align: center;
 }
 
-.notification-text-receivedrepayment {
-	font-weight: 500;
-	font-size: 1.04rem;
-}
-
-.notification-image-receivedrepayment {
-	height: 28px;
-	width: auto;
-	margin-top: 5px;
-	margin-bottom: -7px;
-}
 
 
 .notification-receivedloan {
@@ -255,12 +222,35 @@ require('actions/users/ProfileVerificationsAction.php');
 	text-align: center;
 }
 
-.notification-text-receivedloan {
+.notification-unpaidborrower {
+	background-color: orange;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+.notification-bannedborrower {
+	background-color: red;
+	color: white;
+	position: fixed; 
+	margin-top: 80px;
+	height: 38px;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+
+.notification-text {
 	font-weight: 500;
 	font-size: 1.04rem;
 }
 
-.notification-image-receivedloan {
+.notification-image {
 	height: 28px;
 	width: auto;
 	margin-top: 5px;
@@ -551,8 +541,81 @@ require('actions/users/ProfileVerificationsAction.php');
 }
 
 
-.footer-text {
+.footer-content {
+	margin-top: 20px;
 	margin-left: 10%;
+	width: 80%;
+}
+
+.footer-1 {
+	height: 150px;
+	width: 25%;
+}
+
+.footer-2 {
+	height: 150px;
+	width: 25%;
+	margin-left: 25%;
+	margin-top: -150px;
+}
+
+.footer-3 {
+	height: 150px;
+	width: 25%;
+	margin-left: 50%;
+	margin-top: -150px;
+}
+
+.footer-4 {
+	height: 150px;
+	width: 25%;
+	margin-left: 75%;
+	margin-top: -150px;
+}
+
+.footer-subsection-title {
+	font-weight: 500;
+	font-size: 1.07rem;
+	margin-bottom: 20px;
+}
+
+.footer-subsection-text {
+	font-size: 0.95rem;
+	margin-bottom: 8px;
+	color: #2b2b2b;
+}
+
+.footer-link {
+	text-decoration: none;
+	color: #2b2b2b;
+}
+
+.footer-bottom {
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+.social-widgets {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.widget {
+	height: 34px;
+	width: 34px;
+	margin: 8px;
+	transition: transform 0.2s;
+}
+
+.widget:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1); 
+}
+
+.footer-bottom-text {
+	font-size: 0.86rem;
+	color: #2b2b2b;
 }
 
 </style>
@@ -576,26 +639,38 @@ require('actions/users/ProfileVerificationsAction.php');
 
 	<?php
 		if(isset($UnpaidMsg)){ 
-		echo '<div class="notification-unpaid"><img src="assets/images/warning-sign-red.png" class="notification-image-unpaid"><a href="unpaid-loans.php" style="text-decoration: none; color: white;"><span class="notification-text-unpaid">'.$UnpaidMsg.'</span></a></div>';
+		echo '<div class="notification-unpaid"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="unpaid-loans.php" style="text-decoration: none; color: white;"><span class="notification-text">'.$UnpaidMsg.'</span></a></div>';
 		}
 	?>
 	
 	<?php
 		if(isset($RepaymentDateSoonMsg)){ 
-		echo '<div class="notification-duesoon"><img src="assets/images/warning-sign-orange.png" class="notification-image-duesoon"><a href="active-loans.php" style="text-decoration: none; color: white;"><span class="notification-text-duesoon">'.$RepaymentDateSoonMsg.'</span></a></div>';
+		echo '<div class="notification-duesoon"><img src="assets/images/warning-sign-orange.png" class="notification-image"><a href="active-loans.php" style="text-decoration: none; color: white;"><span class="notification-text">'.$RepaymentDateSoonMsg.'</span></a></div>';
 		}
 	?>
 	
 	<?php
 		if(isset($ReceiveRepaymentMsg)){ 
-		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image-receivedrepayment"><span class="notification-text-receivedrepayment">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="loan-feedback.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="loan-feedback.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
 		}
 	?>
 	
 	<?php
 		if(isset($ReceiveLoanMsg)){ 
-		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image-receivedloan"><span class="notification-text-receivedloan">'.$ReceiveLoanMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_receivedloan" class="notification_acknowledge-button"></form></div>';
+		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveLoanMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_receivedloan" class="notification_acknowledge-button"></form></div>';
 		}
+	?>
+	
+	<?php
+	if(isset($UnpaidBorrowerLoanMsg)){ 
+	echo '<div class="notification-unpaidborrower"><img src="assets/images/warning-sign-orange.png" class="notification-image"><a href="unpaid-borrower.php?id='.$id_loan_unpaid.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$UnpaidBorrowerLoanMsg.'</span><a></div>';
+	}
+	?>
+	
+	<?php
+	if(isset($BannedBorrowerLoanMsg)){ 
+	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="banned-borrower.php?id='.$id_loan.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$BannedBorrowerLoanMsg.'</span><a></div>';
+	}
 	?>
 
 
@@ -672,7 +747,38 @@ require('actions/users/ProfileVerificationsAction.php');
 
 
 <div class="footer">
-	<p class="footer-text">Instant Borrow</p>
+	<div class="footer-content">
+		<div class="footer-1">
+			<div><span>Instant Borrow</span></div>
+		</div>
+		<div class="footer-2">
+			<div class="footer-subsection-title"><span>Company</span></div>
+			<div class="footer-subsection-text"><a href="about.php" class="footer-link" target="blank"><span>About Instant Borrow</span></a></div>
+			<div class="footer-subsection-text"><a href="contact.php" class="footer-link" target="blank"><span>Contact Us</span></a></div>
+		</div>
+		<div class="footer-3">
+			<div class="footer-subsection-title"><span>Resources</span></div>
+			<div class="footer-subsection-text"><a href="faq.php" class="footer-link" target="blank"><span>FAQ's</span></a></div>
+			<div class="footer-subsection-text"><a href="support.php" class="footer-link" target="blank"><span>Support Center</span></a></div>
+		</div>
+		<div class="footer-4">
+			<div class="footer-subsection-title"><span>Legal</span></div>
+			<div class="footer-subsection-text"><a href="terms-conditions.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
+			<div class="footer-subsection-text"><a href="privcy-policy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
+			<div class="footer-subsection-text"><a href="cookie-policy.php" class="footer-link" target="blank"><span>Cookie Policy</span></a></div>
+		</div>
+		<div class="footer-bottom">
+			<div class="social-widgets">
+			<a href="https://facebook.com" class="footer-link" target="blank"><img class="widget" src="assets/images/facebook-widget.png"></a>
+			<a href="https://twitter.com" class="footer-link" target="blank"><img class="widget" src="assets/images/twitter-widget.png"></a>
+			<a href="https://instagram.com" class="footer-link" target="blank"><img class="widget" src="assets/images/instagram-widget.png"></a>
+			<a href="https://reddit.com" class="footer-link" target="blank"><img class="widget" src="assets/images/reddit-widget.png"></a>
+			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
+			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
+			</div>
+			<div class="footer-bottom-text"><span>Copyright © 2023 - <?= date("Y"); ?> Instant Borrow. All rights reserved.</span></div>
+		</div>
+	</div>
 </div>
 
 </div>

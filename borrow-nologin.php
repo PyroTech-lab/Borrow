@@ -2,6 +2,13 @@
 require('actions/questions/updateDatabases.php');
 ?>
 
+<?php
+session_start();
+if(isset($_SESSION['auth'])){
+    header('Location: borrow-yeslogin.php');
+}
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -339,8 +346,82 @@ input::-webkit-datetime-edit-year-field:focus {
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
-.footer-text {
+
+.footer-content {
+	margin-top: 20px;
 	margin-left: 10%;
+	width: 80%;
+}
+
+.footer-1 {
+	height: 150px;
+	width: 25%;
+}
+
+.footer-2 {
+	height: 150px;
+	width: 25%;
+	margin-left: 25%;
+	margin-top: -150px;
+}
+
+.footer-3 {
+	height: 150px;
+	width: 25%;
+	margin-left: 50%;
+	margin-top: -150px;
+}
+
+.footer-4 {
+	height: 150px;
+	width: 25%;
+	margin-left: 75%;
+	margin-top: -150px;
+}
+
+.footer-subsection-title {
+	font-weight: 500;
+	font-size: 1.07rem;
+	margin-bottom: 20px;
+}
+
+.footer-subsection-text {
+	font-size: 0.95rem;
+	margin-bottom: 8px;
+	color: #2b2b2b;
+}
+
+.footer-link {
+	text-decoration: none;
+	color: #2b2b2b;
+}
+
+.footer-bottom {
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+.social-widgets {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.widget {
+	height: 34px;
+	width: 34px;
+	margin: 8px;
+	transition: transform 0.2s;
+}
+
+.widget:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1); 
+}
+
+.footer-bottom-text {
+	font-size: 0.86rem;
+	color: #2b2b2b;
 }
 </style>
 
@@ -412,7 +493,38 @@ input::-webkit-datetime-edit-year-field:focus {
 </div>
 
 <div class="footer">
-	<p class="footer-text">Instant Borrow</p>
+	<div class="footer-content">
+		<div class="footer-1">
+			<div><span>Instant Borrow</span></div>
+		</div>
+		<div class="footer-2">
+			<div class="footer-subsection-title"><span>Company</span></div>
+			<div class="footer-subsection-text"><a href="about.php" class="footer-link" target="blank"><span>About Instant Borrow</span></a></div>
+			<div class="footer-subsection-text"><a href="contact.php" class="footer-link" target="blank"><span>Contact Us</span></a></div>
+		</div>
+		<div class="footer-3">
+			<div class="footer-subsection-title"><span>Resources</span></div>
+			<div class="footer-subsection-text"><a href="faq.php" class="footer-link" target="blank"><span>FAQ's</span></a></div>
+			<div class="footer-subsection-text"><a href="support.php" class="footer-link" target="blank"><span>Support Center</span></a></div>
+		</div>
+		<div class="footer-4">
+			<div class="footer-subsection-title"><span>Legal</span></div>
+			<div class="footer-subsection-text"><a href="terms-conditions.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
+			<div class="footer-subsection-text"><a href="privcy-policy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
+			<div class="footer-subsection-text"><a href="cookie-policy.php" class="footer-link" target="blank"><span>Cookie Policy</span></a></div>
+		</div>
+		<div class="footer-bottom">
+			<div class="social-widgets">
+			<a href="https://facebook.com" class="footer-link" target="blank"><img class="widget" src="assets/images/facebook-widget.png"></a>
+			<a href="https://twitter.com" class="footer-link" target="blank"><img class="widget" src="assets/images/twitter-widget.png"></a>
+			<a href="https://instagram.com" class="footer-link" target="blank"><img class="widget" src="assets/images/instagram-widget.png"></a>
+			<a href="https://reddit.com" class="footer-link" target="blank"><img class="widget" src="assets/images/reddit-widget.png"></a>
+			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
+			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
+			</div>
+			<div class="footer-bottom-text"><span>Copyright © 2023 - <?= date("Y"); ?> Instant Borrow. All rights reserved.</span></div>
+		</div>
+	</div>
 </div>
 
 </div>

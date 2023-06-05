@@ -3,6 +3,13 @@ require('actions/questions/showAllRequestsAction.php');
 require('actions/questions/updateDatabases.php');
 ?>
 
+<?php
+session_start();
+if(isset($_SESSION['auth'])){
+    header('Location: dashboard.php');
+}
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -172,16 +179,10 @@ require('actions/questions/updateDatabases.php');
 	background-color: white;
 }
 
-.left-bar {
-	background-color: white;
-	width: 30%;
-	position: absolute;
-	height: calc(100% + 90px);
-}
 
 
 .sticky{
-	z-index: 5;
+	z-index: 1;
 	position: fixed;
 	margin-top: -20px;
 	width: 20%;
@@ -404,7 +405,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	width: 18%;
 	background-color: transparent;
 	padding: 4px;
-	color: #3d91e0;
+	color: #383838;
 	font-weight: 500;
 	font-size: 0.95rem;
 }
@@ -464,26 +465,128 @@ input::-webkit-datetime-edit-year-field:focus {
 
 .loan-request {
 	margin-left: 60px;
-	margin-top: -23px;
+	margin-top: -20px;
 	text-align: left;
-	margin-bottom: 35px;
+	margin-bottom: 40px;
 	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-bottom: 5px;
 	padding-left: 10px;
 	padding-right: 10px;
 	border: 1px solid #bababa;
 	background-color: white;
 	border-radius: 0.325rem;
 	transition: transform .2s;
-	transition: background-color .2s;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
+
 
 .loan-request:hover {
 	background-color: #fbfbfb;
   -ms-transform: scale(1.0055); /* IE 9 */
   -webkit-transform: scale(1.0055); /* Safari 3-8 */
   transform: scale(1.0055); 
+}
+
+.borrower-2 {
+	height: 23px;
+	text-align: center;
+	width: 18%;
+	background-color: transparent;
+	padding: 4px;
+	color: #3d91e0;
+	font-weight: 500;
+	font-size: 1.02rem;
+}
+
+.loan-amount-2 {
+	height: 23px;
+	text-align: center;
+	width: 18%;
+	background-color: transparent;
+	margin-top: -31px;
+	margin-left: 18%;
+	padding: 4px;
+	color: #383838;
+	font-weight: bold;
+	font-size: 1.15rem;
+}
+
+.repay-amount-2 {
+	height: 23px;
+	text-align: center;
+	width: 18%;
+	background-color: transparent;
+	margin-top: -31px;
+	margin-left: 36%;
+	padding: 4px;
+	color: #383838;
+	font-weight: bold;
+	font-size: 1.15rem;
+}
+
+.interest-rate-2	{
+	height: 23px;
+	text-align: center;
+	width: 18%;
+	background-color: transparent;
+	margin-top: -31px;
+	margin-left: 54%;
+	padding: 4px;
+	color: #383838;
+	font-weight: bold;
+	font-size: 1.15rem;
+}
+
+.repay-date-2 {
+	height: 23px;
+	text-align: center;
+	width: 17%;
+	background-color: transparent;
+	margin-top: -31px;
+	margin-left: 72%;
+	padding: 4px;
+	color: #383838;
+	font-weight: 500;
+	font-size: 1.1rem;
+}
+
+
+
+.trustscore {
+	text-align: center;
+	width: 18%;
+	height: 23px;
+	margin-top: 19px;
+	margin-left: 0%;
+	background-color: transparent;
+	padding-top: 5px;
+}
+
+.top-border {
+	width: 100%;
+	height: 23px;
+	margin-top: -29px;
+	border-top: 1px solid #bababa;
+	padding-top: 5px;
+	border-radius: 0, 0, 0.325rem, 0.325rem;
+}
+
+
+.feedback {
+	text-align: center;
+	width: 18%;
+	height: 23px;
+	margin-top: -29px;
+	margin-left: 18.7%;
+	background-color: transparent;
+	padding-top: 5px;
+	font-weight: bold;
+}
+
+.feedback-image {
+	height: 15px; 
+	width: auto;
+	margin-bottom: -1px;
 }
 
 .lend-button {
@@ -580,7 +683,6 @@ input::-webkit-datetime-edit-year-field:focus {
 	z-index: 10;
 	position: absolute;
 	width: 100%;
-	height: 500px;
 	margin-top: 80px;
 	background-color: white;
 	padding-top: 10px;
@@ -589,8 +691,82 @@ input::-webkit-datetime-edit-year-field:focus {
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
-.footer-text {
+
+.footer-content {
+	margin-top: 20px;
 	margin-left: 10%;
+	width: 80%;
+}
+
+.footer-1 {
+	height: 150px;
+	width: 25%;
+}
+
+.footer-2 {
+	height: 150px;
+	width: 25%;
+	margin-left: 25%;
+	margin-top: -150px;
+}
+
+.footer-3 {
+	height: 150px;
+	width: 25%;
+	margin-left: 50%;
+	margin-top: -150px;
+}
+
+.footer-4 {
+	height: 150px;
+	width: 25%;
+	margin-left: 75%;
+	margin-top: -150px;
+}
+
+.footer-subsection-title {
+	font-weight: 500;
+	font-size: 1.07rem;
+	margin-bottom: 20px;
+}
+
+.footer-subsection-text {
+	font-size: 0.95rem;
+	margin-bottom: 8px;
+	color: #2b2b2b;
+}
+
+.footer-link {
+	text-decoration: none;
+	color: #2b2b2b;
+}
+
+.footer-bottom {
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+.social-widgets {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.widget {
+	height: 34px;
+	width: 34px;
+	margin: 8px;
+	transition: transform 0.2s;
+}
+
+.widget:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1); 
+}
+
+.footer-bottom-text {
+	font-size: 0.86rem;
+	color: #2b2b2b;
 }
 </style>
 
@@ -611,8 +787,6 @@ input::-webkit-datetime-edit-year-field:focus {
 
 
 <div class="everything-except-header">
-
-<div class="left-bar"></div>
 
 <div class="main">
 
@@ -671,14 +845,24 @@ input::-webkit-datetime-edit-year-field:focus {
                 ?>
 			<div class="loan-request">
 				<div class="loan-details">
-						<div class="borrower"><a href="user-profile-nologin.php?id=<?=$question['id_borrower']; ?>" style="text-decoration: none; color: #3d91e0;"><span><?= $question['username_borrower']; ?></span></a></div>
-						<div class="loan-amount"><span><?= $question['loan_amount']; ?>$</span></div>
-						<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
-						<div class="interest-rate"><span><?= $question['interest']; ?>%</span></div>
-						<div class="repay-date"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
-				</div>
-				<div style="text-align: right; margin-top: -31px; margin-bottom: 0px;">
-					<a href="loan-nologin.php?id=<?= $question['id']; ?>"><button class="lend-button">LEND</button><a>
+						<div style="padding-bottom: 10px;">
+						<div class="borrower-2"><a href="user-profile-nologin.php?id=<?=$question['id_borrower']; ?>" style="text-decoration: none; color: #3d91e0;"><span><?= $question['username_borrower']; ?></span></a></div>
+						<div class="loan-amount-2"><span><?= $question['loan_amount']; ?>$</span></div>
+						<div class="repay-amount-2"><span><?= $question['repayment_amount']; ?>$</span></div>
+						<div class="interest-rate-2"><span><?= $question['interest']; ?>%</span></div>
+						<div class="repay-date-2"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
+						</div>
+						<div style="text-align: right; margin-top: -40px;">
+						<a href="loan-nologin.php?id=<?= $question['id']; ?>"><button class="lend-button">LEND</button><a>
+						</div>
+							<div class="trustscore">
+							<span>Trustscore: <span style="font-weight: bold; color: #00c4ff;"><?= $question['borrower_trustscore']; ?>/100</span></span>
+							</div>
+							<div class="top-border"></div>
+							<div class="feedback">
+							<span style="color: green;"><img src="assets/images/positive.png" class="feedback-image"> <?= $question['borrower_positive_feedback']; ?></span>
+							<span style="margin-left: 17px; color: red;"><img src="assets/images/negative.png" class="feedback-image"> <?= $question['borrower_negative_feedback']; ?></span>
+							</div>
 				</div>
 			</div>
 			<?php
@@ -758,7 +942,38 @@ input::-webkit-datetime-edit-year-field:focus {
 </div>
 
 <div class="footer">
-	<p class="footer-text">Instant Borrow</p>
+	<div class="footer-content">
+		<div class="footer-1">
+			<div><span>Instant Borrow</span></div>
+		</div>
+		<div class="footer-2">
+			<div class="footer-subsection-title"><span>Company</span></div>
+			<div class="footer-subsection-text"><a href="about.php" class="footer-link" target="blank"><span>About Instant Borrow</span></a></div>
+			<div class="footer-subsection-text"><a href="contact.php" class="footer-link" target="blank"><span>Contact Us</span></a></div>
+		</div>
+		<div class="footer-3">
+			<div class="footer-subsection-title"><span>Resources</span></div>
+			<div class="footer-subsection-text"><a href="faq.php" class="footer-link" target="blank"><span>FAQ's</span></a></div>
+			<div class="footer-subsection-text"><a href="support.php" class="footer-link" target="blank"><span>Support Center</span></a></div>
+		</div>
+		<div class="footer-4">
+			<div class="footer-subsection-title"><span>Legal</span></div>
+			<div class="footer-subsection-text"><a href="terms-conditions.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
+			<div class="footer-subsection-text"><a href="privcy-policy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
+			<div class="footer-subsection-text"><a href="cookie-policy.php" class="footer-link" target="blank"><span>Cookie Policy</span></a></div>
+		</div>
+		<div class="footer-bottom">
+			<div class="social-widgets">
+			<a href="https://facebook.com" class="footer-link" target="blank"><img class="widget" src="assets/images/facebook-widget.png"></a>
+			<a href="https://twitter.com" class="footer-link" target="blank"><img class="widget" src="assets/images/twitter-widget.png"></a>
+			<a href="https://instagram.com" class="footer-link" target="blank"><img class="widget" src="assets/images/instagram-widget.png"></a>
+			<a href="https://reddit.com" class="footer-link" target="blank"><img class="widget" src="assets/images/reddit-widget.png"></a>
+			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
+			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
+			</div>
+			<div class="footer-bottom-text"><span>Copyright © 2023 - <?= date("Y"); ?> Instant Borrow. All rights reserved.</span></div>
+		</div>
+	</div>
 </div>
 
 </div>

@@ -3,6 +3,12 @@ require('actions/users/login_borrowAction.php');
 require('actions/questions/updateDatabases.php');
 ?>
 
+<?php
+if(isset($_SESSION['auth'])){
+    header('Location: borrow-yeslogin.php');
+}
+?>
+
 <!DOCTYPE html>
 
 <html>

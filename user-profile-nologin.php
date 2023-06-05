@@ -6,6 +6,14 @@ require('actions/users/userTrustscoreForProfile.php');
 require('actions/users/userFeedbackProfileAction.php');
 ?>
 
+<?php
+session_start();
+if(isset($_SESSION['auth'])){
+    header('Location: user-profile-yeslogin.php');
+}
+?>
+
+
 <!DOCTYPE html>
 
 <html>
@@ -451,13 +459,33 @@ require('actions/users/userFeedbackProfileAction.php');
 
 .profile-picture {
 	height: 40px;
-	width: auto;
+	width: 40px;
+	border-radius: 50%;
 }
 
 .country-icon {
-	height: 11px;
+	height: 20px;
 	width: auto;
 	margin-left: 7px;
+	margin-bottom: -5px;
+	margin-top: 5px;
+}
+
+.country-icon:hover + .location-hidden {
+	display: inline;
+	margin-left: 7px;
+	border: 1px solid #e03434;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	padding: 3px;
+	border-radius: 0.325rem;
+}
+
+.location-hidden {
+	display: none;
+}
+
+.location-text {
+	font-weight: 500;
 }
 
 .chat-button {
@@ -775,8 +803,81 @@ require('actions/users/userFeedbackProfileAction.php');
 }
 
 
-.footer-text {
+.footer-content {
+	margin-top: 20px;
 	margin-left: 10%;
+	width: 80%;
+}
+
+.footer-1 {
+	height: 150px;
+	width: 25%;
+}
+
+.footer-2 {
+	height: 150px;
+	width: 25%;
+	margin-left: 25%;
+	margin-top: -150px;
+}
+
+.footer-3 {
+	height: 150px;
+	width: 25%;
+	margin-left: 50%;
+	margin-top: -150px;
+}
+
+.footer-4 {
+	height: 150px;
+	width: 25%;
+	margin-left: 75%;
+	margin-top: -150px;
+}
+
+.footer-subsection-title {
+	font-weight: 500;
+	font-size: 1.07rem;
+	margin-bottom: 20px;
+}
+
+.footer-subsection-text {
+	font-size: 0.95rem;
+	margin-bottom: 8px;
+	color: #2b2b2b;
+}
+
+.footer-link {
+	text-decoration: none;
+	color: #2b2b2b;
+}
+
+.footer-bottom {
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+.social-widgets {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.widget {
+	height: 34px;
+	width: 34px;
+	margin: 8px;
+	transition: transform 0.2s;
+}
+
+.widget:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1); 
+}
+
+.footer-bottom-text {
+	font-size: 0.86rem;
+	color: #2b2b2b;
 }
 
 </style>
@@ -802,20 +903,20 @@ require('actions/users/userFeedbackProfileAction.php');
 <div class="borrower-details" style="margin-top: 160px;">
 	<p class="subsection-title">User Information</p>
 		<div class="borrower-presentation">
-		<a href=""><img class="profile-picture" src="assets/images/profile-picture.png"></a>
-		<div style="margin-top: -49px; margin-left: 50px;"><span style="color: #00c4ff;"><?= $user_username; ?></span><img class="country-icon" src="assets/images/country-icon.jpg"></br><span>Member since <?= date('M Y', strtotime($user_join_date)); ?></span></div>
+		<img class="profile-picture" src="assets/images/profile-images/<?= $profile_picture; ?>">
+		<div style="margin-top: -49px; margin-left: 50px;"><span style="color: #00c4ff;"><?= $user_username; ?></span><img class="country-icon" src="assets/images/country-icons/<?=$country?>.png"><span class="location-hidden">Location: <span class="location-text"><?=$country?></span></span></br><span>Member since <?= date('M Y', strtotime($user_join_date)); ?></span></div>
 		</div>
 		
 		<button class="chat-button">Chat</button>
 		
 		<div class="column-1">
-		<span>Positive feedback</br><img class="thumbs-up" src="assets/images/thumbs-up.png"><span style="font-weight: bold; font-size: 1.35rem;"><?php echo ''.$positive_feedback.'';?></span></span>
+		<span>Positive feedback</br><img class="thumbs-up" src="assets/images/positive.png"><span style="font-weight: bold; font-size: 1.35rem;"><?php echo ''.$positive_feedback.'';?></span></span>
 		<div class="line" style="margin-top: 25px;"><span>Email</span></br><img class="checkmark" src="<?php if(isset($checkmark4)){echo ''.$checkmark4.'';}else {echo ''.$cross4.'';}?>"><span class="verification-box2"><?php if(isset($verified_email)){echo ''.$verified_email.'';}?></span><span class="verification-box"><?php if(isset($not_verified_email)){echo ''.$not_verified_email.'';}?></span></div>
 		<div class="line"><p>Address</br><img class="checkmark" src="<?php if(isset($checkmark2)){echo ''.$checkmark2.'';}else {echo ''.$cross2.'';}?>"><span class="verification-box2"><?php if(isset($verified_address)){echo ''.$verified_address.'';}?></span><span class="verification-box"><?php if(isset($not_verified_address)){echo ''.$not_verified_address.'';}?></span></p></div>
 		</div>
 		
 		<div class="column-2">
-		<span>Negative feedback</br><img class="thumbs-down" src="assets/images/thumbs-down.png"><span style="font-weight: bold; font-size: 1.35rem;"><?php echo ''.$negative_feedback.'';?></span></span>
+		<span>Negative feedback</br><img class="thumbs-down" src="assets/images/negative.png"><span style="font-weight: bold; font-size: 1.35rem;"><?php echo ''.$negative_feedback.'';?></span></span>
 		<div class="line"><p style="margin-top: 25px;">ID Card</br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}else {echo ''.$cross3.'';}?>"><span class="verification-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="verification-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span></p></div>
 		<div class="line"><p>Phone Number</br><img class="checkmark" src="<?php if(isset($checkmark1)){echo ''.$checkmark1.'';}else {echo ''.$cross1.'';}?>"><span class="verification-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span><span class="verification-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span></p></div>
 		</div>
@@ -865,8 +966,8 @@ require('actions/users/userFeedbackProfileAction.php');
 			<div class="loan-amount"><span><?= $question['loan_amount']; ?>$</span></div>
 			<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
 			<div class="interest-rate"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
-			<div class="repay-date"><span><?= $status_public; ?></span></div>
-			<div class="feedback"><span>Positive</span></div>
+			<div class="repay-date"><span><?= $question['status']; ?></span></div>
+			<div class="feedback"><span><?= $question['feedback_given']; ?></span></div>
 			<div class="payment-method"><a style="text-decoration: none; color: #3d91e0;" href="user-profile-nologin.php?id=<?= $question['id_lender']; ?>"><span><?= $question['username_lender']; ?></span></a></div>
 	</div>
 </div>
@@ -878,7 +979,38 @@ require('actions/users/userFeedbackProfileAction.php');
 
 
 <div class="footer">
-	<p class="footer-text">Instant Borrow</p>
+	<div class="footer-content">
+		<div class="footer-1">
+			<div><span>Instant Borrow</span></div>
+		</div>
+		<div class="footer-2">
+			<div class="footer-subsection-title"><span>Company</span></div>
+			<div class="footer-subsection-text"><a href="about.php" class="footer-link" target="blank"><span>About Instant Borrow</span></a></div>
+			<div class="footer-subsection-text"><a href="contact.php" class="footer-link" target="blank"><span>Contact Us</span></a></div>
+		</div>
+		<div class="footer-3">
+			<div class="footer-subsection-title"><span>Resources</span></div>
+			<div class="footer-subsection-text"><a href="faq.php" class="footer-link" target="blank"><span>FAQ's</span></a></div>
+			<div class="footer-subsection-text"><a href="support.php" class="footer-link" target="blank"><span>Support Center</span></a></div>
+		</div>
+		<div class="footer-4">
+			<div class="footer-subsection-title"><span>Legal</span></div>
+			<div class="footer-subsection-text"><a href="terms-conditions.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
+			<div class="footer-subsection-text"><a href="privcy-policy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
+			<div class="footer-subsection-text"><a href="cookie-policy.php" class="footer-link" target="blank"><span>Cookie Policy</span></a></div>
+		</div>
+		<div class="footer-bottom">
+			<div class="social-widgets">
+			<a href="https://facebook.com" class="footer-link" target="blank"><img class="widget" src="assets/images/facebook-widget.png"></a>
+			<a href="https://twitter.com" class="footer-link" target="blank"><img class="widget" src="assets/images/twitter-widget.png"></a>
+			<a href="https://instagram.com" class="footer-link" target="blank"><img class="widget" src="assets/images/instagram-widget.png"></a>
+			<a href="https://reddit.com" class="footer-link" target="blank"><img class="widget" src="assets/images/reddit-widget.png"></a>
+			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
+			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
+			</div>
+			<div class="footer-bottom-text"><span>Copyright © 2023 - <?= date("Y"); ?> Instant Borrow. All rights reserved.</span></div>
+		</div>
+	</div>
 </div>
 
 </div>

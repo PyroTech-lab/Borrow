@@ -4,6 +4,13 @@
 require('actions/users/signupAction.php');
 require('actions/questions/updateDatabases.php');
 ?>
+
+<?php
+if(isset($_SESSION['auth'])){
+    header('Location: dashboard.php');
+}
+?>
+
 <html>
 
 <head>

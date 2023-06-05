@@ -3,6 +3,12 @@ require('actions/users/loginAction.php');
 require('actions/questions/updateDatabases.php');
 ?>
 
+<?php
+if(isset($_SESSION['auth'])){
+    header('Location: dashboard.php');
+}
+?>
+
 <!DOCTYPE html>
 
 <html>
