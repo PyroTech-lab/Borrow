@@ -36,7 +36,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 		$UpdateStatus = $bdd->prepare('UPDATE loan SET status="unpaid_banned_archived" WHERE id = ? AND id_lender= ? AND status="unpaid_banned"');
 		$UpdateStatus->execute(array($idOfLoan, $_SESSION['id']));
 			
-	}
+	}else{$Loannotfound ="yes";}
 
-}
+}else{$Loannotfound ="yes";}
 	

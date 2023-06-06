@@ -24,9 +24,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
         $username_borrower = $questionsInfos['username_borrower'];
 		$notes = $questionsInfos['notes'];
         
-    }else{
-        $errorMsg = "No Requests Found";
-    }
+
 	
 
 
@@ -155,6 +153,9 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 				else{
 				$profile_picture = $GetPicture['profile_picture'];
 				}
-}
+				
+	    }else{$Loannotfound ="yes";}
+		
+}else{$Loannotfound ="yes";}
 
 

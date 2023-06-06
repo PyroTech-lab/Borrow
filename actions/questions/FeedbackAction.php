@@ -8,10 +8,12 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
  
     $idOfLoan = $_GET['id'];
 
-
-$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ?');
+		
+	$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ?');
     $checkIfLoanExists->execute(array($idOfLoan));
 
+		if($checkIfLoanExists->rowCount() > 0){
+		
         $LoanInfos = $checkIfLoanExists->fetch();
 
         $loan_amount = $LoanInfos['loan_amount'];
@@ -21,9 +23,12 @@ $checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ?');
 		$username_lender = $LoanInfos['username_lender'];
 		$id_borrower = $LoanInfos['id_borrower'];
 		$status = $LoanInfos['status'];
+		
+		}else {$Loannotfound ="yes";}
 
 
-}
+}else{ $Loannotfound ="yes";}
+
 
 $getPaidOntime = $bdd->prepare('SELECT status FROM loan WHERE id = ? AND (status="paid_ontime_notseen" OR status="paid_ontime")');
 $getPaidOntime->execute(array($idOfLoan));
@@ -82,7 +87,7 @@ if(isset($_POST['notification_repaid'])){
 				$addFeedbacktoLoanTable = $bdd->prepare('UPDATE loan SET feedback_given="Positive" WHERE id = ?');
 				$addFeedbacktoLoanTable->execute(array($idOfLoan));
 				
-				$successmessage = "Feedback submitted succesfully!";
+				$successmessage = "<span>Feedback submitted succesfully!</span></br><a href='dashboard.php'><button>Back to Home</button></a>";
 				}
 			
 			if($feedback == 'negative'){
@@ -93,11 +98,11 @@ if(isset($_POST['notification_repaid'])){
 				$addFeedbacktoLoanTable = $bdd->prepare('UPDATE loan SET feedback_given="Negative" WHERE id = ?');
 				$addFeedbacktoLoanTable->execute(array($idOfLoan));
 				
-				$successmessage = "Feedback submitted succesfully!";
+				$successmessage = "<span>Feedback submitted succesfully!</span></br><a href='dashboard.php'><button>Back to Home</button></a>";
 				}
 
 	}else{
-		$errormessage = "You have already given your feedback on this loan.";
+		$errormessage = "</span>You have already given your feedback on this loan.</span>";
 	}
 
 }

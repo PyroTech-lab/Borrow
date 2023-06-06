@@ -42,6 +42,7 @@ if(isset($_POST['submit'])){
 						$request_username_borrower = $_SESSION['username'];
 						$notes = nl2br(htmlspecialchars($_POST['notes']));
 						$status = 'request';
+						$status_public = 'Request';
 
 
 						$insertQuestionOnWebsite = $bdd->prepare('INSERT INTO loan (loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, notes, status)VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
@@ -54,7 +55,7 @@ if(isset($_POST['submit'])){
 								$request_id_borrower,
 								$request_username_borrower,
 								$notes,
-								$status
+								$status,
 							)
 						);
 						
