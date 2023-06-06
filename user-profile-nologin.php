@@ -958,6 +958,21 @@ if(isset($_SESSION['auth'])){
 </div>	
 	<?php
 	while($question = $getHisQuestions->fetch()){
+		
+				
+			if(($question['status'] == "paid_ontime")OR($question['status'] == "paid_ontime_notseen")){
+				$status_color = "#03cf00";
+				$status_public = "Paid On Time";
+			}elseif(($question['status'] == "paid_late")OR($question['status'] == "paid_late_notseen")){
+				$status_color = "Orange";
+				$status_public = "Paid Late";
+			}elseif(($question['status'] == "unpaid")OR($question['status'] == "unpaid_notseen")OR($question['status'] == "unpaid_banned")OR($question['status'] == "unpaid_banned_archived")){
+				$status_color = "Red";
+				$status_public = "Unpaid";
+			}elseif(($question['status'] == "active")OR($question['status'] == "active_notseen")){
+				$status_color = "#2b80ff";
+				$status_public = "Active";
+			}
 		?>
 		
 
@@ -966,7 +981,7 @@ if(isset($_SESSION['auth'])){
 			<div class="loan-amount"><span><?= $question['loan_amount']; ?>$</span></div>
 			<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
 			<div class="interest-rate"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
-			<div class="repay-date"><span><?= $question['status']; ?></span></div>
+			<div class="repay-date"><span style="color: <?=$status_color; ?>;"><?= $status_public;?></span></div>
 			<div class="feedback"><span><?= $question['feedback_given']; ?></span></div>
 			<div class="payment-method"><a style="text-decoration: none; color: #3d91e0;" href="user-profile-nologin.php?id=<?= $question['id_lender']; ?>"><span><?= $question['username_lender']; ?></span></a></div>
 	</div>
@@ -997,7 +1012,6 @@ if(isset($_SESSION['auth'])){
 			<div class="footer-subsection-title"><span>Legal</span></div>
 			<div class="footer-subsection-text"><a href="terms-conditions.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
 			<div class="footer-subsection-text"><a href="privcy-policy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
-			<div class="footer-subsection-text"><a href="cookie-policy.php" class="footer-link" target="blank"><span>Cookie Policy</span></a></div>
 		</div>
 		<div class="footer-bottom">
 			<div class="social-widgets">

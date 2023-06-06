@@ -5,6 +5,12 @@ require('actions/questions/updateDatabases.php');
 require('actions/users/bannedAction.php');
 ?>
 
+<?php
+	if(isset($Loannotfound)){ 
+	header('Location: loannotfound-yeslogin.php');
+	}
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -463,7 +469,6 @@ require('actions/users/bannedAction.php');
 			<div class="footer-subsection-title"><span>Legal</span></div>
 			<div class="footer-subsection-text"><a href="terms-conditions.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
 			<div class="footer-subsection-text"><a href="privcy-policy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
-			<div class="footer-subsection-text"><a href="cookie-policy.php" class="footer-link" target="blank"><span>Cookie Policy</span></a></div>
 		</div>
 		<div class="footer-bottom">
 			<div class="social-widgets">

@@ -173,6 +173,43 @@ if(isset($_SESSION['auth'])){
 }
 
 
+.message-container {
+	margin-top: 200px;
+	margin-left: 10%;
+	margin-bottom: 120px;
+	width: 80%;
+}
+
+.message-title {
+	font-size: 2.85rem;
+	font-weight: bold;
+	color: #00c4ff;
+}
+
+.message-subtitle {
+	margin-top: -10px;
+	font-size: 1.85rem;
+	font-weight: bold;
+}
+
+.message-button {
+	margin-top: 50px;
+	background-color: #2b80ff;
+	color: white;
+	font-weight: bold;
+	font-size: 1.65rem;
+	border-radius: 0.125rem;
+	border: 0px;
+	padding: 10px;
+	outline: 1px solid #2b80ff;
+	transition: background-color 0.2s;
+}
+
+.message-button:hover {
+	background-color: #00c4ff;
+	outline: 1px solid #00c4ff;
+}
+
 
 .footer {
 	z-index: 10;
@@ -283,6 +320,11 @@ if(isset($_SESSION['auth'])){
 <div class="everything-except-header">
 
 
+<div class="message-container">
+<h1 class="message-title">User Not Found</h1>
+<h2 class="message-subtitle">The User you are Looking for Does not Exist...</h2>
+<a href="index.php"><button class="message-button">Go Back Home</button></a>
+</div>
 
 
 <div class="footer">
@@ -304,7 +346,6 @@ if(isset($_SESSION['auth'])){
 			<div class="footer-subsection-title"><span>Legal</span></div>
 			<div class="footer-subsection-text"><a href="terms-conditions.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
 			<div class="footer-subsection-text"><a href="privcy-policy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
-			<div class="footer-subsection-text"><a href="cookie-policy.php" class="footer-link" target="blank"><span>Cookie Policy</span></a></div>
 		</div>
 		<div class="footer-bottom">
 			<div class="social-widgets">

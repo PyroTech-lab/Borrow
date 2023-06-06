@@ -620,6 +620,65 @@ require('actions/users/bannedAction.php');
 	font-size: 1.08rem;
 }
 
+.image-button-visible {
+	display: block;
+}
+
+.image-button-hidden {
+	display: none;
+}
+
+.popups {
+	background-color:  rgba(0, 0, 0, 0.725);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	display: none;
+}
+
+.edit-profile-picture-div {
+	display: none;
+	background-color: white;
+	width: 400px;
+	height: 400px;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 200px);
+	border-radius: 0.425rem;
+}
+
+.change-password-div {
+	display: none;
+	background-color: white;
+	width: 400px;
+	height: 400px;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 200px);
+	border-radius: 0.425rem;
+}
+
+.change-email-div {
+	display: none;
+	background-color: white;
+	width: 400px;
+	height: 400px;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 200px);
+	border-radius: 0.425rem;
+}
+
+.delete-account-div {
+	display: none;
+	background-color: white;
+	width: 400px;
+	height: 400px;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 200px);
+	border-radius: 0.425rem;
+}
+
+
 .footer {
 	z-index: 10;
 	width: 100%;
@@ -764,6 +823,62 @@ require('actions/users/bannedAction.php');
 
 <div class="everything-except-header">
 
+
+
+					<div class="popups" id="popups">
+						<div class="edit-profile-picture-div" id="edit-profile-picture-div">
+							<form method="POST" action="upload.php" enctype="multipart/form-data">
+								<div class="upload-wrapper">
+								<span class="file-name">Choose a file...</span>
+								<label for="file-upload">Browse<input type="file" id="file-upload" name="uploadedFile"></label>
+								</div>
+								<input class="<?= $Profile_image_add; ?>" type="submit" name="AddimageButton" value="Add Image" />
+								<input class="<?= $Profile_image_edit; ?>" type="submit" name="EditimageButton" value="Edit Image" />
+							 </form>
+							<?php 
+							if(isset($removeProfilePicture)){ 
+								echo '<form method="post"><p>'.$removeProfilePicture.'</p><input type="submit" value="Delete" name="delete_picture"></form>'; 
+							}
+							?>
+							<button onclick="CloseProfilePicturePopup()">Cancel</button>
+						</div>
+						
+						<div class="change-password-div" id="change-password-div">
+							<form method="post">
+							<input name="current_password" type="password">
+							<input name="new_password" type="password">
+							<input name="change_password" type="submit" value="Change Password">
+							</form>
+							<button onclick="CloseChangePasswordPopup()">Cancel</button>
+						</div>
+						
+						<div class="change-email-div" id="change-email-div">
+							<form method="post">
+							<input name="new_email" type="email" autocomplete="off" required>
+							<input name="change_email" type="submit" value="Change Email">
+							</form>
+							<button onclick="CloseChangePasswordPopup()">Cancel</button>
+							<?php 
+							if(isset($email_error_message)){ 
+							echo $email_error_message; 
+							}
+							?>
+						</div>
+						
+						<div class="delete-account-div" id="delete-account-div">
+							<form method="post">
+							<input name="delete_account" type="submit" value="Delete Account"></form>
+							<?php 
+							if(isset($errorMsg)){ 
+							echo '<p class="error-message">'.$errorMsg.'</p>'; 
+							}
+							?>
+							<button onclick="CloseDeleteAccountPopup()">Cancel</button>
+						</div>
+					</div>
+
+
+
 <div class="main">
 	<div class="dashboard">
 	
@@ -844,37 +959,16 @@ require('actions/users/bannedAction.php');
 			<p>Member Since: <span class="user-details"><?= date('M jS, Y', strtotime($user_join_date)); ?></span></p>
 		</div>
 		<div class="column-113" style="font-weight: 500;">
-			<p class="add-picture"><?= $addOrEdit; ?> Profile Picture</p>
-							  <form method="POST" action="upload.php" enctype="multipart/form-data">
-								<div class="upload-wrapper">
-								  <span class="file-name">Choose a file...</span>
-								  <label for="file-upload">Browse<input type="file" id="file-upload" name="uploadedFile"></label>
-								</div>
-								<input type="submit" name="uploadBtn" value="Upload" />
-							  </form>
-							  <?php 
-								if(isset($removeProfilePicture)){ 
-									echo '<form method="post"><p>'.$removeProfilePicture.'</p><input type="submit" value="Delete" name="delete_picture"></form>'; 
-								}
-								?>
-			<p class="change-password">Change Password</p>
-			<form method="post">
-			<input name="current_password" type="password">
-			<input name="new_password" type="password">
-			<input name="change_password" type="submit" value="Change Password">
-			</form>
-			<a href="verifications.php" style="color: black; text-decoration: none;"><p class="update-verifications">Update Verifications</p></a>
-			<p class="delete-account" style="color: red;">Delete Account</p>
-			<form method="post"><input name="delete_account" type="submit" value="Delete Account"></form>
-			
-			<?php 
-            if(isset($errorMsg)){ 
-                echo '<p class="error-message">'.$errorMsg.'</p>'; 
-            }
-			?>
+			<p class="add-picture" onclick="ProfilePicturePopup()"><?= $addOrEdit; ?> Profile Picture</p>
+			<p class="change-password" onclick="ChangePasswordPopup()">Change Password</p>
+			<p class="update-verifications" onclick="ChangeEmailPopup()">change Email Address</p>
+			<p class="delete-account" style="color: red;" onclick="DeleteAccountPopup()">Delete Account</p>
 		</div>
 	</div>
 </div>
+
+
+
 
 <div class="footer">
 	<div class="footer-content">
@@ -895,7 +989,6 @@ require('actions/users/bannedAction.php');
 			<div class="footer-subsection-title"><span>Legal</span></div>
 			<div class="footer-subsection-text"><a href="terms-conditions.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
 			<div class="footer-subsection-text"><a href="privcy-policy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
-			<div class="footer-subsection-text"><a href="cookie-policy.php" class="footer-link" target="blank"><span>Cookie Policy</span></a></div>
 		</div>
 		<div class="footer-bottom">
 			<div class="social-widgets">
@@ -913,6 +1006,61 @@ require('actions/users/bannedAction.php');
 
 </div>
 
+<script>
+function ProfilePicturePopup() {
+  document.getElementById("edit-profile-picture-div").style.display = "block";
+   document.getElementById("popups").style.display = "block";
+}
+</script>
+
+<script>
+function ChangePasswordPopup() {
+  document.getElementById("change-password-div").style.display = "block";
+  document.getElementById("popups").style.display = "block";
+}
+</script>
+
+<script>
+function ChangeEmailPopup() {
+  document.getElementById("change-email-div").style.display = "block";
+  document.getElementById("popups").style.display = "block";
+}
+</script>
+
+<script>
+function DeleteAccountPopup() {
+  document.getElementById("delete-account-div").style.display = "block";
+  document.getElementById("popups").style.display = "block";
+}
+</script>
+
+<script>
+function CloseProfilePicturePopup() {
+  document.getElementById("edit-profile-picture-div").style.display = "none";
+  document.getElementById("popups").style.display = "none";
+}
+</script>
+
+<script>
+function CloseChangePasswordPopup() {
+  document.getElementById("change-password-div").style.display = "none";
+  document.getElementById("popups").style.display = "none";
+}
+</script>
+
+<script>
+function CloseChangeEmailPopup() {
+  document.getElementById("change-email-div").style.display = "none";
+  document.getElementById("popups").style.display = "none";
+}
+</script>
+
+<script>
+function CloseDeleteAccountPopup() {
+  document.getElementById("delete-account-div").style.display = "none";
+  document.getElementById("popups").style.display = "none";
+}
+</script>
 
 </body>
 

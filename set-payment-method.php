@@ -452,12 +452,13 @@ require('actions/users/bannedAction.php');
 	padding: 9px;
 	width: 15%;
 	min-width: 140px;
-	background-color: red;
+	background-color: #de0404;
 	color: white;
 	border: 2px solid white;
 	border-radius: 0.325rem;
 	font-weight: bold;
 	font-size: 0.88rem;
+	transition: background-color .2s;
 }
 
 .borrow-button {
@@ -465,20 +466,21 @@ require('actions/users/bannedAction.php');
 	width: 15%;
 	min-width: 140px;
 	right: 0;
-	background-color: red;
+	background-color: #f2a100;
 	color: white;
 	border: 2px solid white;
 	border-radius: 0.325rem;
 	font-weight: bold;
 	font-size: 0.88rem;
+	transition: background-color .2s;
 }
 
 .load-more:hover {
-	background-color: yellow;
+	background-color: #ff0303;
 }
 
 .borrow-button:hover {
-	background-color: green;
+	background-color: #edd500;
 }
 
 .explain {
@@ -746,7 +748,6 @@ require('actions/users/bannedAction.php');
 			<div class="footer-subsection-title"><span>Legal</span></div>
 			<div class="footer-subsection-text"><a href="terms-conditions.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
 			<div class="footer-subsection-text"><a href="privcy-policy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
-			<div class="footer-subsection-text"><a href="cookie-policy.php" class="footer-link" target="blank"><span>Cookie Policy</span></a></div>
 		</div>
 		<div class="footer-bottom">
 			<div class="social-widgets">
