@@ -5,7 +5,7 @@ require('actions/database.php');
 
 if(isset($_GET['id']) AND !empty($_GET['id'])){
 
- 
+  
     $idOfUser = $_GET['id'];
 
 
@@ -23,7 +23,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 		$user_join_date = $usersInfos['join_date'];
 
 
-		$getHisQuestions = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_lender, username_lender, status, feedback_given FROM loan WHERE id_borrower = ? AND NOT status="request" ORDER BY id DESC LIMIT 0,20');
+		$getHisQuestions = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND NOT status="request" ORDER BY id DESC LIMIT 0,20');
 		$getHisQuestions->execute(array($idOfUser));
 
 		if($getHisQuestions->rowCount() == 0){
@@ -129,39 +129,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 					$getSupposedRepaymentBorrowedAmountMessage = "0.0000000001";
 				}
 				
-				
-				
-				$getActive = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, status FROM loan WHERE id_borrower = ? AND status="active" OR status="active_notseen"');
-				$getActive->execute(array($idOfUser));
 
-				if($getActive->rowCount() > 0){
-					$status_public = "<span style='color: #2b80ff;'>Active</span>";
-				}
-
-
-				$getPaidOntime = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, status FROM loan WHERE id_borrower = ? AND status="paid_ontime" OR status="paid_ontime_notseen"');
-				$getPaidOntime->execute(array($idOfUser));
-
-				if($getPaidOntime->rowCount() > 0){
-					$status_public = "<span style='color: #1bbf02;'>Paid on Time</span>";
-				}
-
-
-				$getPaidLate = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, status FROM loan WHERE id_borrower = ? AND status="paid_late" OR status="paid_late_notseen"');
-				$getPaidLate->execute(array($idOfUser));
-
-				if($getPaidLate->rowCount() > 0){
-					$status_public = "<span style='color: #f7b228;'>Paid Late</span>";
-				}
-
-				$getPaidLate = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, status FROM loan WHERE id_borrower = ? AND (status="unpaid" OR status="unpaid_notseen" OR status="unpaid_banned" OR status="unpaid_banned_archived")');
-				$getPaidLate->execute(array($idOfUser));
-
-				if($getPaidLate->rowCount() > 0){
-					$status_public = "<span style='color: red;'>Unpaid</span>";
-				}
-
-				
 				
 				$GetBorrowersCountry = $bdd->prepare('SELECT country FROM users WHERE id = ?');
 				$GetBorrowersCountry->execute(array($idOfUser));
@@ -193,4 +161,6 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
     }else{
 		$usernotfound ="yes";
 	}
+}else{
+	$usernotfound ="yes";
 }

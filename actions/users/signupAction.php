@@ -32,7 +32,7 @@ if(isset($_POST['signup'])){
 			
 			 if(($checkIfUsernameAvailable->rowCount() == 0)AND($checkIfUsernameAvailable2->rowCount() == 0)){
 				 
-				if(strlen($_POST['username']) < 17){
+				if(strlen($_POST['username']) < 18){
 			
 				if(strlen($_POST['password']) >= 8){
             
@@ -68,7 +68,7 @@ if(isset($_POST['signup'])){
 				}
 				
 				}else{
-					$errorMsg = "Username must contain less than 17 Characters";
+					$errorMsg = "Username must contain less than 18 Characters";
 				}
 
 				 }else{

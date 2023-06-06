@@ -1,7 +1,7 @@
 <?php
 require('actions/database.php');
 
-$checkUnpaidLoans = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_lender, username_lender, status FROM loan WHERE id_borrower = ? AND status="unpaid"');
+$checkUnpaidLoans = $bdd->prepare('SELECT id, loan_amount, repayment_amount, repayment_date, request_date, id_lender, username_lender, status FROM loan WHERE id_borrower = ? AND (status="unpaid" OR status="unpaid_notseen")');
 $checkUnpaidLoans->execute(array($_SESSION['id']));
 
 
@@ -29,6 +29,7 @@ if($checkDueSoonLoans->rowCount() > 0){
 	$hours_remaining = floor(((($remaining) % 86400) / 3600) +24);
 
 	$RepaymentDateSoonMsg = "Your Loan is Due in $hours_remaining Hours. Click here to repay it.";
+	
 
 }
 
