@@ -22,6 +22,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 		$id_lender = $LoanInfos['id_lender'];
 		$username_lender = $LoanInfos['username_lender'];
 		$id_borrower = $LoanInfos['id_borrower'];
+		$username_borrower = $LoanInfos['username_borrower'];
 		$status = $LoanInfos['status'];
 		
 		}else {$Loannotfound ="yes";}
@@ -35,6 +36,7 @@ $getPaidOntime->execute(array($idOfLoan));
 
 if($getPaidOntime->rowCount() > 0){
 	$status_public = "<span style='color: #1bbf02;'>Paid on Time</span>";
+	
 }
 
 
@@ -52,14 +54,14 @@ if($getPaidLate->rowCount() > 0){
 
 if(isset($_POST['notification_repaid'])){
 	
-$MarkSeenOntime= $bdd->prepare('UPDATE loan SET status="paid_ontime" WHERE id_borrower = ? AND status="paid_ontime_notseen"');
-$MarkSeenOntime->execute(array($id_borrower));
+$MarkSeenOntime= $bdd->prepare('UPDATE loan SET status="paid_ontime" WHERE id = ? AND status="paid_ontime_notseen"');
+$MarkSeenOntime->execute(array($idOfLoan));
 
 
 
 
-$MarkSeenLate = $bdd->prepare('UPDATE loan SET status="paid_late" WHERE id_borrower = ? AND status="paid_late_notseen"');
-$MarkSeenLate->execute(array($id_borrower));
+$MarkSeenLate = $bdd->prepare('UPDATE loan SET status="paid_late" WHERE id = ? AND status="paid_late_notseen"');
+$MarkSeenLate->execute(array($idOfLoan));
 
 }
 
@@ -87,7 +89,7 @@ if(isset($_POST['notification_repaid'])){
 				$addFeedbacktoLoanTable = $bdd->prepare('UPDATE loan SET feedback_given="Positive" WHERE id = ?');
 				$addFeedbacktoLoanTable->execute(array($idOfLoan));
 				
-				$successmessage = "<span>Feedback submitted succesfully!</span></br><a href='dashboard.php'><button>Back to Home</button></a>";
+				$successmessage = "<div class='success-message-feedback'>Feedback submitted succesfully!</div>";
 				}
 			
 			if($feedback == 'negative'){
@@ -98,11 +100,11 @@ if(isset($_POST['notification_repaid'])){
 				$addFeedbacktoLoanTable = $bdd->prepare('UPDATE loan SET feedback_given="Negative" WHERE id = ?');
 				$addFeedbacktoLoanTable->execute(array($idOfLoan));
 				
-				$successmessage = "<span>Feedback submitted succesfully!</span></br><a href='dashboard.php'><button>Back to Home</button></a>";
+				$successmessage = "<div class='success-message-feedback'>Feedback submitted succesfully!</div>";
 				}
 
 	}else{
-		$errormessage = "</span>You have already given your feedback on this loan.</span>";
+		$errormessage = "<div class='error-message-feedback'>You have already given your feedback on this loan.</div>";
 	}
 
 }

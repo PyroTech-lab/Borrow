@@ -4,7 +4,7 @@ require('actions/database.php');
 
 
 	$limitLow = 0;
-	$limitHigh = 30;
+	$limitHigh = 3;
 	$class1 = "load-more-visible";
 	$class2 = "load-more-hidden";
 	$class3 = "load-more-hidden";
@@ -18,8 +18,8 @@ require('actions/database.php');
 	$classButton = "borrow-button-container";
 
 if (isset($_GET['load_more1'])) {
-	$limitLow = 30;
-	$limitHigh = 60;
+	$limitLow = 0;
+	$limitHigh = 30;
 	$class1 = "load-more-hidden";
 	$class2 = "load-more-visible";
 	$class3 = "load-more-hidden";
@@ -33,8 +33,8 @@ if (isset($_GET['load_more1'])) {
 	$classButton = "borrow-button-container";
 }
 if (isset($_GET['load_more2'])) {
-	$limitLow = 60;
-	$limitHigh = 90;
+	$limitLow = 0;
+	$limitHigh = 60;
 	$class1 = "load-more-hidden";
 	$class2 = "load-more-hidden";
 	$class3 = "load-more-visible";
@@ -48,8 +48,8 @@ if (isset($_GET['load_more2'])) {
 	$classButton = "borrow-button-container";
 }
 if (isset($_GET['load_more3'])) {
-	$limitLow = 90;
-	$limitHigh = 120;
+	$limitLow = 0;
+	$limitHigh = 90;
 	$class1 = "load-more-hidden";
 	$class2 = "load-more-hidden";
 	$class3 = "load-more-hidden";
@@ -59,8 +59,8 @@ if (isset($_GET['load_more3'])) {
 	$classButton = "borrow-button-container";
 }
 if (isset($_GET['load_more4'])) {
-	$limitLow = 120;
-	$limitHigh = 150;
+	$limitLow = 0;
+	$limitHigh = 120;
 	$class1 = "load-more-hidden";
 	$class2 = "load-more-hidden";
 	$class3 = "load-more-hidden";
@@ -74,7 +74,7 @@ if (isset($_GET['load_more4'])) {
 	$classButton = "borrow-button-container";
 }
 if (isset($_GET['load_more5'])) {
-	$limitLow = 150;
+	$limitLow = 0;
 	$limitHigh = 180;
 	$class1 = "load-more-hidden";
 	$class2 = "load-more-hidden";
@@ -89,7 +89,7 @@ if (isset($_GET['load_more5'])) {
 	$classButton = "borrow-button-container";
 }
 if (isset($_GET['load_more6'])) {
-	$limitLow = 180;
+	$limitLow = 0;
 	$limitHigh = 210;
 	$class1 = "load-more-hidden";
 	$class2 = "load-more-hidden";
@@ -104,7 +104,7 @@ if (isset($_GET['load_more6'])) {
 	$classButton = "borrow-button-container";
 }
 if (isset($_GET['load_more7'])) {
-	$limitLow = 180;
+	$limitLow = 0;
 	$limitHigh = 210;
 	$class1 = "load-more-hidden";
 	$class2 = "load-more-hidden";
@@ -119,7 +119,7 @@ if (isset($_GET['load_more7'])) {
 	$classButton = "borrow-button-container";
 }
 if (isset($_GET['load_more8'])) {
-	$limitLow = 180;
+	$limitLow = 0;
 	$limitHigh = 210;
 	$class1 = "load-more-hidden";
 	$class2 = "load-more-hidden";
@@ -134,7 +134,7 @@ if (isset($_GET['load_more8'])) {
 	$classButton = "borrow-button-container";
 }
 if (isset($_GET['load_more9'])) {
-	$limitLow = 180;
+	$limitLow = 0;
 	$limitHigh = 210;
 	$class1 = "load-more-hidden";
 	$class2 = "load-more-hidden";
@@ -149,7 +149,7 @@ if (isset($_GET['load_more9'])) {
 	$classButton = "borrow-button-container";
 }
 if (isset($_GET['load_more10'])) {
-	$limitLow = 180;
+	$limitLow = 0;
 	$limitHigh = 210;
 	$class1 = "load-more-hidden";
 	$class2 = "load-more-hidden";
