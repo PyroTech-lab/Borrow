@@ -60,6 +60,7 @@ if(isset($_POST['signup'])){
 				
 				$AddUserToFeedbackSystem = $bdd->prepare('INSERT INTO feedback SET positive_feedback="0", negative_feedback="0", id_user = ?');
 				$AddUserToFeedbackSystem->execute(array($_SESSION['id']));
+				
 
 				header('Location: dashboard.php');
 				

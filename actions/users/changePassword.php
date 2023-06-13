@@ -2,6 +2,7 @@
 
 require('actions/database.php');
 
+$visible_onload_changepassword = "";
 
 if(isset($_POST['change_password'])){
 
@@ -28,16 +29,19 @@ if(isset($_POST['change_password'])){
 
     
             }else{
-                $errorMsg = "Wrong Password";
+                $password_errorMsg = "Wrong Password";
+				$visible_onload_changepassword = "-visible";
             }
 			
 		}else{
-			$errorMsg = "Password must contain at least 8 Characters";
+			$password_errorMsg = "Password must contain at least 8 Characters";
+			$visible_onload_changepassword = "-visible";
 		}
 
 
     }else{
-        $errorMsg = "Please fill out all the fields...";
+        $password_errorMsg = "Please fill out all the fields...";
+		$visible_onload_changepassword = "-visible";
     }
 
 }

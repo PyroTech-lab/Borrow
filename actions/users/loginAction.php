@@ -57,6 +57,7 @@ if(isset($_POST['login'])){
 						$GetLoanId = $GetUnpaidLoan->fetch();
 					
 						$_SESSION['banned'] = true;
+						$_SESSION['id'] = $BannedusersInfos['id_user'];
 						
 						header('Location: banned.php?id='.$GetLoanId['id'].'');
 						

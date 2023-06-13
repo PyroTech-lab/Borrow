@@ -77,25 +77,6 @@ if(isset($_POST['chime_submit'])){
 
 
 
-
-
-
-
-
-if(isset($_POST['wise_submit'])){
-	
-		$id_user6 = $_SESSION['id'];
-	
-			$wise_set = htmlspecialchars($_POST['wise_set']);
-
-			$insertQuestionOnWebsite = $bdd->prepare('UPDATE payment_method SET wise = ? WHERE id_user= ?');
-			$insertQuestionOnWebsite->execute(array($wise_set, $id_user6));
-			
-			header("Refresh:0");
-				}
-				
-				
-				
 				
 				
 
@@ -141,14 +122,6 @@ $removeZelle = $bdd->prepare('UPDATE payment_method SET zelle = NULL WHERE id_us
 if(isset($_POST['remove_chime'])){
 $removeChime = $bdd->prepare('UPDATE payment_method SET chime = NULL WHERE id_user= ?');
     $removeChime->execute(array($_SESSION['id']));
-	
-	header("Refresh:0");
-}
-
-
-if(isset($_POST['remove_wise'])){
-$removeWise = $bdd->prepare('UPDATE payment_method SET wise = NULL WHERE id_user= ?');
-    $removeWise->execute(array($_SESSION['id']));
 	
 	header("Refresh:0");
 }

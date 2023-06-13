@@ -3,6 +3,9 @@ session_start();
 require('actions/database.php');
 
 
+
+if(isset($_GET['id']) AND !empty($_GET['id'])){
+
 if(isset($_POST['signup'])){
 
 
@@ -62,7 +65,7 @@ if(isset($_POST['signup'])){
 				$AddUserToFeedbackSystem->execute(array($_SESSION['id']));
 				
 
-				header('Location: borrow-yeslogin.php');
+				header('Location: lend-panel.php?id='.$_GET['id'].'');
 				
 				}else{
 					 $errorMsg = "Password must contain at least 8 Characters";
@@ -86,3 +89,7 @@ if(isset($_POST['signup'])){
 		}
 
 }
+
+}else{
+        header('Location: 404.php');
+    }

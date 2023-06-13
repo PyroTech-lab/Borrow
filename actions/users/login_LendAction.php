@@ -3,6 +3,8 @@ session_start();
 require('actions/database.php');
 
 
+if(isset($_GET['id']) AND !empty($_GET['id'])){
+
 if(isset($_POST['login'])){
 
 
@@ -32,7 +34,7 @@ if(isset($_POST['login'])){
                 $_SESSION['username'] = $usersInfos['username'];
 
 
-                header('Location: borrow-yeslogin.php');
+                header('Location: lend-panel.php?id='.$_GET['id'].'');
     
             }else{
                 $errorMsg = "Wrong Email or Password";
@@ -75,3 +77,7 @@ if(isset($_POST['login'])){
     }
 
 }
+
+}else{
+        header('Location: 404.php');
+    }

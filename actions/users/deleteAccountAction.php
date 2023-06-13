@@ -2,7 +2,20 @@
 
 require('actions/database.php');
 
+$visible_onload_deleteaccount = "";
+
 if(isset($_POST['delete_account'])){
+	
+	if(!empty($_POST['deleteaccount_password'])){
+		
+	$user_curent_password = htmlspecialchars($_POST['deleteaccount_password']);
+	
+	$GetPassword = $bdd->prepare('SELECT password FROM users WHERE id = ?');
+	$GetPassword->execute(array($_SESSION['id']));
+		
+    $PasswordInfo = $GetPassword->fetch();
+	
+	if(password_verify($user_curent_password, $PasswordInfo['password'])){
 	
 	$sesion_id_1 = $_SESSION['id'];
 	$sesion_id_2 = $_SESSION['id'];
@@ -33,6 +46,17 @@ if(isset($_POST['delete_account'])){
 	
 	}else{
 		$errorMsg = "You cannot delete your account because you have active loans.";
+		$visible_onload_deleteaccount = "-visible";
+	}
+	
+	}else{
+		$errorMsg = "Wrong password";
+		$visible_onload_deleteaccount = "-visible";
+	}
+	
+	}else{
+		$errorMsg = "Please enter your password.";
+		$visible_onload_deleteaccount = "-visible";
 	}
 
 }

@@ -178,7 +178,9 @@ $CheckPhoneAddress->execute(array($_SESSION['id']));
 	$country= $row['country'];
 	
 	
-
+	
+	
+				$visible_onload_editpicture = "";
 
 				$GetProfilePicture = $bdd->prepare('SELECT profile_picture FROM users WHERE id = ?');
 				$GetProfilePicture->execute(array($_SESSION['id']));
@@ -194,10 +196,9 @@ $CheckPhoneAddress->execute(array($_SESSION['id']));
 				else{
 				$profile_picture = $GetPicture['profile_picture'];
 				$addOrEdit = "Edit";
-				$removeProfilePicture = "Remove Profile Picture";
+				$removeProfilePicture = "Remove Current Profile Picture";
 				$Profile_image_add = "image-button-hidden";
 				$Profile_image_edit = "image-button-visible";
-				}
 				
 				if(isset($_POST['delete_picture'])){
 					
@@ -209,30 +210,8 @@ $CheckPhoneAddress->execute(array($_SESSION['id']));
 				header('Location: profile.php');
 				}
 				
-				
-				
-				
-				if(isset($_POST['change_email'])){
-					
-				$new_email = htmlspecialchars($_POST['new_email']);
-				
-				$checkIfEmailAlreadyRegistered = $bdd->prepare('SELECT email FROM users WHERE email = ?');
-				$checkIfEmailAlreadyRegistered->execute(array($new_email));
-				
-				if(strlen($new_email) > 0){
-				
-					if($checkIfUserAlreadyExists->rowCount() == 0){
-						
-					$ChangeEmail = $bdd->prepare('UPDATE users SET email= ?, email_verified="" WHERE id = ?');
-					$ChangeEmail->execute(array($new_email, $_SESSION['id']));
-					}else{
-						$email_error_message = "Email Already Registered";
-					}
-					
-				}else{
-					$email_error_message = "Please enter a Valid Email Address";
 				}
-					
 				
-				}
+				
+			
 				

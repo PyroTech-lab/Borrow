@@ -88,20 +88,3 @@ $rowchime = $getchime->fetch(PDO::FETCH_ASSOC);
 	}
 	
 	
-	
-	
-	
-$getwise = $bdd->prepare('SELECT wise FROM payment_method WHERE id_user = ?');
-$getwise->execute(array($_SESSION['id']));
-
-$rowwise = $getwise->fetch(PDO::FETCH_ASSOC);
-	$checkwise = $rowwise['wise'];
-	
-	if (strlen($checkwise) == 0) {
-		$wise_no = "Not Set";
-		$wise_add = "Add WISE Account";
-	
-	}else{
-		$wise_yes = "Set";
-		$wise_update = "Update WISE Account";
-	}
