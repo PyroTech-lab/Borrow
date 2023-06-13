@@ -1,11 +1,11 @@
 <?php
-require('actions/users/login_borrowAction.php');
+require('actions/users/login_LendAction.php');
 require('actions/questions/updateDatabases.php');
 ?>
 
 <?php
 if(isset($_SESSION['auth'])){
-    header('Location: borrow-yeslogin.php');
+    header('Location: lend-panel.php?id='.$_GET['id'].'');
 }
 ?>
 
@@ -95,7 +95,6 @@ if(isset($_SESSION['auth'])){
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
-
 .label-container {
 	width: calc(100% - 7px);
 	margin-top: -40px;
@@ -160,7 +159,7 @@ if(isset($_SESSION['auth'])){
 
 <div class="main">
 	<div class="text">
-		<p style="font-size: 1.4rem; font-weight: 500;">Sign In to Borrow Money</p>
+		<p style="font-size: 1.4rem; font-weight: 500;">Sign In to Lend Money</p>
 		<form method="post">
 		<p style="margin-top: 40px;">Email</p>
 		<input class="input" name="email" required autocomplete="off">
@@ -175,7 +174,7 @@ if(isset($_SESSION['auth'])){
 </div>
 
 <div class="under-container">
-	<p>Don't have an account? <a href="signup-borrow.php" style="text-decoration: none; color: #00c4ff;">Sign Up</a></p>
+	<p>Don't have an account? <a href="signup-lend.php?id=<?= $_GET['id']; ?>" style="text-decoration: none; color: #00c4ff;">Sign Up</a></p>
 </div>
 
 <script>

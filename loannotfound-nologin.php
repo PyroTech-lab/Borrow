@@ -319,11 +319,14 @@ if(isset($_SESSION['auth'])){
 
 <div class="everything-except-header">
 
+<div style="min-height: calc(100vh - 593px);">
 
 <div class="message-container">
 <h1 class="message-title">Loan Not Found</h1>
 <h2 class="message-subtitle">The Loan you are Looking for Does not Exist...</h2>
 <a href="index.php"><button class="message-button">Go Back Home</button></a>
+</div>
+
 </div>
 
 

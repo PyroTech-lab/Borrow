@@ -246,6 +246,12 @@ require('actions/users/bannedAction.php');
 	color: #00c4ff;
 }
 
+.subtext3 {
+	font-weight: bold;
+	font-size: 1.1rem;
+	color: #2b80ff;
+}
+
 
 .subtitle-chat {
 	font-weight: bold;
@@ -259,12 +265,11 @@ require('actions/users/bannedAction.php');
 .chat-text {
 	margin-left: 20px;
 	font-size: 1.05rem;
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 	color: #383838;
 }
 
 .chat-button {
-	margin-top: 30px;
 	margin-left: 20px;
 	background-color: #2b80ff;
 	border: 0;
@@ -424,17 +429,18 @@ require('actions/users/bannedAction.php');
 	
 	<div class="chat-div">
 		<div class="subtitle-chat"><span>Chat with <a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span style="color: #560296;"><?= $username_borrower; ?></span></a></span></div>
-		<div><span class="chat-text">In case you have doubts, requests, want more information or anything else...</span></div>
+		<div  class="chat-text"><span>Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
 		<a href="" target="blank"><button class="chat-button">Chat with <span><?= $username_borrower; ?></span></button></a>
 	</div>
 	
 	<div class="payment">
-		<div class="subtitle-chat"><span>Borrower Details</span></div>
-		<div class="chat-text">Username: </br><span class="subtext1"><?= $username_borrower; ?></span></div>
-		<div class="chat-text">Name: </br><span class="subtext1"><?= $name; ?></span></div>
-		<div class="chat-text">Email Address: </br><span class="subtext1"><?= $email_address; ?></span></div>
-		<div class="chat-text">Phone Number: </br><span class="subtext1"><?= $phone_number; ?></span></div>
-		<div class="chat-text">Location: </br><span class="subtext1"><?= $city; ?>, <?= $country; ?></span></div>
+		<div class="subtitle-chat" style="margin-bottom: 30px;"><span>Borrower Details</span></div>
+		<div class="chat-text" style="margin-top: 20px; margin-bottom: 30px; font-weight: 500;"><span class="subtext2"><?= $username_borrower; ?></span> Hasn't Repaid you and has been <span style="color: red;">Banned</span>.</br>This is the Information we Have On him:</div>
+		<div class="chat-text">Full Name: </br><span class="subtext3"><?= $name; ?></span></div>
+		<div class="chat-text">Email Address: </br><span class="subtext3"><?= $email_address; ?></span></div>
+		<div class="chat-text">Phone Number: </br><span class="subtext3"><?= $phone_number; ?></span></div>
+		<div class="chat-text">Location: </br><span class="subtext3"><?= $city; ?>, <?= $country; ?></span></div>
+		<div class="chat-text" style="margin-top: 30px; font-weight: 500;"><span class="subtext2"><?= $username_borrower; ?></span> Can still Repay you on His Account.</br>You can Also Continue Chatting with Him Indefinitely.</div>
 	</div>
 	
 

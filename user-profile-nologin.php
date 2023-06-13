@@ -445,7 +445,7 @@ if(isset($_SESSION['auth'])){
 	margin-top: 50px;
 	width: 39%;
 	margin-left: 10%;
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	border-radius: 0.325rem;
 	height: 500px;
 	background-color: #fcfcfc;
@@ -458,22 +458,22 @@ if(isset($_SESSION['auth'])){
 }
 
 .profile-picture {
-	height: 40px;
-	width: 40px;
+	height: 70px;
+	width: 70px;
 	border-radius: 50%;
 }
 
 .country-icon {
-	height: 20px;
+	height: 25px;
 	width: auto;
-	margin-left: 7px;
-	margin-bottom: -5px;
+	margin-left: 10px;
+	margin-bottom: -6px;
 	margin-top: 5px;
 }
 
 .country-icon:hover + .location-hidden {
 	display: inline;
-	margin-left: 7px;
+	margin-left: 10px;
 	border: 1px solid #e03434;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	padding: 3px;
@@ -495,7 +495,8 @@ if(isset($_SESSION['auth'])){
 	border-radius: 0.325rem;
 	color: white;
 	background-color: #2b80ff;
-	width: 100px;
+	width: 130px;
+	height: 35px;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	border: 0;
 	font-weight: bold;
@@ -626,7 +627,7 @@ if(isset($_SESSION['auth'])){
 	margin-top: -502px;
 	width: 39%;
 	margin-left: 51%;
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	border-radius: 0.325rem;
 	height: 430px;
 	background-color: #fcfcfc;
@@ -904,7 +905,7 @@ if(isset($_SESSION['auth'])){
 	<p class="subsection-title">User Information</p>
 		<div class="borrower-presentation">
 		<img class="profile-picture" src="assets/images/profile-images/<?= $profile_picture; ?>">
-		<div style="margin-top: -49px; margin-left: 50px;"><span style="color: #00c4ff;"><?= $user_username; ?></span><img class="country-icon" src="assets/images/country-icons/<?=$country?>.png"><span class="location-hidden">Location: <span class="location-text"><?=$country?></span></span></br><span>Member since <?= date('M Y', strtotime($user_join_date)); ?></span></div>
+		<div style="margin-top: -70px; margin-left: 80px;"><span style="color: #00c4ff; font-weight: bold; font-size: 1.45rem;"><?= $user_username; ?></span><img class="country-icon" src="assets/images/country-icons/<?=$country?>.png"><span class="location-hidden">Location: <span class="location-text"><?=$country?></span></span></br><span>Member since <?= date('F Y', strtotime($user_join_date)); ?></span></div>
 		</div>
 		
 		<button class="chat-button">Chat</button>
@@ -956,24 +957,34 @@ if(isset($_SESSION['auth'])){
 		echo '<p class="error-message">'.$errorMsg.'</p>'; 
 	 }?>
 </div>	
-	<?php
-	while($question = $getHisQuestions->fetch()){
-		
+				<?php 
+
+            while($question = $getHisQuestions->fetch()){
 				
-			if(($question['status'] == "paid_ontime")OR($question['status'] == "paid_ontime_notseen")){
-				$status_color = "#03cf00";
-				$status_public = "Paid On Time";
-			}elseif(($question['status'] == "paid_late")OR($question['status'] == "paid_late_notseen")){
-				$status_color = "Orange";
-				$status_public = "Paid Late";
-			}elseif(($question['status'] == "unpaid")OR($question['status'] == "unpaid_notseen")OR($question['status'] == "unpaid_banned")OR($question['status'] == "unpaid_banned_archived")){
-				$status_color = "Red";
-				$status_public = "Unpaid";
-			}elseif(($question['status'] == "active")OR($question['status'] == "active_notseen")){
-				$status_color = "#2b80ff";
-				$status_public = "Active";
-			}
-		?>
+			if(($question['repayment_received'] == "no_notseen")OR($question['repayment_received'] == "no")OR($question['repayment_received'] == "no_correct_id")OR($question['repayment_received'] == "no_correct_id_notconfirmed")){
+				$status_color = "#9e3dff";
+				$status_public = "Under Verification";
+				
+				}else{
+				
+					if(($question['status'] == "paid_ontime")OR($question['status'] == "paid_ontime_notseen")){
+						$status_color = "#03cf00";
+						$status_public = "Paid On Time";
+					}elseif(($question['status'] == "paid_late")OR($question['status'] == "paid_late_notseen")){
+						$status_color = "Orange";
+						$status_public = "Paid Late";
+					}elseif(($question['status'] == "unpaid")OR($question['status'] == "unpaid_notseen")OR($question['status'] == "unpaid_banned")OR($question['status'] == "unpaid_banned_archived")){
+						$status_color = "Red";
+						$status_public = "Unpaid";
+					}elseif(($question['status'] == "active")OR($question['status'] == "active_notseen")){
+						$status_color = "#2b80ff";
+						$status_public = "Active";
+					}elseif(($question['status'] == "paid_afterban_notseen")OR($question['status'] == "paid_afterban")){
+						$status_color = "orange";
+						$status_public = "Paid After ban";
+					}
+				}
+                ?>
 		
 
 <div class="loan-request">

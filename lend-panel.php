@@ -264,7 +264,6 @@ require('actions/users/bannedAction.php');
 }
 
 .chat-button {
-	margin-top: 30px;
 	margin-left: 20px;
 	background-color: #2b80ff;
 	border: 0;
@@ -274,7 +273,7 @@ require('actions/users/bannedAction.php');
 	font-size: 1.02rem;
 	color: white;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	transition: transform 0.2s;
 }
 
 .chat-button:hover {
@@ -295,11 +294,124 @@ require('actions/users/bannedAction.php');
 	border: 1px solid #00c4ff;
 }
 
-.payment-form {
-	margin-top: 20px;
-	width: 60%;
-	margin-left: 5%;
+
+.select-method {
+	padding: 20px;
+	width: calc(100% - 40px);
 }
+
+.payment-method-box {
+	margin-right: 1%;
+	border: 1px solid #2b80ff;
+	padding: 3px;
+	border-radius: 0.125rem;
+	font-weight: 500;
+	font-size: 1.02rem;
+}
+
+.payment-box {
+	padding: 20px;
+	font-size: 1.05rem;
+	display: none;
+}
+
+#<?= $default; ?> {
+	display: block;
+}
+
+#<?= $default; ?>-select {
+	background-color: #2b80ff;
+	color: white;
+}
+
+
+.payment-box-title {
+	font-weight: bold;
+	font-size: 1.35rem;
+	color: #2b80ff;
+}
+
+.payment-box-bold {
+	font-weight: bold;
+	color: #2b80ff;
+	font-size: 1.2rem;
+}
+
+.input-container {
+	width: 50%;
+}
+
+.input {
+	width: 200px;
+	height: 30px;
+	margin-top: 10px;
+	border-radius: 0.125rem;
+	border: 1px solid #2b80ff;
+	padding-left: 7px;
+	font-size: 0.92rem;
+	font-weight: 500;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.input:focus {
+	outline: 0px;
+}
+
+.button-container {
+	margin-left: 50%;
+	margin-top: -70px;
+}
+
+.submit-button {
+	width: 200px;
+	margin-top: 10px;
+	height: 34px;
+	border-radius: 0.125rem;
+	border: 1px solid #2b80ff;
+	background-color: #2b80ff;
+	color: white;
+	padding-left: 7px;
+	font-size: 1.02rem;
+	font-weight: bold;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform 0.2s;
+}
+
+.submit-button:hover {
+	background-color: #00c4ff;
+	border: 1px solid #00c4ff;
+	-ms-transform: scale(1.05); /* IE 9 */
+	-webkit-transform: scale(1.05); /* Safari 3-8 */
+	transform: scale(1.05); 
+}
+
+.warning {
+	font-size: 0.95rem;
+	color: red;
+	font-weight: 500;
+	margin-top: 20px;
+}
+
+.error {
+	margin-top: 35px;
+	color: white;
+	background-color: #00c4ff;
+	text-align: center;
+	border-radius: 0.325rem;
+	font-weight: bold;
+}
+
+.success {
+	margin-top: 20px;
+	color: white;
+	background-color: #12d400;
+	border: 1px solid #12d400;
+	text-align: center;
+	border-radius: 0.325rem;
+	font-weight: bold;
+}
+
+
 
 .footer {
 	z-index: 10;
@@ -424,14 +536,150 @@ require('actions/users/bannedAction.php');
 	
 	<div class="chat-div">
 		<div class="subtitle-chat"><span>Chat with <a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span style="color: #560296;"><?= $username_borrower; ?></span></a></span></div>
-		<div><span class="chat-text">In case you have doubts, requests, want more information or anything else...</span></div>
+		<div class="chat-text"><span>Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
 		<a href="" target="blank"><button class="chat-button">Chat with <span><?= $username_borrower; ?></span></button></a>
 	</div>
 	
 	<div class="payment">
-		<form class="payment-form" method="post">
-			<input type="submit" value="lend  money" class="btn" name="confirm_lend">
-		</form>
+		
+				<div class="select-method">
+					<p class="subtitle">Select Payment Method</p>
+					<span class="payment-method-box" id="paypal-select" onclick="ShowPaypal()" style="display: <?= $paypal_notset; ?>;">Paypal</span><span class="payment-method-box" id="cashapp-select" onclick="ShowCashapp()" style="display: <?= $cashapp_notset; ?>;">Cashapp</span><span class="payment-method-box" id="venmo-select" onclick="ShowVenmo()" style="display: <?= $venmo_notset; ?>;">Venmo</span><span class="payment-method-box" id="zelle-select" onclick="ShowZelle()" style="display: <?= $zelle_notset; ?>;">Zelle</span><span class="payment-method-box" id="chime-select" onclick="ShowChime()" style="display: <?= $chime_notset; ?>;">Chime</span>
+				</div>
+				
+				<div class="payment-box" id="paypal">
+					<span class="payment-box-title">Paypal</span>
+					<p><span style="color: #3d91e0;"><?= $username_borrower; ?>'s</span> Paypal Address: <span style="color: #3d91e0;"><?= $paypal; ?></span></p>
+					<p>Amount to Send:</br><span class="payment-box-bold"><?= $loan_amount; ?>$</span></p>
+					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
+					<form method="post">
+					<div style="input-container">
+					<span>Paypal Transaction ID</span>
+					</br>
+					<input class="input" type="input" placeholder="Enter Paypal Transaction ID" name="paypal_id" required>
+					</div>
+					<div class="button-container">
+					<span class="submit-text">Confirm Payment Has Been Sent</span>
+					</br>
+					<input class="submit-button" type="submit" value="Payment Sent" name="payment_paypal">
+					</div>
+					<div class="warning"><span>Borrower will Confirm Payment. Any Abuse will Result in a Ban.</span></div>
+					</form>
+				
+	
+				<?php
+				if(isset($error_message_paypal)){ 
+				echo $error_message_paypal;
+				}
+				?>
+				</div>
+				
+				<div class="payment-box" id="cashapp">
+					<span class="payment-box-title">Cashapp</span>
+					<p><span style="color: #3d91e0;"><?= $username_borrower; ?>'s</span> Cashapp Address: <span style="color: #3d91e0;"><?= $cashapp; ?></span></p>
+					<p>Amount to Send:</br><span class="payment-box-bold"><?= $loan_amount; ?>$</span></p>
+					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
+					<form method="post">
+					<div style="input-container">
+					<span>Cashapp Transaction ID</span>
+					</br>
+					<input class="input" type="input" placeholder="Enter Cashapp Transaction ID" required name="cashapp_id">
+					</div>
+					<div class="button-container">
+					<span class="submit-text">Confirm Payment Has Been Sent</span>
+					</br>
+					<input class="submit-button" type="submit" value="Payment Sent" name="payment_cashapp">
+					</div>
+					<div class="warning"><span>Borrower will Confirm Payment. Any Abuse will Result in a Ban.</span></div>
+					</form>
+				<?php
+				if(isset($error_message_cashapp)){ 
+				echo $error_message_cashapp;
+				}
+				?>
+				</div>
+				
+				<div class="payment-box" id="venmo">
+					<span class="payment-box-title">Venmo</span>
+					<p><span style="color: #3d91e0;"><?= $username_borrower; ?>'s</span> Venmo Address: <span style="color: #3d91e0;"><?= $venmo; ?></span></p>
+					<p>Amount to Send:</br><span class="payment-box-bold"><?= $loan_amount; ?>$</span></p>
+					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
+					<form method="post">
+					<div style="input-container">
+					<span>Venmo Transaction ID</span>
+					</br>
+					<input class="input" type="input" placeholder="Enter Venmo Transaction ID" required name="venmo_id">
+					</div>
+					<div class="button-container">
+					<span class="submit-text">Confirm Payment Has Been Sent</span>
+					</br>
+					<input class="submit-button" type="submit" value="Payment Sent" name="payment_venmo">
+					</div>
+					<div class="warning"><span>Borrower will Confirm Payment. Any Abuse will Result in a Ban.</span></div>
+					</form>
+				<?php
+				if(isset($error_message_venmo)){ 
+				echo $error_message_venmo;
+				}
+				?>
+				</div>
+				
+				<div class="payment-box" id="zelle">
+					<span class="payment-box-title">Zelle</span>
+					<p><span style="color: #3d91e0;"><?= $username_borrower; ?>'s</span> Zelle Address: <span style="color: #3d91e0;"><?= $zelle; ?></span></p>
+					<p>Amount to Send:</br><span class="payment-box-bold"><?= $loan_amount; ?>$</span></p>
+					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
+					<form method="post">
+					<div style="input-container">
+					<span>Zelle Transaction ID</span>
+					</br>
+					<input class="input" type="input" placeholder="Enter Zelle Transaction ID" required name="zelle_id">
+					</div>
+					<div class="button-container">
+					<span class="submit-text">Confirm Payment Has Been Sent</span>
+					</br>
+					<input class="submit-button" type="submit" value="Payment Sent" name="payment_zelle"> 
+					</div>
+					<div class="warning"><span>Borrower will Confirm Payment. Any Abuse will Result in a Ban.</span></div>
+					</form>
+				<?php
+				if(isset($error_message_zelle)){ 
+				echo $error_message_zelle;
+				}
+				?>
+				</div>
+				
+				<div class="payment-box" id="chime">
+					<span class="payment-box-title">Chime</span>
+					<p><span style="color: #3d91e0;"><?= $username_borrower; ?>'s</span> Chime Address: <span style="color: #3d91e0;"><?= $chime; ?></span></p>
+					<p>Amount to Send:</br><span class="payment-box-bold"><?= $loan_amount; ?>$</span></p>
+					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
+					<form method="post">
+					<div style="input-container">
+					<span>Chime Transaction ID</span>
+					</br>
+					<input class="input" type="input" placeholder="Enter Chime Transaction ID" required name="chime_id">
+					</div>
+					<div class="button-container">
+					<span class="submit-text">Confirm Payment Has Been Sent</span>
+					</br>
+					<input class="submit-button" type="submit" value="Payment Sent" name="payment_chime">
+					</div>
+					<div class="warning"><span>Borrower will Confirm Payment. Any Abuse will Result in a Ban.</span></div>
+					</form>
+				<?php
+				if(isset($error_message_chime)){ 
+				echo $error_message_chime;
+				}
+				?>
+				</div>
+			
+				
+				<?php
+				if(isset($success_message)){ 
+				echo $success_message;
+				}
+				?>
 	</div>
 	
 
@@ -473,6 +721,120 @@ require('actions/users/bannedAction.php');
 </div>
 
 </div>
+
+
+
+<script>
+function ShowPaypal() {
+  document.getElementById("paypal").style.display = "block";
+  document.getElementById("cashapp").style.display = "none";
+  document.getElementById("venmo").style.display = "none";
+  document.getElementById("zelle").style.display = "none";
+  document.getElementById("chime").style.display = "none";
+  
+  document.getElementById("paypal-select").style.backgroundColor = "#2b80ff";
+  document.getElementById("cashapp-select").style.backgroundColor = "white";
+  document.getElementById("venmo-select").style.backgroundColor = "white";
+  document.getElementById("zelle-select").style.backgroundColor = "white";
+  document.getElementById("chime-select").style.backgroundColor = "white";
+  
+  document.getElementById("paypal-select").style.color = "white";
+  document.getElementById("cashapp-select").style.color = "black";
+  document.getElementById("venmo-select").style.color = "black";
+  document.getElementById("zelle-select").style.color = "black";
+  document.getElementById("chime-select").style.color = "black";
+}
+</script>
+
+<script>
+function ShowCashapp() {
+  document.getElementById("paypal").style.display = "none";
+  document.getElementById("cashapp").style.display = "block";
+  document.getElementById("venmo").style.display = "none";
+  document.getElementById("zelle").style.display = "none";
+  document.getElementById("chime").style.display = "none";
+  
+   document.getElementById("paypal-select").style.backgroundColor = "white";
+  document.getElementById("cashapp-select").style.backgroundColor = "#2b80ff";
+  document.getElementById("venmo-select").style.backgroundColor = "white";
+  document.getElementById("zelle-select").style.backgroundColor = "white";
+  document.getElementById("chime-select").style.backgroundColor = "white";
+  
+  document.getElementById("paypal-select").style.color = "black";
+  document.getElementById("cashapp-select").style.color = "white";
+  document.getElementById("venmo-select").style.color = "black";
+  document.getElementById("zelle-select").style.color = "black";
+  document.getElementById("chime-select").style.color = "black";
+}
+</script>
+
+<script>
+function ShowVenmo() {
+  document.getElementById("paypal").style.display = "none";
+  document.getElementById("cashapp").style.display = "none";
+  document.getElementById("venmo").style.display = "block";
+  document.getElementById("zelle").style.display = "none";
+  document.getElementById("chime").style.display = "none";
+  
+  document.getElementById("paypal-select").style.backgroundColor = "white";
+  document.getElementById("cashapp-select").style.backgroundColor = "white";
+  document.getElementById("venmo-select").style.backgroundColor = "#2b80ff";
+  document.getElementById("zelle-select").style.backgroundColor = "white";
+  document.getElementById("chime-select").style.backgroundColor = "white";
+  
+  document.getElementById("paypal-select").style.color = "black";
+  document.getElementById("cashapp-select").style.color = "black";
+  document.getElementById("venmo-select").style.color = "white";
+  document.getElementById("zelle-select").style.color = "black";
+  document.getElementById("chime-select").style.color = "black";
+}
+</script>
+
+<script>
+function ShowZelle() {
+  document.getElementById("paypal").style.display = "none";
+  document.getElementById("cashapp").style.display = "none";
+  document.getElementById("venmo").style.display = "none";
+  document.getElementById("zelle").style.display = "block";
+  document.getElementById("chime").style.display = "none";
+  
+  document.getElementById("paypal-select").style.backgroundColor = "white";
+  document.getElementById("cashapp-select").style.backgroundColor = "white";
+  document.getElementById("venmo-select").style.backgroundColor = "white";
+  document.getElementById("zelle-select").style.backgroundColor = "#2b80ff";
+  document.getElementById("chime-select").style.backgroundColor = "white";
+  
+  document.getElementById("paypal-select").style.color = "black";
+  document.getElementById("cashapp-select").style.color = "black";
+  document.getElementById("venmo-select").style.color = "black";
+  document.getElementById("zelle-select").style.color = "white";
+  document.getElementById("chime-select").style.color = "black";
+}
+</script>
+
+<script>
+function ShowChime() {
+  document.getElementById("paypal").style.display = "none";
+  document.getElementById("cashapp").style.display = "none";
+  document.getElementById("venmo").style.display = "none";
+  document.getElementById("zelle").style.display = "none";
+  document.getElementById("chime").style.display = "block";
+  
+  document.getElementById("paypal-select").style.backgroundColor = "white";
+  document.getElementById("cashapp-select").style.backgroundColor = "white";
+  document.getElementById("venmo-select").style.backgroundColor = "white";
+  document.getElementById("zelle-select").style.backgroundColor = "white";
+  document.getElementById("chime-select").style.backgroundColor = "#2b80ff";
+  
+  document.getElementById("paypal-select").style.color = "black";
+  document.getElementById("cashapp-select").style.color = "black";
+  document.getElementById("venmo-select").style.color = "black";
+  document.getElementById("zelle-select").style.color = "black";
+  document.getElementById("chime-select").style.color = "white";
+}
+</script>
+
+
 
 </body>
 

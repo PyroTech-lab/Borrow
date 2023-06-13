@@ -172,12 +172,38 @@ if(isset($_SESSION['auth'])){
 	width: 100%;
 }
 
+.title {
+	width: 100%;
+	font-size: 2.52rem;
+	color: #00c4ff;
+	font-weight: bold;
+}
+
+.subtitle {
+	width: 100%;
+	margin-top: -25px;
+	margin-bottom: 80px;
+	margin-right:60px;
+	font-size: 1.2rem;
+	color: #383838;
+}
+
+.subtitle-bold {
+	color: #2b80ff;
+	font-weight: 500;
+}
+
 .main {
 	margin-top: 160px;
 	width: 50%;
 	margin-left: 25%;
 	background-color: white;
 	text-align: left;
+}
+
+.form-text {
+	font-weight: 500;
+	font-size: 1.1rem;
 }
 
 
@@ -325,14 +351,59 @@ input::-webkit-datetime-edit-year-field:focus {
 }
 
 .explain {
-	margin-top: 80px;
+	margin-top: 50px;
 	text-align: left;
+	color: #2e2e2e;
 }
 
 .explain-title {
-	font-size: 1.8rem;
+	font-size: 2.1rem;
 	font-weight: bold;
 	color: #00c4ff;
+}
+
+.step1 {
+	width: 49%;
+}
+
+.step2 {
+	width: 49%;
+	margin-left: 51%;
+	margin-top: -252px;
+}
+
+.step3 {
+	width: 49%;
+}
+
+.step4 {
+	width: 49%;
+	margin-left: 51%;
+	margin-top: -202px;
+}
+
+.inner-box {
+	border: 1px solid #00c4ff;
+	border-radius: 0.25rem;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.steps-title {
+	font-weight: bold;
+	font-size: 1.72rem;
+	color: #00c4ff;
+	margin-bottom: 3px;
+}
+
+.steps-subtitle {
+	font-weight: 500;
+	font-size: 1.1rem;
+}
+
+.explain-bold {
+	font-weight: 500;
+	color: #2b80ff;
 }
 
 .footer {
@@ -443,18 +514,19 @@ input::-webkit-datetime-edit-year-field:focus {
 <div class="everything-except-header">
 
 <div class="main">
-	<p style="font-weight: bold; font-size: 2.52rem; color: #00c4ff;">Borrow Money</p>
-	<p style="font-size: 1.1rem; color: #383838; margin-top: -37px; margin-bottom: 50px;">Buy Bitcoin with over 350 payment methods to choose from, including bank transfers and gift cards.</p>
+	<p class="title">Borrow Money</p>
+	<p class="subtitle"><span class="subtitle-bold">Borrow</span> on Instant Borrow - <span class="subtitle-bold">0% Platform Fees</span>, No <span class="subtitle-bold">Paperwork</span>, Incredibly <span class="subtitle-bold">Fast and Easy</span>.</p>
+		
 		<form onsubmit="return validateMyForm();" method="post">
-		<p>Loan Amount (USD)</p>
+		<p class="form-text">Loan Amount (USD)</p>
 		<input name="loan_amount" id="loan" class="input" type="number" min="10" max="2000" required autocomplete="off">
-		<p>Repayment Amount (USD)</p>
+		<p class="form-text">Repayment Amount (USD)</p>
 		<input name="repayment_amount" id="repayment" class="input" type="number" min="11" max="4000" required autocomplete="off">
 		<div id="text-box" style="color: red;"></div>
-		<p>Repayment Date</p>
+		<p class="form-text">Repayment Date</p>
 		<input name="repayment_date" id="datefield" class="input" type="date" required>
 		</br>
-		<p>Notes</p>
+		<p class="form-text">Notes</p>
 		<textarea name="notes" class="input-notes" autocomplete="off"></textarea>
 		<input name="submit" type="submit" class="borrow-button" value="Borrow Money" formaction="signup-borrow.php">
 		</form>
@@ -468,28 +540,31 @@ input::-webkit-datetime-edit-year-field:focus {
 			<a href="index.php"><button class="lend-button">Lend Money</button></a>
 		</div>
 
-			<div class="explain" id="explain">
+		<div class="explain">
 			<p class="explain-title">How to Borrow Money on Instant Borrow</p>
-			<p>Buy Bitcoin (BTC) at the lowest possible price no matter where you are. Paxful works on the principle of peer-to-peer finance that enables you to buy BTC with as little as 10 USD. You can buy directly from people just like you—without banks or corporations.</p>
+			
+			<p style="font-weight: 500; font-size: 1.28rem; margin-top: 50px; color:#2b80ff;">Welcome to the World of Peer-to-Peer Finance.</p> 
+			
+			<p style="font-weight: normal;">Instant Borrow connects Borrowers directly with Lenders and eliminates the need for Banks or other Financial Institutions.</br>Keep total Control over your Funds, Transact Directly with other Users and Forget about lengthy Approval Processes and High Fees.</p>
 
-			<p>The best part? No fees when you purchase Bitcoin on Paxful. That means you get more crypto for your money. Thanks to nearly 400 payment methods available on the platform, you can turn your cash into Bitcoin with online wallets or bank transfers. You can also trade other cryptocurrencies like Ethereum for Bitcoin, or even sell gift cards to get fractions of BTC in return.</p>
+			<p style="font-weight: 500; font-size: 1.28rem; color:#2b80ff;">The Easiest Way to Get a Loan Right Now, No Matter Your Credit Score.</p>
+			
+			<p style="font-weight: bold; font-size: 1.55rem; color: #00c4ff; margin-top: 60px; margin-bottom: 60px;">THIS IS HOW TO DO IT:</p>
+			
+			<div class="step1"><p class="steps-title">1-CREATE AN ACCOUNT</p><div class="inner-box"><p class="steps-subtitle ">Sign Up and Verify your Account</p><p>What you Need to <span class="explain-bold">Get Started</span>:</br>-Valid <span class="explain-bold">Email Address</span></br>-<span class="explain-bold">Phone Number</span></br>-Form of <span class="explain-bold">Identification</span></p></div></div>
+			<div class="step2"><p class="steps-title">2-REQUEST A LOAN</p><div class="inner-box"><p class="steps-subtitle">Create a Loan request:</p><p>The <span class="explain-bold">Amount</span> you Want to <span class="explain-bold">Borrow</span></br>The <span class="explain-bold">Amount</span> you Will <span class="explain-bold">Repay</span></br>The  <span class="explain-bold">Repayment Date</span></br><span class="explain-bold">Notes</span> About the Loan</p></div></div>
+			<div class="step3"><p class="steps-title">3-RECEIVE MONEY</p><div class="inner-box"><p class="steps-subtitle">When your Loan is Granted:</p><p>Lender Sends <span class="explain-bold">Payment</span></br><span class="explain-bold">Confirm</span> Funds Have Been Received</p></div></div>
+			<div class="step4"><p class="steps-title">4-REPAY</p><div class="inner-box"><p class="steps-subtitle">On (Or Before) the Repayment Date:</p><p><span class="explain-bold">Send Funds</span> to the Borrower</br><span class="explain-bold">Confirm</span> the Transaction was Made</p></div></div>
+			
+			<p style="margin-top: 60px;">All payments are Confirmed by Instant Borrow and are Protected with Advanced security Measures. The Marketplace is strictly Monitored and all Users are Verified to ensure a safe Trading Environment.</p>
+			
+			
+			<p>Personnal Information is Fully Protected by Instant Borrow and is only Given to the Lender if the Borrower fails to Repay his Loan.</p>
 
-			<p>Paxful is protected with vault-level security and regulated in the United States as a Money Services Business. The marketplace is strictly monitored by our army of analysts and users are verified to ensure a safe trading environment. With all these safety measures in place, you can rest easy knowing that your information and crypto are safe with us.</p>
+			<p>If you have any Questions, please Contact Us or get in Touch with the Support Team at the Bottom of the Page. We'll always be there for you!</p>
 
-			<p>Here’s how you can start buying Bitcoin on Paxful:</p>
-
-			<p>1) Sign up for a Paxful account - Create and verify your account to get your free Bitcoin wallet with 2FA security. Setting your account up is easy and can be done in minutes. All you need is a valid email address, phone number, and ID to get started.
-			</br></br>2) Find a vendor – Click Buy from the main menu and select Buy Bitcoin. Set the amount you want to spend, your preferred currency, and your payment method of choice in the sidebar widget to find local and international sellers that match your requirements.
-			We recommend filtering for all the User Types (Ambassador, Associate, etc.) to show the most trustworthy vendors who have undergone an additional layer of security checks from Paxful.
-			</br></br>3) Read the requirements – Click on the Buy button to view the vendor’s terms. Depending on the payment method, sellers may also ask you to provide a screenshot of the funds from your online wallet, a photo of the bank deposit slip, or a copy of the receipt of the gift card you purchased. Some vendors may also ask you to send a selfie holding a valid ID for additional security purposes.
-			</br></br>4) Start the trade – If you can comply with the seller’s terms, set the amount of Bitcoin you want to buy in the widget then click Buy now to start the trade. This will open a live chat with the seller where you will receive further instructions on how to complete the trade. The live chat records all messages and will protect you if you encounter any problems, so please don’t communicate outside of Paxful.
-			</br></br>5) Send payment and receive your BTC – Once all requirements have been fulfilled and the vendor gives the go signal, transfer the payment and click Paid immediately. At this point, the vendor’s BTC is locked in escrow to prevent your trade partner from accepting your payment and not releasing the crypto. As soon as the seller confirms your payment, the Bitcoin will be released from escrow and transferred to your Paxful Wallet.
-			All that’s left is to give the seller a review of your experience and that’s it! For more information, you can also watch our detailed video walkthrough on how to buy Bitcoin on Paxful.</p>
-
-			<p>If you have any questions, please click on the chat icon at the bottom right corner of the page to get in touch with our support team. We’re here for you 24/7—even on holidays!</p>
-
-			<p>Buying Bitcoin on Paxful is safe and easy, but don’t take our word for it—read reviews from countless Paxful users around the world.</p>
-			</div>
+			<p style="font-weight: 500; font-size: 1.28rem; color: #2b80ff;">Borrowing on Instant Borrow is Safe and Easy, but don’t take our word for it—read reviews from countless Instant Borrow users around the world.</p>
+		</div>
 </div>
 
 <div class="footer">

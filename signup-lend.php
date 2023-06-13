@@ -1,13 +1,14 @@
 <?php
-require('actions/users/login_borrowAction.php');
+require('actions/users/signup_LendAction.php');
 require('actions/questions/updateDatabases.php');
 ?>
 
 <?php
 if(isset($_SESSION['auth'])){
-    header('Location: borrow-yeslogin.php');
+    header('Location: lend-panel.php?id='.$_GET['id'].'');
 }
 ?>
+
 
 <!DOCTYPE html>
 
@@ -51,8 +52,8 @@ if(isset($_SESSION['auth'])){
 	width: 540px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 13vh;
-	height: 500px;
+	margin-top: 7vh;
+	height: 720px;
 	border-radius: 0.325rem;
 	box-shadow: 0px 0px 15px 2px rgba(92, 125, 209, 0.5);
 }
@@ -116,7 +117,7 @@ if(isset($_SESSION['auth'])){
 }
 
 
-.login-button {
+.signup-button {
 	margin-top: 50px;
 	margin-bottom: 10px;
 	width: 101.5%;
@@ -131,7 +132,7 @@ if(isset($_SESSION['auth'])){
 	transition: transform 0.2s;
 }
 
-.login-button:hover {
+.signup-button:hover {
 	background-color: red;
 	-ms-transform: scale(1.015); /* IE 9 */
 	-webkit-transform: scale(1.015); /* Safari 3-8 */
@@ -150,7 +151,6 @@ if(isset($_SESSION['auth'])){
 	font-size: 0.96rem;
 }
 
-
 </style>
 
 </head>
@@ -160,22 +160,30 @@ if(isset($_SESSION['auth'])){
 
 <div class="main">
 	<div class="text">
-		<p style="font-size: 1.4rem; font-weight: 500;">Sign In to Borrow Money</p>
+	
+		<p style="font-size: 1.3rem; font-weight: 500;">Signup to Lend Money</p>
 		<form method="post">
 		<p style="margin-top: 40px;">Email</p>
 		<input class="input" name="email" required autocomplete="off">
+		<p style="margin-top: 20px;">Full Name</p>
+		<input class="input" name="name" required autocomplete="off">
+		<p style="margin-top: 20px;">Username</p>
+		<input class="input" name="username" required autocomplete="off">
 		<p style="margin-top: 20px;">Password</p>
 		<input class="input" id="input" type="password" name="password" required>
 		<div class="label-container"><label for="showPassword" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword" type="checkbox" onclick="ShowPasswordFunction()" style="display: none;"></label></div>
-		<input type="submit" class="login-button" name="login" value="login">
+		<div style="margin-top: 30px;">
+			<input type="checkbox" id="checkmark"  class="checkmark" required><span style="margin-left: 5px; position: absolute; margin-top: -6px; font-weight: normal;">I have read and accept Instant Borrow's <a style="color: #00c4ff; font-weight: 500; text-decoration: none;" href="terms and conditions.html" target="_blank">Terms & Conditions</a> and <a style="color: #00c4ff; font-weight: 500; text-decoration: none;" href="privacy policy.html" target="_blank">Privacy Policy</a>.</span>
+		</div>
+		<input type="submit" class="signup-button" name="signup" value="register">
 		 <?php if(isset($errorMsg)){ echo '<p class="error-message">'.$errorMsg.'</p>'; } ?>
 		</form>
-		
 	</div>
+		
 </div>
 
 <div class="under-container">
-	<p>Don't have an account? <a href="signup-borrow.php" style="text-decoration: none; color: #00c4ff;">Sign Up</a></p>
+	<p>Already have an account? <a href="login-lend.php?id=<?= $_GET['id']; ?>" style="text-decoration: none; color: #00c4ff;">Log In</a></p>
 </div>
 
 <script>

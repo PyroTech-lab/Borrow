@@ -190,7 +190,7 @@ if(isset($_SESSION['auth'])){
 	border-radius: 0.425rem;
 	height: 410px;
 	text-align: center;
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -325,7 +325,7 @@ if(isset($_SESSION['auth'])){
 	margin-top: 50px;
 	width: 39%;
 	margin-left: 10%;
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	border-radius: 0.325rem;
 	background-color: #fcfcfc;
 	height: 502px;
@@ -338,23 +338,22 @@ if(isset($_SESSION['auth'])){
 }
 
 .profile-picture {
-	height: 40px;
-	width: 40px;
+	height: 70px;
+	width: 70px;
 	border-radius: 50%;
 }
 
 .country-icon {
-	height: 20px;
+	height: 25px;
 	width: auto;
-	margin-left: 7px;
-	margin-bottom: -5px;
+	margin-left: 10px;
+	margin-bottom: -6px;
 	margin-top: 5px;
 }
 
-
 .country-icon:hover + .location-hidden {
 	display: inline;
-	margin-left: 7px;
+	margin-left: 10px;
 	border: 1px solid #e03434;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	padding: 3px;
@@ -506,7 +505,7 @@ if(isset($_SESSION['auth'])){
 	margin-top: -502px;
 	width: 39%;
 	margin-left: 51%;
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	border-radius: 0.325rem;
 	height: 455px;
 	background-color: #fcfcfc;
@@ -531,7 +530,7 @@ if(isset($_SESSION['auth'])){
 	width: 80%;
 	margin-left: 10%;
 	background-color: #fcfcfc;
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	border-radius: 0.325rem;
 	padding-bottom: 20px;
 	text-align: left;
@@ -660,7 +659,7 @@ if(isset($_SESSION['auth'])){
 	</div>
 	<div class="second-line">
 		<div class="repay-date"><span>Repayment Date: </span><span style="color: #00c4ff; font-weight: bold;"><?= date('M jS, Y', strtotime($repayment_date)); ?></span></div>
-		<a href="signup.php"><button class="lend-button">Sign Up to Lend Money</button></a>
+		<a href="signup-lend.php?id=<?= $idOfTheQuestion ?>"><button class="lend-button">Sign Up to Lend Money</button></a>
 	</div>
 	
 </div>
@@ -668,8 +667,8 @@ if(isset($_SESSION['auth'])){
 <div class="borrower-details">
 	<p class="subsection-title">Borrower Information</p>
 		<div class="borrower-presentation">
-		<a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>"><img class="profile-picture" src="assets/images/profile-images/<?= $profile_picture; ?>"></a>
-		<div style="margin-top: -49px; margin-left: 50px;"><a href="user-profile-nologin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;"><span style="color: #00c4ff;"><?= $username_borrower; ?></span></a><img class="country-icon" src="assets/images/country-icons/<?=$country?>.png"><span class="location-hidden">Location: <span class="location-text"><?=$country?></span></span></br><span>Member since <?= date('M Y', strtotime($user_join_date)); ?></span></div>
+		<a href="user-profile-nologin.php?id=<?= $id_borrower; ?>"><img class="profile-picture" src="assets/images/profile-images/<?= $profile_picture; ?>"></a>
+		<div style="margin-top: -70px; margin-left: 80px;"><a href="user-profile-nologin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;"><span style="color: #00c4ff; font-weight: bold; font-size: 1.45rem;"><?= $username_borrower; ?></span></a><img class="country-icon" src="assets/images/country-icons/<?=$country?>.png"><span class="location-hidden">Location: <span class="location-text"><?=$country?></span></span></br><span>Member since <?= date('F Y', strtotime($user_join_date)); ?></span></div>
 		</div>
 		
 		<button class="chat-button">Chat</button>

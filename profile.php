@@ -9,6 +9,7 @@ require('actions/users/deleteAccountAction.php');
 require('actions/users/yourTrustScoreAction.php');
 require('actions/users/yourFeedbackAction.php');
 require('actions/users/changePassword.php');
+require('actions/users/ChangeEmailAction.php');
 require('actions/users/bannedAction.php');
 ?>
 
@@ -306,19 +307,19 @@ require('actions/users/bannedAction.php');
 	border-radius: 0.425rem;
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 }
 
 .profile-picture {
-	height: 40px;
-	width: 40px;
-	margin-bottom: -65px;
+	height: 70px;
+	width: 70px;
+	margin-bottom: -82px;
 	border-radius: 50%;
 }
 
 .subsection-title-dashboard {
 	font-weight: bold;
-	margin-left: 50px;
+	margin-left: 80px;
 	margin-top: 20px;
 	font-size: 1.8rem;
 	color: #00c4ff;
@@ -366,7 +367,7 @@ require('actions/users/bannedAction.php');
 	width: 32%;
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	border-radius: 0.425rem;
 	margin-top: 50px;
 }
@@ -475,7 +476,7 @@ require('actions/users/bannedAction.php');
 	margin-top: -304px;
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	border-radius: 0.425rem;
 }
 
@@ -516,7 +517,7 @@ require('actions/users/bannedAction.php');
 	margin-top: -304px;
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	border-radius: 0.425rem;
 }
 
@@ -583,7 +584,7 @@ require('actions/users/bannedAction.php');
 	width: 100%;
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	border-radius: 0.425rem;
 	margin-top: 50px;
 }
@@ -622,14 +623,29 @@ require('actions/users/bannedAction.php');
 
 .image-button-visible {
 	display: block;
+	margin-top: 20px;
+	width: 100%;
+	height: 50px;
+	background-color: #2b80ff;
+	color: white;
+	font-size: 1.01rem;
+	font-weight: bold;
+	border: 0;
+	border-radius: 0.325rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: background-color 0.2s;
+}
+
+.image-button-visible:hover {
+	background-color: #00c4ff;
 }
 
 .image-button-hidden {
 	display: none;
 }
 
-.popups {
-	background-color:  rgba(0, 0, 0, 0.725);
+.popup-editpicture {
+	background-color:  rgba(0, 0, 0, 0.76);
 	position: fixed;
 	z-index: 999;
 	text-align: center;
@@ -638,46 +654,293 @@ require('actions/users/bannedAction.php');
 	display: none;
 }
 
+.popup-editpicture-visible {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+
+.popup-changepassword {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	display: none;
+}
+
+.popup-changepassword-visible {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+
+.popup-changeemail {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	display: none;
+}
+
+.popup-changeemail-visible {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+
+.popup-deleteaccount {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	display: none;
+}
+
+.popup-deleteaccount-visible {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+
 .edit-profile-picture-div {
 	display: none;
 	background-color: white;
-	width: 400px;
-	height: 400px;
+	width: 340px;
 	margin-left: calc(50% - 200px);
 	margin-top: calc(50vh - 200px);
 	border-radius: 0.425rem;
+	text-align: left;
+	padding: 30px;
+}
+
+.edit-profile-picture-div-visible {
+	display: none;
+	background-color: white;
+	width: 340px;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 200px);
+	border-radius: 0.425rem;
+	text-align: left;
+	padding: 30px;
+}
+
+
+.label-text {
+	position: absolute;
+	z-index: 20;
+	width: 106px;
+	background-color: #00c4ff;
+	color: white;
+	margin-left: -8px;
+	margin-top: -1px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 8px;
+	font-weight: bold;
+	font-size: 0.92rem;
+	transition: background-color 0.2s;
+}
+
+.label-text:hover {
+	background-color: #00c4ff;
+}
+
+.upload-input {
+	margin-top: 8px;
+	margin-left: 18px;
+	font-weight: 500;
+}
+
+.popup-delete-image {
+	margin-top: 30px;
+	font-weight: 500;
+	font-size: 1.12rem;
+}
+
+.delete-image-button {
+	margin-top: 10px;
+	height: 30px;
+	background-color: #2b80ff;
+	color: white;
+	font-size: 1.01rem;
+	font-weight: bold;
+	border: 0;
+	border-radius: 0.125rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: background-color 0.2s;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+.delete-image-button:hover {
+	background-color: #00c4ff;
 }
 
 .change-password-div {
 	display: none;
 	background-color: white;
-	width: 400px;
-	height: 400px;
+	width: 340px;
 	margin-left: calc(50% - 200px);
 	margin-top: calc(50vh - 200px);
 	border-radius: 0.425rem;
+	text-align: left;
+	padding: 30px;
+}
+
+.change-password-div-visible {
+	display: block;
+	background-color: white;
+	width: 340px;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 200px);
+	border-radius: 0.425rem;
+	text-align: left;
+	padding: 30px;
 }
 
 .change-email-div {
 	display: none;
 	background-color: white;
-	width: 400px;
-	height: 400px;
+	width: 340px;
 	margin-left: calc(50% - 200px);
 	margin-top: calc(50vh - 200px);
 	border-radius: 0.425rem;
+	text-align: left;
+	padding: 30px;
+}
+
+.change-email-div-visible {
+	display: block;
+	background-color: white;
+	width: 340px;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 200px);
+	border-radius: 0.425rem;
+	text-align: left;
+	padding: 30px;
 }
 
 .delete-account-div {
 	display: none;
 	background-color: white;
-	width: 400px;
-	height: 400px;
+	width: 340px;
 	margin-left: calc(50% - 200px);
 	margin-top: calc(50vh - 200px);
 	border-radius: 0.425rem;
+	text-align: left;
+	padding: 30px;
 }
 
+.delete-account-div-visible {
+	display: block;
+	background-color: white;
+	width: 340px;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 200px);
+	border-radius: 0.425rem;
+	text-align: left;
+	padding: 30px;
+}
+
+.popup-title {
+	font-weight: 500;
+	font-size: 1.52rem;
+	color: #383838;
+}
+
+.popup-input {
+	width: calc(100% - 7px);
+	height: 35px;
+	background-color: #f7f7f7;
+	margin-top: 30px;
+	border: 1px solid #00c4ff;
+	border-radius: 0.125rem;
+	transition: transform 0.2s;
+	font-size: 1.01rem;
+	font-weight: bold;
+	color: #383838;
+	padding-left: 7px;
+}
+
+.popup-input:hover {
+	outline: 1px solid #00c4ff;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	-ms-transform: scale(1.01); /* IE 9 */
+	-webkit-transform: scale(1.01); /* Safari 3-8 */
+	transform: scale(1.01); 
+}
+
+.popup-input:focus {
+	outline: 1px solid #00c4ff;
+	background-color: rgba(0, 196, 255, 0.08);
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+
+.popup-button {
+	margin-top: 35px;
+	width: 100%;
+	height: 50px;
+	background-color: #00c4ff;
+	color: white;
+	font-size: 1.01rem;
+	font-weight: bold;
+	border: 0;
+	border-radius: 0.325rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: background-color 0.2s;
+}
+
+.popup-button:hover {
+	background-color: #2b80ff;
+}
+
+.cancel-button {
+	margin-top: 50px;
+	width: 25%;
+	height: 35px;
+	background-color: red;
+	color: white;
+	font-size: 1.01rem;
+	font-weight: bold;
+	border: 0;
+	border-radius: 0.325rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: background-color 0.2s;
+}
+
+.cancel-button:hover {
+	background-color: #ba000c;
+}
+
+.error-message {
+	font-weight: 500;
+	color: red;
+	margin-top: 10px;
+	margin-bottom: -20px;
+}
 
 .footer {
 	z-index: 10;
@@ -768,6 +1031,7 @@ require('actions/users/bannedAction.php');
 	color: #2b2b2b;
 }
 
+
 </style>
 
 </head>
@@ -799,13 +1063,13 @@ require('actions/users/bannedAction.php');
 	
 	<?php
 		if(isset($ReceiveRepaymentMsg)){ 
-		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="loan-feedback.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="received-repayment.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
 		}
 	?>
 	
 	<?php
 		if(isset($ReceiveLoanMsg)){ 
-		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveLoanMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_receivedloan" class="notification_acknowledge-button"></form></div>';
+		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveLoanMsg.'</span><form method="POST" style="margin-top: -29px; text-align: right;"><input class="notification_acknowledge-button" type="submit" value="OK" name="notification_receivedloan"></form></div>';
 		}
 	?>
 	
@@ -820,61 +1084,108 @@ require('actions/users/bannedAction.php');
 	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="banned-borrower.php?id='.$id_loan.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$BannedBorrowerLoanMsg.'</span><a></div>';
 	}
 	?>
+	
+	<?php
+	if(isset($LentVerifcationLoanMsg)){ 
+	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="confirm-payment.php?id='.$LentVerifcationLoanId.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$LentVerifcationLoanMsg.'</span><a></div>';
+	}
+	?>
+
+	<?php
+	if(isset($RepaymentProofGivenMsg)){ 
+	echo '<div class="notification-unpaidborrower"><img src="assets/images/warning-sign-orange.png" class="notification-image"><a href="evaluate-repayment-proof.php?id='.$id_loanRepaidProofGiven.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$RepaymentProofGivenMsg.'</span><a></div>';
+	}
+	?>
+	
+	<?php
+	if(isset($PaidAfterBanMsg)){ 
+	echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$PaidAfterBanMsg.'</span><form method="POST" style="margin-top: -29px; text-align: right;"><input class="notification_acknowledge-button" type="submit" value="OK" name="notification_receivedpaidafertban"></form></div>';
+	}
+	?>
 
 <div class="everything-except-header">
 
 
 
-					<div class="popups" id="popups">
-						<div class="edit-profile-picture-div" id="edit-profile-picture-div">
+					<div class="popup-editpicture<?= $visible_onload_editpicture; ?>" id="popup-editpicture">
+					
+						<div class="edit-profile-picture-div<?= $visible_onload_editpicture; ?>" id="edit-profile-picture-div">
 							<form method="POST" action="upload.php" enctype="multipart/form-data">
-								<div class="upload-wrapper">
-								<span class="file-name">Choose a file...</span>
-								<label for="file-upload">Browse<input type="file" id="file-upload" name="uploadedFile"></label>
-								</div>
-								<input class="<?= $Profile_image_add; ?>" type="submit" name="AddimageButton" value="Add Image" />
-								<input class="<?= $Profile_image_edit; ?>" type="submit" name="EditimageButton" value="Edit Image" />
+								<span class="popup-title"><?= $addOrEdit; ?> Profile Picture</span>
+								<div class="popup-input"><label for="file-upload"><span class="label-text">Select Image</span><input type="file" id="file-upload" name="uploadedFile" class="upload-input" required></label></div>
+								<div><input class="<?= $Profile_image_add; ?>" type="submit" name="AddimageButton" value="Upload Image" /></div>
+								<div><input class="<?= $Profile_image_edit; ?>" type="submit" name="EditimageButton" value="Upload Image" /></div>
 							 </form>
+							 <div class="popup-delete-image">
 							<?php 
 							if(isset($removeProfilePicture)){ 
-								echo '<form method="post"><p>'.$removeProfilePicture.'</p><input type="submit" value="Delete" name="delete_picture"></form>'; 
+								echo '<form method="post"><span>'.$removeProfilePicture.'</span></br><input class="delete-image-button" type="submit" value="Delete Profile Picture" name="delete_picture"></form>'; 
 							}
 							?>
-							<button onclick="CloseProfilePicturePopup()">Cancel</button>
+							</div>
+							<button class="cancel-button" onclick="CloseProfilePicturePopup()">Cancel</button>
+						</div>
+					
+					</div>
+					<div class="popup-changepassword<?= $visible_onload_changepassword; ?>" id="popup-changepassword">
+						
+						<div class="change-password-div<?= $visible_onload_changepassword; ?>" id="change-password-div">
+							<form method="post">
+							<span class="popup-title">Change your Password</span>
+							<div><input class="popup-input" name="current_password" type="password" placeholder="Current Password" required></div>
+							<div><input class="popup-input" name="new_password" type="password" placeholder="New Password" required></div>
+							<div><input class="popup-button" name="change_password" type="submit" value="Change Password"></div>
+							</form>
+							<div class="error-message">
+							<?php 
+							if(isset($password_errorMsg)){ 
+							echo $password_errorMsg; 
+							}
+							?>
+							</div>
+							<button class="cancel-button" onclick="CloseChangePasswordPopup()">Cancel</button>
 						</div>
 						
-						<div class="change-password-div" id="change-password-div">
-							<form method="post">
-							<input name="current_password" type="password">
-							<input name="new_password" type="password">
-							<input name="change_password" type="submit" value="Change Password">
-							</form>
-							<button onclick="CloseChangePasswordPopup()">Cancel</button>
-						</div>
+					</div>
+					<div class="popup-changeemail<?= $visible_onload_changeemail; ?>" id="popup-changeemail">
 						
-						<div class="change-email-div" id="change-email-div">
+						<div class="change-email-div<?= $visible_onload_changeemail; ?>" id="change-email-div">
 							<form method="post">
-							<input name="new_email" type="email" autocomplete="off" required>
-							<input name="change_email" type="submit" value="Change Email">
+							<span class="popup-title">Change your Email</span>
+							<div><input class="popup-input" name="emailchange_password" type="password" placeholder="Password" required></div>
+							<div><input class="popup-input" name="new_email" type="email" autocomplete="off" placeholder="New Email Address" required></div>
+							<div><input class="popup-button" name="change_email" type="submit" value="Change Email"></div>
 							</form>
-							<button onclick="CloseChangePasswordPopup()">Cancel</button>
+							<div class="error-message">
 							<?php 
 							if(isset($email_error_message)){ 
 							echo $email_error_message; 
 							}
 							?>
+							</div>
+							<button class="cancel-button" onclick="CloseChangeEmailPopup()">Cancel</button>
 						</div>
 						
-						<div class="delete-account-div" id="delete-account-div">
+					</div>
+					<div class="popup-deleteaccount<?= $visible_onload_deleteaccount; ?>" id="popup-deleteaccount">
+						
+						<div class="delete-account-div<?= $visible_onload_deleteaccount; ?>" id="delete-account-div">
 							<form method="post">
-							<input name="delete_account" type="submit" value="Delete Account"></form>
+							<span class="popup-title">Delete Account</span>
+							<div><input class="popup-input" name="deleteaccount_password" type="password" placeholder="Password" required></div>
+							<p style="color: red; font-weight: 500; font-size: 0.93rem; margin-top: 25px; margin-bottom: -5px;">This Action cannot be Undone. All your Account Data will be Lost.</p>
+							<div><input class="popup-button" name="delete_account" type="submit" value="Delete Account"></div>
+							</form>
+							<div class="error-message">
 							<?php 
 							if(isset($errorMsg)){ 
 							echo '<p class="error-message">'.$errorMsg.'</p>'; 
 							}
 							?>
-							<button onclick="CloseDeleteAccountPopup()">Cancel</button>
+							</div>
+							<button class="cancel-button" onclick="CloseDeleteAccountPopup()">Cancel</button>
 						</div>
+						
 					</div>
 
 
@@ -927,7 +1238,7 @@ require('actions/users/bannedAction.php');
 			<div style="margin-top: 15px;"><span>Negative feedback</br><img class="thumbs-down" src="assets/images/negative.png"><span style="font-weight: bold; font-size: 1.35rem;"><?php echo ''.$negative_feedback.'';?></span></span></div>
 		</div>
 		<div class="column-12">
-			<div style= "margin-top: 15px;"><a href="trustscore.php" style="text-decoration: none; color: black;"><span style="font-weight: 500; font-size: 1.15rem;">Your Trust Score</span></br><span style="font-size: 1.35rem; font-weight: bold; color: #00c4ff;"><?php echo ''.ROUND($trustscore6).'';?>/100</span></a></div>
+			<div style= "margin-top: 15px;"><span style="font-weight: 500; font-size: 1.15rem;">Your Trust Score</span></br><span style="font-size: 1.35rem; font-weight: bold; color: #00c4ff;"><?php echo ''.ROUND($trustscore6).'';?>/100</span></div>
 		</div>
 	</div>
 	
@@ -941,7 +1252,6 @@ require('actions/users/bannedAction.php');
 		<div class="column-12">
 		<p class="payment-method">Zelle <a href="set-payment-method.php" style="text-decoration: none;"><span class="payment-method-box"><?php if(isset($zelle_no)){echo ''.$zelle_no.'';}?></span><span class="payment-method-box2"><?php if(isset($zelle_yes)){echo ''.$zelle_yes.'';}?></span></a></p>
 		<p class="payment-method">Chime <a href="set-payment-method.php" style="text-decoration: none;"><span class="payment-method-box"><?php if(isset($chime_no)){echo ''.$chime_no.'';}?></span><span class="payment-method-box2"><?php if(isset($chime_yes)){echo ''.$chime_yes.'';}?></span></a></p>
-		<p class="payment-method">WISE <a href="set-payment-method.php" style="text-decoration: none;"><span class="payment-method-box"><?php if(isset($wise_no)){echo ''.$wise_no.'';}?></span><span class="payment-method-box2"><?php if(isset($wise_yes)){echo ''.$wise_yes.'';}?></span></a></p>	
 		</div>
 	</div>
 	<div class="account-settings">
@@ -961,7 +1271,7 @@ require('actions/users/bannedAction.php');
 		<div class="column-113" style="font-weight: 500;">
 			<p class="add-picture" onclick="ProfilePicturePopup()"><?= $addOrEdit; ?> Profile Picture</p>
 			<p class="change-password" onclick="ChangePasswordPopup()">Change Password</p>
-			<p class="update-verifications" onclick="ChangeEmailPopup()">change Email Address</p>
+			<p class="update-verifications" onclick="ChangeEmailPopup()">Change Email Address</p>
 			<p class="delete-account" style="color: red;" onclick="DeleteAccountPopup()">Delete Account</p>
 		</div>
 	</div>
@@ -1009,56 +1319,56 @@ require('actions/users/bannedAction.php');
 <script>
 function ProfilePicturePopup() {
   document.getElementById("edit-profile-picture-div").style.display = "block";
-   document.getElementById("popups").style.display = "block";
+   document.getElementById("popup-editpicture").style.display = "block";
 }
 </script>
 
 <script>
 function ChangePasswordPopup() {
   document.getElementById("change-password-div").style.display = "block";
-  document.getElementById("popups").style.display = "block";
+  document.getElementById("popup-changepassword").style.display = "block";
 }
 </script>
 
 <script>
 function ChangeEmailPopup() {
   document.getElementById("change-email-div").style.display = "block";
-  document.getElementById("popups").style.display = "block";
+  document.getElementById("popup-changeemail").style.display = "block";
 }
 </script>
 
 <script>
 function DeleteAccountPopup() {
   document.getElementById("delete-account-div").style.display = "block";
-  document.getElementById("popups").style.display = "block";
+  document.getElementById("popup-deleteaccount").style.display = "block";
 }
 </script>
 
 <script>
 function CloseProfilePicturePopup() {
   document.getElementById("edit-profile-picture-div").style.display = "none";
-  document.getElementById("popups").style.display = "none";
+  document.getElementById("popup-editpicture").style.display = "none";
 }
 </script>
 
 <script>
 function CloseChangePasswordPopup() {
   document.getElementById("change-password-div").style.display = "none";
-  document.getElementById("popups").style.display = "none";
+  document.getElementById("popup-changepassword").style.display = "none";
 }
 </script>
 
 <script>
 function CloseChangeEmailPopup() {
   document.getElementById("change-email-div").style.display = "none";
-  document.getElementById("popups").style.display = "none";
+  document.getElementById("popup-changeemail").style.display = "none";
 }
 </script>
 
 <script>
 function CloseDeleteAccountPopup() {
   document.getElementById("delete-account-div").style.display = "none";
-  document.getElementById("popups").style.display = "none";
+  document.getElementById("popup-deleteaccount").style.display = "none";
 }
 </script>
 

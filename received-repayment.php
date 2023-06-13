@@ -1,6 +1,7 @@
 <?php
 require('actions/users/securityAction.php');
-require('actions/questions/showUnpayingBorrowerInfo.php');
+require('actions/questions/RepaymentReceivedAction.php');
+require('actions/questions/FeedbackAction.php');
 require('actions/questions/updateDatabases.php');
 require('actions/users/bannedAction.php');
 ?>
@@ -182,8 +183,8 @@ require('actions/users/bannedAction.php');
 
 .main {
 	margin-top: 160px;
-	margin-left: 10%;
-	width: 80%;
+	margin-left: 20%;
+	width: 60%;
 	background-color: #f7f7f7;
 }
 
@@ -192,17 +193,31 @@ require('actions/users/bannedAction.php');
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	border: 1px solid #00c4ff;
-	width: 49%;
+	width: 100%;
 	height: 300px;
 }
 
-.chat-div {
+.disclaimer {
 	border-radius: 0.425rem;
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	border: 1px solid #00c4ff;
-	width: 49%;
-	height: 200px;
+	width: 100%;
+	margin-top: 10px;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: 500;
+	color: #2b80ff;
+}
+
+.confirmation-div {
+	border-radius: 0.425rem;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	border: 1px solid #00c4ff;
+	width: 100%;
+	height: 450px;
 	margin-top: 50px;
 }
 
@@ -210,7 +225,8 @@ require('actions/users/bannedAction.php');
 .subtitle {
 	font-weight: bold;
 	margin-top: 20px;
-	margin-bottom: 30px;
+	margin-left: 20px;
+	margin-bottom: 40px;
 	font-size: 1.8rem;
 	color: #00c4ff;
 }
@@ -224,14 +240,21 @@ require('actions/users/bannedAction.php');
 .column-1 {
 	margin-left: 20px;
 	height: 300px;
-	width: 50%;
+	width: 33.3%;
 }
 
 .column-2 {
-	margin-left: 50%;
+	margin-left: 33.3%;
 	height: 300px;
-	width: 50%;
-	margin-top: -237px;
+	width: 33.3%;
+	margin-top: -300px;
+}
+
+.column-3 {
+	margin-left: 66.6%;
+	height: 300px;
+	width: 66.6%;
+	margin-top: -300px;
 }
 
 .subtext1 {
@@ -246,14 +269,8 @@ require('actions/users/bannedAction.php');
 	color: #00c4ff;
 }
 
-.subtext3 {
-	font-weight: bold;
-	font-size: 1.1rem;
-	color: #2b80ff;
-}
 
-
-.subtitle-chat {
+.subtitle-feedback {
 	font-weight: bold;
 	margin-top: 20px;
 	margin-bottom: 5px;
@@ -262,15 +279,196 @@ require('actions/users/bannedAction.php');
 	color: #00c4ff;
 }
 
-.chat-text {
+
+.wrapper {
+	width: 300px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	transition: transform 0.2s;
+	margin-bottom: 35px;
+
+}
+
+.wrapper:hover {
+	-ms-transform: scale(1.015); /* IE 9 */
+	-webkit-transform: scale(1.015); /* Safari 3-8 */
+	transform: scale(1.015); 
+}
+
+.text-feedback {
 	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.label {
+	font-weight: 500;
+}
+
+
+.thumbs-up {
+	height: 40px;
+	width: auto;
+	margin-bottom: -10px;
+	margin-right: 10px;
+	margin-left: 7px;
+}
+
+.thumbs-down {
+	height: 40px;
+	width: auto;
+	margin-bottom: -18px;
+	margin-right: 10px;
+	margin-left: 7px;
+}
+
+.checkmark {
+	height: 20px;
+	width: auto;
+	margin-bottom: -5px;
+	margin-right: 5px;
+}
+
+.cross {
+	height: 20px;
+	width: auto;
+	margin-bottom: -5px;
+	margin-right: 5px;
+}
+
+
+
+.submit {
+	margin-top: 15px;
+	width: 150px;
+	height: 40px;
+	background-color: #00c4ff;
+	color: white;
+	font-size: 1.18rem;
+	font-weight: bold;
+	border: 0;
+	border-radius: 0.325rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform 0.2s;
+}
+
+.submit:hover {
+	background-color: red;
+	-ms-transform: scale(1.03); /* IE 9 */
+	-webkit-transform: scale(1.03); /* Safari 3-8 */
+	transform: scale(1.03); 
+}
+
+.error-message {
+	border-radius: 0.425rem;
+	background-color: red;
+	border: 1px solid red;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	width: 100%;
+	margin-top: 42px;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: 500;
+	color: white;
+	sdiplay: block;
+}
+
+.error-message-feedback {
+	border-radius: 0.425rem;
+	background-color: red;
+	border: 1px solid red;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	width: 100%;
+	margin-top: 50px;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: 500;
+	color: white;
+	sdiplay: block;
+}
+
+.success-message-feedback {
+	border-radius: 0.425rem;
+	background-color: #12d400;
+	border: 1px solid #12d400;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	width: 100%;
+	margin-top: 50px;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: 500;
+	color: white;
+	sdiplay: block;
+}
+
+.payment-received {
+	border-radius: 0.425rem;
+	background-color: #12d400;
+	border: 1px solid #12d400;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	width: 100%;
+	margin-top: 42px;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: 500;
+	color: white;
+}
+
+.payment-notreceived {
+	border-radius: 0.425rem;
+	background-color: red;
+	border: 1px solid red;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	width: 100%;
+	margin-top: 42px;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: 500;
+	color: white;
+}
+
+
+.feedback-div {
+	border-radius: 0.425rem;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	border: 1px solid #00c4ff;
+	width: 49%;
+	height: 430px;
+	margin-top: 50px;
+}
+
+.chat-div {
+	border-radius: 0.425rem;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	border: 1px solid #00c4ff;
+	width: clac(49% - 20px);
+	margin-left: 51%;
+	height: 200px;
+	margin-top: -432px;
+	margin-bottom: 322px;
+	padding: 20px;
+}
+
+.subtitle-chat {
+	font-weight: bold;
+	margin-bottom: 5px;
+	font-size: 1.8rem;
+	color: #00c4ff;
+}
+
+.chat-text {
 	font-size: 1.05rem;
-	margin-bottom: 15px;
+	margin-bottom: 30px;
 	color: #383838;
 }
 
 .chat-button {
-	margin-left: 20px;
 	background-color: #2b80ff;
 	border: 0;
 	padding: 10px;
@@ -289,27 +487,10 @@ require('actions/users/bannedAction.php');
 	transform: scale(1.05); 
 }
 
-.payment {
-	margin-top: -554px;
-	margin-left: 51%;
-	width: 49%;
-	height: 552px;
-	border-radius: 0.425rem;
-	background-color: #fcfcfc;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
-}
-
-.payment-form {
-	margin-top: 20px;
-	width: 60%;
-	margin-left: 5%;
-}
-
 .footer {
 	z-index: 10;
 	width: 100%;
-	margin-top: 80px;
+	margin-top: 150px;
 	background-color: white;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -416,34 +597,100 @@ require('actions/users/bannedAction.php');
 <div class="main">
 	
 	<div class="loan-recap">
+		<div class="subtitle"><span>Repayment Received!</span></div>
 		<div class="column-1">
-		<div class="subtitle"><span>Unpaid Loan</span></div>
-		<div class="text">Amount Lent</br><span class="subtext1"><?= $loan_amount; ?>$</span></div>
-		<div class="text">Amount not repayed</br><span class="subtext1"><?= $repayment_amount; ?>$</span></div>
+		<div class="text">Amount Received</br><span class="subtext1"><?= $repayment_amount; ?>$</span></div>
+		<div class="text">Instant Borrow Fee</br><span class="subtext1">0$</span></div>
 		</div>
 		<div class="column-2">
-		<div class="text">Agreed Repayment Date</br><span class="subtext2" style="color: red;"><?= date('M jS, Y', strtotime($repayment_date)); ?></span></div>
-		<div class="text"  style="margin-top: 24px;">Borrower</br><a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span class="subtext2"><?= $username_borrower; ?></span></a></div>
+		<div class="text">Profit margin</br><span class="subtext1"><?= ROUND((($repayment_amount/$loan_amount)-1)*100); ?>%</span></div>
+		<div class="text">Borrower</br><a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" target="blank" style="text-decoration: none;"><span class="subtext2"><?= $username_borrower; ?></span></a></div>
+		</div>
+		<div class="column-3">
+		<div class="text">Payment Method</br><span class="subtext2"><?= $payment_method_repayment; ?></span></div>
+		<div class="text">Status</br><span class="subtext2"><?= $status_public; ?></span></div>
 		</div>
 	</div>
 	
-	<div class="chat-div">
-		<div class="subtitle-chat"><span>Chat with <a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span style="color: #560296;"><?= $username_borrower; ?></span></a></span></div>
-		<div class="chat-text"><span>Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
-		<a href="" target="blank"><button class="chat-button">Chat with <span><?= $username_borrower; ?></span></button></a>
+	<div class="disclaimer">
+	<span>Amount Received on your Account may be Slightly Lower due to <?= $payment_method_repayment; ?>'s Fees.</span>
 	</div>
 	
-	<div class="payment">
-		<div class="subtitle-chat" style="margin-bottom: 30px;"><span>Borrower Details</span></div>
-		<div class="chat-text" style="margin-top: 20px; margin-bottom: 30px; font-weight: 500;"><span class="subtext2"><?= $username_borrower; ?></span> Hasn't Repaid you. He will be <span style="color: red;">Banned</span> In 7 Days.</br>This is the Information we Have On him:</div>
-		<div class="chat-text">Full Name: </br><span class="subtext3"><?= $name; ?></span></div>
-		<div class="chat-text">Email Address: </br><span class="subtext3"><?= $email_address; ?></span></div>
-		<div class="chat-text">Phone Number: </br><span class="subtext3"><?= $phone_number; ?></span></div>
-		<div class="chat-text">Location: </br><span class="subtext3"><?= $city; ?>, <?= $country; ?></span></div>
-		<div class="chat-text" style="margin-top: 30px; font-weight: 500;"><span class="subtext2"><?= $username_borrower; ?></span> Will Always be Able to Repay you on His Account.</br>You can Also Continue Chatting with Him Indefinitely.</div>
+	<div class="confirmation-div">
+		<div  class="subtitle-feedback"><span>Confirm Reception of Payment</span></div>
+		<div  class="text-feedback"><span>Check on your <?= $payment_method_repayment; ?> Account if you Have Received the Funds.</span></br><span>Be Patient, It may Take a Few Minutes.</span></div>
+		
+		<form method="post" style="margin-left: 20px; margin-top: 35px;">
+		<div class="wrapper">
+		<input type="radio" name="repayment" value="received" class="input" id="received" required >
+		<label class="label" for="received"><img class="checkmark" src="assets/images/checkmark.png">Funds Received</label>
+		</div>
+		<div class="wrapper">
+		<input type="radio" name="repayment" value="not_received" class="input" id="not_received" required>
+		<label class="label" for="not_received"><img class="cross" src="assets/images/cross.png">Funds not Received</label>
+		</div>
+		<p style="color: red; font-weight: 500;">If Funds are Reported not as Received, the Lender will be Asked for Further Proof of Payment.</br>Any Attempt at Fraud will Result in a Ban.</p>
+		<input type="submit" value="OK" name="notification_receivedrepayment" class="submit">
+		</form>
+		
+		
+		
+		<?php 
+		if(isset($confirmed_message)){ 
+                echo ''.$confirmed_message.''; 
+            }
+        ?>
+		<?php 
+		if(isset($notreceived_message)){ 
+                echo ''.$notreceived_message.''; 
+            }
+        ?>
+		<?php 
+		if(isset($error_message_received)){ 
+                echo ''.$error_message_received.''; 
+            }
+        ?>
+		<?php 
+		if(isset($error_message_not_received)){ 
+                echo ''.$error_message_not_received.''; 
+            }
+        ?>
+		
+		
 	</div>
 	
-
+		<div class="feedback-div">
+		<div  class="subtitle-feedback"><span>Feedback</span></div>
+		<div  class="text-feedback"><span>Give your Opinion on the Borrower to Help Out other Lenders in the Future.</span></div>
+		
+		<form method="post" style="margin-left: 20px;">
+		<p class="form-title">Your Oppinion of the Borrower:</p>
+		<div class="wrapper">
+		<input type="radio" name="feedback" value="positive" class="input" id="positive" required >
+		<label class="label" for="positive"><img class="thumbs-up" src="assets/images/positive.png">Positive</label>
+		</div>
+		<div class="wrapper">
+		<input type="radio" name="feedback" value="negative" class="input" id="negative" required>
+		<label class="label" for="negative"><img class="thumbs-down" src="assets/images/negative.png">Negative</label>
+		</div>
+		<input type="submit" value="Submit" class="submit" name="notification_repaid">
+		</form>
+		
+		 <?php 
+            if(isset($errormessage)){ 
+                echo ''.$errormessage.''; 
+            }elseif(isset($successmessage)){ 
+                echo ''.$successmessage.''; 
+            }
+        ?>
+		
+		</div>
+		
+		<div class="chat-div">
+			<div class="subtitle-chat"><span>Chat with <a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span style="color: #560296;"><?= $username_borrower; ?></span></a></span></div>
+			<div class="chat-text"><span>Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
+			<a href="" target="blank"><button class="chat-button">Chat with <span><?= $username_borrower; ?></span></button></a>
+		</div>
 
 </div>
 

@@ -483,9 +483,11 @@ require('actions/users/bannedAction.php');
 	background-color: #edd500;
 }
 
+
 .explain {
 	width: 100%;
 	text-align: left;
+	color: #383838;
 }
 
 .explain-title {
@@ -617,13 +619,13 @@ require('actions/users/bannedAction.php');
 	
 	<?php
 		if(isset($ReceiveRepaymentMsg)){ 
-		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="loan-feedback.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="received-repayment.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
 		}
 	?>
 	
 	<?php
 		if(isset($ReceiveLoanMsg)){ 
-		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image"><span class="notification-text-receivedloan">'.$ReceiveLoanMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_receivedloan" class="notification_acknowledge-button"></form></div>';
+		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveLoanMsg.'</span><form method="POST" style="margin-top: -29px; text-align: right;"><input class="notification_acknowledge-button" type="submit" value="OK" name="notification_receivedloan"></form></div>';
 		}
 	?>
 	
@@ -636,6 +638,24 @@ require('actions/users/bannedAction.php');
 	<?php
 	if(isset($BannedBorrowerLoanMsg)){ 
 	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="banned-borrower.php?id='.$id_loan.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$BannedBorrowerLoanMsg.'</span><a></div>';
+	}
+	?>
+	
+	<?php
+	if(isset($LentVerifcationLoanMsg)){ 
+	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="confirm-payment.php?id='.$LentVerifcationLoanId.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$LentVerifcationLoanMsg.'</span><a></div>';
+	}
+	?>
+	
+	<?php
+	if(isset($RepaymentProofGivenMsg)){ 
+	echo '<div class="notification-unpaidborrower"><img src="assets/images/warning-sign-orange.png" class="notification-image"><a href="evaluate-repayment-proof.php?id='.$id_loanRepaidProofGiven.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$RepaymentProofGivenMsg.'</span><a></div>';
+	}
+	?>
+	
+	<?php
+	if(isset($PaidAfterBanMsg)){ 
+	echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$PaidAfterBanMsg.'</span><form method="POST" style="margin-top: -29px; text-align: right;"><input class="notification_acknowledge-button" type="submit" value="OK" name="notification_receivedpaidafertban"></form></div>';
 	}
 	?>
 
@@ -687,14 +707,7 @@ require('actions/users/bannedAction.php');
 	<form  method="post" <?php if(isset($chime_no)){ echo 'style="display:none;"'; } ?> class="delete-form">
 	<input name="remove_chime" type="submit" value="Remove Account" class="delete-button">
 	</form>
-	<form method="post" class="form">
-		<p class="input-text">WISE<span class="account"><?= $rowwise['wise']; ?></span><span class="payment-method-box"><?php if(isset($wise_no)){echo ''.$wise_no.'';}?></span><span class="payment-method-box2"><?php if(isset($wise_yes)){echo ''.$wise_yes.'';}?></span></p>
-		<input name="wise_set" id="loan" class="input" required autocomplete="off" placeholder="Enter your email address used on WISE">
-		<input name="wise_submit" type="submit" class="set-button" value="<?php if(isset($wise_add)){echo ''.$wise_add.'';} else{ echo ''.$wise_update.'';}?>">
-	</form>
-	<form  method="post" <?php if(isset($wise_no)){ echo 'style="display:none;"'; } ?> class="delete-form">
-	<input name="remove_wise" type="submit" value="Remove Account" class="delete-button">
-	</form>
+
 
  	
 		
@@ -704,27 +717,15 @@ require('actions/users/bannedAction.php');
 		</div>
 		
 		<div class="explain">
-		<p class="explain-title">How to Lend Money on Instant Borrow</p>
-		<p>Buy Bitcoin (BTC) at the lowest possible price no matter where you are. Paxful works on the principle of peer-to-peer finance that enables you to buy BTC with as little as 10 USD. You can buy directly from people just like you—without banks or corporations.</p>
+		<p class="explain-title">Manage Payment Methods</p>
+		<p>The Payment Methods you have Specified will be Used by Lenders And Borrowers to Send you Money.</p>
 
-		<p>The best part? No fees when you purchase Bitcoin on Paxful. That means you get more crypto for your money. Thanks to nearly 400 payment methods available on the platform, you can turn your cash into Bitcoin with online wallets or bank transfers. You can also trade other cryptocurrencies like Ethereum for Bitcoin, or even sell gift cards to get fractions of BTC in return.</p>
+		<p>The More Payment Methods you Add, the Easier it will be for Other Users to Transact with you.</p>
 
-		<p>Paxful is protected with vault-level security and regulated in the United States as a Money Services Business. The marketplace is strictly monitored by our army of analysts and users are verified to ensure a safe trading environment. With all these safety measures in place, you can rest easy knowing that your information and crypto are safe with us.</p>
+		<p style="font-weight: 500; margin-top: 40px;">If you Have any Questions about Payment Methods, Refer to our <a href="faq.php" style="text-decoration: none; color: #3d91e0;">FAQ's</a> Or <a href="support.php" style="text-decoration: none; color: #3d91e0;">Contact our Support team.</a></p>
 
-		<p>Here’s how you can start buying Bitcoin on Paxful:</p>
-
-		<p>1) Sign up for a Paxful account - Create and verify your account to get your free Bitcoin wallet with 2FA security. Setting your account up is easy and can be done in minutes. All you need is a valid email address, phone number, and ID to get started.
-		</br></br>2) Find a vendor – Click Buy from the main menu and select Buy Bitcoin. Set the amount you want to spend, your preferred currency, and your payment method of choice in the sidebar widget to find local and international sellers that match your requirements.
-		We recommend filtering for all the User Types (Ambassador, Associate, etc.) to show the most trustworthy vendors who have undergone an additional layer of security checks from Paxful.
-		</br></br>3) Read the requirements – Click on the Buy button to view the vendor’s terms. Depending on the payment method, sellers may also ask you to provide a screenshot of the funds from your online wallet, a photo of the bank deposit slip, or a copy of the receipt of the gift card you purchased. Some vendors may also ask you to send a selfie holding a valid ID for additional security purposes.
-		</br></br>4) Start the trade – If you can comply with the seller’s terms, set the amount of Bitcoin you want to buy in the widget then click Buy now to start the trade. This will open a live chat with the seller where you will receive further instructions on how to complete the trade. The live chat records all messages and will protect you if you encounter any problems, so please don’t communicate outside of Paxful.
-		</br></br>5) Send payment and receive your BTC – Once all requirements have been fulfilled and the vendor gives the go signal, transfer the payment and click Paid immediately. At this point, the vendor’s BTC is locked in escrow to prevent your trade partner from accepting your payment and not releasing the crypto. As soon as the seller confirms your payment, the Bitcoin will be released from escrow and transferred to your Paxful Wallet.
-		All that’s left is to give the seller a review of your experience and that’s it! For more information, you can also watch our detailed video walkthrough on how to buy Bitcoin on Paxful.</p>
-
-		<p>If you have any questions, please click on the chat icon at the bottom right corner of the page to get in touch with our support team. We’re here for you 24/7—even on holidays!</p>
-
-		<p>Buying Bitcoin on Paxful is safe and easy, but don’t take our word for it—read reviews from countless Paxful users around the world.</p>
 		</div>
+		
 			
 	</div>
 

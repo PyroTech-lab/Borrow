@@ -319,10 +319,14 @@ require('actions/users/bannedAction.php');
 
 <div class="everything-except-header">
 
+<div style="min-height: calc(100vh - 593px);">
+
 <div class="message-container">
 <h1 class="message-title">User Not Found</h1>
 <h2 class="message-subtitle">The User you are Looking for Does not Exist...</h2>
 <a href="dashboard.php"><button class="message-button">Go Back Home</button></a>
+</div>
+
 </div>
 
 

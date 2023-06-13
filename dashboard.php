@@ -285,13 +285,14 @@ require('actions/users/bannedAction.php');
 
 .everything-except-header {
 	position: absolute;
+	width: 100%;
 }
 
 .main {
 	margin-top: 160px;
 	width: 80%;
 	margin-left: 10%;
-	background-color: white;
+	background-color: #f8f8f8;
 }
 
 
@@ -300,7 +301,7 @@ require('actions/users/bannedAction.php');
 	position: fixed;
 	margin-top: -20px;
 	width: 20%;
-	background-color: white;
+	background-color: #f8f8f8;
 	text-align: left;
 }
 
@@ -313,7 +314,7 @@ require('actions/users/bannedAction.php');
 .sticky-input {
 	width: calc(100% - 7px);
 	height: 40px;
-	background-color: #f7f7f7;
+	background-color: white;
 	margin-top: -10px;
 	margin-bottom: 10px;
 	border: 1px solid #00c4ff;
@@ -329,7 +330,7 @@ require('actions/users/bannedAction.php');
 
 .sticky-input:hover {
 	outline: 1px solid #00c4ff;
-	background-color: #f7f7f7;
+	background-color: white;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	-ms-transform: scale(1.01); /* IE 9 */
 	-webkit-transform: scale(1.01); /* Safari 3-8 */
@@ -382,7 +383,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	margin-top: 35px;
 	width: 103%;
 	height: 50px;
-	background-color: #00c4ff;
+	background-color: #2b80ff;
 	color: white;
 	font-size: 1.18rem;
 	font-weight: bold;
@@ -393,7 +394,7 @@ input::-webkit-datetime-edit-year-field:focus {
 }
 
 .find-offers:hover {
-	background-color: #2b80ff;
+	background-color: #00c4ff;
 	-ms-transform: scale(1.015); /* IE 9 */
 	-webkit-transform: scale(1.015); /* Safari 3-8 */
 	transform: scale(1.015); 
@@ -441,6 +442,11 @@ input::-webkit-datetime-edit-year-field:focus {
 	color: #383838;
 }
 
+.subtitle-bold {
+	color: #2b80ff;
+	font-weight: 500;
+}
+
 .sort-by {
 	margin-left: 60px;
 	margin-bottom: -39px;
@@ -453,7 +459,8 @@ input::-webkit-datetime-edit-year-field:focus {
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	margin-left: calc(85% - 150px);
 	height: 55px;
-	border-radius: 0.325rem
+	border-radius: 0.325rem;
+	background-color: white;
 }
 
 .sort-by-input {
@@ -788,12 +795,58 @@ input::-webkit-datetime-edit-year-field:focus {
 .explain {
 	margin-left: 80px;
 	text-align: left;
+	color: #2e2e2e;
 }
 
 .explain-title {
-	font-size: 1.8rem;
+	font-size: 2.1rem;
 	font-weight: bold;
 	color: #00c4ff;
+}
+
+.step1 {
+	width: 49%;
+}
+
+.step2 {
+	width: 49%;
+	margin-left: 51%;
+	margin-top: -252px;
+}
+
+.step3 {
+	width: 49%;
+}
+
+.step4 {
+	width: 49%;
+	margin-left: 51%;
+	margin-top: -227px;
+}
+
+.inner-box {
+	border: 1px solid #00c4ff;
+	border-radius: 0.25rem;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: white;
+}
+
+.steps-title {
+	font-weight: bold;
+	font-size: 1.72rem;
+	color: #00c4ff;
+	margin-bottom: 3px;
+}
+
+.steps-subtitle {
+	font-weight: 500;
+	font-size: 1.1rem;
+}
+
+.explain-bold {
+	font-weight: 500;
+	color: #2b80ff;
 }
 
 .footer {
@@ -890,7 +943,7 @@ input::-webkit-datetime-edit-year-field:focus {
 </head>
 
 
-<body style="margin: 0px; font-family: 'Poppins', sans-serif;">
+<body style="margin: 0px; font-family: 'Poppins', sans-serif; background-color: #f8f8f8;">
 
 <div class="header">
 	<div class="header-text">
@@ -916,13 +969,13 @@ input::-webkit-datetime-edit-year-field:focus {
 	
 	<?php
 		if(isset($ReceiveRepaymentMsg)){ 
-		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="loan-feedback.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="received-repayment.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
 		}
 	?>
 	
 	<?php
 		if(isset($ReceiveLoanMsg)){ 
-		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveLoanMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_receivedloan" class="notification_acknowledge-button"></form></div>';
+		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveLoanMsg.'</span><form method="POST" style="margin-top: -29px; text-align: right;"><input class="notification_acknowledge-button" type="submit" value="OK" name="notification_receivedloan"></form></div>';
 		}
 	?>
 	
@@ -935,6 +988,24 @@ input::-webkit-datetime-edit-year-field:focus {
 	<?php
 	if(isset($BannedBorrowerLoanMsg)){ 
 	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="banned-borrower.php?id='.$id_loan.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$BannedBorrowerLoanMsg.'</span><a></div>';
+	}
+	?>
+	
+	<?php
+	if(isset($LentVerifcationLoanMsg)){ 
+	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="confirm-payment.php?id='.$LentVerifcationLoanId.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$LentVerifcationLoanMsg.'</span><a></div>';
+	}
+	?>
+	
+	<?php
+	if(isset($RepaymentProofGivenMsg)){ 
+	echo '<div class="notification-unpaidborrower"><img src="assets/images/warning-sign-orange.png" class="notification-image"><a href="evaluate-repayment-proof.php?id='.$id_loanRepaidProofGiven.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$RepaymentProofGivenMsg.'</span><a></div>';
+	}
+	?>
+	
+	<?php
+	if(isset($PaidAfterBanMsg)){ 
+	echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$PaidAfterBanMsg.'</span><form method="POST" style="margin-top: -29px; text-align: right;"><input class="notification_acknowledge-button" type="submit" value="OK" name="notification_receivedpaidafertban"></form></div>';
 	}
 	?>
 
@@ -963,7 +1034,7 @@ input::-webkit-datetime-edit-year-field:focus {
 
 	<div class="main-right">
 		<p class="title">Lend Money. Get Big Returns.</p>
-		<p class="subtitle">Buy Bitcoin with over 350 payment methods to choose from, including bank transfers, online wallets, and gift cards.</p>
+		<p class="subtitle"><span class="subtitle-bold">Lend and Borrow</span> on Instant Borrow - <span class="subtitle-bold">0% Platform Fees</span>, Unmatched <span class="subtitle-bold">Profits</span>, Incredibly <span class="subtitle-bold">Fast and Easy</span>.</p>
 
 		<div class="container">
 		
@@ -994,6 +1065,14 @@ input::-webkit-datetime-edit-year-field:focus {
 			
 			<?php 
             while($question = $getAllQuestions->fetch()){
+				
+			if($question['borrower_trustscore'] < 50){
+				$trustscore_color = "red";
+			}elseif(($question['borrower_trustscore'] >= 50)AND($question['borrower_trustscore'] < 80)){
+				$trustscore_color = "#00c4ff";
+			}elseif($question['borrower_trustscore'] >= 80){
+				$trustscore_color = "#24b300";
+			}
                 ?>
 			<div class="loan-request">
 				<div class="loan-details">
@@ -1008,7 +1087,7 @@ input::-webkit-datetime-edit-year-field:focus {
 						<a href="loan-yeslogin.php?id=<?= $question['id']; ?>"><button class="lend-button">LEND</button><a>
 						</div>
 							<div class="trustscore">
-							<span>Trustscore: <span style="font-weight: bold; color: #00c4ff;"><?= $question['borrower_trustscore']; ?>/100</span></span>
+							<span>Trustscore: <span style="font-weight: bold; color: <?= $trustscore_color; ?>;"><?= $question['borrower_trustscore']; ?>/100</span></span>
 							</div>
 							<div class="top-border"></div>
 							<div class="feedback">
@@ -1070,28 +1149,33 @@ input::-webkit-datetime-edit-year-field:focus {
 		
 		<div class="explain">
 			<p class="explain-title">How to Lend Money on Instant Borrow</p>
-			<p>Buy Bitcoin (BTC) at the lowest possible price no matter where you are. Paxful works on the principle of peer-to-peer finance that enables you to buy BTC with as little as 10 USD. You can buy directly from people just like you—without banks or corporations.</p>
+			
+			<p style="font-weight: 500; font-size: 1.28rem; margin-top: 50px; color:#2b80ff;">Welcome to the World of Peer-to-Peer Finance.</p> 
+			
+			<p style="font-weight: normal;">Instant Borrow connects Borrowers and Lenders Together for a Safe, Seamless and Hastle-Free Experience.</p>
+			<p>Keep total Control over your Funds, Transact Directly with other Users and Forget about Lengthy Approval Processes and High Fees.</p>
 
-			<p>The best part? No fees when you purchase Bitcoin on Paxful. That means you get more crypto for your money. Thanks to nearly 400 payment methods available on the platform, you can turn your cash into Bitcoin with online wallets or bank transfers. You can also trade other cryptocurrencies like Ethereum for Bitcoin, or even sell gift cards to get fractions of BTC in return.</p>
+			<p style="font-weight: 500; font-size: 1.28rem; color:#2b80ff;">Lending on Instant Borrow is Quick, Easy, and a Great way to Make Money.</p>
+			
+			<p style="font-weight: bold; font-size: 1.55rem; color: #00c4ff; margin-top: 60px; margin-bottom: 60px;">THIS IS HOW TO DO IT:</p>
+			
+			<div class="step1"><p class="steps-title">1-BROWSE</p><div class="inner-box"><p class="steps-subtitle">Find in the Loan Requests Section:</p><p><span class="explain-bold">Loan Amounts</span></br><span class="explain-bold">Repayment Amounts</span> and <span class="explain-bold">Dates</span></br><span class="explain-bold">Interest</span> Rates</br><span class="explain-bold">Trustscores</span> and <span class="explain-bold">Feedback</span> Given to Borrowers</p></div></div>
+			<div class="step2"><p class="steps-title">2-SELECT A LOAN</p><div class="inner-box"><p class="steps-subtitle">Get on the Loan Recap Page:</p><p>A <span class="explain-bold">Recap</span> of the Loan</br><span class="explain-bold">Information</span> About the Borrower</br>His Borrowing <span class="explain-bold">History</span></br><span class="explain-bold">Notes</span> Regarding the Loan</p></div></div>
+			<div class="step3"><p class="steps-title">3-LEND</p><div class="inner-box"><p class="steps-subtitle">On the Payment Page:</p><p>Choose your <span class="explain-bold">Payment Method</span></br><span class="explain-bold">Send Funds</span> to the Borrower</br><span class="explain-bold">Confirm</span> the Transaction was Made</p></div></div>
+			<div class="step4"><p class="steps-title">4-PROFIT</p><div class="inner-box"><p class="steps-subtitle">On the Repayment Date:</p><p>Borrower Sends <span class="explain-bold">Repayment</span></br><span class="explain-bold">Confirm</span> Funds Have Been Received</br><span class="explain-bold">Evaluate</span> the Borrower</p></div></div>
+			
+			<p style="margin-top: 60px;">All payments are Confirmed by Instant Borrow and are Protected with Advanced security Measures. The Marketplace is strictly Monitored and all Users are Verified to ensure a safe Trading Environment.</p>
+			
+			<p>Personnal Information is Fully Protected by Instant Borrow and is only Given to the Lender if the Borrower fails to Repay his Loan.</p>
 
-			<p>Paxful is protected with vault-level security and regulated in the United States as a Money Services Business. The marketplace is strictly monitored by our army of analysts and users are verified to ensure a safe trading environment. With all these safety measures in place, you can rest easy knowing that your information and crypto are safe with us.</p>
+			<p>If you have any Questions, please Contact Us or get in Touch with the Support Team at the Bottom of the Page. We'll always be there for you!</p>
 
-			<p>Here’s how you can start buying Bitcoin on Paxful:</p>
-
-			<p>1) Sign up for a Paxful account - Create and verify your account to get your free Bitcoin wallet with 2FA security. Setting your account up is easy and can be done in minutes. All you need is a valid email address, phone number, and ID to get started.
-			</br></br>2) Find a vendor – Click Buy from the main menu and select Buy Bitcoin. Set the amount you want to spend, your preferred currency, and your payment method of choice in the sidebar widget to find local and international sellers that match your requirements.
-			We recommend filtering for all the User Types (Ambassador, Associate, etc.) to show the most trustworthy vendors who have undergone an additional layer of security checks from Paxful.
-			</br></br>3) Read the requirements – Click on the Buy button to view the vendor’s terms. Depending on the payment method, sellers may also ask you to provide a screenshot of the funds from your online wallet, a photo of the bank deposit slip, or a copy of the receipt of the gift card you purchased. Some vendors may also ask you to send a selfie holding a valid ID for additional security purposes.
-			</br></br>4) Start the trade – If you can comply with the seller’s terms, set the amount of Bitcoin you want to buy in the widget then click Buy now to start the trade. This will open a live chat with the seller where you will receive further instructions on how to complete the trade. The live chat records all messages and will protect you if you encounter any problems, so please don’t communicate outside of Paxful.
-			</br></br>5) Send payment and receive your BTC – Once all requirements have been fulfilled and the vendor gives the go signal, transfer the payment and click Paid immediately. At this point, the vendor’s BTC is locked in escrow to prevent your trade partner from accepting your payment and not releasing the crypto. As soon as the seller confirms your payment, the Bitcoin will be released from escrow and transferred to your Paxful Wallet.
-			All that’s left is to give the seller a review of your experience and that’s it! For more information, you can also watch our detailed video walkthrough on how to buy Bitcoin on Paxful.</p>
-
-			<p>If you have any questions, please click on the chat icon at the bottom right corner of the page to get in touch with our support team. We’re here for you 24/7—even on holidays!</p>
-
-			<p>Buying Bitcoin on Paxful is safe and easy, but don’t take our word for it—read reviews from countless Paxful users around the world.</p>
+			<p style="font-weight: 500; font-size: 1.28rem; color: #2b80ff;">Lending on Instant Borrow is Safe and Easy, but don’t take our word for it—read reviews from countless Instant Borrow users around the world.</p>
 		</div>
 	</div>
 </div>
+
+
 
 <div class="footer">
 	<div class="footer-content">

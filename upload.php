@@ -2,7 +2,7 @@
 session_start();
 require('actions/database.php');
 
-if (isset($_POST['AddimageButton']) && $_POST['AddimageButton'] == 'Add Image'){
+if (isset($_POST['AddimageButton']) && $_POST['AddimageButton'] == 'Upload Image'){
 	
   if (isset($_FILES['uploadedFile']) && $_FILES['uploadedFile']['error'] === UPLOAD_ERR_OK){
 
@@ -39,7 +39,7 @@ if (isset($_POST['AddimageButton']) && $_POST['AddimageButton'] == 'Add Image'){
 
 
 
-elseif(isset($_POST['EditimageButton']) && $_POST['EditimageButton'] == 'Edit Image'){
+elseif(isset($_POST['EditimageButton']) && $_POST['EditimageButton'] == 'Upload Image'){
 	
   if (isset($_FILES['uploadedFile']) && $_FILES['uploadedFile']['error'] === UPLOAD_ERR_OK){
 

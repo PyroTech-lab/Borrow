@@ -94,6 +94,20 @@ if(isset($_SESSION['auth'])){
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
+.label-container {
+	width: calc(100% - 7px);
+	margin-top: -40px;
+	margin-bottom: 70px;
+	text-align: right;
+}
+
+.label-image {
+	height: 13px;
+	width: auto;
+	position: absolute;
+	margin-left: -20px;
+}
+
 .checkmark {
   height: 18px;
   width: 18px;
@@ -153,7 +167,8 @@ if(isset($_SESSION['auth'])){
 		<p style="margin-top: 20px;">Username</p>
 		<input class="input" name="username" required autocomplete="off">
 		<p style="margin-top: 20px;">Password</p>
-		<input class="input" type="password" name="password" required>
+		<input class="input" id="input" type="password" name="password" required>
+		<div class="label-container"><label for="showPassword" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword" type="checkbox" onclick="ShowPasswordFunction()" style="display: none;"></label></div>
 		<div style="margin-top: 30px;">
 			<input type="checkbox" id="checkmark"  class="checkmark" required><span style="margin-left: 5px; position: absolute; margin-top: -6px; font-weight: normal;">I have read and accept Instant Borrow's <a style="color: #00c4ff; font-weight: 500; text-decoration: none;" href="terms and conditions.html" target="_blank">Terms & Conditions</a> and <a style="color: #00c4ff; font-weight: 500; text-decoration: none;" href="privacy policy.html" target="_blank">Privacy Policy</a>.</span>
 		</div>
@@ -167,6 +182,18 @@ if(isset($_SESSION['auth'])){
 <div class="under-container">
 	<p>Already have an account? <a href="login-borrow.php" style="text-decoration: none; color: #00c4ff;">Log In</a></p>
 </div>
+
+
+<script>
+function ShowPasswordFunction() {
+  var x = document.getElementById("input");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
 
 </body>
 

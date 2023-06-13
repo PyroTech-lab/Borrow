@@ -304,7 +304,7 @@ require('actions/users/bannedAction.php');
 	border-radius: 0.425rem;
 	height: 410px;
 	text-align: center;
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -439,7 +439,7 @@ require('actions/users/bannedAction.php');
 	margin-top: 50px;
 	width: 39%;
 	margin-left: 10%;
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	border-radius: 0.325rem;
 	background-color: #fcfcfc;
 	height: 500px;
@@ -452,22 +452,22 @@ require('actions/users/bannedAction.php');
 }
 
 .profile-picture {
-	height: 40px;
-	width: 40px;
+	height: 70px;
+	width: 70px;
 	border-radius: 50%;
 }
 
 .country-icon {
-	height: 20px;
+	height: 25px;
 	width: auto;
-	margin-left: 7px;
-	margin-bottom: -5px;
+	margin-left: 10px;
+	margin-bottom: -6px;
 	margin-top: 5px;
 }
 
 .country-icon:hover + .location-hidden {
 	display: inline;
-	margin-left: 7px;
+	margin-left: 10px;
 	border: 1px solid #e03434;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	padding: 3px;
@@ -489,7 +489,8 @@ require('actions/users/bannedAction.php');
 	border-radius: 0.325rem;
 	color: white;
 	background-color: #2b80ff;
-	width: 100px;
+	width: 130px;
+	height: 35px;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	border: 0;
 	font-weight: bold;
@@ -620,7 +621,7 @@ require('actions/users/bannedAction.php');
 	margin-top: -502px;
 	width: 39%;
 	margin-left: 51%;
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	border-radius: 0.325rem;
 	height: 455px;
 	background-color: #fcfcfc;
@@ -645,7 +646,7 @@ require('actions/users/bannedAction.php');
 	width: 80%;
 	margin-left: 10%;
 	background-color: #fcfcfc;
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	border-radius: 0.325rem;
 	padding-bottom: 20px;
 	text-align: left;
@@ -772,13 +773,13 @@ require('actions/users/bannedAction.php');
 	
 	<?php
 		if(isset($ReceiveRepaymentMsg)){ 
-		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="loan-feedback.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
+		echo '<div class="notification-receivedrepayment"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveRepaymentMsg.'</span><div style="text-align: right; margin-top: -29px;"><a href="received-repayment.php?id='.$IdforFeedback.'"><button class="notification_acknowledge-button">OK</button></a></div></div>';
 		}
 	?>
 	
 	<?php
 		if(isset($ReceiveLoanMsg)){ 
-		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveLoanMsg.'</span><form class="notification_acknowledge" method="post"><input type="submit" value="OK" name="notification_receivedloan" class="notification_acknowledge-button"></form></div>';
+		echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$ReceiveLoanMsg.'</span><form method="POST" style="margin-top: -29px; text-align: right;"><input class="notification_acknowledge-button" type="submit" value="OK" name="notification_receivedloan"></form></div>';
 		}
 	?>
 	
@@ -791,6 +792,24 @@ require('actions/users/bannedAction.php');
 	<?php
 	if(isset($BannedBorrowerLoanMsg)){ 
 	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="banned-borrower.php?id='.$id_loan.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$BannedBorrowerLoanMsg.'</span><a></div>';
+	}
+	?>
+	
+	<?php
+	if(isset($LentVerifcationLoanMsg)){ 
+	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="confirm-payment.php?id='.$LentVerifcationLoanId.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$LentVerifcationLoanMsg.'</span><a></div>';
+	}
+	?>
+	
+	<?php
+	if(isset($RepaymentProofGivenMsg)){ 
+	echo '<div class="notification-unpaidborrower"><img src="assets/images/warning-sign-orange.png" class="notification-image"><a href="evaluate-repayment-proof.php?id='.$id_loanRepaidProofGiven.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$RepaymentProofGivenMsg.'</span><a></div>';
+	}
+	?>
+	
+	<?php
+	if(isset($PaidAfterBanMsg)){ 
+	echo '<div class="notification-receivedloan"><img src="assets/images/success.png" class="notification-image"><span class="notification-text">'.$PaidAfterBanMsg.'</span><form method="POST" style="margin-top: -29px; text-align: right;"><input class="notification_acknowledge-button" type="submit" value="OK" name="notification_receivedpaidafertban"></form></div>';
 	}
 	?>
 
@@ -816,7 +835,7 @@ require('actions/users/bannedAction.php');
 	<p class="subsection-title">Borrower Information</p>
 		<div class="borrower-presentation">
 		<a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>"><img class="profile-picture" src="assets/images/profile-images/<?= $profile_picture; ?>"></a>
-		<div style="margin-top: -49px; margin-left: 50px;"><a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;"><span style="color: #00c4ff;"><?= $username_borrower; ?></span></a><img class="country-icon" src="assets/images/country-icons/<?=$country?>.png"><span class="location-hidden">Location: <span class="location-text"><?=$country?></span></span></br><span>Member since <?= date('M Y', strtotime($user_join_date)); ?></span></div>
+		<div style="margin-top: -70px; margin-left: 80px;"><a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;"><span style="color: #00c4ff; font-weight: bold; font-size: 1.45rem;"><?= $username_borrower; ?></span></a><img class="country-icon" src="assets/images/country-icons/<?=$country?>.png"><span class="location-hidden">Location: <span class="location-text"><?=$country?></span></span></br><span>Member since <?= date('F Y', strtotime($user_join_date)); ?></span></div>
 		</div>
 		
 		<button class="chat-button">Chat</button>
