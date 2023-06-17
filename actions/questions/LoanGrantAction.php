@@ -1,5 +1,6 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
 require('actions/database.php');
 
 if(isset($_GET['id']) AND !empty($_GET['id'])){
@@ -34,6 +35,13 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	$venmo = $DisplayPaymentMethods['venmo'];
 	$zelle = $DisplayPaymentMethods['zelle'];
 	$chime = $DisplayPaymentMethods['chime'];
+	
+	$GetBorrowerEmail = $bdd->prepare('SELECT email FROM users WHERE id = ?');
+    $GetBorrowerEmail->execute(array($id_borrower));
+	
+	$DisplayEmail = $GetBorrowerEmail->fetch();
+	
+	$borrower_email = $DisplayEmail['email'];
 	
 	
 	
@@ -93,6 +101,32 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	
 	$success_message = "<div class='success'>Loan Confirmed!</div>";
 	
+	require_once 'vendor/autoload.php';
+
+
+	$phpmailer = new PHPMailer();
+	$phpmailer->isSMTP();
+	$phpmailer->Host = 'live.smtp.mailtrap.io';
+	$phpmailer->SMTPAuth = true;
+	$phpmailer->Port = 587;
+	$phpmailer->Username = 'api';
+	$phpmailer->Password = '80c05e0ef1f980aa713b7b0a91f9113e';
+
+	$phpmailer->setFrom('contact@star-agency.digital','Instant Borrow');
+	$phpmailer->addAddress(''.$borrower_email.'');
+	$phpmailer->Subject = ''.$username_lender.' Lent you '.$loan_amount.'$!';
+
+	$phpmailer->Body = '<html>
+						<p>Loan granted!</p>
+						<p>'.$username_lender.' Lent you '.$loan_amount.'$ on Instant Borrow!</p>
+						<p>Funds have Been Sent to your Paypal Account. They may take a few Minutes to arrive.</p>
+						<p>You Have until '.date('F jS, Y', strtotime($repayment_date)).' to Repay the Loan.</p>
+						<a href="https://instant-borrow.com"><button>Log Into Instant Borrow</button></a>
+						<p>If you didnt Request a Loan On Instant Borrow, please Ignore this message.</p>
+						<p>You are Receiving this Neccessary Notification because you are Registered on instant-borrow.com.</p>
+						</html>';
+	$phpmailer->AltBody = ''.$username_lender.' Lent you '.$loan_amount.'$ on Instant Borrow!';
+	
 	}
 	
 	}else{
@@ -119,6 +153,32 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	$loanGrant->execute(array($granting_date, $id_lender, $username_lender, $status, $transactionId, $idOfTheQuestion));
 	
 	$success_message = "<div class='success'>Loan Confirmed!</div>";
+	
+	require_once 'vendor/autoload.php';
+
+
+	$phpmailer = new PHPMailer();
+	$phpmailer->isSMTP();
+	$phpmailer->Host = 'live.smtp.mailtrap.io';
+	$phpmailer->SMTPAuth = true;
+	$phpmailer->Port = 587;
+	$phpmailer->Username = 'api';
+	$phpmailer->Password = '80c05e0ef1f980aa713b7b0a91f9113e';
+
+	$phpmailer->setFrom('contact@star-agency.digital','Instant Borrow');
+	$phpmailer->addAddress(''.$borrower_email.'');
+	$phpmailer->Subject = ''.$username_lender.' Lent you '.$loan_amount.'$!';
+
+	$phpmailer->Body = '<html>
+						<p>Loan granted!</p>
+						<p>'.$username_lender.' Lent you '.$loan_amount.'$ on Instant Borrow!</p>
+						<p>Funds have Been Sent to your Cashapp Account. They may take a few Minutes to arrive.</p>
+						<p>You Have until '.date('F jS, Y', strtotime($repayment_date)).' to Repay the Loan.</p>
+						<a href="https://instant-borrow.com"><button>Log Into Instant Borrow</button></a>
+						<p>If you didnt Request a Loan On Instant Borrow, please Ignore this message.</p>
+						<p>You are Receiving this Neccessary Notification because you are Registered on instant-borrow.com.</p>
+						</html>';
+	$phpmailer->AltBody = ''.$username_lender.' Lent you '.$loan_amount.'$ on Instant Borrow!';
 	
 	}
 	
@@ -147,6 +207,32 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	
 	$success_message = "<div class='success'>Loan Confirmed!</div>";
 	
+	require_once 'vendor/autoload.php';
+
+
+	$phpmailer = new PHPMailer();
+	$phpmailer->isSMTP();
+	$phpmailer->Host = 'live.smtp.mailtrap.io';
+	$phpmailer->SMTPAuth = true;
+	$phpmailer->Port = 587;
+	$phpmailer->Username = 'api';
+	$phpmailer->Password = '80c05e0ef1f980aa713b7b0a91f9113e';
+
+	$phpmailer->setFrom('contact@star-agency.digital','Instant Borrow');
+	$phpmailer->addAddress(''.$borrower_email.'');
+	$phpmailer->Subject = ''.$username_lender.' Lent you '.$loan_amount.'$!';
+
+	$phpmailer->Body = '<html>
+						<p>Loan granted!</p>
+						<p>'.$username_lender.' Lent you '.$loan_amount.'$ on Instant Borrow!</p>
+						<p>Funds have Been Sent to your Venmo Account. They may take a few Minutes to arrive.</p>
+						<p>You Have until '.date('F jS, Y', strtotime($repayment_date)).' to Repay the Loan.</p>
+						<a href="https://instant-borrow.com"><button>Log Into Instant Borrow</button></a>
+						<p>If you didnt Request a Loan On Instant Borrow, please Ignore this message.</p>
+						<p>You are Receiving this Neccessary Notification because you are Registered on instant-borrow.com.</p>
+						</html>';
+	$phpmailer->AltBody = ''.$username_lender.' Lent you '.$loan_amount.'$ on Instant Borrow!';
+	
 	}
 	
 	}else{
@@ -173,6 +259,32 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	
 	$success_message = "<div class='success'>Loan Confirmed!</div>";
 	
+		require_once 'vendor/autoload.php';
+
+
+	$phpmailer = new PHPMailer();
+	$phpmailer->isSMTP();
+	$phpmailer->Host = 'live.smtp.mailtrap.io';
+	$phpmailer->SMTPAuth = true;
+	$phpmailer->Port = 587;
+	$phpmailer->Username = 'api';
+	$phpmailer->Password = '80c05e0ef1f980aa713b7b0a91f9113e';
+
+	$phpmailer->setFrom('contact@star-agency.digital','Instant Borrow');
+	$phpmailer->addAddress(''.$borrower_email.'');
+	$phpmailer->Subject = ''.$username_lender.' Lent you '.$loan_amount.'$!';
+
+	$phpmailer->Body = '<html>
+						<p>Loan granted!</p>
+						<p>'.$username_lender.' Lent you '.$loan_amount.'$ on Instant Borrow!</p>
+						<p>Funds have Been Sent to your Zelle Account. They may take a few Minutes to arrive.</p>
+						<p>You Have until '.date('F jS, Y', strtotime($repayment_date)).' to Repay the Loan.</p>
+						<a href="https://instant-borrow.com"><button>Log Into Instant Borrow</button></a>
+						<p>If you didnt Request a Loan On Instant Borrow, please Ignore this message.</p>
+						<p>You are Receiving this Neccessary Notification because you are Registered on instant-borrow.com.</p>
+						</html>';
+	$phpmailer->AltBody = ''.$username_lender.' Lent you '.$loan_amount.'$ on Instant Borrow!';
+	
 	}
 	
 	}else{
@@ -197,6 +309,32 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	$loanGrant->execute(array($granting_date, $id_lender, $username_lender, $status, $transactionId, $idOfTheQuestion));
 	
 	$success_message = "<div class='success'>Loan Confirmed!</div>";
+	
+		require_once 'vendor/autoload.php';
+
+
+	$phpmailer = new PHPMailer();
+	$phpmailer->isSMTP();
+	$phpmailer->Host = 'live.smtp.mailtrap.io';
+	$phpmailer->SMTPAuth = true;
+	$phpmailer->Port = 587;
+	$phpmailer->Username = 'api';
+	$phpmailer->Password = '80c05e0ef1f980aa713b7b0a91f9113e';
+
+	$phpmailer->setFrom('contact@star-agency.digital','Instant Borrow');
+	$phpmailer->addAddress(''.$borrower_email.'');
+	$phpmailer->Subject = ''.$username_lender.' Lent you '.$loan_amount.'$!';
+
+	$phpmailer->Body = '<html>
+						<p>Loan granted!</p>
+						<p>'.$username_lender.' Lent you '.$loan_amount.'$ on Instant Borrow!</p>
+						<p>Funds have Been Sent to your Chime Account. They may take a few Minutes to arrive.</p>
+						<p>You Have until '.date('F jS, Y', strtotime($repayment_date)).' to Repay the Loan.</p>
+						<a href="https://instant-borrow.com"><button>Log Into Instant Borrow</button></a>
+						<p>If you didnt Request a Loan On Instant Borrow, please Ignore this message.</p>
+						<p>You are Receiving this Neccessary Notification because you are Registered on instant-borrow.com.</p>
+						</html>';
+	$phpmailer->AltBody = ''.$username_lender.' Lent you '.$loan_amount.'$ on Instant Borrow!';
 	
 	}
 	

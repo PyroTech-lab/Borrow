@@ -1,15 +1,57 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
 require('actions/database.php');
 
 
 $checkIfLoanIsUnpaid = $bdd->prepare('SELECT * FROM loan WHERE (status="active" OR status="active_notseen") AND repayment_date < NOW() - INTERVAL 1 DAY');
 $checkIfLoanIsUnpaid->execute(array());
 			
-	if($checkIfLoanIsUnpaid->rowCount() !== 0){	
+	if($checkIfLoanIsUnpaid->rowCount() !== 0){
+
+	$GetID = $checkIfLoanIsUnpaid->fetch();
+		
+	$id_borrower = $GetID['id_borrower'];
+	$repayment_amount = $GetID['repayment_amount'];
+	$username_lender = $GetID['username_lender'];
+	
+	
+	
+	$GetBorrowerEmail = $bdd->prepare('SELECT email FROM users WHERE id = ?');
+	$GetBorrowerEmail->execute(array($id_borrower));
+		
+	$DisplayEmail = $GetBorrowerEmail->fetch();
+		
+	$borrower_email = $DisplayEmail['email'];
+	
 
 	$SetLoanUnpaid = $bdd->prepare('UPDATE loan SET status="unpaid_notseen" WHERE (status="active" OR status="active_notseen") AND repayment_date < NOW() - INTERVAL 1 DAY');
 	$SetLoanUnpaid->execute(array());
+	
+	require_once 'vendor/autoload.php';
+
+	$phpmailer = new PHPMailer();
+	$phpmailer->isSMTP();
+	$phpmailer->Host = 'live.smtp.mailtrap.io';
+	$phpmailer->SMTPAuth = true;
+	$phpmailer->Port = 587;
+	$phpmailer->Username = 'api';
+	$phpmailer->Password = '80c05e0ef1f980aa713b7b0a91f9113e';
+
+	$phpmailer->setFrom('contact@star-agency.digital','Instant Borrow');
+	$phpmailer->addAddress(''.$borrower_email.'');
+	$phpmailer->Subject = 'You Have an unpaid Loan!';
+
+	$phpmailer->Body = '<html>
+						<p>Your '.$repayment_amount.'$ Repayment to '.$username_lender.' on Instant Borrow hasnt been made.</p>
+						<p>Repay the Loan now or your Account will be suspended.</p>
+						<p>Log Into Instant Borrow to resolve the issue.</p>
+						<a href="https://instant-borrow.com"><button>Log Into Instant Borrow</button></a>
+						<p>If you havent Borrowed On Instant Borrow, please Ignore this message.</p>
+						<p>You are Receiving this Neccessary Notification because you are Registered on instant-borrow.com.</p>
+						</html>';
+	$phpmailer->AltBody = 'Your '.$repayment_amount.'$ Repayment.';
+	
 	}
 	
 
@@ -54,6 +96,30 @@ $BanUnpaidBorrowers->execute(array());
 			
 			$deleteUser = $bdd->prepare('DELETE FROM users WHERE id = ?');
 			$deleteUser->execute(array($idBorrower));
+			
+			require_once 'vendor/autoload.php';
+
+			$phpmailer = new PHPMailer();
+			$phpmailer->isSMTP();
+			$phpmailer->Host = 'live.smtp.mailtrap.io';
+			$phpmailer->SMTPAuth = true;
+			$phpmailer->Port = 587;
+			$phpmailer->Username = 'api';
+			$phpmailer->Password = '80c05e0ef1f980aa713b7b0a91f9113e';
+
+			$phpmailer->setFrom('contact@star-agency.digital','Instant Borrow');
+			$phpmailer->addAddress(''.$borrower_email.'');
+			$phpmailer->Subject = 'You Instant Borrow Account was Suspended!';
+
+			$phpmailer->Body = '<html>
+								<p>Your Instant Borrow Account was suspended because your '.$repayment_amount.'$ Repayment to '.$username_lender.' on hasnt been made.</p>
+								<p>'.$username_lender.' has been given your personnal information and will use it to get his money back.</p>
+								<p>Log Into Instant Borrow to resolve the issue as quickly as possible.</p>
+								<a href="https://instant-borrow.com"><button>Log Into Instant Borrow</button></a>
+								<p>If you havent Borrowed On Instant Borrow, please Ignore this message.</p>
+								<p>You are Receiving this Neccessary Notification because you are Registered on instant-borrow.com.</p>
+								</html>';
+			$phpmailer->AltBody = 'Your '.$repayment_amount.'$ Repayment.';
 			}
 
 

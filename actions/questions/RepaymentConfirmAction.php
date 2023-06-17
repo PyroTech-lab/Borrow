@@ -1,5 +1,6 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
 require('actions/database.php');
 
 if(isset($_GET['id']) AND !empty($_GET['id'])){
@@ -22,6 +23,14 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	$id_lender = $LoanInfos['id_lender'];
 	$username_borrower = $LoanInfos['username_borrower'];
 	$payment_method_repayment = $LoanInfos['payment_method_repayment'];
+	
+	$GetLenderEmail = $bdd->prepare('SELECT email FROM users WHERE id = ?');
+	$GetLenderEmail->execute(array($id_lender));
+		
+	$DisplayEmail = $GetLenderEmail->fetch();
+		
+	$lender_email = $DisplayEmail['email'];
+	
 	
 	$display1 = "block";
 	$display2 = "none";
@@ -105,6 +114,31 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 											
 											$deleteUser = $bdd->prepare('DELETE FROM users WHERE id = ?');
 											$deleteUser->execute(array($_SESSION['id']));
+											
+											
+											require_once 'vendor/autoload.php';
+
+											$phpmailer = new PHPMailer();
+											$phpmailer->isSMTP();
+											$phpmailer->Host = 'live.smtp.mailtrap.io';
+											$phpmailer->SMTPAuth = true;
+											$phpmailer->Port = 587;
+											$phpmailer->Username = 'api';
+											$phpmailer->Password = '80c05e0ef1f980aa713b7b0a91f9113e';
+
+											$phpmailer->setFrom('contact@star-agency.digital','Instant Borrow');
+											$phpmailer->addAddress(''.$lender_email.'');
+											$phpmailer->Subject = ''.$username_borrower.' hasnt Repaid you '.$repayment_amount.'$ and was Banned';
+
+											$phpmailer->Body = '<html>
+																<p>'.$username_borrower.' hasnt Repaid you '.$repayment_amount.'$ and was Banned from Instant Borrow.</p>
+																<p>After you Reported not receiving your '.$repayment_amount.'$ Repayment from'.$username_borrower.', he was not able to submit proof of his payment.</p>
+																<p>Log Into Instant Borrow for Instrcutions on how to Proceed and get your Money back.</p>
+																<a href="https://instant-borrow.com"><button>Log Into Instant Borrow</button></a>
+																<p>If you havent Lent On Instant Borrow, please Ignore this message.</p>
+																<p>You are Receiving this Neccessary Notification because you are Registered on instant-borrow.com.</p>
+																</html>';
+											$phpmailer->AltBody = ''.$username_borrower.' Reported not receiving your '.$repayment_amount.'$ repayment.';
 									
 										}
 									
@@ -150,6 +184,31 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 						
 						$display1 = "none";
 						$display2 = "none";
+						
+						
+						require_once 'vendor/autoload.php';
+
+						$phpmailer = new PHPMailer();
+						$phpmailer->isSMTP();
+						$phpmailer->Host = 'live.smtp.mailtrap.io';
+						$phpmailer->SMTPAuth = true;
+						$phpmailer->Port = 587;
+						$phpmailer->Username = 'api';
+						$phpmailer->Password = '80c05e0ef1f980aa713b7b0a91f9113e';
+
+						$phpmailer->setFrom('contact@star-agency.digital','Instant Borrow');
+						$phpmailer->addAddress(''.$lender_email.'');
+						$phpmailer->Subject = ''.$username_borrower.' Submited proof of his '.$repayment_amount.'$ Repayment';
+
+						$phpmailer->Body = '<html>
+											<p>'.$username_borrower.' Submited proof of his '.$repayment_amount.'$ Repayment on Instant Borrow.</p>
+											<p>After you Reported not receiving your '.$repayment_amount.'$ Repayment from'.$username_borrower.', he was not able to submit proof of his payment.</p>
+											<p>Log Into Instant Borrow for to Confirm you have received the Funds.</p>
+											<a href="https://instant-borrow.com"><button>Log Into Instant Borrow</button></a>
+											<p>If you havent Lent On Instant Borrow, please Ignore this message.</p>
+											<p>You are Receiving this Neccessary Notification because you are Registered on instant-borrow.com.</p>
+											</html>';
+						$phpmailer->AltBody = ''.$username_borrower.' Submited proof of his '.$repayment_amount.'$ Repayment.';
 				
 				  }
 			   

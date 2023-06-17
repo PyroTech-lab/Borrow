@@ -1,5 +1,6 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
 require('actions/database.php');
 
 if(isset($_GET['id']) AND !empty($_GET['id'])){
@@ -22,7 +23,12 @@ if($checkIfLoanExists->rowCount() > 0){
 	$username_borrower = $LoanInfos['username_borrower'];
 	$payment_method_repayment = $LoanInfos['payment_method_repayment'];
 	
-	
+	$GetBorrowerEmail = $bdd->prepare('SELECT email FROM users WHERE id = ?');
+	$GetBorrowerEmail->execute(array($id_borrower));
+		
+	$DisplayEmail = $GetBorrowerEmail->fetch();
+		
+	$borrower_email = $DisplayEmail['email'];
 	
 	
 			if(isset($_POST['repayment_receivedconfirmation'])){
@@ -47,6 +53,29 @@ if($checkIfLoanExists->rowCount() > 0){
 				$SetPaymentmade->execute(array($idOfLoan));
 				
 				$confirmed_message = "<div class='payment-received'>Repayment Confirmed!</div>";
+				
+				require_once 'vendor/autoload.php';
+
+				$phpmailer = new PHPMailer();
+				$phpmailer->isSMTP();
+				$phpmailer->Host = 'live.smtp.mailtrap.io';
+				$phpmailer->SMTPAuth = true;
+				$phpmailer->Port = 587;
+				$phpmailer->Username = 'api';
+				$phpmailer->Password = '80c05e0ef1f980aa713b7b0a91f9113e';
+
+				$phpmailer->setFrom('contact@star-agency.digital','Instant Borrow');
+				$phpmailer->addAddress(''.$borrower_email.'');
+				$phpmailer->Subject = ''.$username_lender.' Received your '.$repayment_amount.'$ Repayment';
+
+				$phpmailer->Body = '<html>
+									<p>'.$username_lender.' Received your '.$repayment_amount.'$ Repayment on Instant Borrow.</p>
+									<p>The Proof you sent of your Repayment was accepted and '.$username_lender.' confirmed Receiving your Repayment.</p>
+									<a href="https://instant-borrow.com"><button>Log Into Instant Borrow</button></a>
+									<p>If you havent Borrowed On Instant Borrow, please Ignore this message.</p>
+									<p>You are Receiving this Neccessary Notification because you are Registered on instant-borrow.com.</p>
+									</html>';
+				$phpmailer->AltBody = ''.$username_lender.' Received your '.$repayment_amount.'$ Repayment.';
 				}
 			
 			if($repayment == 'not_received'){
@@ -55,6 +84,30 @@ if($checkIfLoanExists->rowCount() > 0){
 				$SetPaymentNotmade->execute(array($idOfLoan));
 				
 				$notreceived_message = "<div class='payment-notreceived'>Repayment Not Received. Borrower will Be banned for Fraud.</div>";
+				
+				require_once 'vendor/autoload.php';
+
+				$phpmailer = new PHPMailer();
+				$phpmailer->isSMTP();
+				$phpmailer->Host = 'live.smtp.mailtrap.io';
+				$phpmailer->SMTPAuth = true;
+				$phpmailer->Port = 587;
+				$phpmailer->Username = 'api';
+				$phpmailer->Password = '80c05e0ef1f980aa713b7b0a91f9113e';
+
+				$phpmailer->setFrom('contact@star-agency.digital','Instant Borrow');
+				$phpmailer->addAddress(''.$borrower_email.'');
+				$phpmailer->Subject = 'Your Proof of Repayment was Rejected';
+
+				$phpmailer->Body = '<html>
+									<p>Our Team Determined the proof of repayment you submited was not legitimate.</p>
+									<p>'.$username_lender.' also Reported still not receiving your Repayment.</p>
+									<p>Log Into Instant Borrow to resolve the issue.</p>
+									<a href="https://instant-borrow.com"><button>Log Into Instant Borrow</button></a>
+									<p>If you havent Borrowed On Instant Borrow, please Ignore this message.</p>
+									<p>You are Receiving this Neccessary Notification because you are Registered on instant-borrow.com.</p>
+									</html>';
+				$phpmailer->AltBody = 'Your '.$repayment_amount.'$ Repayment.';
 				}
 				
 				}else{
