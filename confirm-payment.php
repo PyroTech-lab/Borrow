@@ -560,7 +560,7 @@ require('actions/users/bannedAction.php');
 	<form method="post" style="margin-left: 20px;">
 		<div>
 		<p style="margin-bottom: 5px; color: black;">Re-Enter <?= $payment_method_repayment; ?> Transaction ID</p>
-		<input type="input" name="repayment_id_confirmation" placeholder="Enter Paypal Transaction ID" class="input" required>
+		<input type="input" name="repayment_id_confirmation" placeholder="Enter Paypal Transaction ID" class="input" required autocomplete="off">
 		</div>
 		<div>
 		<input type="submit" value="Submit" name="repayment_confirmation" class="submit">

@@ -556,7 +556,7 @@ require('actions/users/bannedAction.php');
 					<div style="input-container">
 					<span>Paypal Transaction ID</span>
 					</br>
-					<input class="input" type="input" placeholder="Enter Paypal Transaction ID" name="paypal_id" required>
+					<input class="input" type="input" placeholder="Enter Paypal Transaction ID" name="paypal_id" required autocomplete="off">
 					</div>
 					<div class="button-container">
 					<span class="submit-text">Confirm Payment Has Been Sent</span>
@@ -583,7 +583,7 @@ require('actions/users/bannedAction.php');
 					<div style="input-container">
 					<span>Cashapp Transaction ID</span>
 					</br>
-					<input class="input" type="input" placeholder="Enter Cashapp Transaction ID" required name="cashapp_id">
+					<input class="input" type="input" placeholder="Enter Cashapp Transaction ID" required name="cashapp_id" autocomplete="off">
 					</div>
 					<div class="button-container">
 					<span class="submit-text">Confirm Payment Has Been Sent</span>
@@ -608,7 +608,7 @@ require('actions/users/bannedAction.php');
 					<div style="input-container">
 					<span>Venmo Transaction ID</span>
 					</br>
-					<input class="input" type="input" placeholder="Enter Venmo Transaction ID" required name="venmo_id">
+					<input class="input" type="input" placeholder="Enter Venmo Transaction ID" required name="venmo_id" autocomplete="off">
 					</div>
 					<div class="button-container">
 					<span class="submit-text">Confirm Payment Has Been Sent</span>
@@ -633,7 +633,7 @@ require('actions/users/bannedAction.php');
 					<div style="input-container">
 					<span>Zelle Transaction ID</span>
 					</br>
-					<input class="input" type="input" placeholder="Enter Zelle Transaction ID" required name="zelle_id">
+					<input class="input" type="input" placeholder="Enter Zelle Transaction ID" required name="zelle_id" autocomplete="off">
 					</div>
 					<div class="button-container">
 					<span class="submit-text">Confirm Payment Has Been Sent</span>
@@ -658,7 +658,7 @@ require('actions/users/bannedAction.php');
 					<div style="input-container">
 					<span>Chime Transaction ID</span>
 					</br>
-					<input class="input" type="input" placeholder="Enter Chime Transaction ID" required name="chime_id">
+					<input class="input" type="input" placeholder="Enter Chime Transaction ID" required name="chime_id" autocomplete="off">
 					</div>
 					<div class="button-container">
 					<span class="submit-text">Confirm Payment Has Been Sent</span>
