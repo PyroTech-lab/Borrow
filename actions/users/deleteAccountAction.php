@@ -26,7 +26,7 @@ if(isset($_POST['delete_account'])){
 
 	if($getAllLoans->rowCount() == 0){
 		
-	$TranferUsertoDeletedTable = $bdd->prepare('INSERT INTO deleted_users(email, name, username, phone_number, address, city, country, identity_card) SELECT email, name, username, phone_number, address, city, country, identity_card FROM users WHERE id = ?');
+	$TranferUsertoDeletedTable = $bdd->prepare('INSERT INTO deleted_users(id_user, email, name, username, phone_number, address, city, country, identity_card) SELECT id, email, name, username, phone_number, address, city, country, identity_card FROM users WHERE id = ?');
     $TranferUsertoDeletedTable->execute(array($_SESSION['id']));
 		
 	$deleteAllLoans = $bdd->prepare('DELETE FROM loan WHERE id_borrower= ? AND status="request"');

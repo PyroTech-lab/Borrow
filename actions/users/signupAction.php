@@ -28,7 +28,7 @@ if(isset($_POST['signup'])){
 			$checkIfUsernameAvailable->execute(array($user_username));
 			
 			$checkIfUsernameAvailable2 = $bdd->prepare('SELECT username FROM banned_users WHERE username = ?');
-			$checkIfUsernameAvailable->execute(array($user_email));
+			$checkIfUsernameAvailable2->execute(array($user_username));
 			
 			 if(($checkIfUsernameAvailable->rowCount() == 0)AND($checkIfUsernameAvailable2->rowCount() == 0)){
 				 
