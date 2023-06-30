@@ -1,5 +1,6 @@
 <?php
 require('actions/users/loginAction.php');
+require('actions/users/ForgotPassword.php');
 require('actions/questions/updateDatabases.php');
 ?>
 
@@ -115,6 +116,30 @@ if(isset($_SESSION['auth'])){
   width: 18px;
 }
 
+.forgot-link {
+	border: 0;
+	background-color: transparent;
+	color: #2b80ff;
+	font-weight: bold;
+	font-size: 0.93rem;
+}
+
+.forgot-link:hover {
+	color: #00c4ff;
+}
+
+.return-link {
+	margin-top: 20px;
+	border: 0;
+	background-color: transparent;
+	color: #2b80ff;
+	font-weight: bold;
+	font-size: 0.93rem;
+}
+
+.return-link:hover {
+	color: #00c4ff;
+}
 
 .login-button {
 	margin-top: 50px;
@@ -129,10 +154,11 @@ if(isset($_SESSION['auth'])){
 	border-radius: 0.325rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	transition: transform 0.2s;
+	transition: background-color 0.2s;
 }
 
 .login-button:hover {
-	background-color: red;
+	background-color: #2b80ff;
 	-ms-transform: scale(1.015); /* IE 9 */
 	-webkit-transform: scale(1.015); /* Safari 3-8 */
 	transform: scale(1.015); 
@@ -142,6 +168,7 @@ if(isset($_SESSION['auth'])){
 	margin-top: 30px;
 	color: #383838;
 	font-size: 0.92rem;
+	font-weight: 500;
 }
 
 .error-message {
@@ -160,17 +187,51 @@ if(isset($_SESSION['auth'])){
 
 <div class="main">
 	<div class="text">
-		<p style="font-size: 1.4rem; font-weight: 500;">Sign in to your account</p>
-		<form method="post">
-		<p style="margin-top: 40px;">Email</p>
-		<input class="input" name="email" required autocomplete="off">
-		<p style="margin-top: 20px;">Password</p>
-		<input class="input" id="input" type="password" name="password" required>
-		<div class="label-container"><label for="showPassword" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword" type="checkbox" onclick="ShowPasswordFunction()" style="display: none;"></label></div>
-		<input type="submit" class="login-button" name="login" value="login">
-		 <?php if(isset($errorMsg)){ echo '<p class="error-message">'.$errorMsg.'</p>'; } ?>
-		</form>
-		
+		<div style="display: <?= $BodyDisplay; ?>;">
+			<p style="font-size: 1.4rem; font-weight: 500;">Sign Into your Account</p>
+			<form method="post">
+			<p style="margin-top: 40px;">Email</p>
+				<input class="input" type="email" name="email" required autocomplete="off">
+				<p style="margin-top: 20px;">Password</p>
+				<input class="input" id="input" type="password" name="password" required>
+				<div class="label-container"><label for="showPassword" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword" type="checkbox" onclick="ShowPasswordFunction()" style="display: none;"></label></div>
+				<input type="submit" class="login-button" name="login" value="login">
+				 <?php if(isset($errorMsg)){ echo '<p class="error-message">'.$errorMsg.'</p>'; } ?>
+			</form>
+			<div style="margin-top: -220px; text-align: right;"><form method="post"><input type="submit" value="Forgot Password?" name="forgot_password" class="forgot-link"></input></form></div>
+		</div>
+		<div style="display: <?= $ForgotFormDisplay; ?>;">
+			<p style="font-size: 1.4rem; font-weight: 500;">Forgot Password</p>
+			<form method="post">
+				<p style="margin-top: 40px;">Email</p>
+				<input class="input" type="email" style="margin-bottom: -50px;" name="recovery_email" required autocomplete="off">
+				<input type="submit" class="login-button" name="continue" value="Continue">
+				<?php if(isset($email_required )){ echo '<p class="error-message">'.$email_required .'</p>'; } ?>
+			</form>
+			<form method="post" style="text-align: center;">
+				<input type="submit" value="Return to Login" name="return" class="return-link"></input>
+			</form>
+		</div>
+		<div style="display: <?= $EnterCodeDisplay; ?>;">
+			<p style="font-size: 1.4rem; font-weight: 500;">Enter your Code</p>
+			<p style="margin-top: 40px;">We sent a 6-Digit Code to <?=$user_email; ?></p>
+			<form method="post">
+				<p style="margin-top: 40px;">Verification Code</p>
+				<input class="input" type="number" style="margin-bottom: -50px;" name="verification_code" required autocomplete="off">
+				<input type="submit" class="login-button" name="submit_code" value="Submit">
+				<?php if(isset($wrong_code )){ echo '<p class="error-message">'.$wrong_code .'</p>'; } ?>
+			</form>
+		</div>
+		<div style="display: <?= $CreateNewCodeDisplay; ?>;">
+			<p style="font-size: 1.4rem; font-weight: 500;">Set New Password</p>
+			<form method="post">
+				<p style="margin-top: 40px;">New Password</p>
+				<input class="input" type="password" style="margin-bottom: -50px;" name="new_password" required autocomplete="off">
+				<div class="label-container"><label for="showPassword" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword" type="checkbox" onclick="ShowPasswordFunction()" style="display: none;"></label></div>
+				<input type="submit" class="login-button" name="submit_new_password" value="Confirm">
+				<?php if(isset($errorMsg )){ echo '<p class="error-message">'.$errorMsg .'</p>'; } ?>
+			</form>
+		</div>
 	</div>
 </div>
 
