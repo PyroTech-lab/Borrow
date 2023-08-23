@@ -61,10 +61,39 @@ $verifyAccount3->execute(array($getIDfromBorrower));
 	if (strlen($verified_orNot3) == 0) {
 		$not_verified_idcard = "Not Verified";
 		$cross3 = "assets/images/cross.png";
+		$setbutton_class = "set-button";
+		$uploadDisplay="block";
+		$setbutton_value = "Upload ID";
 	
 	}else{
+		
+		$verifyAccount31 = $bdd->prepare('SELECT id_verified FROM users WHERE id = ?');
+		$verifyAccount31->execute(array($getIDfromBorrower));
+		
+		$row31 = $verifyAccount31->fetch(PDO::FETCH_ASSOC);
+		$verified_orNot31 = $row31['id_verified'];
+		
+		if($verified_orNot31 == "verified"){
+
 		$verified_idcard = "Verified";
 		$checkmark3 ="assets/images/checkmark.png";
+		$uploadDisplay="none";
+		$upload_disabled="disabled";
+		$setbutton_class = "set-button2";
+		$setbutton_value = "ID Verified";
+		
+		}
+		
+		if($verified_orNot31 == "under_verification"){
+
+		$underverification_idcard = "Under Verification";
+		$cross31 ="assets/images/cross2.png";
+		$uploadDisplay="none";
+		$upload_disabled="disabled";
+		$setbutton_class = "set-button3";
+		$setbutton_value = "ID Under Verification";
+		
+		}
 	}
 	
 	

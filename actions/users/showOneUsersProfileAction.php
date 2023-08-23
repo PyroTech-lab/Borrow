@@ -137,7 +137,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 				$getcountry = $GetBorrowersCountry->fetch(PDO::FETCH_ASSOC);
 				
 				if (empty($getcountry['country'])){
-				$country = "unknown";
+				$country = "Unknown";
 				}
 				else{
 				$country = $getcountry['country'];

@@ -44,7 +44,19 @@ $CheckVerifications->execute(array($_SESSION['id']));
 		$idcard = "0";
 	
 	}else{
+		$CheckIDVerified = $bdd->prepare('SELECT id_verified FROM users WHERE id = ?');
+		$CheckIDVerified->execute(array($_SESSION['id']));
+		
+		$row311 = $CheckIDVerified->fetch(PDO::FETCH_ASSOC);
+		$verified_orNot311 = $row311['id_verified'];
+		
+		if($verified_orNot311 == "verified"){
 		$idcard = "20";
+		}
+		
+		if($verified_orNot311 == "under_verification"){
+		$idcard = "0";
+		}
 	}
 	
 	
