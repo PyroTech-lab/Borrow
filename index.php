@@ -971,7 +971,7 @@ input::-webkit-datetime-edit-year-field:focus {
 				<input class="<?= $class10 ?>" id="load_more" name="load_more10" type="submit" value="Load More Offers">
 				</form>
 				
-				<div class="<?= $classButton ?>"><a href="borrow-yeslogin.php"><button class="borrow-button">Borrow Money</button></a></div>
+				<div class="<?= $classButton ?>"><a href="borrow-nologin.php"><button class="borrow-button">Borrow Money</button></a></div>
 			</div>
 		
 		</div>

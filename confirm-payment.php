@@ -364,7 +364,7 @@ require('actions/users/bannedAction.php');
 	border: 1px solid red;
 	text-align: center;
 	border-radius: 0.325rem;
-	font-weight: bold;
+	font-weight: 500;
 }
 
 .success-message {
@@ -374,7 +374,7 @@ require('actions/users/bannedAction.php');
 	border: 1px solid #12d400;
 	text-align: center;
 	border-radius: 0.325rem;
-	font-weight: bold;
+	font-weight: 500;
 }
 
 
@@ -424,6 +424,23 @@ require('actions/users/bannedAction.php');
 	-ms-transform: scale(1.05); /* IE 9 */
 	-webkit-transform: scale(1.05); /* Safari 3-8 */
 	transform: scale(1.05); 
+}
+
+.chat-button:hover + .phone-hidden {
+	display: inline;
+	margin-left: 10px;
+	border: 1px solid #2b80ff;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	padding: 5px;
+	border-radius: 0.325rem;
+}
+
+.phone-hidden {
+	display: none;
+}
+
+.phone-text {
+	font-weight: 500;
 }
 
 
@@ -591,9 +608,9 @@ require('actions/users/bannedAction.php');
 	
 	
 	<div class="chat-div">
-		<div class="subtitle-chat"><span>Chat with <a href="user-profile-yeslogin.php?id=<?= $id_lender; ?>" style="text-decoration: none;" target="blank"><span style="color: #560296;"><?= $username_lender; ?></span></a></span></div>
+		<div class="subtitle-chat"><span>Contact <a href="user-profile-yeslogin.php?id=<?= $id_lender; ?>" style="text-decoration: none;" target="blank"><span style="color: #560296;"><?= $username_lender; ?></span></a></span></div>
 		<div class="chat-text"><span>Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
-		<a href="" target="blank"><button class="chat-button">Chat with <span><?= $username_borrower; ?></span></button></a>
+		<button class="chat-button">Contact <span><?= $username_borrower; ?></span></button><span class="phone-hidden">Phone Number: <span class="phone-text"><?=$phone_number?></span></span>
 	</div>
 	
 

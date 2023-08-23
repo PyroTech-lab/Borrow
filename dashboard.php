@@ -629,7 +629,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	padding: 4px;
 	color: #383838;
 	font-weight: bold;
-	font-size: 1.15rem;
+	font-size: 1.25rem;
 }
 
 .repay-amount-2 {
@@ -642,7 +642,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	padding: 4px;
 	color: #383838;
 	font-weight: bold;
-	font-size: 1.15rem;
+	font-size: 1.25rem;
 }
 
 .interest-rate-2	{

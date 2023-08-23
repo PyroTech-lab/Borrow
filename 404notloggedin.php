@@ -94,7 +94,6 @@ if(isset($_SESSION['auth'])){
 
 .borrow {
 	width: 75px;
-	text-align: right;
 	height: 23px;
 	margin-top: -23px;
 	margin-left: calc(47% + 44px);
@@ -120,11 +119,10 @@ if(isset($_SESSION['auth'])){
 
 
 .login {
-	width: 120px;
-	text-align: left;
+	width: 75px;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(100% - 207px);
+	margin-left: calc(100% - 175px);
 }
 
 .login-text {
@@ -145,32 +143,28 @@ if(isset($_SESSION['auth'])){
 }
 
 .signup {
-	margin-top: -22px;
-	margin-left: calc(100% - 67px);
+	width: 85px;
+	height: 23px;
+	margin-top: -23px;
+	margin-left: calc(100% - 85px);
 }
 
-.logout-button {
-	height: 20px;
-	width: auto;
-	transition: transform 0.2s;
+.signup-text {
+	background-color: #e0c22d;
+	color: white;
+	font-weight: 500;
+	border-radius: 0.125rem;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: 1px solid #e0c22d;
+	transition: background-color 0.2s;
 }
 
-.chat-header {
-	height: 25px;
-	width: auto;
-	transition: transform 0.2s;
-}
-
-.logout-button:hover {
-	-ms-transform: scale(1.1); /* IE 9 */
-	-webkit-transform: scale(1.1); /* Safari 3-8 */
-	transform: scale(1.1); 
-}
-
-.chat-header:hover {
-	-ms-transform: scale(1.1); /* IE 9 */
-	-webkit-transform: scale(1.1); /* Safari 3-8 */
-	transform: scale(1.1); 
+.signup-text:hover {
+	background-color: #f7d631;
+	outline: 1px solid #f7d631;
 }
 
 .everything-except-header {

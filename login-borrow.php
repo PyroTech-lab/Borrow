@@ -1,6 +1,7 @@
 <?php
 require('actions/users/login_borrowAction.php');
 require('actions/questions/updateDatabases.php');
+require('actions/users/ForgotPassword.php');
 ?>
 
 <?php
@@ -115,6 +116,30 @@ if(isset($_SESSION['auth'])){
   width: 18px;
 }
 
+.forgot-link {
+	border: 0;
+	background-color: transparent;
+	color: #2b80ff;
+	font-weight: bold;
+	font-size: 0.93rem;
+}
+
+.forgot-link:hover {
+	color: #00c4ff;
+}
+
+.return-link {
+	margin-top: 20px;
+	border: 0;
+	background-color: transparent;
+	color: #2b80ff;
+	font-weight: bold;
+	font-size: 0.93rem;
+}
+
+.return-link:hover {
+	color: #00c4ff;
+}
 
 .login-button {
 	margin-top: 50px;
@@ -129,10 +154,11 @@ if(isset($_SESSION['auth'])){
 	border-radius: 0.325rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	transition: transform 0.2s;
+	transition: background-color 0.2s;
 }
 
 .login-button:hover {
-	background-color: red;
+	background-color: #2b80ff;
 	-ms-transform: scale(1.015); /* IE 9 */
 	-webkit-transform: scale(1.015); /* Safari 3-8 */
 	transform: scale(1.015); 
@@ -142,6 +168,7 @@ if(isset($_SESSION['auth'])){
 	margin-top: 30px;
 	color: #383838;
 	font-size: 0.92rem;
+	font-weight: 500;
 }
 
 .error-message {
@@ -150,6 +177,17 @@ if(isset($_SESSION['auth'])){
 	font-size: 0.96rem;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 </style>
 
@@ -160,17 +198,54 @@ if(isset($_SESSION['auth'])){
 
 <div class="main">
 	<div class="text">
-		<p style="font-size: 1.4rem; font-weight: 500;">Sign In to Borrow Money</p>
-		<form method="post">
-		<p style="margin-top: 40px;">Email</p>
-		<input class="input" name="email" required autocomplete="off">
-		<p style="margin-top: 20px;">Password</p>
-		<input class="input" id="input" type="password" name="password" required>
-		<div class="label-container"><label for="showPassword" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword" type="checkbox" onclick="ShowPasswordFunction()" style="display: none;"></label></div>
-		<input type="submit" class="login-button" name="login" value="login">
-		 <?php if(isset($errorMsg)){ echo '<p class="error-message">'.$errorMsg.'</p>'; } ?>
-		</form>
-		
+		<div style="display: <?= $BodyDisplay; ?>;">
+			<p style="font-size: 1.4rem; font-weight: 500;">Sign In to Borrow Money</p>
+			<form method="post">
+			<p style="margin-top: 40px;">Email</p>
+				<input class="input" type="email" name="email" required autocomplete="off">
+				<p style="margin-top: 20px;">Password</p>
+				<input class="input" id="input" type="password" name="password" required>
+				<div class="label-container"><label for="showPassword" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword" type="checkbox" onclick="ShowPasswordFunction()" style="display: none;"></label></div>
+				<input type="submit" class="login-button" name="login" value="login">
+			</form>
+			<div style="margin-top: -220px; text-align: right;"><form method="post"><input type="submit" value="Forgot Password?" name="forgot_password" class="forgot-link"></input></form></div>
+			<div style="margin-top: 210px;"><?php if(isset($errorMsg)){ echo '<p class="error-message">'.$errorMsg.'</p>'; } ?></div>
+		</div>
+		<div style="display: <?= $ForgotFormDisplay; ?>;">
+			<p style="font-size: 1.4rem; font-weight: 500;">Forgot Password</p>
+			<form method="post">
+				<p style="margin-top: 40px;">Email</p>
+				<input class="input" type="email" style="margin-bottom: -50px;" name="recovery_email" required autocomplete="off">
+				<input type="submit" class="login-button" name="continue" value="Continue">
+				<?php if(isset($email_required )){ echo '<p class="error-message">'.$email_required .'</p>'; } ?>
+			</form>
+			<form method="post" style="text-align: center;">
+				<input type="submit" value="Return to Login" name="return" class="return-link"></input>
+			</form>
+		</div>
+		<div style="display: <?= $EnterCodeDisplay; ?>;">
+			<p style="font-size: 1.4rem; font-weight: 500;">Enter your Code</p>
+			<p style="margin-top: 40px;">A 6-Digit Code was sent to your Email Address</p>
+			<form method="post">
+				<input value="<?php if(isset($_POST['recovery_email'])) echo $_POST['recovery_email'] ?>" name="recovery_email_repeat" type="hidden">
+				<p style="margin-top: 40px;">Verification Code</p>
+				<input class="input" type="number" style="margin-bottom: -50px;" name="verification_code" required autocomplete="off">
+				<input type="submit" class="login-button" name="submit_code" value="Submit">
+				<?php if(isset($wrong_code )){ echo '<p class="error-message">'.$wrong_code .'</p>'; } ?>
+			</form>
+		</div>
+		<div style="display: <?= $CreateNewCodeDisplay; ?>;">
+			<p style="font-size: 1.4rem; font-weight: 500;">Set New Password</p>
+			<form method="post">
+			<input value="<?php if(isset($_POST['recovery_email_repeat'])) echo $_POST['recovery_email_repeat'] ?>" name="recovery_email_repeat_2" type="hidden">
+				<input value="<?php if(isset($_POST['verification_code'])) echo $_POST['verification_code'] ?>" name="verification_code_repeat" type="hidden">
+				<p style="margin-top: 40px;">New Password</p>
+				<input class="input" id="input2" type="password" name="new_password" required>
+				<div class="label-container"><label for="showPassword2" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword2" type="checkbox" onclick="ShowPasswordFunction2()" style="display: none;"></label></div>
+				<input style="margin-top: -1px;" type="submit" class="login-button" name="submit_new_password" value="Confirm">
+				<?php if(isset($errorMsg )){ echo '<p class="error-message">'.$errorMsg .'</p>'; } ?>
+			</form>
+		</div>
 	</div>
 </div>
 
@@ -181,6 +256,17 @@ if(isset($_SESSION['auth'])){
 <script>
 function ShowPasswordFunction() {
   var x = document.getElementById("input");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+<script>
+function ShowPasswordFunction2() {
+  var x = document.getElementById("input2");
   if (x.type === "password") {
     x.type = "text";
   } else {

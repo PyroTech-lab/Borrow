@@ -471,6 +471,28 @@ if(isset($_SESSION['auth'])){
 	border: 0;
 }
 
+.verification-box3 {
+	margin-left: 3px;
+	border: 1px solid orange;
+	border-radius: 0.125rem;
+	padding-left: 2px;
+	padding-right: 3px;
+	background-color: #fafafa;
+	color: orange;
+	font-weight: 500;
+	font-size: 0.85rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: font-size .2s;
+	transition: color .2s;
+	transition: border .2s;
+}
+
+.verification-box3:hover {
+	border: 1px solid #ffc700;
+	color: #ffc700;
+	font-size: 0.9rem;
+}
+
 .thumbs-up {
 	height: 30px;
 	width: auto;
@@ -681,7 +703,7 @@ if(isset($_SESSION['auth'])){
 		
 		<div class="column-2">
 		<span>Negative feedback</br><img class="thumbs-down" src="assets/images/negative.png"><span style="font-weight: bold; font-size: 1.35rem;"><?php echo ''.$negative_feedback.'';?></span></span>
-		<div class="line"><p style="margin-top: 25px;">ID Card</br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}else {echo ''.$cross3.'';}?>"><span class="verification-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="verification-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span></p></div>
+		<div class="line"><p style="margin-top: 25px;">ID Card</br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}elseif(isset($cross31)){echo ''.$cross31.'';}else {echo ''.$cross3.'';}?>"><span class="verification-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="verification-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span><span class="verification-box3"><?php if(isset($underverification_idcard)){echo ''.$underverification_idcard.'';}?></span></p></div>
 		<div class="line"><p>Phone Number</br><img class="checkmark" src="<?php if(isset($checkmark1)){echo ''.$checkmark1.'';}else {echo ''.$cross1.'';}?>"><span class="verification-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span><span class="verification-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span></p></div>
 		</div>
 </div>

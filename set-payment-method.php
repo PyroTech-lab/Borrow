@@ -384,8 +384,8 @@ require('actions/users/bannedAction.php');
 	border: 1px solid #00c4ff;
 	border-radius: 0.125rem;
 	transition: transform 0.2s;
-	font-size: 1rem;
-	font-weight: bold;
+	font-size: 1.15rem;
+	font-weight: 500;
 	color: #757575;
 	padding-left: 7px;
 }
@@ -443,51 +443,14 @@ require('actions/users/bannedAction.php');
 	padding-bottom: 3px;
 }
 
-.under-container {
-	margin-top: 50px;
-	margin-bottom: 100px;
-}
 
-.load-more {
-	padding: 9px;
-	width: 15%;
-	min-width: 140px;
-	background-color: #de0404;
-	color: white;
-	border: 2px solid white;
-	border-radius: 0.325rem;
-	font-weight: bold;
-	font-size: 0.88rem;
-	transition: background-color .2s;
-}
-
-.borrow-button {
-	padding: 9px;
-	width: 15%;
-	min-width: 140px;
-	right: 0;
-	background-color: #f2a100;
-	color: white;
-	border: 2px solid white;
-	border-radius: 0.325rem;
-	font-weight: bold;
-	font-size: 0.88rem;
-	transition: background-color .2s;
-}
-
-.load-more:hover {
-	background-color: #ff0303;
-}
-
-.borrow-button:hover {
-	background-color: #edd500;
-}
 
 
 .explain {
 	width: 100%;
 	text-align: left;
 	color: #383838;
+	margin-top: 100px;
 }
 
 .explain-title {
@@ -709,12 +672,7 @@ require('actions/users/bannedAction.php');
 	</form>
 
 
- 	
-		
-		<div class="under-container">
-		<a href="dashboard.php"><button class="load-more">Lend Money</button></a>
-		<a href="borrow-yeslogin.php"><button class="borrow-button">Borrow Money</button></a>
-		</div>
+ 
 		
 		<div class="explain">
 		<p class="explain-title">Manage Payment Methods</p>

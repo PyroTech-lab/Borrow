@@ -177,6 +177,17 @@ if(isset($_SESSION['auth'])){
 	font-size: 0.96rem;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 </style>
 
@@ -196,9 +207,9 @@ if(isset($_SESSION['auth'])){
 				<input class="input" id="input" type="password" name="password" required>
 				<div class="label-container"><label for="showPassword" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword" type="checkbox" onclick="ShowPasswordFunction()" style="display: none;"></label></div>
 				<input type="submit" class="login-button" name="login" value="login">
-				 <?php if(isset($errorMsg)){ echo '<p class="error-message">'.$errorMsg.'</p>'; } ?>
 			</form>
 			<div style="margin-top: -220px; text-align: right;"><form method="post"><input type="submit" value="Forgot Password?" name="forgot_password" class="forgot-link"></input></form></div>
+			<div style="margin-top: 210px;"><?php if(isset($errorMsg)){ echo '<p class="error-message">'.$errorMsg.'</p>'; } ?></div>
 		</div>
 		<div style="display: <?= $ForgotFormDisplay; ?>;">
 			<p style="font-size: 1.4rem; font-weight: 500;">Forgot Password</p>
@@ -214,8 +225,9 @@ if(isset($_SESSION['auth'])){
 		</div>
 		<div style="display: <?= $EnterCodeDisplay; ?>;">
 			<p style="font-size: 1.4rem; font-weight: 500;">Enter your Code</p>
-			<p style="margin-top: 40px;">We sent a 6-Digit Code to <?=$user_email; ?></p>
+			<p style="margin-top: 40px;">A 6-Digit Code was sent to your Email Address</p>
 			<form method="post">
+				<input value="<?php if(isset($_POST['recovery_email'])) echo $_POST['recovery_email'] ?>" name="recovery_email_repeat" type="hidden">
 				<p style="margin-top: 40px;">Verification Code</p>
 				<input class="input" type="number" style="margin-bottom: -50px;" name="verification_code" required autocomplete="off">
 				<input type="submit" class="login-button" name="submit_code" value="Submit">
@@ -225,10 +237,12 @@ if(isset($_SESSION['auth'])){
 		<div style="display: <?= $CreateNewCodeDisplay; ?>;">
 			<p style="font-size: 1.4rem; font-weight: 500;">Set New Password</p>
 			<form method="post">
+			<input value="<?php if(isset($_POST['recovery_email_repeat'])) echo $_POST['recovery_email_repeat'] ?>" name="recovery_email_repeat_2" type="hidden">
+				<input value="<?php if(isset($_POST['verification_code'])) echo $_POST['verification_code'] ?>" name="verification_code_repeat" type="hidden">
 				<p style="margin-top: 40px;">New Password</p>
-				<input class="input" type="password" style="margin-bottom: -50px;" name="new_password" required autocomplete="off">
-				<div class="label-container"><label for="showPassword" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword" type="checkbox" onclick="ShowPasswordFunction()" style="display: none;"></label></div>
-				<input type="submit" class="login-button" name="submit_new_password" value="Confirm">
+				<input class="input" id="input2" type="password" name="new_password" required>
+				<div class="label-container"><label for="showPassword2" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword2" type="checkbox" onclick="ShowPasswordFunction2()" style="display: none;"></label></div>
+				<input style="margin-top: -1px;" type="submit" class="login-button" name="submit_new_password" value="Confirm">
 				<?php if(isset($errorMsg )){ echo '<p class="error-message">'.$errorMsg .'</p>'; } ?>
 			</form>
 		</div>
@@ -242,6 +256,17 @@ if(isset($_SESSION['auth'])){
 <script>
 function ShowPasswordFunction() {
   var x = document.getElementById("input");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+<script>
+function ShowPasswordFunction2() {
+  var x = document.getElementById("input2");
   if (x.type === "password") {
     x.type = "text";
   } else {

@@ -429,6 +429,34 @@ require('actions/users/bannedAction.php');
 	border: 0;
 }
 
+.verification-box3 {
+	margin-left: 3px;
+	border: 1px solid orange;
+	border-radius: 0.125rem;
+	padding-left: 2px;
+	padding-right: 3px;
+	background-color: #fafafa;
+	color: orange;
+	font-weight: 500;
+	font-size: 0.85rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: font-size .2s;
+	transition: color .2s;
+	transition: border .2s;
+}
+
+.verification-box3:hover {
+	border: 1px solid #ffc700;
+	color: #ffc700;
+	font-size: 0.9rem;
+}
+
+.verification-box3:empty {
+	margin: 0px;
+	padding: 0px;
+	border: 0;
+}
+
 .column-11 {
 	margin-left: 20px;
 	height: 300px;
@@ -879,7 +907,7 @@ require('actions/users/bannedAction.php');
 	border-radius: 0.125rem;
 	transition: transform 0.2s;
 	font-size: 1.01rem;
-	font-weight: bold;
+	font-weight: 500;
 	color: #383838;
 	padding-left: 7px;
 }
@@ -917,6 +945,12 @@ require('actions/users/bannedAction.php');
 	background-color: #2b80ff;
 }
 
+.input-title {
+	margin-bottom: -28px;
+	margin-top: 45px;
+	font-weight: 500;
+}
+
 .cancel-button {
 	margin-top: 50px;
 	width: 25%;
@@ -933,6 +967,20 @@ require('actions/users/bannedAction.php');
 
 .cancel-button:hover {
 	background-color: #ba000c;
+}
+
+.label-container {
+	width: calc(100% - 7px);
+	margin-top: -26px;
+	margin-bottom: 30px;
+	text-align: right;
+}
+
+.label-image {
+	height: 11px;
+	width: auto;
+	position: absolute;
+	margin-left: -20px;
 }
 
 .error-message {
@@ -1132,8 +1180,16 @@ require('actions/users/bannedAction.php');
 						<div class="change-password-div<?= $visible_onload_changepassword; ?>" id="change-password-div">
 							<form method="post">
 							<span class="popup-title">Change your Password</span>
-							<div><input class="popup-input" name="current_password" type="password" placeholder="Current Password" required></div>
-							<div><input class="popup-input" name="new_password" type="password" placeholder="New Password" required></div>
+							<div>
+							<div class="input-title">Current Password</div>
+							<input id="popup_input" class="popup-input" name="current_password" type="password" required>
+							<div class="label-container"><label for="showPassword" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword" type="checkbox" onclick="ShowPasswordFunction()" style="display: none;"></label></div>
+							</div>
+							<div>
+							<div class="input-title">New Password</div>
+							<input id="popup_input2" class="popup-input" name="new_password" type="password" required>
+							<div class="label-container"><label for="showPassword2" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword2" type="checkbox" onclick="ShowPasswordFunction2()" style="display: none;"></label></div>
+							</div>
 							<div><input class="popup-button" name="change_password" type="submit" value="Change Password"></div>
 							</form>
 							<div class="error-message">
@@ -1152,8 +1208,13 @@ require('actions/users/bannedAction.php');
 						<div class="change-email-div<?= $visible_onload_changeemail; ?>" id="change-email-div">
 							<form method="post">
 							<span class="popup-title">Change your Email</span>
-							<div><input class="popup-input" name="emailchange_password" type="password" placeholder="Password" required></div>
-							<div><input class="popup-input" name="new_email" type="email" autocomplete="off" placeholder="New Email Address" required></div>
+							<div>
+							<div class="input-title">Password</div>
+							<input id="popup_input3" class="popup-input" name="emailchange_password" type="password" required>
+							<div class="label-container"><label for="showPassword3" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword3" type="checkbox" onclick="ShowPasswordFunction3()" style="display: none;"></label></div>
+							</div>
+							<div class="input-title">New Email Address</div>
+							<div><input class="popup-input" name="new_email" type="email" autocomplete="off" required></div>
 							<div><input class="popup-button" name="change_email" type="submit" value="Change Email"></div>
 							</form>
 							<div class="error-message">
@@ -1172,7 +1233,11 @@ require('actions/users/bannedAction.php');
 						<div class="delete-account-div<?= $visible_onload_deleteaccount; ?>" id="delete-account-div">
 							<form method="post">
 							<span class="popup-title">Delete Account</span>
-							<div><input class="popup-input" name="deleteaccount_password" type="password" placeholder="Password" required></div>
+							<div>
+							<div class="input-title">Password</div>
+							<input id="popup_input4" class="popup-input" name="deleteaccount_password" type="password" required>
+							<div class="label-container"><label for="showPassword4" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword4" type="checkbox" onclick="ShowPasswordFunction4()" style="display: none;"></label></div>
+							</div>
 							<p style="color: red; font-weight: 500; font-size: 0.93rem; margin-top: 25px; margin-bottom: -5px;">This Action cannot be Undone. All your Account Data will be Lost.</p>
 							<div><input class="popup-button" name="delete_account" type="submit" value="Delete Account"></div>
 							</form>
@@ -1227,7 +1292,7 @@ require('actions/users/bannedAction.php');
 		</div>
 		<div class="column-12">
 			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Address<br><img class="checkmark" src="<?php if(isset($checkmark2)){echo ''.$checkmark2.'';}else {echo ''.$cross2.'';}?>"><span class="verification-box2"><?php if(isset($verified_address)){echo ''.$verified_address.'';}?></span><span class="verification-box"><?php if(isset($not_verified_address)){echo ''.$not_verified_address.'';}?></span></p></a>
-			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">ID Card<br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}else {echo ''.$cross3.'';}?>"><span class="verification-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="verification-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span></p></a>
+			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">ID Card<br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}elseif(isset($cross31)){echo ''.$cross31.'';}else {echo ''.$cross3.'';}?>"><span class="verification-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="verification-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span><span class="verification-box3"><?php if(isset($underverification_idcard)){echo ''.$underverification_idcard.'';}?></span></p></a>
 		</div>
 	</div>
 	
@@ -1369,6 +1434,51 @@ function CloseChangeEmailPopup() {
 function CloseDeleteAccountPopup() {
   document.getElementById("delete-account-div").style.display = "none";
   document.getElementById("popup-deleteaccount").style.display = "none";
+}
+</script>
+
+
+<script>
+function ShowPasswordFunction() {
+  var x = document.getElementById("popup_input");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+<script>
+function ShowPasswordFunction2() {
+  var x = document.getElementById("popup_input2");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+<script>
+function ShowPasswordFunction3() {
+  var x = document.getElementById("popup_input3");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+<script>
+function ShowPasswordFunction4() {
+  var x = document.getElementById("popup_input4");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
 }
 </script>
 

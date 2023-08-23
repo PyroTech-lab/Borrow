@@ -308,14 +308,26 @@ require('actions/users/bannedAction.php');
 }
 
 .form {
-	margin-top: 100px;
+	margin-top: 150px;
 }
 
 .account {
 	color: #2b80ff;
 	margin-left: 5px;
+	font-weight: 500;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 .payment-method-box {
 	margin-left: 3px;
@@ -371,6 +383,33 @@ require('actions/users/bannedAction.php');
 	border: 0;
 }
 
+.payment-method-box3 {
+	margin-left: 5px;
+	border: 1px solid orange;
+	border-radius: 0.125rem;
+	padding-left: 2px;
+	padding-right: 3px;
+	background-color: #fafafa;
+	color: orange;
+	font-weight: 500;
+	font-size: 0.85rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: border 0.2s;
+	transition: color 0.2s;
+}
+
+.payment-method-box3:hover {
+	border: 1px solid #ffc700;
+	color: #ffc700;
+	font-size: 0.9rem;
+}
+
+.payment-method-box3:empty {
+	margin: 0px;
+	padding: 0px;
+	border: 0;
+}
+
 .input-text {
 	font-weight: 500;
 	font-size: 1.35rem;
@@ -385,9 +424,9 @@ require('actions/users/bannedAction.php');
 	border: 1px solid #00c4ff;
 	border-radius: 0.125rem;
 	transition: transform 0.2s;
-	font-size: 1rem;
-	font-weight: bold;
-	color: #757575;
+	font-size: 1.08rem;
+	font-weight: 500;
+	color: #575757;
 	padding-left: 7px;
 }
 
@@ -415,9 +454,9 @@ require('actions/users/bannedAction.php');
 	border: 1px solid #00c4ff;
 	border-radius: 0.125rem;
 	transition: transform 0.2s;
-	font-size: 1rem;
-	font-weight: bold;
-	color: #757575;
+	font-size: 1.08rem;
+	font-weight: 500;
+	color: #575757;
 	padding-left: 7px;
 }
 
@@ -435,8 +474,41 @@ require('actions/users/bannedAction.php');
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
+
+.input-text {
+	font-weight: 500;
+	font-size: 1.35rem;
+}
+
 .address-text {
 	font-size: 1.03rem;
+}
+
+
+.input-select {
+	width: 100%;
+	height: 44px;
+	background-color: #f7f7f7;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	border: 1px solid #00c4ff;
+	border-radius: 0.125rem;
+	transition: transform 0.2s;
+	font-size: 1.08rem;
+	font-weight: 500;
+	color: #575757;
+	padding-left: 7px;
+}
+
+.input-select:hover {
+	outline: 1px solid #00c4ff;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.input-select:focus {
+	outline: 1px solid #00c4ff;
+	background-color: rgba(0, 196, 255, 0.08);
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 
@@ -455,11 +527,55 @@ require('actions/users/bannedAction.php');
 }
 
 .set-button:hover {
-	background-color: red;
+	background-color: #00c4ff;
 	-ms-transform: scale(1.015); /* IE 9 */
 	-webkit-transform: scale(1.015); /* Safari 3-8 */
 	transform: scale(1.015); 
 }
+
+.set-button-verified {
+	margin-top: 5px;
+	width: 100%;
+	height: 50px;
+	background-color: #00b81f;
+	color: white;
+	font-size: 1.18rem;
+	font-weight: bold;
+	border: 0;
+	border-radius: 0.325rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform 0.2s;
+}
+
+.set-button2 {
+	margin-top: 5px;
+	width: 100%;
+	height: 50px;
+	background-color: #00b81f;
+	color: white;
+	font-size: 1.18rem;
+	font-weight: bold;
+	border: 0;
+	border-radius: 0.325rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform 0.2s;
+}
+
+.set-button3 {
+	margin-top: 5px;
+	width: 100%;
+	height: 50px;
+	background-color: orange;
+	color: white;
+	font-size: 1.18rem;
+	font-weight: bold;
+	border: 0;
+	border-radius: 0.325rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform 0.2s;
+}
+
+
 
 .delete-form {
 	width: 100%;
@@ -479,50 +595,54 @@ require('actions/users/bannedAction.php');
 	padding-bottom: 3px;
 }
 
-.under-container {
-	margin-top: 50px;
-	margin-bottom: 100px;
-}
 
-.load-more {
-	padding: 9px;
-	width: 15%;
-	min-width: 140px;
-	background-color: #de0404;
-	color: white;
-	border: 2px solid white;
-	border-radius: 0.325rem;
+.input-container {
+	width: calc(100% - 7px);
+	height: 35px;
+	background-color: #f7f7f7;
+	margin-top: 14px;
+	border: 1px solid #00c4ff;
+	border-radius: 0.125rem;
+	transition: transform 0.2s;
+	font-size: 1.01rem;
 	font-weight: bold;
-	font-size: 0.88rem;
-	transition: background-color .2s;
+	color: #383838;
+	padding-left: 7px;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
-.borrow-button {
-	padding: 9px;
-	width: 15%;
-	min-width: 140px;
-	right: 0;
-	background-color: #f2a100;
+.label-text {
+	position: absolute;
+	z-index: 9;
+	width: 200px;
+	background-color: #00c4ff;
 	color: white;
-	border: 2px solid white;
-	border-radius: 0.325rem;
+	margin-left: -8px;
+	margin-top: -1px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 8px;
 	font-weight: bold;
-	font-size: 0.88rem;
-	transition: background-color .2s;
+	font-size: 0.92rem;
+	text-align: center;
 }
 
-.load-more:hover {
-	background-color: #ff0303;
+.label-text:hover {
+	background-color: #00c4ff;
 }
 
-.borrow-button:hover {
-	background-color: #edd500;
+.upload-input {
+	margin-top: 8px;
+	margin-left: 112px;
+	font-weight: 500;
 }
+
 
 .explain {
 	width: 100%;
 	text-align: left;
 	color: #383838;
+	margin-top: 100px;
 }
 
 .explain-title {
@@ -699,53 +819,84 @@ require('actions/users/bannedAction.php');
 
 	<div class="main">
 	<p class="title">Account Verifications</p>
-	<p class="subtitle">We collect this information to make our platform more secure and ensure a smooth lending process.</p>
+	<p class="subtitle">We collect this information to make our platform more secure and to ensure a smooth lending process.</p>
 	
 	
-	<form class="form" method="post">
+	<form style="display: <?= $EmailDisplay ?>; margin-top: 100px;" class="form" method="post">
 		<p class="input-text">Email Address <span class="account"><?= $row4['email']; ?></span><span class="payment-method-box"><?php if(isset($not_verified_email)){echo ''.$not_verified_email.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_email)){echo ''.$verified_email.'';}?></span></p>
-		<input name="email_verify" type="submit" class="set-button" value="Verifiy Email Address">
+		<input name="email_verify" type="submit" class="<?= $email_button_class; ?>" value="<?= $email_button; ?>" <?php if(isset($disabled)){echo ''.$disabled.'';}?>>
 	</form>
-	<form class="form" method="post">
-		<p class="input-text">Enter your Code</p>
-		<span>We sent a 6-digit code to <?= $row4['email']; ?>.</span>
-		<input name="email_verifcation_code" type="input" class="set-button" required>
-		<input name="email_verifcation_submit" type="submit" class="set-button" value="Continue">
+	<form class="form" method="post" style="display: <?= $EnterCodeBoxDisplay ?>;">
+		<p class="input-text">Enter Email Verification Code</p>
+		<div style="margin-bottom: 30px;">We sent a 6-digit code to <?= $row4['email']; ?></div>
+		<input name="email_verification_code" type="number" class="input" required autocomplete="off">
+		<input name="email_verifcation_submit" type="submit" class="set-button" value="Confirm">
 	</form>
+	<div style="font-weight: 500; color: red; margin-top: 15px;">
+	<?php
+	if(isset($email_error_message)){ 
+	echo $email_error_message;
+	}
+	?>
+	</div>
 	
 	<form method="post" class="form">
 		<p class="input-text">Phone Number <span class="account"><?= $row['phone_number']; ?></span><span class="payment-method-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span></p>
-		<input name="phone_set" id="loan" class="input" required autocomplete="off" placeholder="Enter your phone number">
-		<input name="phone_submit" type="submit" class="set-button" value="Add Phone Number">
+		<input name="phone_set" id="loan" class="input" style="width: calc(64% - 7px); margin-left: 36%" required autocomplete="off" placeholder="Enter your phone number" type="number">
+		
+		<div style="width: calc(34% - 7px); margin-top: -54px;">
+		<select name="country_code_set" class="input-select" required>
+			<option name="default_country" selected="selected" value ="-1">Select country Code</option>
+			<?php
+			foreach($arrRegions as $region){
+				echo "<option style='color: #2b80ff;  font-size: 1.15rem; font-weight: 500;' value=".$region.">+". $phoneUtil->getCountryCodeForRegion($region) ." ".$region."</option>";
+			}
+			?>
+		</select>
+		</div>
+		
+		<input name="phone_submit" type="submit" class="set-button" value="<?= $phone_placeholder; ?>">
+		
+		<div style="color: red; margin-top: 15px;"><?php if(isset($invalid_phone_number)){echo ''.$invalid_phone_number.'';}?></div>
 	</form>
 
-	<form method="post" class="form">
+	<form method="post" class="form" id="address-form">
 		<p class="input-text">Address <span class="payment-method-box"><?php if(isset($not_verified_address)){echo ''.$not_verified_address.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_address)){echo ''.$verified_address.'';}?></span></p>
 		
-		<span class="address-text">Street and House number <span class="account"><?= $row2['address']; ?></span></span>
-		<input name="address_set" id="loan" class="input-address" required autocomplete="off" placeholder="Enter Steet Name and House Number">
+		<span class="address-text">Street Address <span class="account"><?= $row2['address']; ?></span></span>
+		<input  id="ship-address" name="address_set" class="input-address" required autocomplete="off" placeholder="Enter Steet Name and House Number">
 		
-		<span class="address-text">City and ZIP Code <span class="account"><?= $row2['city']; ?></span></span>
-		<input name="city_set" id="loan" class="input-address" required autocomplete="off" placeholder="Enter City and ZIP Code">
+		<span class="address-text">City and ZIP Code <span class="account"><?= $row2['city']; ?><?php if(isset($separator)){echo ''.$separator.'';}?> <?= $row2['postcode']; ?></span></span>
+		<div style="width: calc(59% - 7px);" ><input id="locality" name="city_set" class="input-address" required autocomplete="off" placeholder="Enter City"></div>
+		<div style="width: calc(39% - 7px); margin-left: calc(61% + 7px); margin-top: -74px;"><input id="postcode" name="postcode_set" class="input-address" required autocomplete="off" placeholder="Enter ZIP Code"></div>
 		
 		<span class="address-text">Country <span class="account"><?= $row2['country']; ?></span></span>
-		<input name="country_set" id="loan" class="input-address" required autocomplete="off" placeholder="Enter Country" style="margin-bottom: 10px;">
-		<input name="address_submit" type="submit" class="set-button" value="Add Address">
-	</form>
-
-	<form method="post" class="form">
-		<p class="input-text">ID Card <span class="account"><?= $row3['identity_card']; ?></span><span class="payment-method-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span></p>
-		<input name="idcard_set" id="loan" class="input" required autocomplete="off" placeholder="Enter your ID Card">
-		<input name="idcard_submit" type="submit" class="set-button" value="Add ID Card">
-	</form>
-
-
- 	
+		<input id="country" name="country_set" class="input-address" required autocomplete="off" placeholder="Enter Country" style="margin-bottom: 10px;">
+		<input name="address_submit" type="submit" class="set-button" value="<?= $address_placeholder; ?>">
 		
-		<div class="under-container">
-		<a href="dashboard.php"><button class="load-more">Lend Money</button></a>
-		<a href="borrow-yeslogin.php"><button class="borrow-button">Borrow Money</button></a>
-		</div>
+		<input id="address2" hidden>
+		<input id="state" hidden>
+		
+		<div style="color: red; margin-top: 15px;"><?php if(isset($invalidCountry)){echo ''.$invalidCountry.'';}?></div>
+	</form>
+
+	<form method="post" class="form" enctype="multipart/form-data">
+		<p class="input-text">ID Card <span class="payment-method-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="payment-method-box3"><?php if(isset($underverification_idcard)){echo ''.$underverification_idcard.'';}?></span></p>
+		<div style="display:<?= $uploadDisplay; ?>" class="input-container"><label for="file-upload"><span class="label-text">Select File</span><input type="file" id="file-upload" name="idcard_upload" class="upload-input" required></label></div>
+		<input style="margin-top: 15px;" name="idcard_submit" type="submit" class="<?= $setbutton_class; ?>" value="<?= $setbutton_value; ?>" <?php if(isset($upload_disabled)){echo ''.$upload_disabled.'';}?>>
+		<?php
+		if(isset($file_error_message)){ 
+		echo $file_error_message;
+		}
+		?>
+		<?php
+		if(isset($CorrectIdMessage)){ 
+		echo $CorrectIdMessage;
+		}
+		?>
+	</form>
+
+
 		
 		<div class="explain">
 		<p class="explain-title">Manage Verifications</p>
@@ -753,11 +904,12 @@ require('actions/users/bannedAction.php');
 
 		<p>You cannot Request a Loan without Having Completed these Verifications.</br>However, you can lend money to Other Users without Verifying your Account.</p>
 		
-		<p>When you complete Verifications, you Trustscore Is Goes Up.</br>If Your Account is Fully Verified, you Earn 50 Trustscore Points.</p>
+		<p>When you complete Verifications, your Trustscore Goes Up.</br>When Account is Fully Verified, you Earn 50 Trustscore Points.</p>
 
 		<p style="font-weight: 500; margin-top: 40px;">If you Have any Questions about Verifications, Refer to our <a href="faq.php" style="text-decoration: none; color: #3d91e0;">FAQ's</a> Or <a href="support.php" style="text-decoration: none; color: #3d91e0;">Contact our Support team.</a></p>
 
 		</div>
+		
 			
 	</div>
 
@@ -797,6 +949,85 @@ require('actions/users/bannedAction.php');
 </div>
 
 </div>
+
+
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKe4FApOiKCzUPX__wKOQgfV-Gds153io&callback=initAutocomplete&libraries=places&v=weekly" defer ></script>
+
+<script>
+let autocomplete;
+let address1Field;
+let address2Field;
+let postalField;
+
+function initAutocomplete() {
+  address1Field = document.querySelector("#ship-address");
+  address2Field = document.querySelector("#address2");
+  postalField = document.querySelector("#postcode");
+
+
+  autocomplete = new google.maps.places.Autocomplete(address1Field, {
+    fields: ["address_components", "geometry"],
+    types: ["address"],
+  });
+  address1Field.focus();
+
+
+  autocomplete.addListener("place_changed", fillInAddress);
+}
+
+function fillInAddress() {
+
+  const place = autocomplete.getPlace();
+  let address1 = "";
+  let postcode = "";
+
+
+  for (const component of place.address_components) {
+  
+    const componentType = component.types[0];
+
+    switch (componentType) {
+      case "street_number": {
+        address1 = `${component.long_name} ${address1}`;
+        break;
+      }
+
+      case "route": {
+        address1 += component.short_name;
+        break;
+      }
+
+      case "postal_code": {
+        postcode = `${component.long_name}${postcode}`;
+        break;
+      }
+
+      case "postal_code_suffix": {
+        postcode = `${postcode}-${component.long_name}`;
+        break;
+      }
+      case "locality":
+        document.querySelector("#locality").value = component.long_name;
+        break;
+      case "administrative_area_level_1": {
+        document.querySelector("#state").value = component.short_name;
+        break;
+      }
+      case "country":
+        document.querySelector("#country").value = component.long_name;
+        break;
+    }
+  }
+
+  address1Field.value = address1;
+  postalField.value = postcode;
+ 
+  address2Field.focus();
+}
+
+window.initAutocomplete = initAutocomplete;
+
+</script>
 
 </body>
 
