@@ -17,29 +17,29 @@ if(isset($_SESSION['auth'])){
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Instant Borrow</title>
+<title>Loan not Found - Instant Borrow</title>
 
-<!-- icons generatoed with https://favicomatic.com/ -->
-<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/icons/apple-touch-icon-57x57.png" />
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/icons/apple-touch-icon-114x114.png" />
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/icons/apple-touch-icon-72x72.png" />
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/icons/apple-touch-icon-144x144.png" />
-<link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/images/icons/apple-touch-icon-60x60.png" />
-<link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/images/icons/apple-touch-icon-120x120.png" />
-<link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/images/icons/apple-touch-icon-76x76.png" />
-<link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/images/icons/apple-touch-icon-152x152.png" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-196x196.png" sizes="196x196" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-32x32.png" sizes="32x32" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-16x16.png" sizes="16x16" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-128.png" sizes="128x128" />
+<!-- icons generated with https://favicomatic.com/ -->
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/pageicons/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/pageicons/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/pageicons/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/images/pageicons/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/images/pageicons/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/images/pageicons/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/images/pageicons/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-128.png" sizes="128x128" />
 <meta name="application-name" content="&nbsp;"/>
 <meta name="msapplication-TileColor" content="#FFFFFF" />
-<meta name="msapplication-TileImage" content="mstile-144x144.png" />
-<meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
-<meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
-<meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
-<meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+<meta name="msapplication-TileImage" content="assets/images/pageicons/mstile-144x144.png" />
+<meta name="msapplication-square70x70logo" content="assets/images/pageicons/mstile-70x70.png" />
+<meta name="msapplication-square150x150logo" content="assets/images/pageicons/mstile-150x150.png" />
+<meta name="msapplication-wide310x150logo" content="assets/images/pageicons/mstile-310x150.png" />
+<meta name="msapplication-square310x310logo" content="assets/images/pageicons/mstile-310x310.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,6 +65,18 @@ if(isset($_SESSION['auth'])){
 .logo {
 	height: 23px;
 	margin-top: 26px;
+}
+
+.logo-image {
+	height: 62px;
+	width: auto;
+	margin-top: -20px;
+}
+
+.logo-image-footer {
+	height: 75px;
+	width: auto;
+	margin-top: 10px;
 }
 
 .lend {
@@ -309,7 +321,7 @@ if(isset($_SESSION['auth'])){
 
 <div class="header">
 	<div class="header-text">
-		<div class="logo"><a href="index.php" style="text-decoration: none; color: black"><span>Instant Borrow</span></a></div>
+		<div class="logo"><a href="about.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="index.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
 		<div class="borrow"><a href="borrow-nologin.php" style="text-decoration: none; color: black"><span class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="login.php" style="text-decoration: none; color: black"><span class="login-text">Login</span></a></div>
@@ -333,7 +345,7 @@ if(isset($_SESSION['auth'])){
 <div class="footer">
 	<div class="footer-content">
 		<div class="footer-1">
-			<div><span>Instant Borrow</span></div>
+			<div><img src="assets/images/logo.png" class="logo-image-footer"></div>
 		</div>
 		<div class="footer-2">
 			<div class="footer-subsection-title"><span>Company</span></div>
@@ -342,13 +354,13 @@ if(isset($_SESSION['auth'])){
 		</div>
 		<div class="footer-3">
 			<div class="footer-subsection-title"><span>Resources</span></div>
-			<div class="footer-subsection-text"><a href="faq.php" class="footer-link" target="blank"><span>FAQ's</span></a></div>
-			<div class="footer-subsection-text"><a href="support.php" class="footer-link" target="blank"><span>Support Center</span></a></div>
+			<div class="footer-subsection-text"><a href="lender-info.php" class="footer-link" target="blank"><span>Lender's Guide</span></a></div>
+			<div class="footer-subsection-text"><a href="borrower-info.php" class="footer-link" target="blank"><span>Borrower's Guide</span></a></div>
 		</div>
 		<div class="footer-4">
 			<div class="footer-subsection-title"><span>Legal</span></div>
 			<div class="footer-subsection-text"><a href="terms-conditions.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
-			<div class="footer-subsection-text"><a href="privcy-policy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
+			<div class="footer-subsection-text"><a href="privacy-policy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
 		</div>
 		<div class="footer-bottom">
 			<div class="social-widgets">

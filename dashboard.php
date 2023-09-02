@@ -15,29 +15,29 @@ require('actions/users/bannedAction.php');
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Instant Borrow</title>
+<title>Instant Borrow - Lend and Borrow Money Safely and Easily</title>
 
-<!-- icons generatoed with https://favicomatic.com/ -->
-<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/icons/apple-touch-icon-57x57.png" />
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/icons/apple-touch-icon-114x114.png" />
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/icons/apple-touch-icon-72x72.png" />
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/icons/apple-touch-icon-144x144.png" />
-<link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/images/icons/apple-touch-icon-60x60.png" />
-<link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/images/icons/apple-touch-icon-120x120.png" />
-<link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/images/icons/apple-touch-icon-76x76.png" />
-<link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/images/icons/apple-touch-icon-152x152.png" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-196x196.png" sizes="196x196" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-32x32.png" sizes="32x32" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-16x16.png" sizes="16x16" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-128.png" sizes="128x128" />
+<!-- icons generated with https://favicomatic.com/ -->
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/pageicons/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/pageicons/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/pageicons/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/images/pageicons/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/images/pageicons/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/images/pageicons/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/images/pageicons/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-128.png" sizes="128x128" />
 <meta name="application-name" content="&nbsp;"/>
 <meta name="msapplication-TileColor" content="#FFFFFF" />
-<meta name="msapplication-TileImage" content="mstile-144x144.png" />
-<meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
-<meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
-<meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
-<meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+<meta name="msapplication-TileImage" content="assets/images/pageicons/mstile-144x144.png" />
+<meta name="msapplication-square70x70logo" content="assets/images/pageicons/mstile-70x70.png" />
+<meta name="msapplication-square150x150logo" content="assets/images/pageicons/mstile-150x150.png" />
+<meta name="msapplication-wide310x150logo" content="assets/images/pageicons/mstile-310x150.png" />
+<meta name="msapplication-square310x310logo" content="assets/images/pageicons/mstile-310x310.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,6 +63,18 @@ require('actions/users/bannedAction.php');
 .logo {
 	height: 23px;
 	margin-top: 26px;
+}
+
+.logo-image {
+	height: 62px;
+	width: auto;
+	margin-top: -20px;
+}
+
+.logo-image-footer {
+	height: 75px;
+	width: auto;
+	margin-top: 10px;
 }
 
 .lend {
@@ -122,29 +134,31 @@ require('actions/users/bannedAction.php');
 	text-align: left;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(100% - 207px);
+	margin-left: calc(100% - 162px);
 }
 
 .login-text {
 	font-weight: 500;
-	color: #4d4d4d;
+	color: white;
 	padding-top: 3px;
 	padding-bottom: 3px;
 	padding-left: 10px;
 	padding-right: 10px;
 	transition: outline 0.2s;
 	transition: background-color 0.2s;
+	outline: 1px solid #e0c22d;
+	background-color: #e0c22d;
+	border-radius: 0.125rem;
 }
 
 .login-text:hover {
-	outline: 1px solid #4d4d4d;
-	background-color: #fcfcfc;
-	border-radius: 0.125rem;
+	outline: 1px solid #f2a100;
+	background-color: #f2a100;
 }
 
 .signup {
 	margin-top: -22px;
-	margin-left: calc(100% - 67px);
+	margin-left: calc(100% - 22px);
 }
 
 .logout-button {
@@ -295,6 +309,13 @@ require('actions/users/bannedAction.php');
 	background-color: #f8f8f8;
 }
 
+.search-visible {
+	display: block;
+}
+
+.search-hidden {
+	display: none;
+}
 
 .sticky{
 	z-index: 5;
@@ -447,6 +468,14 @@ input::-webkit-datetime-edit-year-field:focus {
 	font-weight: 500;
 }
 
+.sort-by-visible {
+	display: block;
+}
+
+.sort-by-hidden {
+	display: none;
+}
+
 .sort-by {
 	margin-left: 60px;
 	margin-bottom: -39px;
@@ -515,7 +544,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	margin-bottom: 28px;
 	padding: 10px;
 	border: 1px solid #bababa;
-	background-color: #f7f7f7;
+	background-color: #d9d9d9;
 	border-radius: 0.325rem;
 	text-align: left;
 }
@@ -947,11 +976,11 @@ input::-webkit-datetime-edit-year-field:focus {
 
 <div class="header">
 	<div class="header-text">
-		<div class="logo"><a href="dashboard.php" style="text-decoration: none; color: black"><span>Instant Borrow</span></a></div>
+		<div class="logo"><a href="about-loggedin.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
 		<div class="borrow"><a href="borrow-yeslogin.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
-		<div class="signup"><a href="actions/users/chat.php" style="text-decoration: none; color: black"><img src="assets/images/chat.png" class="chat-button"></a><div style="margin-top: -32px; margin-left: 45px;"><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
+		<div class="signup"><div><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
 	</div>
 </div>
 
@@ -1015,21 +1044,142 @@ input::-webkit-datetime-edit-year-field:focus {
 
 <div class="main">
 	<div class="sticky" id="sticky">
-	<form method="GET">
+	
 	<div class="sticky-text">
+	
+	<form method="GET" class="<?= $class_search1 ?>">
 		<p>Loan Amount</p>
-		<input class="sticky-input" name="loan_amount_search" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-right"><span style="margin-left: -19px;">$</span></div>
+		<input class="sticky-input" name="loan_amount_search1" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-right"><span style="margin-left: -19px;">$</span></div>
 		<p>Interest Rate</p>
-		<input class="sticky-input" name="interest_search" type="number" min="0" autocomplete="off"><div class="symbol-right"><span style="margin-left: -23px;">%</span></div>
+		<input class="sticky-input" name="interest_search1" type="number" min="0" autocomplete="off"><div class="symbol-right"><span style="margin-left: -23px;">%</span></div>
 		<p>Borrower Trust Score</p>
-		<input class="sticky-input" name="trustscore_search" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
+		<input class="sticky-input" name="trustscore_search1" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
 		<p>Repayment Date</p>
-		<input class="sticky-input" type="date" name="repayment_date_search" id="datefield" autocomplete="off">
+		<input class="sticky-input" type="date" name="repayment_date_search1" id="datefield1" autocomplete="off">
 		</br>
 		<input type="submit" class="find-offers" name="search" value="Find Offers">
-		<input type="submit" name="clear" value="Clear Filters" class="clear-filters">
+		<input type="submit" name="clear1" value="Clear Filters" class="clear-filters">
 	</form>
+	<form method="GET" class="<?= $class_search2 ?>">
+		<p>Loan Amount</p>
+		<input class="sticky-input" name="loan_amount_search2" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-right"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input" name="interest_search2" type="number" min="0" autocomplete="off"><div class="symbol-right"><span style="margin-left: -23px;">%</span></div>
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input" name="trustscore_search2" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input" type="date" name="repayment_date_search2" id="datefield2" autocomplete="off">
+		</br>
+		<input type="submit" class="find-offers" name="search" value="Find Offers">
+		<input type="submit" name="clear2" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search3 ?>">
+		<p>Loan Amount</p>
+		<input class="sticky-input" name="loan_amount_search3" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-right"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input" name="interest_search3" type="number" min="0" autocomplete="off"><div class="symbol-right"><span style="margin-left: -23px;">%</span></div>
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input" name="trustscore_search3" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input" type="date" name="repayment_date_search3" id="datefield3" autocomplete="off">
+		</br>
+		<input type="submit" class="find-offers" name="search" value="Find Offers">
+		<input type="submit" name="clear3" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search4 ?>">
+		<p>Loan Amount</p>
+		<input class="sticky-input" name="loan_amount_search4" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-right"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input" name="interest_search4" type="number" min="0" autocomplete="off"><div class="symbol-right"><span style="margin-left: -23px;">%</span></div>
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input" name="trustscore_search4" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input" type="date" name="repayment_date_search4" id="datefield4" autocomplete="off">
+		</br>
+		<input type="submit" class="find-offers" name="search" value="Find Offers">
+		<input type="submit" name="clear4" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search5 ?>">
+		<p>Loan Amount</p>
+		<input class="sticky-input" name="loan_amount_search5" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-right"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input" name="interest_search5" type="number" min="0" autocomplete="off"><div class="symbol-right"><span style="margin-left: -23px;">%</span></div>
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input" name="trustscore_search5" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input" type="date" name="repayment_date_search5" id="datefield5" autocomplete="off">
+		</br>
+		<input type="submit" class="find-offers" name="search" value="Find Offers">
+		<input type="submit" name="clear5" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search6 ?>">
+		<p>Loan Amount</p>
+		<input class="sticky-input" name="loan_amount_search6" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-right"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input" name="interest_search6" type="number" min="0" autocomplete="off"><div class="symbol-right"><span style="margin-left: -23px;">%</span></div>
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input" name="trustscore_search6" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input" type="date" name="repayment_date_search6" id="datefield6" autocomplete="off">
+		</br>
+		<input type="submit" class="find-offers" name="search" value="Find Offers">
+		<input type="submit" name="clear6" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search7 ?>">
+		<p>Loan Amount</p>
+		<input class="sticky-input" name="loan_amount_search7" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-right"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input" name="interest_search7" type="number" min="0" autocomplete="off"><div class="symbol-right"><span style="margin-left: -23px;">%</span></div>
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input" name="trustscore_search7" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input" type="date" name="repayment_date_search7" id="datefield7" autocomplete="off">
+		</br>
+		<input type="submit" class="find-offers" name="search" value="Find Offers">
+		<input type="submit" name="clear7" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search8 ?>">
+		<p>Loan Amount</p>
+		<input class="sticky-input" name="loan_amount_search8" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-right"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input" name="interest_search8" type="number" min="0" autocomplete="off"><div class="symbol-right"><span style="margin-left: -23px;">%</span></div>
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input" name="trustscore_search8" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input" type="date" name="repayment_date_search8" id="datefield8" autocomplete="off">
+		</br>
+		<input type="submit" class="find-offers" name="search" value="Find Offers">
+		<input type="submit" name="clear8" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search9 ?>">
+		<p>Loan Amount</p>
+		<input class="sticky-input" name="loan_amount_search9" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-right"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input" name="interest_search9" type="number" min="0" autocomplete="off"><div class="symbol-right"><span style="margin-left: -23px;">%</span></div>
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input" name="trustscore_search9" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input" type="date" name="repayment_date_search9" id="datefield9" autocomplete="off">
+		</br>
+		<input type="submit" class="find-offers" name="search" value="Find Offers">
+		<input type="submit" name="clear9" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search10 ?>">
+		<p>Loan Amount</p>
+		<input class="sticky-input" name="loan_amount_search10" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-right"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input" name="interest_search10" type="number" min="0" autocomplete="off"><div class="symbol-right"><span style="margin-left: -23px;">%</span></div>
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input" name="trustscore_search10" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input" type="date" name="repayment_date_search10" id="datefield10" autocomplete="off">
+		</br>
+		<input type="submit" class="find-offers" name="search" value="Find Offers">
+		<input type="submit" name="clear10" value="Clear Filters" class="clear-filters">
+	</form>
+	
 	</div>
+	
 	</div>
 
 	<div class="main-right">
@@ -1041,16 +1191,108 @@ input::-webkit-datetime-edit-year-field:focus {
 			<div class="sort-by">
 				<p style="margin-left: calc(85% - 150px); font-size: 1.05rem; font-weight: 500;">Sort By</p>
 				<div class="sort-by-text">
-					<form method="GET">
+				
+					<form method="GET" class="<?= $class_sort1 ?>">
 					<div class="sort-by-column-1">
-						<input class="sort-by-input" name="sortby_newest" value="Newest" type="submit">
-						<input class="sort-by-input" name="sortby_loan_amount" value="Loan Amount" type="submit">
+						<input class="sort-by-input" name="sortby_newest1" value="Newest" type="submit">
+						<input class="sort-by-input" name="sortby_loan_amount1" value="Loan Amount" type="submit">
 					</div>
 					<div class="sort-by-column-2">
-						<input class="sort-by-input" name="sortby_repayment_date" value="Repayment Date" type="submit">
-						<input class="sort-by-input" name="sortby_interest" value="Interest rate" type="submit">
+						<input class="sort-by-input" name="sortby_repayment_date1" value="Repayment Date" type="submit">
+						<input class="sort-by-input" name="sortby_interest1" value="Interest rate" type="submit">
 					</div>
 					</form>
+					<form method="GET" class="<?= $class_sort2 ?>">
+					<div class="sort-by-column-1">
+						<input class="sort-by-input" name="sortby_newest2" value="Newest" type="submit">
+						<input class="sort-by-input" name="sortby_loan_amount2" value="Loan Amount" type="submit">
+					</div>
+					<div class="sort-by-column-2">
+						<input class="sort-by-input" name="sortby_repayment_date2" value="Repayment Date" type="submit">
+						<input class="sort-by-input" name="sortby_interest2" value="Interest rate" type="submit">
+					</div>
+					</form>
+					<form method="GET" class="<?= $class_sort3 ?>">
+					<div class="sort-by-column-1">
+						<input class="sort-by-input" name="sortby_newest3" value="Newest" type="submit">
+						<input class="sort-by-input" name="sortby_loan_amount3" value="Loan Amount" type="submit">
+					</div>
+					<div class="sort-by-column-2">
+						<input class="sort-by-input" name="sortby_repayment_date3" value="Repayment Date" type="submit">
+						<input class="sort-by-input" name="sortby_interest3" value="Interest rate" type="submit">
+					</div>
+					</form>
+					<form method="GET" class="<?= $class_sort4 ?>">
+					<div class="sort-by-column-1">
+						<input class="sort-by-input" name="sortby_newest4" value="Newest" type="submit">
+						<input class="sort-by-input" name="sortby_loan_amount4" value="Loan Amount" type="submit">
+					</div>
+					<div class="sort-by-column-2">
+						<input class="sort-by-input" name="sortby_repayment_date4" value="Repayment Date" type="submit">
+						<input class="sort-by-input" name="sortby_interest4" value="Interest rate" type="submit">
+					</div>
+					</form>
+					<form method="GET" class="<?= $class_sort5 ?>">
+					<div class="sort-by-column-1">
+						<input class="sort-by-input" name="sortby_newest5" value="Newest" type="submit">
+						<input class="sort-by-input" name="sortby_loan_amount5" value="Loan Amount" type="submit">
+					</div>
+					<div class="sort-by-column-2">
+						<input class="sort-by-input" name="sortby_repayment_date5" value="Repayment Date" type="submit">
+						<input class="sort-by-input" name="sortby_interest5" value="Interest rate" type="submit">
+					</div>
+					</form>
+					<form method="GET" class="<?= $class_sort6 ?>">
+					<div class="sort-by-column-1">
+						<input class="sort-by-input" name="sortby_newest6" value="Newest" type="submit">
+						<input class="sort-by-input" name="sortby_loan_amount6" value="Loan Amount" type="submit">
+					</div>
+					<div class="sort-by-column-2">
+						<input class="sort-by-input" name="sortby_repayment_date6" value="Repayment Date" type="submit">
+						<input class="sort-by-input" name="sortby_interest6" value="Interest rate" type="submit">
+					</div>
+					</form>
+					<form method="GET" class="<?= $class_sort7 ?>">
+					<div class="sort-by-column-1">
+						<input class="sort-by-input" name="sortby_newest7" value="Newest" type="submit">
+						<input class="sort-by-input" name="sortby_loan_amount7" value="Loan Amount" type="submit">
+					</div>
+					<div class="sort-by-column-2">
+						<input class="sort-by-input" name="sortby_repayment_date7" value="Repayment Date" type="submit">
+						<input class="sort-by-input" name="sortby_interest7" value="Interest rate" type="submit">
+					</div>
+					</form>
+					<form method="GET" class="<?= $class_sort8 ?>">
+					<div class="sort-by-column-1">
+						<input class="sort-by-input" name="sortby_newest8" value="Newest" type="submit">
+						<input class="sort-by-input" name="sortby_loan_amount8" value="Loan Amount" type="submit">
+					</div>
+					<div class="sort-by-column-2">
+						<input class="sort-by-input" name="sortby_repayment_date8" value="Repayment Date" type="submit">
+						<input class="sort-by-input" name="sortby_interest8" value="Interest rate" type="submit">
+					</div>
+					</form>
+					<form method="GET" class="<?= $class_sort9 ?>">
+					<div class="sort-by-column-1">
+						<input class="sort-by-input" name="sortby_newest9" value="Newest" type="submit">
+						<input class="sort-by-input" name="sortby_loan_amount9" value="Loan Amount" type="submit">
+					</div>
+					<div class="sort-by-column-2">
+						<input class="sort-by-input" name="sortby_repayment_date9" value="Repayment Date" type="submit">
+						<input class="sort-by-input" name="sortby_interest9" value="Interest rate" type="submit">
+					</div>
+					</form>
+					<form method="GET" class="<?= $class_sort10 ?>">
+					<div class="sort-by-column-1">
+						<input class="sort-by-input" name="sortby_newest10" value="Newest" type="submit">
+						<input class="sort-by-input" name="sortby_loan_amount10" value="Loan Amount" type="submit">
+					</div>
+					<div class="sort-by-column-2">
+						<input class="sort-by-input" name="sortby_repayment_date10" value="Repayment Date" type="submit">
+						<input class="sort-by-input" name="sortby_interest10" value="Interest rate" type="submit">
+					</div>
+					</form>
+					
 				</div>
 			</div>
 		
@@ -1107,7 +1349,6 @@ input::-webkit-datetime-edit-year-field:focus {
 			?>
 			
 			
-			
 			<div class="under-container">
 			
 				<form method="GET">
@@ -1137,9 +1378,6 @@ input::-webkit-datetime-edit-year-field:focus {
 				<form method="GET">
 				<input class="<?= $class9 ?>" id="load_more" name="load_more9" type="submit" value="Load More Offers">
 				</form>
-				<form method="GET">
-				<input class="<?= $class10 ?>" id="load_more" name="load_more10" type="submit" value="Load More Offers">
-				</form>
 				
 				<div class="<?= $classButton ?>"><a href="borrow-yeslogin.php"><button class="borrow-button">Borrow Money</button></a></div>
 			</div>
@@ -1148,7 +1386,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		
 		
 		<div class="explain">
-			<p class="explain-title">How to Lend Money on Instant Borrow</p>
+			<a href="lender-info-loggedin.php" style="text-decoration: none;"><p class="explain-title">How to Lend Money on Instant Borrow</p></a>
 			
 			<p style="font-weight: 500; font-size: 1.28rem; margin-top: 50px; color:#2b80ff;">Welcome to the World of Peer-to-Peer Finance.</p> 
 			
@@ -1164,13 +1402,13 @@ input::-webkit-datetime-edit-year-field:focus {
 			<div class="step3"><p class="steps-title">3-LEND</p><div class="inner-box"><p class="steps-subtitle">On the Payment Page:</p><p>Choose your <span class="explain-bold">Payment Method</span></br><span class="explain-bold">Send Funds</span> to the Borrower</br><span class="explain-bold">Confirm</span> the Transaction was Made</p></div></div>
 			<div class="step4"><p class="steps-title">4-PROFIT</p><div class="inner-box"><p class="steps-subtitle">On the Repayment Date:</p><p>Borrower Sends <span class="explain-bold">Repayment</span></br><span class="explain-bold">Confirm</span> Funds Have Been Received</br><span class="explain-bold">Evaluate</span> the Borrower</p></div></div>
 			
-			<p style="margin-top: 60px;">All payments are Confirmed by Instant Borrow and are Protected with Advanced security Measures. The Marketplace is strictly Monitored and all Users are Verified to ensure a safe Trading Environment.</p>
+			<p style="margin-top: 60px;">All payments are Confirmed by Instant Borrow and are Protected with Advanced security Measures. The Marketplace is closely Monitored and all Users are Verified to ensure a safe Trading Environment.</p>
 			
 			<p>Personnal Information is Fully Protected by Instant Borrow and is only Given to the Lender if the Borrower fails to Repay his Loan.</p>
 
-			<p>If you have any Questions, please Contact Us or get in Touch with the Support Team at the Bottom of the Page. We'll always be there for you!</p>
+			<p>If you have any Questions, please <a href="contact-loggedin.php" target="blank" style="color: #3d91e0; text-decoration: none;">Contact Us</a> or Read our User Guides at the Bottom of the Page. We'll always be there for you!</p>
 
-			<p style="font-weight: 500; font-size: 1.28rem; color: #2b80ff;">Lending on Instant Borrow is Safe and Easy, but don’t take our word for it—read reviews from countless Instant Borrow users around the world.</p>
+			<p style="font-weight: 500; font-size: 1.28rem; color: #2b80ff;">Lending on Instant Borrow is Safe, Easy and Lucrative — Experience the next Revolution in the world of Finance and Make Record Profits in Record Time</p>
 		</div>
 	</div>
 </div>
@@ -1180,22 +1418,22 @@ input::-webkit-datetime-edit-year-field:focus {
 <div class="footer">
 	<div class="footer-content">
 		<div class="footer-1">
-			<div><span>Instant Borrow</span></div>
+			<div><img src="assets/images/logo.png" class="logo-image-footer"></div>
 		</div>
 		<div class="footer-2">
 			<div class="footer-subsection-title"><span>Company</span></div>
-			<div class="footer-subsection-text"><a href="about.php" class="footer-link" target="blank"><span>About Instant Borrow</span></a></div>
-			<div class="footer-subsection-text"><a href="contact.php" class="footer-link" target="blank"><span>Contact Us</span></a></div>
+			<div class="footer-subsection-text"><a href="about-loggedin.php" class="footer-link" target="blank"><span>About Instant Borrow</span></a></div>
+			<div class="footer-subsection-text"><a href="contact-loggedin.php" class="footer-link" target="blank"><span>Contact Us</span></a></div>
 		</div>
 		<div class="footer-3">
 			<div class="footer-subsection-title"><span>Resources</span></div>
-			<div class="footer-subsection-text"><a href="faq.php" class="footer-link" target="blank"><span>FAQ's</span></a></div>
-			<div class="footer-subsection-text"><a href="support.php" class="footer-link" target="blank"><span>Support Center</span></a></div>
+			<div class="footer-subsection-text"><a href="lender-info-loggedin.php" class="footer-link" target="blank"><span>Lender's Guide</span></a></div>
+			<div class="footer-subsection-text"><a href="borrower-info-loggedin.php" class="footer-link" target="blank"><span>Borrower's Guide</span></a></div>
 		</div>
 		<div class="footer-4">
 			<div class="footer-subsection-title"><span>Legal</span></div>
-			<div class="footer-subsection-text"><a href="terms-conditions.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
-			<div class="footer-subsection-text"><a href="privcy-policy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
+			<div class="footer-subsection-text"><a href="terms-conditions-loggedin.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
+			<div class="footer-subsection-text"><a href="privacy-policy-loggedin.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
 		</div>
 		<div class="footer-bottom">
 			<div class="social-widgets">
@@ -1226,7 +1464,7 @@ var yyyy = today.getFullYear();
     } 
 
 today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield").setAttribute("min", today);
+document.getElementById("datefield1").setAttribute("min", today);
 </script>
 
 <script>
@@ -1242,12 +1480,306 @@ var yyyy = today.getFullYear();
     } 
 
 today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield").setAttribute("max", today);
+document.getElementById("datefield1").setAttribute("max", today);
 
 </script>
 
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
 
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield2").setAttribute("min", today);
+</script>
 
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield2").setAttribute("max", today);
+
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield3").setAttribute("min", today);
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield3").setAttribute("max", today);
+
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield4").setAttribute("min", today);
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield4").setAttribute("max", today);
+
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield5").setAttribute("min", today);
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield5").setAttribute("max", today);
+
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield6").setAttribute("min", today);
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield6").setAttribute("max", today);
+
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield7").setAttribute("min", today);
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield7").setAttribute("max", today);
+
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield8").setAttribute("min", today);
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield8").setAttribute("max", today);
+
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield9").setAttribute("min", today);
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield9").setAttribute("max", today);
+
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield10").setAttribute("min", today);
+</script>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield10").setAttribute("max", today);
+
+</script>
 
 
 </body>

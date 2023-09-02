@@ -4,13 +4,19 @@ require('actions/questions/updateDatabases.php');
 ?>
 
 <?php
-if(!isset($_SESSION['banned'])){
+if(!isset($_SESSION['banned'])AND(!isset($_SESSION['auth']))){
     header('Location: index.php');
 }
 ?>
 
 <?php
-	if(isset($Loannotfound)){ 
+if(!isset($_SESSION['banned'])AND(isset($_SESSION['auth']))){
+    header('Location: dashboard.php');
+}
+?>
+
+<?php
+	if((isset($Loannotfound))AND(isset($_SESSION['banned']))){ 
 	header('Location: loannotfound-banned.php');
 	}
 ?>
@@ -23,29 +29,29 @@ if(!isset($_SESSION['banned'])){
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Instant Borrow</title>
+<title>Account Suspended - Instant Borrow</title>
 
-<!-- icons generatoed with https://favicomatic.com/ -->
-<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/icons/apple-touch-icon-57x57.png" />
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/icons/apple-touch-icon-114x114.png" />
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/icons/apple-touch-icon-72x72.png" />
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/icons/apple-touch-icon-144x144.png" />
-<link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/images/icons/apple-touch-icon-60x60.png" />
-<link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/images/icons/apple-touch-icon-120x120.png" />
-<link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/images/icons/apple-touch-icon-76x76.png" />
-<link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/images/icons/apple-touch-icon-152x152.png" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-196x196.png" sizes="196x196" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-32x32.png" sizes="32x32" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-16x16.png" sizes="16x16" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-128.png" sizes="128x128" />
+<!-- icons generated with https://favicomatic.com/ -->
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/pageicons/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/pageicons/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/pageicons/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/images/pageicons/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/images/pageicons/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/images/pageicons/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/images/pageicons/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-128.png" sizes="128x128" />
 <meta name="application-name" content="&nbsp;"/>
 <meta name="msapplication-TileColor" content="#FFFFFF" />
-<meta name="msapplication-TileImage" content="mstile-144x144.png" />
-<meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
-<meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
-<meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
-<meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+<meta name="msapplication-TileImage" content="assets/images/pageicons/mstile-144x144.png" />
+<meta name="msapplication-square70x70logo" content="assets/images/pageicons/mstile-70x70.png" />
+<meta name="msapplication-square150x150logo" content="assets/images/pageicons/mstile-150x150.png" />
+<meta name="msapplication-wide310x150logo" content="assets/images/pageicons/mstile-310x150.png" />
+<meta name="msapplication-square310x310logo" content="assets/images/pageicons/mstile-310x310.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -1,15 +1,8 @@
 <?php
-require('actions/users/securityAction.php');
-require('actions/questions/showBannedBorrowerInfo.php');
 require('actions/questions/updateDatabases.php');
-require('actions/users/bannedAction.php');
+require('actions/users/securityAction.php');
 ?>
 
-<?php
-	if(isset($Loannotfound)){ 
-	header('Location: loannotfound-yeslogin.php');
-	}
-?>
 
 <!DOCTYPE html>
 
@@ -19,7 +12,7 @@ require('actions/users/bannedAction.php');
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Borrower Banned - Instant Borrow</title>
+<title>Instant Loan Platform to Easily Borrow Money Online - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
@@ -194,148 +187,7 @@ require('actions/users/bannedAction.php');
 	width: 100%;
 }
 
-.main {
-	margin-top: 160px;
-	margin-left: 10%;
-	width: 80%;
-	background-color: #f7f7f7;
-}
 
-.loan-recap {
-	border-radius: 0.425rem;
-	background-color: #fcfcfc;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
-	width: 49%;
-	height: 300px;
-}
-
-.chat-div {
-	border-radius: 0.425rem;
-	background-color: #fcfcfc;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
-	width: 49%;
-	height: 200px;
-	margin-top: 50px;
-}
-
-
-.subtitle {
-	font-weight: bold;
-	margin-top: 20px;
-	margin-bottom: 30px;
-	font-size: 1.8rem;
-	color: #00c4ff;
-}
-
-.text {
-	font-size: 1.12rem;
-	margin-top: 10px;
-	color: #383838;
-}
-
-.column-1 {
-	margin-left: 20px;
-	height: 300px;
-	width: 50%;
-}
-
-.column-2 {
-	margin-left: 50%;
-	height: 300px;
-	width: 50%;
-	margin-top: -237px;
-}
-
-.subtext1 {
-	font-weight: bold;
-	font-size: 1.8rem;
-	color: #00c4ff;
-}
-
-.subtext2 {
-	font-weight: bold;
-	font-size: 1.2rem;
-	color: #00c4ff;
-}
-
-.subtext3 {
-	font-weight: bold;
-	font-size: 1.1rem;
-	color: #2b80ff;
-}
-
-
-.subtitle-chat {
-	font-weight: bold;
-	margin-top: 20px;
-	margin-bottom: 5px;
-	margin-left: 20px;
-	font-size: 1.8rem;
-	color: #00c4ff;
-}
-
-.chat-text {
-	margin-left: 20px;
-	font-size: 1.05rem;
-	margin-bottom: 15px;
-	color: #383838;
-}
-
-.chat-button {
-	margin-left: 20px;
-	background-color: #2b80ff;
-	border: 0;
-	padding: 10px;
-	border-radius: 0.325rem;
-	font-weight: bold;
-	font-size: 1.02rem;
-	color: white;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
-}
-
-.chat-button:hover {
-	background-color: #00c4ff;
-	-ms-transform: scale(1.05); /* IE 9 */
-	-webkit-transform: scale(1.05); /* Safari 3-8 */
-	transform: scale(1.05); 
-}
-
-.chat-button:hover + .phone-hidden {
-	display: inline;
-	margin-left: 10px;
-	border: 1px solid #2b80ff;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	padding: 5px;
-	border-radius: 0.325rem;
-}
-
-.phone-hidden {
-	display: none;
-}
-
-.phone-text {
-	font-weight: 500;
-}
-
-.payment {
-	margin-top: -554px;
-	margin-left: 51%;
-	width: 49%;
-	height: 552px;
-	border-radius: 0.425rem;
-	background-color: #fcfcfc;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
-}
-
-.payment-form {
-	margin-top: 20px;
-	width: 60%;
-	margin-left: 5%;
-}
 
 .footer {
 	z-index: 10;
@@ -444,37 +296,9 @@ require('actions/users/bannedAction.php');
 
 <div class="everything-except-header">
 
-<div class="main">
-	
-	<div class="loan-recap">
-		<div class="column-1">
-		<div class="subtitle"><span>Unpaid Loan</span></div>
-		<div class="text">Amount Lent</br><span class="subtext1"><?= $loan_amount; ?>$</span></div>
-		<div class="text">Amount not repayed</br><span class="subtext1"><?= $repayment_amount; ?>$</span></div>
-		</div>
-		<div class="column-2">
-		<div class="text">Agreed Repayment Date</br><span class="subtext2" style="color: red;"><?= date('M jS, Y', strtotime($repayment_date)); ?></span></div>
-		<div class="text"  style="margin-top: 24px;">Borrower</br><a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span class="subtext2"><?= $username_borrower; ?></span></a></div>
-		</div>
-	</div>
-	
-	<div class="chat-div">
-		<div class="subtitle-chat"><span>Contact <a href="user-profile-yeslogin.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span style="color: #560296;"><?= $username_borrower; ?></span></a></span></div>
-		<div  class="chat-text"><span>Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
-		<button class="chat-button">Contact <span><?= $username_borrower; ?></span></button><span class="phone-hidden">Phone Number: <span class="phone-text"><?=$phone_number?></span></span>
-	</div>
-	
-	<div class="payment">
-		<div class="subtitle-chat" style="margin-bottom: 30px;"><span>Borrower Details</span></div>
-		<div class="chat-text" style="margin-top: 20px; margin-bottom: 30px; font-weight: 500;"><span class="subtext2"><?= $username_borrower; ?></span> Hasn't Repaid you and has been <span style="color: red;">Banned</span>.</br>This is the Information we Have On him:</div>
-		<div class="chat-text">Full Name: </br><span class="subtext3"><?= $name; ?></span></div>
-		<div class="chat-text">Email Address: </br><span class="subtext3"><?= $email_address; ?></span></div>
-		<div class="chat-text">Phone Number: </br><span class="subtext3"><?= $phone_number; ?></span></div>
-		<div class="chat-text">Location: </br><span class="subtext3"><?= $city; ?>, <?= $country; ?></span></div>
-		<div class="chat-text" style="margin-top: 30px; font-weight: 500;"><span class="subtext2"><?= $username_borrower; ?></span> Can still Repay you on His Account.</br>You can Also Continue Chatting with Him Indefinitely.</div>
-	</div>
-	
+<div style="min-height: calc(100vh - 593px);">
 
+Borrower-Info-Loggedin
 
 </div>
 

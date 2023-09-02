@@ -2,12 +2,6 @@
 require('actions/questions/updateDatabases.php');
 ?>
 
-<?php
-session_start();
-if(isset($_SESSION['auth'])){
-    header('Location: 404loggedin.php');
-}
-?>
 
 <!DOCTYPE html>
 
@@ -17,7 +11,7 @@ if(isset($_SESSION['auth'])){
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>404 Not Found - Instant Borrow</title>
+<title>Easiest and Fastest Borrowing & Lending Platform - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
@@ -184,42 +178,7 @@ if(isset($_SESSION['auth'])){
 	width: 100%;
 }
 
-.message-container {
-	margin-top: 200px;
-	margin-left: 10%;
-	margin-bottom: 120px;
-	width: 80%;
-}
 
-.message-title {
-	font-size: 2.85rem;
-	font-weight: bold;
-	color: #00c4ff;
-}
-
-.message-subtitle {
-	margin-top: -10px;
-	font-size: 1.85rem;
-	font-weight: bold;
-}
-
-.message-button {
-	margin-top: 50px;
-	background-color: #2b80ff;
-	color: white;
-	font-weight: bold;
-	font-size: 1.65rem;
-	border-radius: 0.125rem;
-	border: 0px;
-	padding: 10px;
-	outline: 1px solid #2b80ff;
-	transition: background-color 0.2s;
-}
-
-.message-button:hover {
-	background-color: #00c4ff;
-	outline: 1px solid #00c4ff;
-}
 
 .footer {
 	z-index: 10;
@@ -332,11 +291,7 @@ if(isset($_SESSION['auth'])){
 
 <div style="min-height: calc(100vh - 593px);">
 
-<div class="message-container">
-<h1 class="message-title">404 Not Found</h1>
-<h2 class="message-subtitle">The Page you are Looking for Does not Exist...</h2>
-<a href="index.php"><button class="message-button">Go Back Home</button></a>
-</div>
+About
 
 </div>
 

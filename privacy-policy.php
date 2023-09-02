@@ -2,13 +2,6 @@
 require('actions/questions/updateDatabases.php');
 ?>
 
-<?php
-session_start();
-if(isset($_SESSION['auth'])){
-    header('Location: 404loggedin.php');
-}
-?>
-
 <!DOCTYPE html>
 
 <html>
@@ -17,7 +10,7 @@ if(isset($_SESSION['auth'])){
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>404 Not Found - Instant Borrow</title>
+<title>Privacy Policy - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
@@ -195,6 +188,7 @@ if(isset($_SESSION['auth'])){
 	font-size: 2.85rem;
 	font-weight: bold;
 	color: #00c4ff;
+	text-align: center;
 }
 
 .message-subtitle {
@@ -330,13 +324,80 @@ if(isset($_SESSION['auth'])){
 
 <div class="everything-except-header">
 
-<div style="min-height: calc(100vh - 593px);">
 
 <div class="message-container">
-<h1 class="message-title">404 Not Found</h1>
-<h2 class="message-subtitle">The Page you are Looking for Does not Exist...</h2>
-<a href="index.php"><button class="message-button">Go Back Home</button></a>
-</div>
+
+<h1 class="message-title">Instant Borrow Privacy Policy</h1>
+
+<p>Note: By creating a Profile, you are consenting to this Privacy Policy, meaning you give us permission to use your data as described herein. Although your consent is voluntary, without it, we will not be able to provide you with access to the Platform.
+
+Federal law gives consumers the right to limit some but not all sharing. Federal law also requires us to tell you how we collect, share, and protect your personal information. Please read this notice carefully to understand what we do.
+
+Lendee APP LLC, a Delaware corporation, together with its applicable subsidiaries, affiliates, assignees, and successors (collectively, “Lendee“, “we“, “us” or “our“) are committed to your personal privacy and your security online. This Privacy Policy describes the ways we collect, use, share, and protect your personal information.
+
+Information We Collect About You
+We collect information about you in the following ways:
+
+Information You Provide: To use Lendee’s website [Lendee.com] (the “Platform“), whether as a prospective borrower or a prospective lender, you will be required to create a user profile (a “Profile”), which will include furnishing Personal Information, which may include your name, email address, mailing address, telephone number and Social Security Number. If you are interested in obtaining a loan, you will also be required to provide additional financial information, which may include income, employment, and bank account information. To verify your identity and the information that you have been provided, you may also be asked to scan and upload images of certain documents, including your driver’s license or other form of identification.
+
+Information from Third Parties: Third parties, such as credit bureaus and social media platforms, may provide us with information related to you. We may combine this information with information we already have about you to assist prospective lenders in evaluating your loan request or for similar purposes.
+
+Information from Your Use of the Platform: We may collect additional behavioral information based on your use of the Platform. This may include information regarding the performance of loans you obtain on the Platform, as well as history of Applications or Loan offers, and more general information such as device information and log-in information. Lendee uses cookies when you access your Profile to keep track of your session, authenticate your account, and detect fraud. You can control the use of cookies within your web browser; however, if you reject cookies, your ability to use some features or areas of the Platform may be limited.
+
+How Long We Retain Information We Collect
+We will retain your information for the period necessary to fulfill the purposes outlined in this Privacy Policy, or as necessary to comply with legal obligations and our backup, archival, and audit procedures.
+
+How We Use Information We Collect
+Information we collect from you may be used in one or more of the following ways:
+
+To verify your identity and age as well as to guard against potential fraud;
+
+To obtain, with your authorization, third-party data from credit bureaus, social media sites, or others in connection with your loan request;
+
+To personalize your experience using the Platform;
+
+To provide customer service and to send regular communications regarding your transactions and related offers;
+
+To enable our service providers to provide you with services, such as funds payments, billing, and collection activities, as needed;
+
+To market additional products and services to you;
+
+To improve the Platform and to develop or offer new products and services;
+
+To enforce agreements with you;
+
+To comply with a court order, legal process, or applicable law, including retaining personal data or responding to any government or regulatory request; and/or
+
+For any other purpose for which you provide your consent.
+
+Information We Share
+We may share information with third parties for everyday business purposes, including:
+
+Other Lendee users that are interested in considering your loan request, including but not limited to those Lendee users that ultimately fund your loan request (the “Lender“);
+
+Our banking partners, and other third party service providers, including our software provider, and debt collection companies.
+
+Credit bureaus to report repayment status of loans made through the Platform, as permitted by law; and
+
+Government officials, including law enforcement, when we are subject to subpoena, court order or similar legal procedures or we need to do so to comply with law.
+
+Lendee will not sell or license any of your personal information to third parties for their marketing purposes and will only share your personal information with third parties as described above. We may share aggregated, non-identifiable user information with third parties, such as advertisers and content distributors.
+
+Third Party Data Collection
+Some content on the Platform may be provided by third parties, including advertisers, analytics companies, and application providers, which may use cookies or other tracking technologies to collect information about you on the Platform. If you have any questions about an advertisement or related content, you should contact the third party provider directly as they may give you the option to not have your information collected or used for targeted advertising.
+
+Compliance with State and Federal Laws
+This Privacy Policy may not constitute your entire set of privacy rights, as these may also vary from state to state. To be certain of your privacy rights, you may wish to contact the appropriate agency in your state charged with overseeing privacy rights for consumers.
+
+Modifications to This Policy
+Lendee may update this Privacy Policy from time to time as it deems necessary in its sole discretion. By using or accessing the Platform, you agree that we may modify this policy at any time without prior notice. If there are material changes to this Privacy Policy, we will provide notice where and in the manner required by applicable law, including but not limited to, through the Lendee website. The last modified date at the bottom of this page reflects the most recent version of the Privacy Policy.
+
+Your continued use of the Platform after any modification of this policy shall constitute your agreement to be bound by any such changes. We will, however, seek your consent to future modifications to the extent we are required by applicable law.
+
+How You Can Contact Us
+You may either log in to your Profile on the Platform or email us at support@Lendee.com to request access to, correct, or delete any personal information that you have provided to us or to exercise any other data protection right to which we are subject under applicable law, statute, or regulation. Please note that we may not accommodate a request to change information if we believe the change would violate any law or legal requirement or cause the information to be incorrect. You may also contact us at the following: submit a request here.
+
+If you have any questions or concerns regarding this Privacy Policy, please contact us by emailing us at support@Lendee.com.</p>
 
 </div>
 

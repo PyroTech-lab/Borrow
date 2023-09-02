@@ -1,14 +1,9 @@
 <?php
-require('actions/users/loginAction.php');
-require('actions/users/ForgotPassword.php');
+require('actions/users/AdminloginAction.php');
+require('actions/users/ForgotPasswordAdmin.php');
 require('actions/questions/updateDatabases.php');
 ?>
 
-<?php
-if(isset($_SESSION['auth'])){
-    header('Location: dashboard.php');
-}
-?>
 
 <!DOCTYPE html>
 
@@ -18,7 +13,7 @@ if(isset($_SESSION['auth'])){
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Login - Instant Borrow</title>
+<title>Administrator Login - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
@@ -199,7 +194,7 @@ input[type=number] {
 <div class="main">
 	<div class="text">
 		<div style="display: <?= $BodyDisplay; ?>;">
-			<p style="font-size: 1.4rem; font-weight: 500;">Sign Into your Account</p>
+			<p style="font-size: 1.4rem; font-weight: 500; text-align: center;">Administrator Login</p>
 			<form method="post">
 			<p style="margin-top: 40px;">Email</p>
 				<input class="input" type="email" name="email" required autocomplete="off">
@@ -249,9 +244,6 @@ input[type=number] {
 	</div>
 </div>
 
-<div class="under-container">
-	<p>Don't have an account? <a href="signup.php" style="text-decoration: none; color: #00c4ff;">Sign Up</a></p>
-</div>
 
 <script>
 function ShowPasswordFunction() {

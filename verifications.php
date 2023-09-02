@@ -15,29 +15,29 @@ require('actions/users/bannedAction.php');
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Instant Borrow</title>
+<title>Verifications - Instant Borrow</title>
 
-<!-- icons generatoed with https://favicomatic.com/ -->
-<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/icons/apple-touch-icon-57x57.png" />
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/icons/apple-touch-icon-114x114.png" />
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/icons/apple-touch-icon-72x72.png" />
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/icons/apple-touch-icon-144x144.png" />
-<link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/images/icons/apple-touch-icon-60x60.png" />
-<link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/images/icons/apple-touch-icon-120x120.png" />
-<link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/images/icons/apple-touch-icon-76x76.png" />
-<link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/images/icons/apple-touch-icon-152x152.png" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-196x196.png" sizes="196x196" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-32x32.png" sizes="32x32" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-16x16.png" sizes="16x16" />
-<link rel="icon" type="image/png" href="assets/images/icons/favicon-128.png" sizes="128x128" />
+<!-- icons generated with https://favicomatic.com/ -->
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/pageicons/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/pageicons/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/pageicons/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/images/pageicons/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/images/pageicons/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/images/pageicons/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/images/pageicons/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="assets/images/pageicons/favicon-128.png" sizes="128x128" />
 <meta name="application-name" content="&nbsp;"/>
 <meta name="msapplication-TileColor" content="#FFFFFF" />
-<meta name="msapplication-TileImage" content="mstile-144x144.png" />
-<meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
-<meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
-<meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
-<meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+<meta name="msapplication-TileImage" content="assets/images/pageicons/mstile-144x144.png" />
+<meta name="msapplication-square70x70logo" content="assets/images/pageicons/mstile-70x70.png" />
+<meta name="msapplication-square150x150logo" content="assets/images/pageicons/mstile-150x150.png" />
+<meta name="msapplication-wide310x150logo" content="assets/images/pageicons/mstile-310x150.png" />
+<meta name="msapplication-square310x310logo" content="assets/images/pageicons/mstile-310x310.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,6 +63,18 @@ require('actions/users/bannedAction.php');
 .logo {
 	height: 23px;
 	margin-top: 26px;
+}
+
+.logo-image {
+	height: 62px;
+	width: auto;
+	margin-top: -20px;
+}
+
+.logo-image-footer {
+	height: 75px;
+	width: auto;
+	margin-top: 10px;
 }
 
 .lend {
@@ -116,35 +128,38 @@ require('actions/users/bannedAction.php');
 	outline: 1px solid #2b80ff;
 }
 
-
 .login {
 	width: 120px;
 	text-align: left;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(100% - 207px);
+	margin-left: calc(100% - 162px);
 }
 
 .login-text {
 	font-weight: 500;
-	color: #4d4d4d;
+	color: white;
 	padding-top: 3px;
 	padding-bottom: 3px;
 	padding-left: 10px;
 	padding-right: 10px;
 	transition: outline 0.2s;
 	transition: background-color 0.2s;
-}
-
-.login-text:hover {
-	outline: 1px solid #4d4d4d;
-	background-color: #fcfcfc;
+	outline: 1px solid #e0c22d;
+	background-color: #e0c22d;
 	border-radius: 0.125rem;
 }
 
+.login-text:hover {
+	outline: 1px solid #f2a100;
+	background-color: #f2a100;
+}
+
+
+
 .signup {
 	margin-top: -22px;
-	margin-left: calc(100% - 67px);
+	margin-left: calc(100% - 22px);
 }
 
 .logout-button {
@@ -611,7 +626,27 @@ input[type=number] {
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
-.label-text {
+.label-text1 {
+	position: absolute;
+	z-index: 9;
+	width: 200px;
+	background-color: #2b80ff;
+	color: white;
+	margin-left: -8px;
+	margin-top: -1px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 8px;
+	font-weight: 500;
+	font-size: 0.92rem;
+	text-align: center;
+}
+
+.label-text1:hover {
+	background-color: #2b80ff;
+}
+
+.label-text2 {
 	position: absolute;
 	z-index: 9;
 	width: 200px;
@@ -622,13 +657,25 @@ input[type=number] {
 	padding-top: 8px;
 	padding-bottom: 8px;
 	padding-left: 8px;
-	font-weight: bold;
+	font-weight: 500;
 	font-size: 0.92rem;
 	text-align: center;
 }
 
-.label-text:hover {
+.label-text2:hover {
 	background-color: #00c4ff;
+}
+
+.sticky-input[type="date"] {
+  -webkit-text-fill-color: #00c4ff;
+}
+
+input::-webkit-datetime-edit-day-field:focus,
+input::-webkit-datetime-edit-month-field:focus,
+input::-webkit-datetime-edit-year-field:focus {
+    background-color: #e5de00;
+    color: white;
+	border-radius: 0.325rem;
 }
 
 .upload-input {
@@ -746,15 +793,15 @@ input[type=number] {
 </head>
 
 
-<body style="margin: 0px; font-family: 'Poppins', sans-serif;">
+<body style="margin: 0px; font-family: 'Poppins', sans-serif;" onLoad="window.scroll(0, 0)">
 
 <div class="header">
 	<div class="header-text">
-		<div class="logo"><a href="dashboard.php" style="text-decoration: none; color: black"><span>Instant Borrow</span></a></div>
+		<div class="logo"><a href="about-loggedin.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
 		<div class="borrow"><a href="borrow-yeslogin.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
-		<div class="signup"><a href="actions/users/chat.php" style="text-decoration: none; color: black"><img src="assets/images/chat.png" class="chat-button"></a><div style="margin-top: -32px; margin-left: 45px;"><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
+		<div class="signup"><div><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
 	</div>
 </div>
 
@@ -824,6 +871,7 @@ input[type=number] {
 	
 	<form style="display: <?= $EmailDisplay ?>; margin-top: 100px;" class="form" method="post">
 		<p class="input-text">Email Address <span class="account"><?= $row4['email']; ?></span><span class="payment-method-box"><?php if(isset($not_verified_email)){echo ''.$not_verified_email.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_email)){echo ''.$verified_email.'';}?></span></p>
+		<p>Verify your Email in Order to be able to receive Important Notifications from Instant Borrow</p>
 		<input name="email_verify" type="submit" class="<?= $email_button_class; ?>" value="<?= $email_button; ?>" <?php if(isset($disabled)){echo ''.$disabled.'';}?>>
 	</form>
 	<form class="form" method="post" style="display: <?= $EnterCodeBoxDisplay ?>;">
@@ -842,6 +890,7 @@ input[type=number] {
 	
 	<form method="post" class="form">
 		<p class="input-text">Phone Number <span class="account"><?= $row['phone_number']; ?></span><span class="payment-method-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span></p>
+		<p>Verify your Phone Number to Communicate with other Users when Lending and Borrowing</p>
 		<input name="phone_set" id="loan" class="input" style="width: calc(64% - 7px); margin-left: 36%" required autocomplete="off" placeholder="Enter your phone number" type="number">
 		
 		<div style="width: calc(34% - 7px); margin-top: -54px;">
@@ -881,8 +930,13 @@ input[type=number] {
 	</form>
 
 	<form method="post" class="form" enctype="multipart/form-data">
-		<p class="input-text">ID Card <span class="payment-method-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="payment-method-box3"><?php if(isset($underverification_idcard)){echo ''.$underverification_idcard.'';}?></span></p>
-		<div style="display:<?= $uploadDisplay; ?>" class="input-container"><label for="file-upload"><span class="label-text">Select File</span><input type="file" id="file-upload" name="idcard_upload" class="upload-input" required></label></div>
+		<p class="input-text">ID Card & Picture<span class="payment-method-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="payment-method-box3"><?php if(isset($underverification_idcard)){echo ''.$underverification_idcard.'';}?></span></p>
+		<p>Upload a Valid form of ID and a Clear Picture of your Face</p>
+		<p style="margin-top: -7px;">Both are Required for Verification and will not be Shared with other Users</p>
+		<div style="display:<?= $uploadDisplay; ?>" class="input-container"><label for="id-upload"><span class="label-text1">Select ID</span><input type="file" id="id-upload" name="idcard_upload" class="upload-input" required></label></div>
+		<div style="display:<?= $uploadDisplay; ?>" class="input-container"><label for="picture-upload"><span class="label-text2">Select Picture</span><input type="file" id="picture-upload" name="picture_upload" class="upload-input" required></label></div>
+		<div style="margin-top: 20px;"><span class="address-text" style="display:<?= $uploadDisplay; ?>">Date of Birth</span></div>
+		<input class="input" type="date" name="date_birth" autocomplete="off" required style="color: #00c4ff; font-weight: bold; font-size: 1.45rem; display:<?= $uploadDisplay; ?>">
 		<input style="margin-top: 15px;" name="idcard_submit" type="submit" class="<?= $setbutton_class; ?>" value="<?= $setbutton_value; ?>" <?php if(isset($upload_disabled)){echo ''.$upload_disabled.'';}?>>
 		<?php
 		if(isset($file_error_message)){ 
@@ -906,7 +960,7 @@ input[type=number] {
 		
 		<p>When you complete Verifications, your Trustscore Goes Up.</br>When Account is Fully Verified, you Earn 50 Trustscore Points.</p>
 
-		<p style="font-weight: 500; margin-top: 40px;">If you Have any Questions about Verifications, Refer to our <a href="faq.php" style="text-decoration: none; color: #3d91e0;">FAQ's</a> Or <a href="support.php" style="text-decoration: none; color: #3d91e0;">Contact our Support team.</a></p>
+		<p style="font-weight: 500; margin-top: 40px;">If you Have any Questions about Verifications, Refer to the <a href="lender-info-loggedin.php" style="text-decoration: none; color: #3d91e0;">Lender's Guide</a>, the <a href="borrower-info-loggedin.php" style="text-decoration: none; color: #3d91e0;">Borrower's Guide</a> Or <a href="contact-loggedin.php" style="text-decoration: none; color: #3d91e0;">Contact our Support team.</a></p>
 
 		</div>
 		
@@ -917,22 +971,22 @@ input[type=number] {
 <div class="footer">
 	<div class="footer-content">
 		<div class="footer-1">
-			<div><span>Instant Borrow</span></div>
+			<div><img src="assets/images/logo.png" class="logo-image-footer"></div>
 		</div>
 		<div class="footer-2">
 			<div class="footer-subsection-title"><span>Company</span></div>
-			<div class="footer-subsection-text"><a href="about.php" class="footer-link" target="blank"><span>About Instant Borrow</span></a></div>
-			<div class="footer-subsection-text"><a href="contact.php" class="footer-link" target="blank"><span>Contact Us</span></a></div>
+			<div class="footer-subsection-text"><a href="about-loggedin.php" class="footer-link" target="blank"><span>About Instant Borrow</span></a></div>
+			<div class="footer-subsection-text"><a href="contact-loggedin.php" class="footer-link" target="blank"><span>Contact Us</span></a></div>
 		</div>
 		<div class="footer-3">
 			<div class="footer-subsection-title"><span>Resources</span></div>
-			<div class="footer-subsection-text"><a href="faq.php" class="footer-link" target="blank"><span>FAQ's</span></a></div>
-			<div class="footer-subsection-text"><a href="support.php" class="footer-link" target="blank"><span>Support Center</span></a></div>
+			<div class="footer-subsection-text"><a href="lender-info-loggedin.php" class="footer-link" target="blank"><span>Lender's Guide</span></a></div>
+			<div class="footer-subsection-text"><a href="borrower-info-loggedin.php" class="footer-link" target="blank"><span>Borrower's Guide</span></a></div>
 		</div>
 		<div class="footer-4">
 			<div class="footer-subsection-title"><span>Legal</span></div>
-			<div class="footer-subsection-text"><a href="terms-conditions.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
-			<div class="footer-subsection-text"><a href="privacy-policy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
+			<div class="footer-subsection-text"><a href="terms-conditions-loggedin.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
+			<div class="footer-subsection-text"><a href="privacy-policy-loggedin.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
 		</div>
 		<div class="footer-bottom">
 			<div class="social-widgets">
@@ -951,7 +1005,7 @@ input[type=number] {
 </div>
 
 
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKe4FApOiKCzUPX__wKOQgfV-Gds153io&callback=initAutocomplete&libraries=places&v=weekly" defer ></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKe4FApOiKCzUPX__wKOQgfV-Gds153io&callback=initAutocomplete&libraries=places&v=weekly" defer ></script>
 
 <script>
 let autocomplete;
