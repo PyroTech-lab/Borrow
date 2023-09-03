@@ -173,7 +173,7 @@ if(isset($_SESSION['auth'])){
 		<input class="input" id="input" type="password" name="password" required>
 		<div class="label-container"><label for="showPassword" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword" type="checkbox" onclick="ShowPasswordFunction()" style="display: none;"></label></div>
 		<div style="margin-top: 30px;">
-			<input type="checkbox" id="checkmark"  class="checkmark" required><span style="margin-left: 5px; position: absolute; margin-top: -6px; font-weight: normal;">I have read and accept Instant Borrow's <a style="color: #00c4ff; font-weight: 500; text-decoration: none;" href="terms and conditions.html" target="_blank">Terms & Conditions</a> and <a style="color: #00c4ff; font-weight: 500; text-decoration: none;" href="privacy policy.html" target="_blank">Privacy Policy</a>.</span>
+			<input type="checkbox" id="checkmark"  class="checkmark" required><span style="margin-left: 5px; position: absolute; margin-top: -6px; font-weight: normal;">I have read and accept Instant Borrow's <a style="color: #00c4ff; font-weight: 500; text-decoration: none;" href="terms-conditions.php" target="_blank">Terms & Conditions</a> and <a style="color: #00c4ff; font-weight: 500; text-decoration: none;" href="privacy-policy.php" target="_blank">Privacy Policy</a>.</span>
 		</div>
 		<input type="submit" class="signup-button" name="signup" value="register">
 		 <?php if(isset($errorMsg)){ echo '<p class="error-message">'.$errorMsg.'</p>'; } ?>

@@ -731,7 +731,8 @@ require('actions/users/bannedAction.php');
 		</div>
 		
 		<div>
-		<p>If the Borrower does not send Funds to the Lender <b>7 days</b> after the Repayment date, the Borrower will be <span style="color: red; font-weight: bold;">Banned</span> and his Personnal Information will be Given to the lender.</p>
+		<p>If the Borrower does not send Funds to the Lender <b>7 days</b> after the Repayment date, the Borrower will be <span style="color: red; font-weight: bold;">Banned</span> and his Personnal Information will be Given to the lender.
+		</br>Additionaly, the Borrower's information will be Published on Instant Borrow's <a href="wall-of-shame-loggedin.php" style="text-decoration: none; color: #3d91e0;" target="blank">Wall of Shame</a> and Social media Accounts.</p>
 		<p style="font-weight: 500; margin-top: 40px;">If you Have any Questions about Loans, Refer to the <a href="borrower-info-loggedin.php" style="text-decoration: none; color: #3d91e0;">Borrower's Guide</a> Or <a href="contact-loggedin.php" style="text-decoration: none; color: #3d91e0;">Contact our Support team.</a></p>
 		</div>
 

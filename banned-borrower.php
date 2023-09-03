@@ -261,10 +261,29 @@ require('actions/users/bannedAction.php');
 }
 
 .subtext3 {
-	font-weight: bold;
+	font-weight: 500;
 	font-size: 1.1rem;
 	color: #2b80ff;
 }
+
+.view-button {
+	margin-left: 10px;
+	background-color: #03c900;
+	color: white;
+	font-weight: 500;
+	font-size: 0.95rem;
+	border-radius: 0.325rem;
+	border: 0px;
+	height: 30px;
+	padding-left: 8px;
+	padding-right: 8px;
+	transition: background-color 0.2s;
+}
+
+.view-button:hover {
+	background-color: #03a100;
+}
+
 
 
 .subtitle-chat {
@@ -467,7 +486,7 @@ require('actions/users/bannedAction.php');
 	<div class="payment">
 		<div class="subtitle-chat" style="margin-bottom: 30px;"><span>Borrower Details</span></div>
 		<div class="chat-text" style="margin-top: 20px; margin-bottom: 30px; font-weight: 500;"><span class="subtext2"><?= $username_borrower; ?></span> Hasn't Repaid you and has been <span style="color: red;">Banned</span>.</br>This is the Information we Have On him:</div>
-		<div class="chat-text">Full Name: </br><span class="subtext3"><?= $name; ?></span></div>
+		<div class="chat-text">Full Name: </br><span class="subtext3"><?= $name; ?></span><a target="blank" href="assets/images/id-pictures/<?= $borrower_picture; ?>"><button class="view-button">View Picture</button></a></div>
 		<div class="chat-text">Email Address: </br><span class="subtext3"><?= $email_address; ?></span></div>
 		<div class="chat-text">Phone Number: </br><span class="subtext3"><?= $phone_number; ?></span></div>
 		<div class="chat-text">Location: </br><span class="subtext3"><?= $city; ?>, <?= $country; ?></span></div>

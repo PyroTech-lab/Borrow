@@ -420,7 +420,7 @@ require('actions/users/bannedAction.php');
 	font-size: 0.95rem;
 	color: red;
 	font-weight: 500;
-	margin-top: 20px;
+	margin-top: 35px;
 }
 
 .error {

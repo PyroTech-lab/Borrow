@@ -727,11 +727,12 @@ require('actions/users/bannedAction.php');
 		<p class="explain-title">Manage unpaid Loans</p>
 		
 		<p style="font-weight: 500;">A Loan is marked as <span style="color: red; font-weight: bold;">Unpaid</span> when the Repayment hasn't been made on the Agreed Upon Date.
-		</br>If the Borrower does not send Funds to the Lender <b>7 days</b> after the Repayment date, the Borrower will be <span style="color: red; font-weight: bold;">Banned</span> and his Personnal Information will be Given to the lender.</p>
+		</br>If the Borrower does not send Funds to the Lender <b>7 days</b> after the Repayment date, the Borrower will be <span style="color: red; font-weight: bold;">Banned</span> and his Personnal Information will be Given to the lender.
+		</br>Additionaly, the Borrower's information will be Published on Instant Borrow's <a href="wall-of-shame-loggedin.php" style="text-decoration: none; color: #3d91e0;" target="blank">Wall of Shame</a> and Social media Accounts.</p>
 
 	
 		<div>
-		<p>If the Borrower sends Funds to the Lender less than 7 days after the repayment date, the Borrower will not be banned and information won't be sent to the Lender, but the Loan will be marked as <span style="color: orange; font-weight: bold;">Paid Late</span>.</p>
+		<p>If the Borrower sends Funds to the Lender less than 7 days after the repayment date, the Borrower will not be Banned but Personnal Information will be sent to the Lender and the Loan will be marked as <span style="color: orange; font-weight: bold;">Paid Late</span>.</p>
 		
 		<p>The punctuality of repayments plays a big part in the calculation of the Truscscore, and a Loan <span style="color: orange; font-weight: bold;">Paid Late</span> will negatively affect it.</p>
 		

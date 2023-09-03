@@ -13,7 +13,7 @@ require('actions/users/notificationAction.php');
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Easiest and Fastest Borrowing & Lending Platform - Instant Borrow</title>
+<title>Wall of Shame - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
@@ -182,6 +182,8 @@ require('actions/users/notificationAction.php');
 	-webkit-transform: scale(1.1); /* Safari 3-8 */
 	transform: scale(1.1); 
 }
+
+
 
 .notification-unpaid {
 	background-color: red;
@@ -463,7 +465,7 @@ require('actions/users/notificationAction.php');
 
 <div style="min-height: calc(100vh - 593px);">
 
-About-Loggedin
+Wall of Shame Loggedin
 
 </div>
 

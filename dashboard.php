@@ -448,6 +448,7 @@ input::-webkit-datetime-edit-year-field:focus {
 .title {
 	width: 90%;
 	margin-left: 80px;
+	margin-bottom: 40px;
 	font-size: 2.52rem;
 	color: #00c4ff;
 	font-weight: bold;
@@ -1055,7 +1056,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		<p>Borrower Trust Score</p>
 		<input class="sticky-input" name="trustscore_search1" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
 		<p>Repayment Date</p>
-		<input class="sticky-input" type="date" name="repayment_date_search1" id="datefield1" autocomplete="off">
+		<input class="sticky-input" type="date" name="repayment_date_search1" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
 		</br>
 		<input type="submit" class="find-offers" name="search" value="Find Offers">
 		<input type="submit" name="clear1" value="Clear Filters" class="clear-filters">
@@ -1068,7 +1069,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		<p>Borrower Trust Score</p>
 		<input class="sticky-input" name="trustscore_search2" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
 		<p>Repayment Date</p>
-		<input class="sticky-input" type="date" name="repayment_date_search2" id="datefield2" autocomplete="off">
+		<input class="sticky-input" type="date" name="repayment_date_search2" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
 		</br>
 		<input type="submit" class="find-offers" name="search" value="Find Offers">
 		<input type="submit" name="clear2" value="Clear Filters" class="clear-filters">
@@ -1081,7 +1082,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		<p>Borrower Trust Score</p>
 		<input class="sticky-input" name="trustscore_search3" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
 		<p>Repayment Date</p>
-		<input class="sticky-input" type="date" name="repayment_date_search3" id="datefield3" autocomplete="off">
+		<input class="sticky-input" type="date" name="repayment_date_search3" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
 		</br>
 		<input type="submit" class="find-offers" name="search" value="Find Offers">
 		<input type="submit" name="clear3" value="Clear Filters" class="clear-filters">
@@ -1094,7 +1095,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		<p>Borrower Trust Score</p>
 		<input class="sticky-input" name="trustscore_search4" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
 		<p>Repayment Date</p>
-		<input class="sticky-input" type="date" name="repayment_date_search4" id="datefield4" autocomplete="off">
+		<input class="sticky-input" type="date" name="repayment_date_search4" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
 		</br>
 		<input type="submit" class="find-offers" name="search" value="Find Offers">
 		<input type="submit" name="clear4" value="Clear Filters" class="clear-filters">
@@ -1107,7 +1108,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		<p>Borrower Trust Score</p>
 		<input class="sticky-input" name="trustscore_search5" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
 		<p>Repayment Date</p>
-		<input class="sticky-input" type="date" name="repayment_date_search5" id="datefield5" autocomplete="off">
+		<input class="sticky-input" type="date" name="repayment_date_search5" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
 		</br>
 		<input type="submit" class="find-offers" name="search" value="Find Offers">
 		<input type="submit" name="clear5" value="Clear Filters" class="clear-filters">
@@ -1120,7 +1121,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		<p>Borrower Trust Score</p>
 		<input class="sticky-input" name="trustscore_search6" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
 		<p>Repayment Date</p>
-		<input class="sticky-input" type="date" name="repayment_date_search6" id="datefield6" autocomplete="off">
+		<input class="sticky-input" type="date" name="repayment_date_search6" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
 		</br>
 		<input type="submit" class="find-offers" name="search" value="Find Offers">
 		<input type="submit" name="clear6" value="Clear Filters" class="clear-filters">
@@ -1133,7 +1134,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		<p>Borrower Trust Score</p>
 		<input class="sticky-input" name="trustscore_search7" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
 		<p>Repayment Date</p>
-		<input class="sticky-input" type="date" name="repayment_date_search7" id="datefield7" autocomplete="off">
+		<input class="sticky-input" type="date" name="repayment_date_search7" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
 		</br>
 		<input type="submit" class="find-offers" name="search" value="Find Offers">
 		<input type="submit" name="clear7" value="Clear Filters" class="clear-filters">
@@ -1146,7 +1147,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		<p>Borrower Trust Score</p>
 		<input class="sticky-input" name="trustscore_search8" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
 		<p>Repayment Date</p>
-		<input class="sticky-input" type="date" name="repayment_date_search8" id="datefield8" autocomplete="off">
+		<input class="sticky-input" type="date" name="repayment_date_search8" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
 		</br>
 		<input type="submit" class="find-offers" name="search" value="Find Offers">
 		<input type="submit" name="clear8" value="Clear Filters" class="clear-filters">
@@ -1159,7 +1160,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		<p>Borrower Trust Score</p>
 		<input class="sticky-input" name="trustscore_search9" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
 		<p>Repayment Date</p>
-		<input class="sticky-input" type="date" name="repayment_date_search9" id="datefield9" autocomplete="off">
+		<input class="sticky-input" type="date" name="repayment_date_search9" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
 		</br>
 		<input type="submit" class="find-offers" name="search" value="Find Offers">
 		<input type="submit" name="clear9" value="Clear Filters" class="clear-filters">
@@ -1172,7 +1173,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		<p>Borrower Trust Score</p>
 		<input class="sticky-input" name="trustscore_search10" type="number" min="0" max="100" autocomplete="off"><div class="symbol-right"><span style="margin-left: -50px;">/100</span></div>
 		<p>Repayment Date</p>
-		<input class="sticky-input" type="date" name="repayment_date_search10" id="datefield10" autocomplete="off">
+		<input class="sticky-input" type="date" name="repayment_date_search10" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
 		</br>
 		<input type="submit" class="find-offers" name="search" value="Find Offers">
 		<input type="submit" name="clear10" value="Clear Filters" class="clear-filters">
@@ -1183,7 +1184,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	</div>
 
 	<div class="main-right">
-		<p class="title">Lend Money. Get Big Returns.</p>
+		<h1 class="title">Lend Money. Get Big Returns.</h1>
 		<p class="subtitle"><span class="subtitle-bold">Lend and Borrow</span> on Instant Borrow - <span class="subtitle-bold">0% Platform Fees</span>, Unmatched <span class="subtitle-bold">Profits</span>, Incredibly <span class="subtitle-bold">Fast and Easy</span>.</p>
 
 		<div class="container">
@@ -1450,337 +1451,6 @@ input::-webkit-datetime-edit-year-field:focus {
 </div>
 
 </div>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield1").setAttribute("min", today);
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield1").setAttribute("max", today);
-
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield2").setAttribute("min", today);
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield2").setAttribute("max", today);
-
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield3").setAttribute("min", today);
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield3").setAttribute("max", today);
-
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield4").setAttribute("min", today);
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield4").setAttribute("max", today);
-
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield5").setAttribute("min", today);
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield5").setAttribute("max", today);
-
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield6").setAttribute("min", today);
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield6").setAttribute("max", today);
-
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield7").setAttribute("min", today);
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield7").setAttribute("max", today);
-
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield8").setAttribute("min", today);
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield8").setAttribute("max", today);
-
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield9").setAttribute("min", today);
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield9").setAttribute("max", today);
-
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield10").setAttribute("min", today);
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+5; //January is 0. In reality max 4 months.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield10").setAttribute("max", today);
-
-</script>
-
 
 </body>
 

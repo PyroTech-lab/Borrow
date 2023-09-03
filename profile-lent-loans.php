@@ -679,9 +679,16 @@ require('actions/users/bannedAction.php');
 					}elseif(($question['status'] == "paid_late")OR($question['status'] == "paid_late_notseen")){
 						$status_color = "Orange";
 						$status_public = "Paid Late";
-					}elseif(($question['status'] == "unpaid")OR($question['status'] == "unpaid_notseen")OR($question['status'] == "unpaid_banned")OR($question['status'] == "unpaid_banned_archived")){
+					}elseif(($question['status'] == "unpaid")OR($question['status'] == "unpaid_notseen")){
 						$status_color = "Red";
 						$status_public = "Unpaid";
+						$unpaid_link1 = "1";
+						$unpaid_link2 = "2";
+					}elseif(($question['status'] == "unpaid_banned")OR($question['status'] == "unpaid_banned_archived")){
+						$status_color = "Red";
+						$status_public = "Unpaid";
+						$unpaid_link3 = "3";
+						$unpaid_link4 = "4";
 					}elseif(($question['status'] == "active")OR($question['status'] == "active_notseen")){
 						$status_color = "#2b80ff";
 						$status_public = "Active";
@@ -698,7 +705,7 @@ require('actions/users/bannedAction.php');
 				<div class="loan-amount"><span><?= $question['loan_amount']; ?>$</span></div>
 				<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
 				<div class="interest-rate"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
-				<div class="repay-date"><span style="color: <?= $status_color; ?>;"><?= $status_public; ?></span></div>
+				<div class="repay-date"><?php if(isset($unpaid_link1)){ echo "<a style='text-decoration: none;' href='unpaid-borrower.php?id=".$question['id']."'>";} ?><?php if(isset($unpaid_link3)){ echo "<a style='text-decoration: none;' href='banned-borrower.php?id=".$question['id']."'>";} ?><span style="color: <?= $status_color; ?>;"><?= $status_public; ?></span><?php if(isset($unpaid_link4)){ echo "</a>";} ?></div>
 				<div class="feedback"><a style="text-decoration: none; color: #3d91e0;" href="user-profile-yeslogin.php?id=<?= $question['id_borrower']; ?>"><span><?= $question['username_borrower']; ?></span></a></div>
 				<div class="payment-method"><span><?= $question['feedback_given']; ?></span></div>
 		</div>

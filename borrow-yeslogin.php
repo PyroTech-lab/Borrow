@@ -716,7 +716,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		<input name="repayment_amount" id="repayment" class="input" type="number" min="11" max="4000" required autocomplete="off">
 		<div id="text-box" style="color: red;"></div>
 		<p class="form-text">Repayment Date</p>
-		<input name="repayment_date" id="datefield" class="input" type="date" required autocomplete="off">
+		<input name="repayment_date" id="datefield" class="input" type="date" required autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
 		</br>
 		<p class="form-text">Notes</p>
 		<textarea name="notes" class="input-notes" autocomplete="off"></textarea>
@@ -828,39 +828,6 @@ $(document).ready(function(){
     } // End if
   });
 });
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield").setAttribute("min", today);
-</script>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+5; //January is 0! In reality max 4 months.
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield").setAttribute("max", today);
-
 </script>
 
 <script>
