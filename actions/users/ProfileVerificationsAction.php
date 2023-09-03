@@ -63,7 +63,7 @@ $verifyAccount3->execute(array($_SESSION['id']));
 		$cross3 = "assets/images/cross.png";
 		$setbutton_class = "set-button";
 		$uploadDisplay="block";
-		$setbutton_value = "Upload ID";
+		$setbutton_value = "Upload ID & Picture";
 	
 	}else{
 		
@@ -80,7 +80,7 @@ $verifyAccount3->execute(array($_SESSION['id']));
 		$uploadDisplay="none";
 		$upload_disabled="disabled";
 		$setbutton_class = "set-button2";
-		$setbutton_value = "ID Verified";
+		$setbutton_value = "ID & Picture Verified";
 		
 		}
 		
@@ -91,7 +91,7 @@ $verifyAccount3->execute(array($_SESSION['id']));
 		$uploadDisplay="none";
 		$upload_disabled="disabled";
 		$setbutton_class = "set-button3";
-		$setbutton_value = "ID Under Verification";
+		$setbutton_value = "ID & Picture Under Verification";
 		
 		}
 	}

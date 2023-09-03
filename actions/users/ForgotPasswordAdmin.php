@@ -34,14 +34,14 @@ if(isset($_POST['continue'])){
 		 
 		$user_email = (htmlspecialchars($_POST['recovery_email']));
 		
-		$CheckIfEmailRegistered = $bdd->prepare('SELECT email FROM users WHERE email= ?');
+		$CheckIfEmailRegistered = $bdd->prepare('SELECT email FROM admin WHERE email= ?');
 		$CheckIfEmailRegistered->execute(array($user_email));
 		
 		if($CheckIfEmailRegistered->rowCount() !== 0){
 
 			$random_number = ''; for ($i = 0; $i<6; $i++) {$random_number .= mt_rand(0,9);}
 
-			$insertCodeinData = $bdd->prepare('UPDATE users  SET password_recovery_code= ? WHERE email=?');
+			$insertCodeinData = $bdd->prepare('UPDATE admin  SET password_recovery_code= ? WHERE email=?');
 			$insertCodeinData->execute(array($random_number, $user_email));
 
 			require_once 'vendor/autoload.php';
@@ -254,7 +254,7 @@ if(isset($_POST['submit_code'])){
 	
 	if(!empty($_POST['verification_code'])){
 		
-		$GetVerificationCode = $bdd->prepare('SELECT password_recovery_code FROM users WHERE (password_recovery_code= ? AND email= ?)');
+		$GetVerificationCode = $bdd->prepare('SELECT password_recovery_code FROM admin WHERE (password_recovery_code= ? AND email= ?)');
 		$GetVerificationCode->execute(array($_POST['verification_code'], $_POST['recovery_email_repeat']));
 		
 		if($GetVerificationCode->rowCount() !== 0){
@@ -295,11 +295,11 @@ if(isset($_POST['submit_new_password'])){
 		
 			if(strlen($_POST['new_password']) >= 8){
 				
-				$updatePassword = $bdd->prepare('UPDATE users SET password= ?, password_recovery_code="" WHERE (password_recovery_code=? AND email= ?)');
+				$updatePassword = $bdd->prepare('UPDATE admin SET password= ?, password_recovery_code="" WHERE (password_recovery_code=? AND email= ?)');
 				$updatePassword->execute(array($user_new_password, $_POST['verification_code_repeat'], $_POST['recovery_email_repeat_2']));
 				
 				
-				$checkIfUserExists = $bdd->prepare('SELECT * FROM users WHERE email = ?');
+				$checkIfUserExists = $bdd->prepare('SELECT * FROM admin WHERE email = ?');
 				$checkIfUserExists->execute(array($_POST['recovery_email_repeat_2']));
 
 				$usersInfos = $checkIfUserExists->fetch();

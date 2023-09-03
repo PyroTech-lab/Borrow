@@ -88,11 +88,14 @@ if(isset($_POST['address_submit'])){
 
 		
 
-if (isset($_POST['idcard_submit']) && $_POST['idcard_submit'] == 'Upload ID'){
+if ((isset($_POST['idcard_submit']) && $_POST['idcard_submit'] == 'Upload ID & Picture')AND($_POST['date_birth'])){
 	
 	$id_user = $_SESSION['id'];
+	
+	$insertDateofBirth = $bdd->prepare('UPDATE users SET date_birth = ? WHERE id= ?');
+	$insertDateofBirth->execute(array($_POST['date_birth'], $id_user));
 
-	if (isset($_FILES['idcard_upload']) && $_FILES['idcard_upload']['error'] === UPLOAD_ERR_OK){
+	if ((isset($_FILES['idcard_upload']) && $_FILES['idcard_upload']['error'] === UPLOAD_ERR_OK)AND(isset($_FILES['picture_upload']) && $_FILES['picture_upload']['error'] === UPLOAD_ERR_OK)){
 
 		$fileTmpPath = $_FILES['idcard_upload']['tmp_name'];
 		$fileName = $_FILES['idcard_upload']['name'];
@@ -106,14 +109,39 @@ if (isset($_POST['idcard_submit']) && $_POST['idcard_submit'] == 'Upload ID'){
 		$allowedfileExtensions = array('jpg','png','pdf');
 		if (in_array($fileExtension, $allowedfileExtensions)){
 
-		  $uploadFileDir = 'assets/images/id-verification/under-verification/';
+		  $uploadFileDir = 'assets/images/id-verification/';
 		  $dest_path = $uploadFileDir . $newFileName;
-		  if(move_uploaded_file($fileTmpPath, $dest_path)) {
+		  
+		}
+		  
+		  
+		  
+		$fileTmpPath2 = $_FILES['picture_upload']['tmp_name'];
+		$fileName2 = $_FILES['picture_upload']['name'];
+		$fileSize2 = $_FILES['picture_upload']['size'];
+		$fileType2 = $_FILES['picture_upload']['type'];
+		$fileNameCmps2 = explode(".", $fileName2);
+		$fileExtension2 = strtolower(end($fileNameCmps2));
+
+		$newFileName2 = md5(time() . $fileName2) . '.' . $fileExtension2;
+
+		$allowedfileExtensions2 = array('jpg','png','pdf');
+		if (in_array($fileExtension2, $allowedfileExtensions2)){
+
+		  $uploadFileDir2 = 'assets/images/id-pictures/';
+		  $dest_path2 = $uploadFileDir2 . $newFileName2;
+		
+		}
+		  
+		  
+		  
+		  
+		  if((move_uploaded_file($fileTmpPath, $dest_path))AND(move_uploaded_file($fileTmpPath2, $dest_path2))) {
 			
-				$UpdateReceptionStatus = $bdd->prepare('UPDATE users SET id_verified ="under_verification", identity_card = ? WHERE id = ?');
-				$UpdateReceptionStatus->execute(array($newFileName, $id_user));
+				$UpdateReceptionStatus = $bdd->prepare('UPDATE users SET id_verified ="under_verification", identity_card = ?, picture = ? WHERE id = ?');
+				$UpdateReceptionStatus->execute(array($newFileName, $newFileName2, $id_user));
 			
-				$CorrectIdMessage = "<div style='font-weight: 500; color: green; margin-top: 15px;'>ID Card Uploaded Succesfully. Verification Process Started.</div>";
+				$CorrectIdMessage = "<div style='font-weight: 500; color: green; margin-top: 15px;'>ID Card & Picture Uploaded Successfully. Verification Process Started.</div>";
 				$FileUploadDisplay = "none";
 				
 				
@@ -127,7 +155,7 @@ if (isset($_POST['idcard_submit']) && $_POST['idcard_submit'] == 'Upload ID'){
 		}
 
 	}
-}				
+		
 
 
 
@@ -167,7 +195,7 @@ $phpmailer->Body = '<html>
 						  <head>
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
 							<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-							<title>Simple Transactional Email</title>
+							<title>Instant Borrow Notifcation</title>
 							<style>
 						@media only screen and (max-width: 620px) {
 						  table.body h1 {
@@ -277,7 +305,7 @@ $phpmailer->Body = '<html>
 											<tr>
 											  <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
 												<p style="font-family: sans-serif; font-size: 22px; font-weight: bold; margin: 0; margin-bottom: 30px;">Instant Borrow Verification</p>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 19px;">'.$random_number.'</span> is your  Instant Borrow Verifcation Code.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 30px;">'.$random_number.'</span> is your  Instant Borrow Verifcation Code.</p>
 												<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%;" width="100%">
 												  <tbody>
 													<tr>
@@ -305,13 +333,13 @@ $phpmailer->Body = '<html>
 									  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
 										<tr>
 										  <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Instant Borrow Inc, 3 Abbey Road, San Francisco CA 94102</span>
-											<br> You are receiving this message because your email is registered on instant-borrow.com .
+											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;"><img src="assets/images/logo.png" style="height: 50px; width: auto;"></span>
+											<br> You are receiving this message because your email is registered on instant-borrow.com
 										  </td>
 										</tr>
 										<tr>
 										  <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											Copyright © 2023 - '.date("Y").' Instant Borrow. All rights reserved.
+											Copyright © 2023 - '.date("Y").' Instant Borrow. All rights reserved
 										  </td>
 										</tr>
 									  </table>
