@@ -6,7 +6,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	
 	 $idOfLoan = $_GET['id'];
 
-	$GetUnpaidLoanInfo = $bdd->prepare('SELECT * FROM loan WHERE id = ? AND id_lender= ? AND status="unpaid_banned"');
+	$GetUnpaidLoanInfo = $bdd->prepare('SELECT * FROM loan WHERE id = ? AND id_lender= ? AND (status="unpaid_banned" OR status="unpaid_banned_archived")');
 	$GetUnpaidLoanInfo->execute(array($idOfLoan, $_SESSION['id']));
 
 
@@ -32,6 +32,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
         $phone_number = $BorrowerInfos['phone_number'];
 		$city = $BorrowerInfos['city'];
 		$country = $BorrowerInfos['country'];
+		$borrower_picture = $BorrowerInfos['picture'];
 		
 		$UpdateStatus = $bdd->prepare('UPDATE loan SET status="unpaid_banned_archived" WHERE id = ? AND id_lender= ? AND status="unpaid_banned"');
 		$UpdateStatus->execute(array($idOfLoan, $_SESSION['id']));

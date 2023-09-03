@@ -36,12 +36,13 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	$zelle = $DisplayPaymentMethods['zelle'];
 	$chime = $DisplayPaymentMethods['chime'];
 	
-	$GetBorrowerEmail = $bdd->prepare('SELECT email FROM users WHERE id = ?');
+	$GetBorrowerEmail = $bdd->prepare('SELECT email, phone_number FROM users WHERE id = ?');
     $GetBorrowerEmail->execute(array($id_borrower));
 	
 	$DisplayEmail = $GetBorrowerEmail->fetch();
 	
 	$borrower_email = $DisplayEmail['email'];
+	$borrower_phone = $DisplayEmail['phone_number'];
 	
 	
 	
@@ -93,6 +94,8 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	
 	if(isset($_POST['payment_paypal'])){
 		
+	if($id_lender != $id_borrower) {
+		
 	$transactionId = ($_POST['paypal_id']);
 		
 
@@ -120,7 +123,7 @@ $phpmailer->Body = '<html>
 						  <head>
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
 							<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-							<title>Simple Transactional Email</title>
+							<title>Instant Borrow Notification</title>
 							<style>
 						@media only screen and (max-width: 620px) {
 						  table.body h1 {
@@ -230,7 +233,7 @@ $phpmailer->Body = '<html>
 											<tr>
 											  <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
 												<p style="font-family: sans-serif; font-size: 22px; font-weight: bold; margin: 0; margin-bottom: 30px;">Loan Granted!</p>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$username_lender.'</span> Lent you <span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$loan_amount.'$</span> on Instant Borrow.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$username_lender.'</span> Lent you <span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$loan_amount.'$</span> on Instant Borrow.</p>
 												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;">Funds have Been Sent to your Paypal Account. They may take a few Minutes to arrive.</p>
 												<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%;" width="100%">
 												  <tbody>
@@ -247,7 +250,7 @@ $phpmailer->Body = '<html>
 													</tr>
 												  </tbody>
 												</table>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-top: 30px; margin-bottom: 15px;">You Have until <span style="color: red; font-weight: bold; font-size: 16px;">'.date('F jS, Y', strtotime($repayment_date)).'</span> to Repay the Loan.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-top: 30px; margin-bottom: 15px;">You Have until <span style="color: red; font-weight: bold; font-size: 18px;">'.date('F jS, Y', strtotime($repayment_date)).'</span> to Repay the Loan.</p>
 											  </td>
 											</tr>
 										  </table>
@@ -261,13 +264,13 @@ $phpmailer->Body = '<html>
 									  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
 										<tr>
 										  <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Instant Borrow Inc, 3 Abbey Road, San Francisco CA 94102</span>
-											<br> You are receiving this message because your email is registered on instant-borrow.com .
+											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;"><img src="assets/images/logo.png" style="height: 50px; width: auto;"></span>
+											<br> You are receiving this message because your email is registered on instant-borrow.com
 										  </td>
 										</tr>
 										<tr>
 										  <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											Copyright © 2023 - '.date("Y").' Instant Borrow. All rights reserved.
+											Copyright @ 2023 - '.date("Y").' Instant Borrow - All rights reserved
 										  </td>
 										</tr>
 									  </table>
@@ -287,6 +290,10 @@ $phpmailer->Body = '<html>
 	
 	$phpmailer->send();
 	
+	}else{
+	$success_message = "<div class='error'>You cannot Lend money to Yourself!</div>";
+	}
+	
 	}
 	
 	}else{
@@ -305,6 +312,8 @@ $phpmailer->Body = '<html>
 	if($checkIfPaymentConnected->rowCount() == 0){
 	
 	if(isset($_POST['payment_cashapp'])){
+		
+	if($id_lender != $id_borrower) {
 		
 	$transactionId = ($_POST['cashapp_id']);
 	
@@ -333,7 +342,7 @@ $phpmailer->Body = '<html>
 						  <head>
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
 							<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-							<title>Simple Transactional Email</title>
+							<title>Instant Borrow Notification</title>
 							<style>
 						@media only screen and (max-width: 620px) {
 						  table.body h1 {
@@ -443,7 +452,7 @@ $phpmailer->Body = '<html>
 											<tr>
 											  <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
 												<p style="font-family: sans-serif; font-size: 22px; font-weight: bold; margin: 0; margin-bottom: 30px;">Loan Granted!</p>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$username_lender.'</span> Lent you <span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$loan_amount.'$</span> on Instant Borrow.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$username_lender.'</span> Lent you <span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$loan_amount.'$</span> on Instant Borrow.</p>
 												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;">Funds have Been Sent to your Cashapp Account. They may take a few Minutes to arrive.</p>
 												<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%;" width="100%">
 												  <tbody>
@@ -460,7 +469,7 @@ $phpmailer->Body = '<html>
 													</tr>
 												  </tbody>
 												</table>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-top: 30px; margin-bottom: 15px;">You Have until <span style="color: red; font-weight: bold; font-size: 16px;">'.date('F jS, Y', strtotime($repayment_date)).'</span> to Repay the Loan.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-top: 30px; margin-bottom: 15px;">You Have until <span style="color: red; font-weight: bold; font-size: 18px;">'.date('F jS, Y', strtotime($repayment_date)).'</span> to Repay the Loan.</p>
 											  </td>
 											</tr>
 										  </table>
@@ -474,13 +483,13 @@ $phpmailer->Body = '<html>
 									  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
 										<tr>
 										  <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Instant Borrow Inc, 3 Abbey Road, San Francisco CA 94102</span>
-											<br> You are receiving this message because your email is registered on instant-borrow.com .
+											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;"><img src="assets/images/logo.png" style="height: 50px; width: auto;"></span>
+											<br> You are receiving this message because your email is registered on instant-borrow.com
 										  </td>
 										</tr>
 										<tr>
 										  <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											Copyright © 2023 - '.date("Y").' Instant Borrow. All rights reserved.
+											Copyright @ 2023 - '.date("Y").' Instant Borrow - All rights reserved
 										  </td>
 										</tr>
 									  </table>
@@ -498,6 +507,10 @@ $phpmailer->Body = '<html>
 						You Have until '.date('F jS, Y', strtotime($repayment_date)).' to Repay the Loan.
 						Log Into Instant Borrow for more details at www.instant-borrow.com';
 	$phpmailer->send();
+	
+	}else{
+	$success_message = "<div class='error'>You cannot Lend money to Yourself!</div>";
+	}
 	
 	}
 	
@@ -517,6 +530,8 @@ $phpmailer->Body = '<html>
 	if($checkIfPaymentConnected->rowCount() == 0){
 	
 	if(isset($_POST['payment_venmo'])){
+		
+	if($id_lender != $id_borrower) {
 		
 	$transactionId = ($_POST['venmo_id']);
 	
@@ -545,7 +560,7 @@ $phpmailer->Body = '<html>
 						  <head>
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
 							<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-							<title>Simple Transactional Email</title>
+							<title>Instant Borrow Notification</title>
 							<style>
 						@media only screen and (max-width: 620px) {
 						  table.body h1 {
@@ -655,7 +670,7 @@ $phpmailer->Body = '<html>
 											<tr>
 											  <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
 												<p style="font-family: sans-serif; font-size: 22px; font-weight: bold; margin: 0; margin-bottom: 30px;">Loan Granted!</p>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$username_lender.'</span> Lent you <span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$loan_amount.'$</span> on Instant Borrow.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$username_lender.'</span> Lent you <span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$loan_amount.'$</span> on Instant Borrow.</p>
 												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;">Funds have Been Sent to your Venmo Account. They may take a few Minutes to arrive.</p>
 												<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%;" width="100%">
 												  <tbody>
@@ -672,7 +687,7 @@ $phpmailer->Body = '<html>
 													</tr>
 												  </tbody>
 												</table>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-top: 30px; margin-bottom: 15px;">You Have until <span style="color: red; font-weight: bold; font-size: 16px;">'.date('F jS, Y', strtotime($repayment_date)).'</span> to Repay the Loan.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-top: 30px; margin-bottom: 15px;">You Have until <span style="color: red; font-weight: bold; font-size: 18px;">'.date('F jS, Y', strtotime($repayment_date)).'</span> to Repay the Loan.</p>
 											  </td>
 											</tr>
 										  </table>
@@ -686,13 +701,13 @@ $phpmailer->Body = '<html>
 									  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
 										<tr>
 										  <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Instant Borrow Inc, 3 Abbey Road, San Francisco CA 94102</span>
-											<br> You are receiving this message because your email is registered on instant-borrow.com .
+											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;"><img src="assets/images/logo.png" style="height: 50px; width: auto;"></span>
+											<br> You are receiving this message because your email is registered on instant-borrow.com
 										  </td>
 										</tr>
 										<tr>
 										  <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											Copyright © 2023 - '.date("Y").' Instant Borrow. All rights reserved.
+											Copyright @ 2023 - '.date("Y").' Instant Borrow - All rights reserved
 										  </td>
 										</tr>
 									  </table>
@@ -711,6 +726,10 @@ $phpmailer->Body = '<html>
 						Log Into Instant Borrow for more details at www.instant-borrow.com';
 	$phpmailer->send();
 	
+	}else{
+	$success_message = "<div class='error'>You cannot Lend money to Yourself!</div>";
+	}
+	
 	}
 	
 	}else{
@@ -728,6 +747,8 @@ $phpmailer->Body = '<html>
 	if($checkIfPaymentConnected->rowCount() == 0){
 	
 	if(isset($_POST['payment_zelle'])){
+		
+	if($id_lender != $id_borrower) {
 		
 	$transactionId = ($_POST['zelle_id']);
 		
@@ -756,7 +777,7 @@ $phpmailer->Body = '<html>
 						  <head>
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
 							<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-							<title>Simple Transactional Email</title>
+							<title>Instant Borrow Notification</title>
 							<style>
 						@media only screen and (max-width: 620px) {
 						  table.body h1 {
@@ -866,7 +887,7 @@ $phpmailer->Body = '<html>
 											<tr>
 											  <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
 												<p style="font-family: sans-serif; font-size: 22px; font-weight: bold; margin: 0; margin-bottom: 30px;">Loan Granted!</p>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$username_lender.'</span> Lent you <span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$loan_amount.'$</span> on Instant Borrow.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$username_lender.'</span> Lent you <span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$loan_amount.'$</span> on Instant Borrow.</p>
 												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;">Funds have Been Sent to your Zelle Account. They may take a few Minutes to arrive.</p>
 												<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%;" width="100%">
 												  <tbody>
@@ -883,7 +904,7 @@ $phpmailer->Body = '<html>
 													</tr>
 												  </tbody>
 												</table>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-top: 30px; margin-bottom: 15px;">You Have until <span style="color: red; font-weight: bold; font-size: 16px;">'.date('F jS, Y', strtotime($repayment_date)).'</span> to Repay the Loan.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-top: 30px; margin-bottom: 15px;">You Have until <span style="color: red; font-weight: bold; font-size: 18px;">'.date('F jS, Y', strtotime($repayment_date)).'</span> to Repay the Loan.</p>
 											  </td>
 											</tr>
 										  </table>
@@ -897,13 +918,13 @@ $phpmailer->Body = '<html>
 									  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
 										<tr>
 										  <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Instant Borrow Inc, 3 Abbey Road, San Francisco CA 94102</span>
-											<br> You are receiving this message because your email is registered on instant-borrow.com .
+											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;"><img src="assets/images/logo.png" style="height: 50px; width: auto;"></span>
+											<br> You are receiving this message because your email is registered on instant-borrow.com
 										  </td>
 										</tr>
 										<tr>
 										  <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											Copyright © 2023 - '.date("Y").' Instant Borrow. All rights reserved.
+											Copyright @ 2023 - '.date("Y").' Instant Borrow - All rights reserved
 										  </td>
 										</tr>
 									  </table>
@@ -922,6 +943,10 @@ $phpmailer->Body = '<html>
 						Log Into Instant Borrow for more details at www.instant-borrow.com';
 	$phpmailer->send();
 	
+	}else{
+	$success_message = "<div class='error'>You cannot Lend money to Yourself!</div>";
+	}
+	
 	}
 	
 	}else{
@@ -938,6 +963,8 @@ $phpmailer->Body = '<html>
 	if($checkIfPaymentConnected->rowCount() == 0){
 	
 	if(isset($_POST['payment_chime'])){
+		
+	if($id_lender != $id_borrower) {
 		
 	$transactionId = ($_POST['chime_id']);
 		
@@ -962,11 +989,11 @@ $phpmailer->Body = '<html>
 	$phpmailer->addAddress(''.$borrower_email.'');
 	$phpmailer->Subject = ''.$username_lender.' Lent you '.$loan_amount.'$!';
 
-	$phpmailer->Body = '<html>
+$phpmailer->Body = '<html>
 						  <head>
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
 							<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-							<title>Simple Transactional Email</title>
+							<title>Instant Borrow Notification</title>
 							<style>
 						@media only screen and (max-width: 620px) {
 						  table.body h1 {
@@ -1076,7 +1103,7 @@ $phpmailer->Body = '<html>
 											<tr>
 											  <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
 												<p style="font-family: sans-serif; font-size: 22px; font-weight: bold; margin: 0; margin-bottom: 30px;">Loan Granted!</p>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$username_lender.'</span> Lent you <span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$loan_amount.'$</span> on Instant Borrow.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$username_lender.'</span> Lent you <span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$loan_amount.'$</span> on Instant Borrow.</p>
 												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;">Funds have Been Sent to your Chime Account. They may take a few Minutes to arrive.</p>
 												<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%;" width="100%">
 												  <tbody>
@@ -1093,7 +1120,7 @@ $phpmailer->Body = '<html>
 													</tr>
 												  </tbody>
 												</table>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-top: 30px; margin-bottom: 15px;">You Have until <span style="color: red; font-weight: bold; font-size: 16px;">'.date('F jS, Y', strtotime($repayment_date)).'</span> to Repay the Loan.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-top: 30px; margin-bottom: 15px;">You Have until <span style="color: red; font-weight: bold; font-size: 18px;">'.date('F jS, Y', strtotime($repayment_date)).'</span> to Repay the Loan.</p>
 											  </td>
 											</tr>
 										  </table>
@@ -1107,13 +1134,13 @@ $phpmailer->Body = '<html>
 									  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
 										<tr>
 										  <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Instant Borrow Inc, 3 Abbey Road, San Francisco CA 94102</span>
-											<br> You are receiving this message because your email is registered on instant-borrow.com .
+											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;"><img src="assets/images/logo.png" style="height: 50px; width: auto;"></span>
+											<br> You are receiving this message because your email is registered on instant-borrow.com
 										  </td>
 										</tr>
 										<tr>
 										  <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											Copyright © 2023 - '.date("Y").' Instant Borrow. All rights reserved.
+											Copyright @ 2023 - '.date("Y").' Instant Borrow - All rights reserved
 										  </td>
 										</tr>
 									  </table>
@@ -1131,6 +1158,10 @@ $phpmailer->Body = '<html>
 						You Have until '.date('F jS, Y', strtotime($repayment_date)).' to Repay the Loan.
 						Log Into Instant Borrow for more details at www.instant-borrow.com';
 	$phpmailer->send();
+	
+	}else{
+	$success_message = "<div class='error'>You cannot Lend money to Yourself!</div>";
+	}
 	
 	}
 	

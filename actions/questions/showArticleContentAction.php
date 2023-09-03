@@ -23,9 +23,13 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
         $id_borrower = $questionsInfos['id_borrower'];
         $username_borrower = $questionsInfos['username_borrower'];
 		$notes = $questionsInfos['notes'];
+		
+		if (strlen($notes) !==0){
+						$notes_display = $notes;
+						}else{
+						$notes_display = "No Notes from Borrower";
+						}
         
-
-	
 
 
 				$getAllunpaidLoans = $bdd->prepare('SELECT * FROM loan WHERE id_borrower = ? AND (status="unpaid" OR status="unpaid_notseen" OR status="unpaid_banned" OR status="unpaid_banned_archived")');

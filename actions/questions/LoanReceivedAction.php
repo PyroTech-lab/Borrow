@@ -28,6 +28,13 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 		$payment_transaction_id = $LoanInfos['payment_transaction_id'];
 		
 		
+		$getPhoneNumber = $bdd->prepare('SELECT phone_number FROM users WHERE id = ?');
+		$getPhoneNumber->execute(array($id_lender));
+		
+		$GetNumber = $getPhoneNumber->fetch();
+		
+		$phone_number = $GetNumber['phone_number'];
+		
 		
 		}else {$Loannotfound ="yes";}
 

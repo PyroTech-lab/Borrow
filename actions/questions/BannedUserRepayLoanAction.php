@@ -30,12 +30,13 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 		$idOfTheQuestion = $_GET['id'];
 		
 		
-	$GetLenderEmail = $bdd->prepare('SELECT email FROM users WHERE id = ?');
+	$GetLenderEmail = $bdd->prepare('SELECT email, phone_number FROM users WHERE id = ?');
     $GetLenderEmail->execute(array($id_lender));
 	
 	$DisplayEmail = $GetLenderEmail->fetch();
 	
 	$lender_email = $DisplayEmail['email'];
+	$phone_number = $DisplayEmail['phone_number'];
 		
 		
 	$GeBannedDetails = $bdd->prepare('SELECT reason FROM banned_users WHERE id_user = ?');
@@ -51,6 +52,10 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 		}
 		
 		if($reason == "fraud"){
+			$reason_public = "Fraud";
+		}
+		
+		if($reason == ""){
 			$reason_public = "Fraud";
 		}
        
@@ -144,7 +149,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 						  <head>
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
 							<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-							<title>Simple Transactional Email</title>
+							<title>Instant Borrow Notification</title>
 							<style>
 						@media only screen and (max-width: 620px) {
 						  table.body h1 {
@@ -254,7 +259,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 											<tr>
 											  <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
 												<p style="font-family: sans-serif; font-size: 22px; font-weight: bold; margin: 0; margin-bottom: 30px;">Repayment Received!</p>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$username_borrower.'</span> Repaid you <span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$repayment_amount.'$</span> on Instant Borrow after Being Banned.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$username_borrower.'</span> Repaid you <span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$repayment_amount.'$</span> on Instant Borrow after Being Banned.</p>
 												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;">Funds have Been Sent to your Paypal Account. They may take a few Minutes to arrive.</p>
 												<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%;" width="100%">
 												  <tbody>
@@ -285,13 +290,13 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 									  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
 										<tr>
 										  <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Instant Borrow Inc, 3 Abbey Road, San Francisco CA 94102</span>
-											<br> You are receiving this message because your email is registered on instant-borrow.com .
+											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;"><img src="assets/images/logo.png" style="height: 50px; width: auto;"></span>
+											<br> You are receiving this message because your email is registered on instant-borrow.com
 										  </td>
 										</tr>
 										<tr>
 										  <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											Copyright © 2023 - '.date("Y").' Instant Borrow. All rights reserved.
+											Copyright @ 2023 - '.date("Y").' Instant Borrow - All rights reserved
 										  </td>
 										</tr>
 									  </table>
@@ -347,7 +352,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 						  <head>
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
 							<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-							<title>Simple Transactional Email</title>
+							<title>Instant Borrow Notification</title>
 							<style>
 						@media only screen and (max-width: 620px) {
 						  table.body h1 {
@@ -457,7 +462,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 											<tr>
 											  <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
 												<p style="font-family: sans-serif; font-size: 22px; font-weight: bold; margin: 0; margin-bottom: 30px;">Repayment Received!</p>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$username_borrower.'</span> Repaid you <span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$repayment_amount.'$</span> on Instant Borrow after Being Banned.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$username_borrower.'</span> Repaid you <span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$repayment_amount.'$</span> on Instant Borrow after Being Banned.</p>
 												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;">Funds have Been Sent to your Cashapp Account. They may take a few Minutes to arrive.</p>
 												<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%;" width="100%">
 												  <tbody>
@@ -488,13 +493,13 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 									  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
 										<tr>
 										  <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Instant Borrow Inc, 3 Abbey Road, San Francisco CA 94102</span>
-											<br> You are receiving this message because your email is registered on instant-borrow.com .
+											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;"><img src="assets/images/logo.png" style="height: 50px; width: auto;"></span>
+											<br> You are receiving this message because your email is registered on instant-borrow.com
 										  </td>
 										</tr>
 										<tr>
 										  <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											Copyright © 2023 - '.date("Y").' Instant Borrow. All rights reserved.
+											Copyright @ 2023 - '.date("Y").' Instant Borrow - All rights reserved
 										  </td>
 										</tr>
 									  </table>
@@ -549,7 +554,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 						  <head>
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
 							<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-							<title>Simple Transactional Email</title>
+							<title>Instant Borrow Notification</title>
 							<style>
 						@media only screen and (max-width: 620px) {
 						  table.body h1 {
@@ -659,7 +664,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 											<tr>
 											  <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
 												<p style="font-family: sans-serif; font-size: 22px; font-weight: bold; margin: 0; margin-bottom: 30px;">Repayment Received!</p>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$username_borrower.'</span> Repaid you <span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$repayment_amount.'$</span> on Instant Borrow after Being Banned.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$username_borrower.'</span> Repaid you <span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$repayment_amount.'$</span> on Instant Borrow after Being Banned.</p>
 												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;">Funds have Been Sent to your Venmo Account. They may take a few Minutes to arrive.</p>
 												<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%;" width="100%">
 												  <tbody>
@@ -690,13 +695,13 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 									  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
 										<tr>
 										  <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Instant Borrow Inc, 3 Abbey Road, San Francisco CA 94102</span>
-											<br> You are receiving this message because your email is registered on instant-borrow.com .
+											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;"><img src="assets/images/logo.png" style="height: 50px; width: auto;"></span>
+											<br> You are receiving this message because your email is registered on instant-borrow.com
 										  </td>
 										</tr>
 										<tr>
 										  <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											Copyright © 2023 - '.date("Y").' Instant Borrow. All rights reserved.
+											Copyright @ 2023 - '.date("Y").' Instant Borrow - All rights reserved
 										  </td>
 										</tr>
 									  </table>
@@ -710,7 +715,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 						  </body>
 						</html>';
 	$phpmailer->AltBody = ''.$username_borrower.' Repaid you '.$repayment_amount.'$ on Instant Borrow after being banned.
-						Funds have Been Sent to your Venmo Account. They may take a few Minutes to arrive.
+						Funds have Been Sent to your venmo Account. They may take a few Minutes to arrive.
 						Log Into Instant Borrow for more details at www.instant-borrow.com';
 	$phpmailer->send();
 	
@@ -752,7 +757,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 						  <head>
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
 							<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-							<title>Simple Transactional Email</title>
+							<title>Instant Borrow Notification</title>
 							<style>
 						@media only screen and (max-width: 620px) {
 						  table.body h1 {
@@ -862,7 +867,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 											<tr>
 											  <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
 												<p style="font-family: sans-serif; font-size: 22px; font-weight: bold; margin: 0; margin-bottom: 30px;">Repayment Received!</p>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$username_borrower.'</span> Repaid you <span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$repayment_amount.'$</span> on Instant Borrow after Being Banned.</p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$username_borrower.'</span> Repaid you <span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$repayment_amount.'$</span> on Instant Borrow after Being Banned.</p>
 												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;">Funds have Been Sent to your Zelle Account. They may take a few Minutes to arrive.</p>
 												<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%;" width="100%">
 												  <tbody>
@@ -893,13 +898,13 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 									  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
 										<tr>
 										  <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Instant Borrow Inc, 3 Abbey Road, San Francisco CA 94102</span>
-											<br> You are receiving this message because your email is registered on instant-borrow.com .
+											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;"><img src="assets/images/logo.png" style="height: 50px; width: auto;"></span>
+											<br> You are receiving this message because your email is registered on instant-borrow.com
 										  </td>
 										</tr>
 										<tr>
 										  <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											Copyright © 2023 - '.date("Y").' Instant Borrow. All rights reserved.
+											Copyright @ 2023 - '.date("Y").' Instant Borrow - All rights reserved
 										  </td>
 										</tr>
 									  </table>
@@ -951,7 +956,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 						  <head>
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
 							<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-							<title>Simple Transactional Email</title>
+							<title>Instant Borrow Notification</title>
 							<style>
 						@media only screen and (max-width: 620px) {
 						  table.body h1 {
@@ -1061,7 +1066,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 											<tr>
 											  <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
 												<p style="font-family: sans-serif; font-size: 22px; font-weight: bold; margin: 0; margin-bottom: 30px;">Repayment Received!</p>
-												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$username_borrower.'</span> Repaid you <span style="color: #2b80ff; font-weight: bold; font-size: 16px;">'.$repayment_amount.'$</span> on Instant Borrow after Being <span style="color: red; font-weight: bold; font-size: 16px;">Banned.</span></p>
+												<p style="font-family: sans-serif; font-size: 18px; font-weight: normal; margin: 0; margin-bottom: 30px;"><span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$username_borrower.'</span> Repaid you <span style="color: #2b80ff; font-weight: bold; font-size: 18px;">'.$repayment_amount.'$</span> on Instant Borrow after Being Banned.</p>
 												<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 30px;">Funds have Been Sent to your Chime Account. They may take a few Minutes to arrive.</p>
 												<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%;" width="100%">
 												  <tbody>
@@ -1092,13 +1097,13 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 									  <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
 										<tr>
 										  <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Instant Borrow Inc, 3 Abbey Road, San Francisco CA 94102</span>
-											<br> You are receiving this message because your email is registered on instant-borrow.com .
+											<span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;"><img src="assets/images/logo.png" style="height: 50px; width: auto;"></span>
+											<br> You are receiving this message because your email is registered on instant-borrow.com
 										  </td>
 										</tr>
 										<tr>
 										  <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #999999; font-size: 12px; text-align: center;" valign="top" align="center">
-											Copyright © 2023 - '.date("Y").' Instant Borrow. All rights reserved.
+											Copyright @ 2023 - '.date("Y").' Instant Borrow - All rights reserved
 										  </td>
 										</tr>
 									  </table>
