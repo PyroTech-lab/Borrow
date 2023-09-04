@@ -12,7 +12,9 @@ require('actions/questions/updateDatabases.php');
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <meta name="robots" content="index" />
-	
+  
+<meta name="description" content="Free Web tutorials">	
+
 <title>Easiest and Fastest Borrowing & Lending Platform - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
