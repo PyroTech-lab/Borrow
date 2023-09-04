@@ -11,6 +11,8 @@ require('actions/users/notificationAction.php');
 
 <head>
 
+<meta charset="UTF-8">
+<meta name="robots" content="index" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Easiest and Fastest Borrowing & Lending Platform - Instant Borrow</title>
