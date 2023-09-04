@@ -1,3 +1,11 @@
+
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex" />    
+</head>
+</html>
+
 <?php
 session_start();
 require('actions/database.php');
