@@ -12,7 +12,9 @@ require('actions/questions/updateDatabases.php');
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <meta name="robots" content="index" />
-	
+
+<meta name="description" content="Contact the Instant Borrow Support Team. Have a request, a doubt or an inquiry? Contact us and we'll get back to you quickly.">
+
 <title>Contact Us - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
