@@ -11,6 +11,9 @@ require('actions/questions/updateDatabases.php');
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <meta name="robots" content="index" />
+
+<meta name="description" content="See the Terms of Service information for use of the Instant Borrow website. Please read the following terms & conditions carefully.">	
+
 	
 <title>Terms & Conditions - Instant Borrow</title>
 
