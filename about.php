@@ -13,7 +13,7 @@ require('actions/questions/updateDatabases.php');
 <meta charset="UTF-8">
 <meta name="robots" content="index" />
   
-<meta name="description" content="Free Web tutorials">	
+<meta name="description" content="Lend and Borrow Money on Instant Borrow. Lend and get Big Returns quickly with Low Risk. Borrow and receive Funds Instantly without Paperwork and Bureaucracy.">	
 
 <title>Easiest and Fastest Borrowing & Lending Platform - Instant Borrow</title>
 
