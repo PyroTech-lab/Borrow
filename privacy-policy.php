@@ -12,6 +12,9 @@ require('actions/questions/updateDatabases.php');
 <meta charset="UTF-8">
 <meta name="robots" content="index" />
 
+<meta name="description" content="Instant Borrow Privacy Policy - Find out how we process your Data and Personal Information. Rest assured knowing your Data is stored Securely and Privately.">	
+
+	
 	<title>Privacy Policy - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
