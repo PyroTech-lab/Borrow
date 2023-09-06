@@ -11,7 +11,9 @@ require('actions/questions/updateDatabases.php');
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<meta name="robots" content="index" /> 
+<meta name="robots" content="index" />
+
+<meta name="description" content="The vast majority of Borrowers Repay their Loans on time with no issues. The Wall of Shame shares the Identity of the Minority who Fail to Repay.">
 	
 <titleWall of Shame - Instant Borrow</title>
 
