@@ -19,7 +19,7 @@ if(isset($_SESSION['auth'])){
 <meta charset="UTF-8">
 <meta name="robots" content="index" />
 
-<meta name="description" content="Borrow Money and Take out a personal loan on Instant Borrow. No credit score checks, no Paperwork, low Fees. Start now to Borrow anywhere from 100$ to 2000$.">
+<meta name="description" content="Borrow Money and Take out a personal loan on Instant Borrow. No credit score checks, no Paperwork, low Fees. Start now and Borrow anywhere from 100$ to 2000$.">
 	
 <title>Instant Borrow - Borrow Money Quickly and Easily</title>
 
