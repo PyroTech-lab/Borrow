@@ -19,6 +19,8 @@ if(isset($_SESSION['auth'])){
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <meta name="robots" content="index" />
+
+<meta name="description" content="Lend and Borrow Money on Instant Borrow. Forget high Fees and mountains of Paperwork. With us, Experience the best Microlending Platform on the Market.">
 	
 <title>Instant Borrow - Lend and Borrow Money Safely and Easily</title>
 
