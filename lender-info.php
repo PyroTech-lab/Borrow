@@ -12,6 +12,8 @@ require('actions/questions/updateDatabases.php');
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <meta name="robots" content="index" />
+
+<meta name="description" content="Lend on Instant Borrow. Get Big Returns in Record time. Discover our innovative Lending process and enjoy the best Platform on the Market. Start now with 10$.">
 	
 <title>Best Microlending Platform to Invest Money Online - Instant Borrow</title>
 
