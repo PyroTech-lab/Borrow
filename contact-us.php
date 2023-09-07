@@ -1,5 +1,6 @@
 <?php
 require('actions/questions/updateDatabases.php');
+require('actions/users/securityAction.php');
 ?>
 
 
@@ -11,10 +12,8 @@ require('actions/questions/updateDatabases.php');
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<meta name="robots" content="index" />
-
-<meta name="description" content="Contact the Instant Borrow Support Team. Have a request, a doubt or an inquiry? Contact us and we'll get back to you quickly.">
-
+<meta name="robots" content="noindex" />
+	
 <title>Contact Us - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
@@ -104,6 +103,7 @@ require('actions/questions/updateDatabases.php');
 
 .borrow {
 	width: 75px;
+	text-align: right;
 	height: 23px;
 	margin-top: -23px;
 	margin-left: calc(47% + 44px);
@@ -129,52 +129,59 @@ require('actions/questions/updateDatabases.php');
 
 
 .login {
-	width: 75px;
+	width: 120px;
+	text-align: left;
 	height: 23px;
 	margin-top: -23px;
-	margin-left: calc(100% - 175px);
+	margin-left: calc(100% - 162px);
 }
 
 .login-text {
 	font-weight: 500;
-	color: #4d4d4d;
+	color: white;
 	padding-top: 3px;
 	padding-bottom: 3px;
 	padding-left: 10px;
 	padding-right: 10px;
 	transition: outline 0.2s;
 	transition: background-color 0.2s;
+	outline: 1px solid #e0c22d;
+	background-color: #e0c22d;
+	border-radius: 0.125rem;
 }
 
 .login-text:hover {
-	outline: 1px solid #4d4d4d;
-	background-color: #fcfcfc;
-	border-radius: 0.125rem;
+	outline: 1px solid #f2a100;
+	background-color: #f2a100;
 }
 
 .signup {
-	width: 85px;
-	height: 23px;
-	margin-top: -23px;
-	margin-left: calc(100% - 85px);
+	margin-top: -22px;
+	margin-left: calc(100% - 22px);
 }
 
-.signup-text {
-	background-color: #e0c22d;
-	color: white;
-	font-weight: 500;
-	border-radius: 0.125rem;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	padding-left: 10px;
-	padding-right: 10px;
-	outline: 1px solid #e0c22d;
-	transition: background-color 0.2s;
+.logout-button {
+	height: 20px;
+	width: auto;
+	transition: transform 0.2s;
 }
 
-.signup-text:hover {
-	background-color: #f7d631;
-	outline: 1px solid #f7d631;
+.chat-header {
+	height: 25px;
+	width: auto;
+	transition: transform 0.2s;
+}
+
+.logout-button:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
+}
+
+.chat-header:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
 }
 
 .everything-except-header {
@@ -194,8 +201,6 @@ require('actions/questions/updateDatabases.php');
 	border-top: 1px solid #d6d6d6;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
-
-
 
 
 .footer-content {
@@ -283,11 +288,11 @@ require('actions/questions/updateDatabases.php');
 
 <div class="header">
 	<div class="header-text">
-		<div class="logo"><a href="about.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
-		<div class="lend"><a href="index.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
-		<div class="borrow"><a href="borrow.php" style="text-decoration: none; color: black"><span class="borrow-text">Borrow</span></a></div>
-		<div class="login"><a href="login.php" style="text-decoration: none; color: black"><span class="login-text">Login</span></a></div>
-		<div class="signup"><a href="signup.php" style="text-decoration: none; color: black"><span class="signup-text">Sign Up</span></a></div>
+		<div class="logo"><a href="about-us.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
+		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
+		<div class="borrow"><a href="borrow-money.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
+		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
+		<div class="signup"><div><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
 	</div>
 </div>
 
@@ -295,7 +300,7 @@ require('actions/questions/updateDatabases.php');
 
 <div style="min-height: calc(100vh - 593px);">
 
-Contact
+Contact-Loggedin
 
 </div>
 
@@ -306,18 +311,18 @@ Contact
 		</div>
 		<div class="footer-2">
 			<div class="footer-subsection-title"><span>Company</span></div>
-			<div class="footer-subsection-text"><a href="about.php" class="footer-link" target="blank"><span>About Instant Borrow</span></a></div>
-			<div class="footer-subsection-text"><a href="contact.php" class="footer-link" target="blank"><span>Contact Us</span></a></div>
+			<div class="footer-subsection-text"><a href="about-us.php" class="footer-link" target="blank"><span>About Instant Borrow</span></a></div>
+			<div class="footer-subsection-text"><a href="contact-us.php" class="footer-link" target="blank"><span>Contact Us</span></a></div>
 		</div>
 		<div class="footer-3">
 			<div class="footer-subsection-title"><span>Resources</span></div>
-			<div class="footer-subsection-text"><a href="lender-info.php" class="footer-link" target="blank"><span>Lender's Guide</span></a></div>
-			<div class="footer-subsection-text"><a href="borrower-info.php" class="footer-link" target="blank"><span>Borrower's Guide</span></a></div>
+			<div class="footer-subsection-text"><a href="lender-guide.php" class="footer-link" target="blank"><span>Lender's Guide</span></a></div>
+			<div class="footer-subsection-text"><a href="borrower-guide.php" class="footer-link" target="blank"><span>Borrower's Guide</span></a></div>
 		</div>
 		<div class="footer-4">
 			<div class="footer-subsection-title"><span>Legal</span></div>
-			<div class="footer-subsection-text"><a href="terms-conditions.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
-			<div class="footer-subsection-text"><a href="privacy-policy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
+			<div class="footer-subsection-text"><a href="terms.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
+			<div class="footer-subsection-text"><a href="privacy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
 		</div>
 		<div class="footer-bottom">
 			<div class="social-widgets">

@@ -6,7 +6,7 @@ require('actions/users/ForgotPassword.php');
 
 <?php
 if(isset($_SESSION['auth'])){
-    header('Location: borrow-yeslogin.php');
+    header('Location: borrow-money.php');
 }
 ?>
 

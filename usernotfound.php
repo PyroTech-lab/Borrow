@@ -2,6 +2,12 @@
 require('actions/questions/updateDatabases.php');
 ?>
 
+<?php
+session_start();
+if(isset($_SESSION['auth'])){
+    header('Location: user-not-found.php');
+}
+?>
 
 <!DOCTYPE html>
 
@@ -11,11 +17,9 @@ require('actions/questions/updateDatabases.php');
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<meta name="robots" content="index" />
-
-<meta name="description" content="Contact the Instant Borrow Support Team. Have a request, a doubt or an inquiry? Contact us and we'll get back to you quickly.">
-
-<title>Contact Us - Instant Borrow</title>
+<meta name="robots" content="noindex" /> 
+	
+<title>User not Found - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
@@ -183,6 +187,43 @@ require('actions/questions/updateDatabases.php');
 }
 
 
+.message-container {
+	margin-top: 200px;
+	margin-left: 10%;
+	margin-bottom: 120px;
+	width: 80%;
+}
+
+.message-title {
+	font-size: 2.85rem;
+	font-weight: bold;
+	color: #00c4ff;
+}
+
+.message-subtitle {
+	margin-top: -10px;
+	font-size: 1.85rem;
+	font-weight: bold;
+}
+
+.message-button {
+	margin-top: 50px;
+	background-color: #2b80ff;
+	color: white;
+	font-weight: bold;
+	font-size: 1.65rem;
+	border-radius: 0.125rem;
+	border: 0px;
+	padding: 10px;
+	outline: 1px solid #2b80ff;
+	transition: background-color 0.2s;
+}
+
+.message-button:hover {
+	background-color: #00c4ff;
+	outline: 1px solid #00c4ff;
+}
+
 
 .footer {
 	z-index: 10;
@@ -194,8 +235,6 @@ require('actions/questions/updateDatabases.php');
 	border-top: 1px solid #d6d6d6;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
-
-
 
 
 .footer-content {
@@ -274,6 +313,7 @@ require('actions/questions/updateDatabases.php');
 	font-size: 0.86rem;
 	color: #2b2b2b;
 }
+
 </style>
 
 </head>
@@ -295,9 +335,15 @@ require('actions/questions/updateDatabases.php');
 
 <div style="min-height: calc(100vh - 593px);">
 
-Contact
+
+<div class="message-container">
+<h1 class="message-title">User Not Found</h1>
+<h2 class="message-subtitle">The User you are Looking for Does not Exist...</h2>
+<a href="index.php"><button class="message-button">Go Back Home</button></a>
+</div>
 
 </div>
+
 
 <div class="footer">
 	<div class="footer-content">
@@ -311,8 +357,8 @@ Contact
 		</div>
 		<div class="footer-3">
 			<div class="footer-subsection-title"><span>Resources</span></div>
-			<div class="footer-subsection-text"><a href="lender-info.php" class="footer-link" target="blank"><span>Lender's Guide</span></a></div>
-			<div class="footer-subsection-text"><a href="borrower-info.php" class="footer-link" target="blank"><span>Borrower's Guide</span></a></div>
+			<div class="footer-subsection-text"><a href="faq.php" class="footer-link" target="blank"><span>FAQ's</span></a></div>
+			<div class="footer-subsection-text"><a href="support.php" class="footer-link" target="blank"><span>Support Center</span></a></div>
 		</div>
 		<div class="footer-4">
 			<div class="footer-subsection-title"><span>Legal</span></div>

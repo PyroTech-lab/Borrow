@@ -1,15 +1,9 @@
 <?php
-require('actions/users/showYourUnpaidLoansAction.php');
 require('actions/questions/updateDatabases.php');
+require('actions/users/securityAction.php');
 require('actions/users/notificationAction.php');
-require('actions/users/bannedAction.php');
 ?>
 
-<?php
-if(!isset($_SESSION['auth'])){
-    header('Location: index.php');
-}
-?>
 
 <!DOCTYPE html>
 
@@ -17,11 +11,11 @@ if(!isset($_SESSION['auth'])){
 
 <head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<meta name="robots" content="noindex" />
-	
-<title>Your Unpaid Loans - Instant Borrow</title>
+<meta name="robots" content="index" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Easiest and Fastest Borrowing & Lending Platform - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
@@ -173,7 +167,7 @@ if(!isset($_SESSION['auth'])){
 	transition: transform 0.2s;
 }
 
-.chat-button {
+.chat-header {
 	height: 25px;
 	width: auto;
 	transition: transform 0.2s;
@@ -185,13 +179,11 @@ if(!isset($_SESSION['auth'])){
 	transform: scale(1.1); 
 }
 
-.chat-button:hover {
+.chat-header:hover {
 	-ms-transform: scale(1.1); /* IE 9 */
 	-webkit-transform: scale(1.1); /* Safari 3-8 */
 	transform: scale(1.1); 
 }
-
-
 
 .notification-unpaid {
 	background-color: red;
@@ -303,206 +295,9 @@ if(!isset($_SESSION['auth'])){
 	color: white;
 }
 
-
 .everything-except-header {
 	position: absolute;
 	width: 100%;
-}
-
-
-.title {
-	margin-left: 10%;
-	color: #00c4ff;
-	font-weight: bold;
-	font-size: 2.32rem
-}
-
-.transaction-details {
-	margin-left: 10%;
-	width: 80%;
-	padding-bottom: 15px;
-	margin-top: 50px;
-	margin-bottom: 28px;
-	border: 1px solid #bababa;
-	background-color: #f7f7f7;
-	border-radius: 0.325rem;
-	text-align: left;
-}
-
-
-.loan-amount {
-	height: 23px;
-	margin-top: 15px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.repay-amount {
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -31px;
-	margin-left: 16.6%;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.interest-rate	{
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -31px;
-	margin-left: 33.2%;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.repay-date {
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -31px;
-	margin-left: 49.8%;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.feedback {
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -31px;
-	margin-left: 66%;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.payment-method {
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -35px;
-	margin-bottom: 12px;
-	margin-left: 82.6%;
-}
-
-
-.repay-button {
-	width: 140px;
-	background-color: red;
-	border: 0;
-	padding: 10px;
-	border-radius: 0.325rem;
-	font-weight: bold;
-	font-size: 1.02rem;
-	color: white;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
-}
-
-.repay-button:hover {
-	background-color: #c90000;
-	-ms-transform: scale(1.05); /* IE 9 */
-	-webkit-transform: scale(1.05); /* Safari 3-8 */
-	transform: scale(1.05); 
-}
-
-
-.loan-request {
-	margin-left: 10%;
-	width: 80%;
-	margin-top: -23px;
-	text-align: left;
-	margin-bottom: 35px;
-	padding-bottom: 15px;
-	border: 1px solid #bababa;
-	background-color: white;
-	border-radius: 0.325rem;
-	transition: transform .2s;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-}
-
-.loan-request:hover {
-	background-color: #fbfbfb;
-  -ms-transform: scale(1.0055); /* IE 9 */
-  -webkit-transform: scale(1.0055); /* Safari 3-8 */
-  transform: scale(1.0055); 
-}
-
-.error-message {
-	font-weight: 500;
-	font-size: 1.05rem;
-	margin-bottom: 30px;
-	color: green;
-}
-
-.under-container {
-	margin-left: 10%;
-	margin-bottom: 100px;
-}
-
-.load-more {
-	padding: 9px;
-	width: 15%;
-	min-width: 140px;
-	background-color: #de0404;
-	color: white;
-	border: 2px solid white;
-	border-radius: 0.325rem;
-	font-weight: bold;
-	font-size: 0.88rem;
-}
-
-.borrow-button {
-	padding: 9px;
-	width: 15%;
-	min-width: 140px;
-	right: 0;
-	background-color:  #f2a100;
-	color: white;
-	border: 2px solid white;
-	border-radius: 0.325rem;
-	font-weight: bold;
-	font-size: 0.88rem;
-}
-
-.load-more:hover {
-	background-color: #ff0303;
-}
-
-.borrow-button:hover {
-	background-color: #edd500;
-}
-
-.explain {
-	margin-left: 10%;
-	width: 80%;
-	text-align: left;
-	color: #383838;
-}
-
-.explain-title {
-	font-size: 1.8rem;
-	font-weight: bold;
-	color: #00c4ff;
 }
 
 
@@ -600,7 +395,7 @@ if(!isset($_SESSION['auth'])){
 </head>
 
 
-<body style="margin: 0px; font-family: 'Poppins', sans-serif;">
+<body style="margin: 0px; font-family: 'Poppins', sans-serif; background-color: #f7f7f7;">
 
 <div class="header">
 	<div class="header-text">
@@ -612,6 +407,11 @@ if(!isset($_SESSION['auth'])){
 	</div>
 </div>
 
+	<?php
+		if(isset($UnpaidMsg)){ 
+		echo '<div class="notification-unpaid"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="unpaid-loans.php" style="text-decoration: none; color: white;"><span class="notification-text">'.$UnpaidMsg.'</span></a></div>';
+		}
+	?>
 	
 	<?php
 		if(isset($RepaymentDateSoonMsg)){ 
@@ -633,13 +433,19 @@ if(!isset($_SESSION['auth'])){
 	
 	<?php
 	if(isset($UnpaidBorrowerLoanMsg)){ 
-	echo '<div class="notification-unpaidborrower"><img src="assets/images/warning-sign-orange.png" class="notification"><a href="unpaid-borrower.php?id='.$id_loan_unpaid.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$UnpaidBorrowerLoanMsg.'</span><a></div>';
+	echo '<div class="notification-unpaidborrower"><img src="assets/images/warning-sign-orange.png" class="notification-image"><a href="unpaid-borrower.php?id='.$id_loan_unpaid.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$UnpaidBorrowerLoanMsg.'</span><a></div>';
 	}
 	?>
 	
 	<?php
 	if(isset($BannedBorrowerLoanMsg)){ 
-	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification"><a href="banned-borrower.php?id='.$id_loan.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$BannedBorrowerLoanMsg.'</span><a></div>';
+	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="banned-borrower.php?id='.$id_loan.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$BannedBorrowerLoanMsg.'</span><a></div>';
+	}
+	?>
+	
+	<?php
+	if(isset($LentVerifcationLoanMsg)){ 
+	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="confirm-payment.php?id='.$LentVerifcationLoanId.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$LentVerifcationLoanMsg.'</span><a></div>';
 	}
 	?>
 	
@@ -655,101 +461,13 @@ if(!isset($_SESSION['auth'])){
 	}
 	?>
 
-
 <div class="everything-except-header">
 
-	<div style="margin-top: 160px;">
-	<p class="title">Your Unpaid Loans</p>
+<div style="min-height: calc(100vh - 593px);">
 
- 	<div class="transaction-details">
-	<div class="loan-amount"><span>Loan Amount</span></div>
-	<div class="repay-amount"><span >Repayment Amount</span></div>
-	<div class="interest-rate"><span>Repayment Date</span></div>
-	<div class="repay-date"><span>Lender</span></div>
-	<div class="feedback"><span>Status</span></div>
-	</div>
-			
-	<div style="margin-left: 10%;">
-		<?php
-		
-		 if(isset($errorMsg)){ 
-			echo '<p class="error-message">'.$errorMsg.'</p>'; 
-		 }?>
-	</div>	
-		        <?php 
+About-Loggedin
 
-				while($question = $getAllMyQuestions->fetch()){
-				
-				if(($question['repayment_received'] == "no_notseen")OR($question['repayment_received'] == "no")OR($question['repayment_received'] == "no_correct_id")OR($question['repayment_received'] == "no_correct_id_notconfirmed")){
-				$status_color = "#9e3dff";
-				$status_public = "Under Verification";
-				
-				}else{
-				
-					if(($question['status'] == "paid_ontime")OR($question['status'] == "paid_ontime_notseen")){
-						$status_color = "#03cf00";
-						$status_public = "Paid On Time";
-					}elseif(($question['status'] == "paid_late")OR($question['status'] == "paid_late_notseen")){
-						$status_color = "Orange";
-						$status_public = "Paid Late";
-					}elseif(($question['status'] == "unpaid")OR($question['status'] == "unpaid_notseen")OR($question['status'] == "unpaid_banned")OR($question['status'] == "unpaid_banned_archived")){
-						$status_color = "Red";
-						$status_public = "Unpaid";
-					}elseif(($question['status'] == "active")OR($question['status'] == "active_notseen")){
-						$status_color = "#2b80ff";
-						$status_public = "Active";
-					}elseif(($question['status'] == "paid_afterban_notseen")OR($question['status'] == "paid_afterban")){
-						$status_color = "orange";
-						$status_public = "Paid After ban";
-					}
-				}
-                ?>
-
-	<div class="loan-request">
-		<div class="loan-details">	
-				<div class="loan-amount"><span><?= $question['loan_amount']; ?>$</span></div>
-				<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
-				<div class="interest-rate"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
-				<div class="repay-date"><a style="text-decoration: none; color: #3d91e0;" href="profile-user.php?id=<?= $question['id_lender']; ?>"><span><?= $question['username_lender']; ?></span></a></div>
-				<div class="feedback"><span style="color: <?=$status_color; ?>;"><?= $status_public;?></span></div>
-				<div class="payment-method"><a href="repay-panel.php?id=<?= $question['id']; ?>"><?php if(isset($RepayLoan)){echo '<button class="repay-button">'.$RepayLoan.'</button>';} ?></a></div>
-		</div>
-	</div>
-	
-	
-	                <?php
-            }
-
-        ?>
-	
-
-	
-	
-		
-		<div class="under-container">
-		<a href="active-loans.php"><button class="load-more">Active Loans</button></a>
-		<a href="borrow-money.php"><button class="borrow-button">Borrow Money</button></a>
-		</div>
-		
-		<div class="explain">
-		<p class="explain-title">Manage unpaid Loans</p>
-		
-		<p style="font-weight: 500;">A Loan is marked as <span style="color: red; font-weight: bold;">Unpaid</span> when the Repayment hasn't been made on the Agreed Upon Date.
-		</br>If the Borrower does not send Funds to the Lender <b>7 days</b> after the Repayment date, the Borrower will be <span style="color: red; font-weight: bold;">Banned</span> and his Personnal Information will be Given to the lender.
-		</br>Additionaly, the Borrower's information will be Published on Instant Borrow's <a href="page-of-shame.php" style="text-decoration: none; color: #3d91e0;" target="blank">Wall of Shame</a> and Social media Accounts.</p>
-
-	
-		<div>
-		<p>If the Borrower sends Funds to the Lender less than 7 days after the repayment date, the Borrower will not be Banned but Personnal Information will be sent to the Lender and the Loan will be marked as <span style="color: orange; font-weight: bold;">Paid Late</span>.</p>
-		
-		<p>The punctuality of repayments plays a big part in the calculation of the Truscscore, and a Loan <span style="color: orange; font-weight: bold;">Paid Late</span> will negatively affect it.</p>
-		
-		<p style="font-weight: 500; margin-top: 40px;">If you Have any Questions about Loans, Refer to the <a href="borrower-guide.php" style="text-decoration: none; color: #3d91e0;">Borrower's Guide</a> Or <a href="contact-us.php" style="text-decoration: none; color: #3d91e0;">Contact our Support team.</a></p>
-		</div>
-		</div>
-			
-	</div>
-
+</div>
 
 <div class="footer">
 	<div class="footer-content">

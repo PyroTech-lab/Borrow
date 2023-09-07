@@ -7,7 +7,7 @@ require('actions/users/bannedAction.php');
 
 <?php
 	if(isset($Loannotfound)){ 
-	header('Location: loannotfound-yeslogin.php');
+	header('Location: loan-not-found.php');
 	}
 ?>
 
@@ -455,9 +455,9 @@ require('actions/users/bannedAction.php');
 
 <div class="header">
 	<div class="header-text">
-		<div class="logo"><a href="about-loggedin.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
+		<div class="logo"><a href="about-us.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
-		<div class="borrow"><a href="borrow-yeslogin.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
+		<div class="borrow"><a href="borrow-money.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
 		<div class="signup"><div><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
 	</div>
@@ -477,7 +477,7 @@ require('actions/users/bannedAction.php');
 		<div class="text">Instant Borrow Fee</br><span class="subtext1">0$</span></div>
 		</div>
 		<div class="column-2">
-		<div class="text">Lender</br><a href="user-profile-yeslogin.php?id=<?= $id_lender; ?>" target="blank" style="text-decoration: none;"><span class="subtext2"><?= $username_lender; ?></span></a></div>
+		<div class="text">Lender</br><a href="profile-user.php?id=<?= $id_lender; ?>" target="blank" style="text-decoration: none;"><span class="subtext2"><?= $username_lender; ?></span></a></div>
 		<div class="text">Repayment Date</br><span class="subtext1" style="color: red;"><?= date('M jS, Y', strtotime($repayment_date)); ?></span></div>
 		</div>
 		<div class="column-3">
@@ -491,9 +491,9 @@ require('actions/users/bannedAction.php');
 	</div>
 	
 	<div class="chat-div">
-		<div class="subtitle-chat"><span>Contact <a href="user-profile-yeslogin.php?id=<?= $id_lender; ?>" style="text-decoration: none;" target="blank"><span style="color: #560296;"><?= $username_lender; ?></span></a></span></div>
+		<div class="subtitle-chat"><span>Contact <a href="profile-user.php?id=<?= $id_lender; ?>" style="text-decoration: none;" target="blank"><span style="color: #560296;"><?= $username_lender; ?></span></a></span></div>
 		<div class="chat-text"><span>Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
-		<button class="chat-button">Contact <span><?= $username_lender; ?></span></button><span class="phone-hidden">Phone Number: <span class="phone-text"><?=$phone_number?></span></span>
+		<button class="chat-button">Contact <span><?= $username_lender; ?></span></button><span class="phone-hidden">Phone Number: <span class="phone-text"><?=$phone_number_display?></span></span>
 	</div>
 
 		
@@ -508,18 +508,18 @@ require('actions/users/bannedAction.php');
 		</div>
 		<div class="footer-2">
 			<div class="footer-subsection-title"><span>Company</span></div>
-			<div class="footer-subsection-text"><a href="about-loggedin.php" class="footer-link" target="blank"><span>About Instant Borrow</span></a></div>
-			<div class="footer-subsection-text"><a href="contact-loggedin.php" class="footer-link" target="blank"><span>Contact Us</span></a></div>
+			<div class="footer-subsection-text"><a href="about-us.php" class="footer-link" target="blank"><span>About Instant Borrow</span></a></div>
+			<div class="footer-subsection-text"><a href="contact-us.php" class="footer-link" target="blank"><span>Contact Us</span></a></div>
 		</div>
 		<div class="footer-3">
 			<div class="footer-subsection-title"><span>Resources</span></div>
-			<div class="footer-subsection-text"><a href="lender-info-loggedin.php" class="footer-link" target="blank"><span>Lender's Guide</span></a></div>
-			<div class="footer-subsection-text"><a href="borrower-info-loggedin.php" class="footer-link" target="blank"><span>Borrower's Guide</span></a></div>
+			<div class="footer-subsection-text"><a href="lender-guide.php" class="footer-link" target="blank"><span>Lender's Guide</span></a></div>
+			<div class="footer-subsection-text"><a href="borrower-guide.php" class="footer-link" target="blank"><span>Borrower's Guide</span></a></div>
 		</div>
 		<div class="footer-4">
 			<div class="footer-subsection-title"><span>Legal</span></div>
-			<div class="footer-subsection-text"><a href="terms-conditions-loggedin.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
-			<div class="footer-subsection-text"><a href="privacy-policy-loggedin.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
+			<div class="footer-subsection-text"><a href="terms.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
+			<div class="footer-subsection-text"><a href="privacy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
 		</div>
 		<div class="footer-bottom">
 			<div class="social-widgets">

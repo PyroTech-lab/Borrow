@@ -1,14 +1,9 @@
 <?php
-require('actions/users/showYourUnpaidLoansAction.php');
-require('actions/questions/updateDatabases.php');
+require('actions/users/securityAction.php');
+require('actions/questions/publishRequestAction.php');
 require('actions/users/notificationAction.php');
+require('actions/questions/updateDatabases.php');
 require('actions/users/bannedAction.php');
-?>
-
-<?php
-if(!isset($_SESSION['auth'])){
-    header('Location: index.php');
-}
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +16,7 @@ if(!isset($_SESSION['auth'])){
 <meta charset="UTF-8">
 <meta name="robots" content="noindex" />
 	
-<title>Your Unpaid Loans - Instant Borrow</title>
+<title>Instant Borrow - Borrow Money Quickly and Easily</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
@@ -191,8 +186,6 @@ if(!isset($_SESSION['auth'])){
 	transform: scale(1.1); 
 }
 
-
-
 .notification-unpaid {
 	background-color: red;
 	color: white;
@@ -303,163 +296,169 @@ if(!isset($_SESSION['auth'])){
 	color: white;
 }
 
-
 .everything-except-header {
 	position: absolute;
 	width: 100%;
 }
 
+.main {
+	margin-top: 160px;
+	width: 50%;
+	margin-left: 25%;
+	background-color: white;
+	text-align: left;
+}
 
 .title {
-	margin-left: 10%;
+	width: 100%;
+	font-size: 2.52rem;
 	color: #00c4ff;
 	font-weight: bold;
-	font-size: 2.32rem
+	margin-bottom: 40px;
 }
 
-.transaction-details {
-	margin-left: 10%;
-	width: 80%;
-	padding-bottom: 15px;
-	margin-top: 50px;
-	margin-bottom: 28px;
-	border: 1px solid #bababa;
-	background-color: #f7f7f7;
-	border-radius: 0.325rem;
-	text-align: left;
-}
-
-
-.loan-amount {
-	height: 23px;
-	margin-top: 15px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.repay-amount {
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -31px;
-	margin-left: 16.6%;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.interest-rate	{
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -31px;
-	margin-left: 33.2%;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.repay-date {
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -31px;
-	margin-left: 49.8%;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.feedback {
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -31px;
-	margin-left: 66%;
-	padding: 4px;
-	color: #383838;
-	font-weight: 500;
-	font-size: 1.05rem;
-}
-
-.payment-method {
-	height: 23px;
-	text-align: center;
-	width: 16.6%;
-	background-color: transparent;
-	margin-top: -35px;
-	margin-bottom: 12px;
-	margin-left: 82.6%;
-}
-
-
-.repay-button {
-	width: 140px;
-	background-color: red;
-	border: 0;
-	padding: 10px;
-	border-radius: 0.325rem;
+.subtitle {
+	width: 100%;
+	margin-top: -25px;
+	margin-bottom: 80px;
+	margin-right:60px;
+	font-size: 1.2rem;
 	font-weight: bold;
-	font-size: 1.02rem;
-	color: white;
+	color: #383838;
+}
+
+.subtitle-bold {
+	color: #2b80ff;
+	font-weight: 500;
+}
+
+.form-text {
+	font-weight: 500;
+	font-size: 1.1rem;
+}
+
+
+.input {
+	width: calc(100% - 7px);
+	height: 40px;
+	background-color: #f7f7f7;
+	margin-top: -10px;
+	margin-bottom: 10px;
+	border: 1px solid #00c4ff;
+	border-radius: 0.125rem;
+	transition: transform 0.2s;
+	font-size: 1.6rem;
+	font-weight: bold;
+	color: #00c4ff;
+	padding-left: 7px;
+}
+
+.input:hover {
+	outline: 1px solid #00c4ff;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	-ms-transform: scale(1.015); /* IE 9 */
+	-webkit-transform: scale(1.015); /* Safari 3-8 */
+	transform: scale(1.015); 
 }
 
-.repay-button:hover {
-	background-color: #c90000;
-	-ms-transform: scale(1.05); /* IE 9 */
-	-webkit-transform: scale(1.05); /* Safari 3-8 */
-	transform: scale(1.05); 
+.input:focus {
+	outline: 1px solid #00c4ff;
+	background-color: rgba(0, 196, 255, 0.08);
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
+.input-notes {
+	width: calc(100% - 7px);
+	height: 130px;
+	margin-top: -10px;
+	background-color: #f7f7f7;
+	margin-bottom: 10px;
+	border: 1px solid #00c4ff;
+	border-radius: 0.125rem;
+	transition: transform 0.2s;
+	font-size: 1.11rem;
+	font-weight: 500;
+	color: #00c4ff;
+	padding-left: 7px;
+	resize: vertical;
+	padding-top: 5px;
+}
 
-.loan-request {
-	margin-left: 10%;
-	width: 80%;
-	margin-top: -23px;
-	text-align: left;
-	margin-bottom: 35px;
-	padding-bottom: 15px;
-	border: 1px solid #bababa;
-	background-color: white;
+.input-notes:hover {
+	outline: 1px solid #00c4ff;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	-ms-transform: scale(1.015); /* IE 9 */
+	-webkit-transform: scale(1.015); /* Safari 3-8 */
+	transform: scale(1.015); 
+}
+
+.input-notes:focus {
+	outline: 1px solid #00c4ff;
+	background-color: rgba(0, 196, 255, 0.08);
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.input[type="date"] {
+  -webkit-text-fill-color: #00c4ff;
+}
+
+input::-webkit-datetime-edit-day-field:focus,
+input::-webkit-datetime-edit-month-field:focus,
+input::-webkit-datetime-edit-year-field:focus {
+    background-color: #e5de00;
+    color: white;
 	border-radius: 0.325rem;
-	transition: transform .2s;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
-.loan-request:hover {
-	background-color: #fbfbfb;
-  -ms-transform: scale(1.0055); /* IE 9 */
-  -webkit-transform: scale(1.0055); /* Safari 3-8 */
-  transform: scale(1.0055); 
+.borrow-button {
+	margin-top: 35px;
+	width: 100%;
+	height: 50px;
+	background-color: #00c4ff;
+	color: white;
+	font-size: 1.18rem;
+	font-weight: bold;
+	border: 0;
+	border-radius: 0.325rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform 0.2s;
+	transition: background-color 0.2s;
+}
+
+.borrow-button:hover {
+	background-color: #2b80ff;
+	-ms-transform: scale(1.015); /* IE 9 */
+	-webkit-transform: scale(1.015); /* Safari 3-8 */
+	transform: scale(1.015); 
+}
+
+.success-message {
+	color: green;
+	font-weight: 500;
 }
 
 .error-message {
+	color: red;
 	font-weight: 500;
-	font-size: 1.05rem;
-	margin-bottom: 30px;
-	color: green;
 }
 
 .under-container {
-	margin-left: 10%;
-	margin-bottom: 100px;
+	margin-top: 40px;
 }
 
-.load-more {
+.how-to {
 	padding: 9px;
 	width: 15%;
 	min-width: 140px;
@@ -471,12 +470,12 @@ if(!isset($_SESSION['auth'])){
 	font-size: 0.88rem;
 }
 
-.borrow-button {
+.lend-button {
 	padding: 9px;
 	width: 15%;
 	min-width: 140px;
 	right: 0;
-	background-color:  #f2a100;
+	background-color: #f2a100;
 	color: white;
 	border: 2px solid white;
 	border-radius: 0.325rem;
@@ -484,27 +483,69 @@ if(!isset($_SESSION['auth'])){
 	font-size: 0.88rem;
 }
 
-.load-more:hover {
+.how-to:hover {
 	background-color: #ff0303;
 }
 
-.borrow-button:hover {
+.lend-button:hover {
 	background-color: #edd500;
 }
 
 .explain {
-	margin-left: 10%;
-	width: 80%;
+	margin-top: 50px;
 	text-align: left;
-	color: #383838;
+	color: #2e2e2e;
 }
 
 .explain-title {
-	font-size: 1.8rem;
+	font-size: 2.1rem;
 	font-weight: bold;
 	color: #00c4ff;
 }
 
+.step1 {
+	width: 49%;
+}
+
+.step2 {
+	width: 49%;
+	margin-left: 51%;
+	margin-top: -252px;
+}
+
+.step3 {
+	width: 49%;
+}
+
+.step4 {
+	width: 49%;
+	margin-left: 51%;
+	margin-top: -202px;
+}
+
+.inner-box {
+	border: 1px solid #00c4ff;
+	border-radius: 0.25rem;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.steps-title {
+	font-weight: bold;
+	font-size: 1.72rem;
+	color: #00c4ff;
+	margin-bottom: 3px;
+}
+
+.steps-subtitle {
+	font-weight: 500;
+	font-size: 1.1rem;
+}
+
+.explain-bold {
+	font-weight: 500;
+	color: #2b80ff;
+}
 
 
 .footer {
@@ -612,6 +653,11 @@ if(!isset($_SESSION['auth'])){
 	</div>
 </div>
 
+	<?php
+		if(isset($UnpaidMsg)){ 
+		echo '<div class="notification-unpaid"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="unpaid-loans.php" style="text-decoration: none; color: white;"><span class="notification-text">'.$UnpaidMsg.'</span></a></div>';
+		}
+	?>
 	
 	<?php
 		if(isset($RepaymentDateSoonMsg)){ 
@@ -633,13 +679,19 @@ if(!isset($_SESSION['auth'])){
 	
 	<?php
 	if(isset($UnpaidBorrowerLoanMsg)){ 
-	echo '<div class="notification-unpaidborrower"><img src="assets/images/warning-sign-orange.png" class="notification"><a href="unpaid-borrower.php?id='.$id_loan_unpaid.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$UnpaidBorrowerLoanMsg.'</span><a></div>';
+	echo '<div class="notification-unpaidborrower"><img src="assets/images/warning-sign-orange.png" class="notification-image"><a href="unpaid-borrower.php?id='.$id_loan_unpaid.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$UnpaidBorrowerLoanMsg.'</span><a></div>';
 	}
 	?>
 	
 	<?php
 	if(isset($BannedBorrowerLoanMsg)){ 
-	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification"><a href="banned-borrower.php?id='.$id_loan.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$BannedBorrowerLoanMsg.'</span><a></div>';
+	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="banned-borrower.php?id='.$id_loan.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$BannedBorrowerLoanMsg.'</span><a></div>';
+	}
+	?>
+	
+	<?php
+	if(isset($LentVerifcationLoanMsg)){ 
+	echo '<div class="notification-bannedborrower"><img src="assets/images/warning-sign-red.png" class="notification-image"><a href="confirm-payment.php?id='.$LentVerifcationLoanId.'" style="text-decoration: none; color: white;"><span class="notification-text">'.$LentVerifcationLoanMsg.'</span><a></div>';
 	}
 	?>
 	
@@ -655,101 +707,67 @@ if(!isset($_SESSION['auth'])){
 	}
 	?>
 
-
 <div class="everything-except-header">
 
-	<div style="margin-top: 160px;">
-	<p class="title">Your Unpaid Loans</p>
-
- 	<div class="transaction-details">
-	<div class="loan-amount"><span>Loan Amount</span></div>
-	<div class="repay-amount"><span >Repayment Amount</span></div>
-	<div class="interest-rate"><span>Repayment Date</span></div>
-	<div class="repay-date"><span>Lender</span></div>
-	<div class="feedback"><span>Status</span></div>
-	</div>
-			
-	<div style="margin-left: 10%;">
-		<?php
-		
-		 if(isset($errorMsg)){ 
-			echo '<p class="error-message">'.$errorMsg.'</p>'; 
-		 }?>
-	</div>	
+<div class="main">
+	<h1 class="title">Borrow Money</h1>
+	<h2 class="subtitle"><span class="subtitle-bold">Take out a Loan</span> on Instant Borrow - <span class="subtitle-bold">0% Platform Fees</span>, No <span class="subtitle-bold">Paperwork</span>, Incredibly <span class="subtitle-bold">Fast and Easy</span>.</h2>
+	
+	<form onsubmit="return validateMyForm();" method="post">
+		<p class="form-text">Loan Amount (USD)</p>
+		<input name="loan_amount" id="loan" class="input" type="number" min="10" max="2000" required autocomplete="off">
+		<p class="form-text">Repayment Amount (USD)</p>
+		<input name="repayment_amount" id="repayment" class="input" type="number" min="11" max="4000" required autocomplete="off">
+		<div id="text-box" style="color: red;"></div>
+		<p class="form-text">Repayment Date</p>
+		<input name="repayment_date" id="datefield" class="input" type="date" required autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
+		</br>
+		<p class="form-text">Notes</p>
+		<textarea name="notes" class="input-notes" autocomplete="off"></textarea>
+		<input name="submit" type="submit" class="borrow-button" value="Borrow Money">
 		        <?php 
-
-				while($question = $getAllMyQuestions->fetch()){
-				
-				if(($question['repayment_received'] == "no_notseen")OR($question['repayment_received'] == "no")OR($question['repayment_received'] == "no_correct_id")OR($question['repayment_received'] == "no_correct_id_notconfirmed")){
-				$status_color = "#9e3dff";
-				$status_public = "Under Verification";
-				
-				}else{
-				
-					if(($question['status'] == "paid_ontime")OR($question['status'] == "paid_ontime_notseen")){
-						$status_color = "#03cf00";
-						$status_public = "Paid On Time";
-					}elseif(($question['status'] == "paid_late")OR($question['status'] == "paid_late_notseen")){
-						$status_color = "Orange";
-						$status_public = "Paid Late";
-					}elseif(($question['status'] == "unpaid")OR($question['status'] == "unpaid_notseen")OR($question['status'] == "unpaid_banned")OR($question['status'] == "unpaid_banned_archived")){
-						$status_color = "Red";
-						$status_public = "Unpaid";
-					}elseif(($question['status'] == "active")OR($question['status'] == "active_notseen")){
-						$status_color = "#2b80ff";
-						$status_public = "Active";
-					}elseif(($question['status'] == "paid_afterban_notseen")OR($question['status'] == "paid_afterban")){
-						$status_color = "orange";
-						$status_public = "Paid After ban";
-					}
-				}
-                ?>
-
-	<div class="loan-request">
-		<div class="loan-details">	
-				<div class="loan-amount"><span><?= $question['loan_amount']; ?>$</span></div>
-				<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
-				<div class="interest-rate"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
-				<div class="repay-date"><a style="text-decoration: none; color: #3d91e0;" href="profile-user.php?id=<?= $question['id_lender']; ?>"><span><?= $question['username_lender']; ?></span></a></div>
-				<div class="feedback"><span style="color: <?=$status_color; ?>;"><?= $status_public;?></span></div>
-				<div class="payment-method"><a href="repay-panel.php?id=<?= $question['id']; ?>"><?php if(isset($RepayLoan)){echo '<button class="repay-button">'.$RepayLoan.'</button>';} ?></a></div>
-		</div>
-	</div>
-	
-	
-	                <?php
+            if(isset($errorMsg)){ 
+                echo '<p class="error-message">'.$errorMsg.'</p>'; 
+            }elseif(isset($successMsg)){ 
+                echo '<p class="success-message">'.$successMsg.'</p>'; 
             }
-
         ?>
-	
-
+		</form>
+		
+		
 	
 	
 		
 		<div class="under-container">
-		<a href="active-loans.php"><button class="load-more">Active Loans</button></a>
-		<a href="borrow-money.php"><button class="borrow-button">Borrow Money</button></a>
+			<a href="#explain"><button class="how-to">How to Borrow?</button></a>
+			<a href="dashboard.php"><button class="lend-button">Lend Money</button></a>
 		</div>
-		
 		<div class="explain">
-		<p class="explain-title">Manage unpaid Loans</p>
-		
-		<p style="font-weight: 500;">A Loan is marked as <span style="color: red; font-weight: bold;">Unpaid</span> when the Repayment hasn't been made on the Agreed Upon Date.
-		</br>If the Borrower does not send Funds to the Lender <b>7 days</b> after the Repayment date, the Borrower will be <span style="color: red; font-weight: bold;">Banned</span> and his Personnal Information will be Given to the lender.
-		</br>Additionaly, the Borrower's information will be Published on Instant Borrow's <a href="page-of-shame.php" style="text-decoration: none; color: #3d91e0;" target="blank">Wall of Shame</a> and Social media Accounts.</p>
-
-	
-		<div>
-		<p>If the Borrower sends Funds to the Lender less than 7 days after the repayment date, the Borrower will not be Banned but Personnal Information will be sent to the Lender and the Loan will be marked as <span style="color: orange; font-weight: bold;">Paid Late</span>.</p>
-		
-		<p>The punctuality of repayments plays a big part in the calculation of the Truscscore, and a Loan <span style="color: orange; font-weight: bold;">Paid Late</span> will negatively affect it.</p>
-		
-		<p style="font-weight: 500; margin-top: 40px;">If you Have any Questions about Loans, Refer to the <a href="borrower-guide.php" style="text-decoration: none; color: #3d91e0;">Borrower's Guide</a> Or <a href="contact-us.php" style="text-decoration: none; color: #3d91e0;">Contact our Support team.</a></p>
-		</div>
-		</div>
+			<a href="borrower-guide" style="text-decoration: none;"><h3 class="explain-title">How to Borrow Money on Instant Borrow</h3></a>
 			
-	</div>
+			<p style="font-weight: 500; font-size: 1.28rem; margin-top: 50px; color:#2b80ff;">Welcome to the World of Peer-to-Peer Finance.</p> 
+			
+			<p style="font-weight: normal;">Instant Borrow connects Borrowers directly with Lenders and eliminates the need for Banks or other Financial Institutions.</br>Keep total Control over your Funds, Transact Directly with other Users and Forget about lengthy Approval Processes and High Fees.</p>
 
+			<p style="font-weight: 500; font-size: 1.28rem; color:#2b80ff;">The Easiest Way to Get a Loan Right Now, No Matter Your Credit Score.</p>
+			
+			<p style="font-weight: bold; font-size: 1.55rem; color: #00c4ff; margin-top: 60px; margin-bottom: 60px;">THIS IS HOW TO DO IT:</p>
+			
+			<div class="step1"><h3 class="steps-title">1-CREATE AN ACCOUNT</h3><div class="inner-box"><p class="steps-subtitle ">Sign Up and Verify your Account</p><p>What you Need to <span class="explain-bold">Get Started</span>:</br>-Valid <span class="explain-bold">Email Address</span></br>-<span class="explain-bold">Phone Number</span></br>-Form of <span class="explain-bold">Identification</span></p></div></div>
+			<div class="step2"><h3 class="steps-title">2-REQUEST A LOAN</h3><div class="inner-box"><p class="steps-subtitle">Create a Loan request:</p><p>The <span class="explain-bold">Amount</span> you Want to <span class="explain-bold">Borrow</span></br>The <span class="explain-bold">Amount</span> you Will <span class="explain-bold">Repay</span></br>The  <span class="explain-bold">Repayment Date</span></br><span class="explain-bold">Notes</span> About the Loan</p></div></div>
+			<div class="step3"><h3 class="steps-title">3-RECEIVE MONEY</h3><div class="inner-box"><p class="steps-subtitle">When your Loan is Granted:</p><p>Lender Sends <span class="explain-bold">Payment</span></br><span class="explain-bold">Confirm</span> Funds Have Been Received</p></div></div>
+			<div class="step4"><h3 class="steps-title">4-REPAY</h3><div class="inner-box"><p class="steps-subtitle">On (Or Before) the Repayment Date:</p><p><span class="explain-bold">Send Funds</span> to the Borrower</br><span class="explain-bold">Confirm</span> the Transaction was Made</p></div></div>
+			
+			<p style="margin-top: 60px;">All payments are Confirmed by Instant Borrow and are Protected with Advanced security Measures. The Marketplace is closely Monitored and all Users are Verified to ensure a safe Trading Environment.</p>
+			
+			
+			<p>Personnal Information is Fully Protected by Instant Borrow and is only Given to the Lender if the Borrower fails to Repay his Loan.</p>
+
+			<p>If you have any Questions, please <a href="contact-us.php" target="blank" style="color: #3d91e0; text-decoration: none;">Contact Us</a> or Read our User Guides at the Bottom of the Page. We'll always be there for you!</p>
+
+			<h3 style="font-weight: 500; font-size: 1.28rem; color: #2b80ff;">Borrowing Money on Instant Borrow is Safe, Easy and Fast - Experience the Next Revolution in the world of Finance and get all the Funds you Need in Record Time</h3>
+		</div>
+</div>
 
 <div class="footer">
 	<div class="footer-content">
@@ -786,6 +804,53 @@ if(!isset($_SESSION['auth'])){
 </div>
 
 </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+
+<script>
+
+function validateMyForm()
+{
+    var mrp = parseFloat($('#loan').val());
+    var id = parseFloat($('#repayment').val());
+
+    if (mrp >= id) {
+    document.getElementById('text-box').innerHTML = "Repayment Amount must be larger than Loan Amount!";
+    return false;
+  }
+
+  return true;
+}
+
+</script>
+
 
 </body>
 

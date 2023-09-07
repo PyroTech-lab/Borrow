@@ -15,7 +15,7 @@ require('actions/questions/updateDatabases.php');
 
 <meta name="description" content="The vast majority of Borrowers Repay their Loans on time with no issues. The Wall of Shame shares the Identity of the Minority who Fail to Repay.">
 	
-<titleWall of Shame - Instant Borrow</title>
+<title>Wall of Shame - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
@@ -285,7 +285,7 @@ require('actions/questions/updateDatabases.php');
 	<div class="header-text">
 		<div class="logo"><a href="about.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="index.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
-		<div class="borrow"><a href="borrow-nologin.php" style="text-decoration: none; color: black"><span class="borrow-text">Borrow</span></a></div>
+		<div class="borrow"><a href="borrow.php" style="text-decoration: none; color: black"><span class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="login.php" style="text-decoration: none; color: black"><span class="login-text">Login</span></a></div>
 		<div class="signup"><a href="signup.php" style="text-decoration: none; color: black"><span class="signup-text">Sign Up</span></a></div>
 	</div>

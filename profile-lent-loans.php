@@ -5,6 +5,12 @@ require('actions/users/notificationAction.php');
 require('actions/users/bannedAction.php');
 ?>
 
+<?php
+if(!isset($_SESSION['auth'])){
+    header('Location: index.php');
+}
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -581,9 +587,9 @@ require('actions/users/bannedAction.php');
 
 <div class="header">
 	<div class="header-text">
-		<div class="logo"><a href="about-loggedin.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
+		<div class="logo"><a href="about-us.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
-		<div class="borrow"><a href="borrow-yeslogin.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
+		<div class="borrow"><a href="borrow-money.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
 		<div class="signup"><div><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
 	</div>
@@ -708,7 +714,7 @@ require('actions/users/bannedAction.php');
 				<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
 				<div class="interest-rate"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
 				<div class="repay-date"><?php if(isset($unpaid_link1)){ echo "<a style='text-decoration: none;' href='unpaid-borrower.php?id=".$question['id']."'>";} ?><?php if(isset($unpaid_link3)){ echo "<a style='text-decoration: none;' href='banned-borrower.php?id=".$question['id']."'>";} ?><span style="color: <?= $status_color; ?>;"><?= $status_public; ?></span><?php if(isset($unpaid_link4)){ echo "</a>";} ?></div>
-				<div class="feedback"><a style="text-decoration: none; color: #3d91e0;" href="user-profile-yeslogin.php?id=<?= $question['id_borrower']; ?>"><span><?= $question['username_borrower']; ?></span></a></div>
+				<div class="feedback"><a style="text-decoration: none; color: #3d91e0;" href="profile-user.php?id=<?= $question['id_borrower']; ?>"><span><?= $question['username_borrower']; ?></span></a></div>
 				<div class="payment-method"><span><?= $question['feedback_given']; ?></span></div>
 		</div>
 	</div>
@@ -719,7 +725,7 @@ require('actions/users/bannedAction.php');
 		
 		<div class="under-container">
 		<a href="dashboard.php"><button class="load-more">Lend Money</button></a>
-		<a href="borrow-yeslogin.php"><button class="borrow-button">Borrow Money</button></a>
+		<a href="borrow-money.php"><button class="borrow-button">Borrow Money</button></a>
 		</div>
 		
 			
@@ -733,18 +739,18 @@ require('actions/users/bannedAction.php');
 		</div>
 		<div class="footer-2">
 			<div class="footer-subsection-title"><span>Company</span></div>
-			<div class="footer-subsection-text"><a href="about-loggedin.php" class="footer-link" target="blank"><span>About Instant Borrow</span></a></div>
-			<div class="footer-subsection-text"><a href="contact-loggedin.php" class="footer-link" target="blank"><span>Contact Us</span></a></div>
+			<div class="footer-subsection-text"><a href="about-us.php" class="footer-link" target="blank"><span>About Instant Borrow</span></a></div>
+			<div class="footer-subsection-text"><a href="contact-us.php" class="footer-link" target="blank"><span>Contact Us</span></a></div>
 		</div>
 		<div class="footer-3">
 			<div class="footer-subsection-title"><span>Resources</span></div>
-			<div class="footer-subsection-text"><a href="lender-info-loggedin.php" class="footer-link" target="blank"><span>Lender's Guide</span></a></div>
-			<div class="footer-subsection-text"><a href="borrower-info-loggedin.php" class="footer-link" target="blank"><span>Borrower's Guide</span></a></div>
+			<div class="footer-subsection-text"><a href="lender-guide.php" class="footer-link" target="blank"><span>Lender's Guide</span></a></div>
+			<div class="footer-subsection-text"><a href="borrower-guide.php" class="footer-link" target="blank"><span>Borrower's Guide</span></a></div>
 		</div>
 		<div class="footer-4">
 			<div class="footer-subsection-title"><span>Legal</span></div>
-			<div class="footer-subsection-text"><a href="terms-conditions-loggedin.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
-			<div class="footer-subsection-text"><a href="privacy-policy-loggedin.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
+			<div class="footer-subsection-text"><a href="terms.php" class="footer-link" target="blank"><span>Terms & Conditions</span></a></div>
+			<div class="footer-subsection-text"><a href="privacy.php" class="footer-link" target="blank"><span>Privacy Policy</span></a></div>
 		</div>
 		<div class="footer-bottom">
 			<div class="social-widgets">

@@ -1,14 +1,6 @@
 <?php
-require('actions/users/securityAction.php');
-require('actions/questions/showBannedBorrowerInfo.php');
 require('actions/questions/updateDatabases.php');
-require('actions/users/bannedAction.php');
-?>
-
-<?php
-	if(isset($Loannotfound)){ 
-	header('Location: loan-not-found.php');
-	}
+require('actions/users/securityAction.php');
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +13,7 @@ require('actions/users/bannedAction.php');
 <meta charset="UTF-8">
 <meta name="robots" content="noindex" />
 	
-<title>Borrower Banned - Instant Borrow</title>
+<title>Privacy Policy - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
@@ -110,7 +102,6 @@ require('actions/users/bannedAction.php');
 
 .borrow {
 	width: 75px;
-	text-align: right;
 	height: 23px;
 	margin-top: -23px;
 	margin-left: calc(47% + 44px);
@@ -173,7 +164,7 @@ require('actions/users/bannedAction.php');
 	transition: transform 0.2s;
 }
 
-.chat-header {
+.chat-button {
 	height: 25px;
 	width: auto;
 	transition: transform 0.2s;
@@ -185,7 +176,7 @@ require('actions/users/bannedAction.php');
 	transform: scale(1.1); 
 }
 
-.chat-header:hover {
+.chat-button:hover {
 	-ms-transform: scale(1.1); /* IE 9 */
 	-webkit-transform: scale(1.1); /* Safari 3-8 */
 	transform: scale(1.1); 
@@ -196,166 +187,42 @@ require('actions/users/bannedAction.php');
 	width: 100%;
 }
 
-.main {
-	margin-top: 160px;
+.message-container {
+	margin-top: 200px;
 	margin-left: 10%;
+	margin-bottom: 120px;
 	width: 80%;
-	background-color: #f7f7f7;
 }
 
-.loan-recap {
-	border-radius: 0.425rem;
-	background-color: #fcfcfc;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
-	width: 49%;
-	height: 300px;
+.message-title {
+	font-size: 2.85rem;
+	font-weight: bold;
+	color: #00c4ff;
+	text-align: center;
 }
 
-.chat-div {
-	border-radius: 0.425rem;
-	background-color: #fcfcfc;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
-	width: 49%;
-	height: 200px;
+.message-subtitle {
+	margin-top: -10px;
+	font-size: 1.85rem;
+	font-weight: bold;
+}
+
+.message-button {
 	margin-top: 50px;
-}
-
-
-.subtitle {
-	font-weight: bold;
-	margin-top: 20px;
-	margin-bottom: 30px;
-	font-size: 1.8rem;
-	color: #00c4ff;
-}
-
-.text {
-	font-size: 1.12rem;
-	margin-top: 10px;
-	color: #383838;
-}
-
-.column-1 {
-	margin-left: 20px;
-	height: 300px;
-	width: 50%;
-}
-
-.column-2 {
-	margin-left: 50%;
-	height: 300px;
-	width: 50%;
-	margin-top: -237px;
-}
-
-.subtext1 {
-	font-weight: bold;
-	font-size: 1.8rem;
-	color: #00c4ff;
-}
-
-.subtext2 {
-	font-weight: bold;
-	font-size: 1.2rem;
-	color: #00c4ff;
-}
-
-.subtext3 {
-	font-weight: 500;
-	font-size: 1.1rem;
-	color: #2b80ff;
-}
-
-.view-button {
-	margin-left: 10px;
-	background-color: #03c900;
+	background-color: #2b80ff;
 	color: white;
-	font-weight: 500;
-	font-size: 0.95rem;
-	border-radius: 0.325rem;
+	font-weight: bold;
+	font-size: 1.65rem;
+	border-radius: 0.125rem;
 	border: 0px;
-	height: 30px;
-	padding-left: 8px;
-	padding-right: 8px;
+	padding: 10px;
+	outline: 1px solid #2b80ff;
 	transition: background-color 0.2s;
 }
 
-.view-button:hover {
-	background-color: #03a100;
-}
-
-
-
-.subtitle-chat {
-	font-weight: bold;
-	margin-top: 20px;
-	margin-bottom: 5px;
-	margin-left: 20px;
-	font-size: 1.8rem;
-	color: #00c4ff;
-}
-
-.chat-text {
-	margin-left: 20px;
-	font-size: 1.05rem;
-	margin-bottom: 15px;
-	color: #383838;
-}
-
-.chat-button {
-	margin-left: 20px;
-	background-color: #2b80ff;
-	border: 0;
-	padding: 10px;
-	border-radius: 0.325rem;
-	font-weight: bold;
-	font-size: 1.02rem;
-	color: white;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
-}
-
-.chat-button:hover {
+.message-button:hover {
 	background-color: #00c4ff;
-	-ms-transform: scale(1.05); /* IE 9 */
-	-webkit-transform: scale(1.05); /* Safari 3-8 */
-	transform: scale(1.05); 
-}
-
-.chat-button:hover + .phone-hidden {
-	display: inline;
-	margin-left: 10px;
-	border: 1px solid #2b80ff;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	padding: 5px;
-	border-radius: 0.325rem;
-}
-
-.phone-hidden {
-	display: none;
-}
-
-.phone-text {
-	font-weight: 500;
-}
-
-.payment {
-	margin-top: -554px;
-	margin-left: 51%;
-	width: 49%;
-	height: 552px;
-	border-radius: 0.425rem;
-	background-color: #fcfcfc;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
-}
-
-.payment-form {
-	margin-top: 20px;
-	width: 60%;
-	margin-left: 5%;
+	outline: 1px solid #00c4ff;
 }
 
 .footer {
@@ -368,6 +235,8 @@ require('actions/users/bannedAction.php');
 	border-top: 1px solid #d6d6d6;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
+
+
 
 
 .footer-content {
@@ -465,37 +334,80 @@ require('actions/users/bannedAction.php');
 
 <div class="everything-except-header">
 
-<div class="main">
-	
-	<div class="loan-recap">
-		<div class="column-1">
-		<div class="subtitle"><span>Unpaid Loan</span></div>
-		<div class="text">Amount Lent</br><span class="subtext1"><?= $loan_amount; ?>$</span></div>
-		<div class="text">Amount not repayed</br><span class="subtext1"><?= $repayment_amount; ?>$</span></div>
-		</div>
-		<div class="column-2">
-		<div class="text">Agreed Repayment Date</br><span class="subtext2" style="color: red;"><?= date('M jS, Y', strtotime($repayment_date)); ?></span></div>
-		<div class="text"  style="margin-top: 24px;">Borrower</br><a href="profile-user.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span class="subtext2"><?= $username_borrower; ?></span></a></div>
-		</div>
-	</div>
-	
-	<div class="chat-div">
-		<div class="subtitle-chat"><span>Contact <a href="profile-user.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span style="color: #560296;"><?= $username_borrower; ?></span></a></span></div>
-		<div  class="chat-text"><span>Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
-		<button class="chat-button">Contact <span><?= $username_borrower; ?></span></button><span class="phone-hidden">Phone Number: <span class="phone-text"><?=$phone_number_display?></span></span>
-	</div>
-	
-	<div class="payment">
-		<div class="subtitle-chat" style="margin-bottom: 30px;"><span>Borrower Details</span></div>
-		<div class="chat-text" style="margin-top: 20px; margin-bottom: 30px; font-weight: 500;"><span class="subtext2"><?= $username_borrower; ?></span> Hasn't Repaid you and has been <span style="color: red;">Banned</span>.</br>This is the Information we Have On him:</div>
-		<div class="chat-text">Full Name: </br><span class="subtext3"><?= $name; ?></span><a target="blank" href="assets/images/id-pictures/<?= $borrower_picture; ?>"><button class="view-button">View Picture</button></a></div>
-		<div class="chat-text">Email Address: </br><span class="subtext3"><?= $email_address; ?></span></div>
-		<div class="chat-text">Phone Number: </br><span class="subtext3"><?= $phone_number; ?></span></div>
-		<div class="chat-text">Location: </br><span class="subtext3"><?= $city; ?>, <?= $country; ?></span></div>
-		<div class="chat-text" style="margin-top: 30px; font-weight: 500;"><span class="subtext2"><?= $username_borrower; ?></span> Can still Repay you on His Account.</br>You can Also Continue Chatting with Him Indefinitely.</div>
-	</div>
-	
 
+<div class="message-container">
+
+<h1 class="message-title">Instant Borrow Privacy Policy</h1>
+
+<p>Note: By creating a Profile, you are consenting to this Privacy Policy, meaning you give us permission to use your data as described herein. Although your consent is voluntary, without it, we will not be able to provide you with access to the Platform.
+
+Federal law gives consumers the right to limit some but not all sharing. Federal law also requires us to tell you how we collect, share, and protect your personal information. Please read this notice carefully to understand what we do.
+
+Lendee APP LLC, a Delaware corporation, together with its applicable subsidiaries, affiliates, assignees, and successors (collectively, “Lendee“, “we“, “us” or “our“) are committed to your personal privacy and your security online. This Privacy Policy describes the ways we collect, use, share, and protect your personal information.
+
+Information We Collect About You
+We collect information about you in the following ways:
+
+Information You Provide: To use Lendee’s website [Lendee.com] (the “Platform“), whether as a prospective borrower or a prospective lender, you will be required to create a user profile (a “Profile”), which will include furnishing Personal Information, which may include your name, email address, mailing address, telephone number and Social Security Number. If you are interested in obtaining a loan, you will also be required to provide additional financial information, which may include income, employment, and bank account information. To verify your identity and the information that you have been provided, you may also be asked to scan and upload images of certain documents, including your driver’s license or other form of identification.
+
+Information from Third Parties: Third parties, such as credit bureaus and social media platforms, may provide us with information related to you. We may combine this information with information we already have about you to assist prospective lenders in evaluating your loan request or for similar purposes.
+
+Information from Your Use of the Platform: We may collect additional behavioral information based on your use of the Platform. This may include information regarding the performance of loans you obtain on the Platform, as well as history of Applications or Loan offers, and more general information such as device information and log-in information. Lendee uses cookies when you access your Profile to keep track of your session, authenticate your account, and detect fraud. You can control the use of cookies within your web browser; however, if you reject cookies, your ability to use some features or areas of the Platform may be limited.
+
+How Long We Retain Information We Collect
+We will retain your information for the period necessary to fulfill the purposes outlined in this Privacy Policy, or as necessary to comply with legal obligations and our backup, archival, and audit procedures.
+
+How We Use Information We Collect
+Information we collect from you may be used in one or more of the following ways:
+
+To verify your identity and age as well as to guard against potential fraud;
+
+To obtain, with your authorization, third-party data from credit bureaus, social media sites, or others in connection with your loan request;
+
+To personalize your experience using the Platform;
+
+To provide customer service and to send regular communications regarding your transactions and related offers;
+
+To enable our service providers to provide you with services, such as funds payments, billing, and collection activities, as needed;
+
+To market additional products and services to you;
+
+To improve the Platform and to develop or offer new products and services;
+
+To enforce agreements with you;
+
+To comply with a court order, legal process, or applicable law, including retaining personal data or responding to any government or regulatory request; and/or
+
+For any other purpose for which you provide your consent.
+
+Information We Share
+We may share information with third parties for everyday business purposes, including:
+
+Other Lendee users that are interested in considering your loan request, including but not limited to those Lendee users that ultimately fund your loan request (the “Lender“);
+
+Our banking partners, and other third party service providers, including our software provider, and debt collection companies.
+
+Credit bureaus to report repayment status of loans made through the Platform, as permitted by law; and
+
+Government officials, including law enforcement, when we are subject to subpoena, court order or similar legal procedures or we need to do so to comply with law.
+
+Lendee will not sell or license any of your personal information to third parties for their marketing purposes and will only share your personal information with third parties as described above. We may share aggregated, non-identifiable user information with third parties, such as advertisers and content distributors.
+
+Third Party Data Collection
+Some content on the Platform may be provided by third parties, including advertisers, analytics companies, and application providers, which may use cookies or other tracking technologies to collect information about you on the Platform. If you have any questions about an advertisement or related content, you should contact the third party provider directly as they may give you the option to not have your information collected or used for targeted advertising.
+
+Compliance with State and Federal Laws
+This Privacy Policy may not constitute your entire set of privacy rights, as these may also vary from state to state. To be certain of your privacy rights, you may wish to contact the appropriate agency in your state charged with overseeing privacy rights for consumers.
+
+Modifications to This Policy
+Lendee may update this Privacy Policy from time to time as it deems necessary in its sole discretion. By using or accessing the Platform, you agree that we may modify this policy at any time without prior notice. If there are material changes to this Privacy Policy, we will provide notice where and in the manner required by applicable law, including but not limited to, through the Lendee website. The last modified date at the bottom of this page reflects the most recent version of the Privacy Policy.
+
+Your continued use of the Platform after any modification of this policy shall constitute your agreement to be bound by any such changes. We will, however, seek your consent to future modifications to the extent we are required by applicable law.
+
+How You Can Contact Us
+You may either log in to your Profile on the Platform or email us at support@Lendee.com to request access to, correct, or delete any personal information that you have provided to us or to exercise any other data protection right to which we are subject under applicable law, statute, or regulation. Please note that we may not accommodate a request to change information if we believe the change would violate any law or legal requirement or cause the information to be incorrect. You may also contact us at the following: submit a request here.
+
+If you have any questions or concerns regarding this Privacy Policy, please contact us by emailing us at support@Lendee.com.</p>
 
 </div>
 

@@ -337,7 +337,7 @@ if(!isset($_SESSION['admin'])){
                 ?>
 				<div class="loan-verification">
 				
-				<div><span>Name:</span><a style="color: #00c4ff; text-decoration: none; font-size: 1.2rem;" href="user-profile-nologin.php?id=<?=$IDCardInfos['id']; ?>" target="blank"><span class="user-info"> <?= $IDCardInfos['name']; ?></span></a></div>
+				<div><span>Name:</span><a style="color: #00c4ff; text-decoration: none; font-size: 1.2rem;" href="user-profile.php?id=<?=$IDCardInfos['id']; ?>" target="blank"><span class="user-info"> <?= $IDCardInfos['name']; ?></span></a></div>
 				<div><span>Date of Birth:</span><span class="user-info"> <?= date('M jS, Y', strtotime($IDCardInfos['date_birth'])); ?></span></div>
 				<div><span>Username:</span><span class="user-info"> <?= $IDCardInfos['username']; ?></span></div>
 				<div><span>Address:</span><span class="user-info"> <?= $IDCardInfos['address']; ?>,<span> <span class="user-info"> <?= $IDCardInfos['city']; ?>,</span><span class="user-info"> <?= $IDCardInfos['postcode']; ?></span></div>
@@ -373,7 +373,7 @@ if(!isset($_SESSION['admin'])){
 			
 				<div class="loan-verification">
 				
-				<div><span>Name:</span><a style="color: #00c4ff; text-decoration: none; font-size: 1.2rem;" href="user-profile-nologin.php?id=<?=$getname['id']; ?>" target="blank"><span class="user-info"> <?= $getname['name']; ?></span></a></div>
+				<div><span>Name:</span><a style="color: #00c4ff; text-decoration: none; font-size: 1.2rem;" href="user-profile.php?id=<?=$getname['id']; ?>" target="blank"><span class="user-info"> <?= $getname['name']; ?></span></a></div>
 				<div><span>Date of Birth:</span><span class="user-info"> <?= date('M jS, Y', strtotime($getname['date_birth'])); ?></span></div>
 				<div><span>Username:</span><span class="user-info"> <?= $getname['username']; ?></span></div>
 				<div><span>Address:</span><span class="user-info"> <?= $getname['address']; ?>,<span> <span class="user-info"> <?= $getname['city']; ?>,</span><span class="user-info"> <?= $getname['postcode']; ?></span></div>
@@ -406,7 +406,7 @@ if(!isset($_SESSION['admin'])){
 			
 				<div class="loan-verification">
 				
-				<div><span>Name:</span><a style="color: #00c4ff; text-decoration: none; font-size: 1.2rem;" href="user-profile-nologin.php?id=<?=$getname_banned['id']; ?>" target="blank"><span class="user-info"> <?= $getname_banned['name']; ?></span></a></div>
+				<div><span>Name:</span><a style="color: #00c4ff; text-decoration: none; font-size: 1.2rem;" href="user-profile.php?id=<?=$getname_banned['id']; ?>" target="blank"><span class="user-info"> <?= $getname_banned['name']; ?></span></a></div>
 				<div><span>Date of Birth:</span><span class="user-info"> <?= date('M jS, Y', strtotime($getname_banned['date_birth'])); ?></span></div>
 				<div><span>Username:</span><span class="user-info"> <?= $getname_banned['username']; ?></span></div>
 				<div><span>Address:</span><span class="user-info"> <?= $getname_banned['address']; ?>,<span> <span class="user-info"> <?= $getname_banned['city']; ?>,</span><span class="user-info"> <?= $getname_banned['postcode']; ?></span></div>

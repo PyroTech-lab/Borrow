@@ -201,11 +201,11 @@ input[type=number] {
 <div class="main">
 	<div class="text">
 		<div style="display: <?= $BodyDisplay; ?>;">
-			<p style="font-size: 1.4rem; font-weight: 500;">Sign Into your Account</p>
+			<h1 style="font-size: 1.4rem; font-weight: 500; margin-top: 22px;">Sign Into your Account</h1>
 			<form method="post">
-			<p style="margin-top: 40px;">Email</p>
+			<h2 style="margin-top: 40px; font-weight: 500; font-size: 0.9rem; margin-bottom: 14px;">Email</h2>
 				<input class="input" type="email" name="email" required autocomplete="off">
-				<p style="margin-top: 20px;">Password</p>
+				<h2 style="margin-top: 20px; font-weight: 500; font-size: 0.9rem; margin-bottom: 14px;">Password</h2>
 				<input class="input" id="input" type="password" name="password" required>
 				<div class="label-container"><label for="showPassword" class="label"><img src="assets/images/show-password.jpg" class="label-image"><input id="showPassword" type="checkbox" onclick="ShowPasswordFunction()" style="display: none;"></label></div>
 				<input type="submit" class="login-button" name="login" value="login">

@@ -348,6 +348,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	margin-left: 80px;
 	margin-right:60px;
 	font-size: 1.1rem;
+	font-weight: normal;
 	color: #383838;
 }
 
@@ -863,7 +864,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	<div class="header-text">
 		<div class="logo"><a href="about.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="index.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
-		<div class="borrow"><a href="borrow-nologin.php" style="text-decoration: none; color: black"><span class="borrow-text">Borrow</span></a></div>
+		<div class="borrow"><a href="borrow.php" style="text-decoration: none; color: black"><span class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="login.php" style="text-decoration: none; color: black"><span class="login-text">Login</span></a></div>
 		<div class="signup"><a href="signup.php" style="text-decoration: none; color: black"><span class="signup-text">Sign Up</span></a></div>
 	</div>
@@ -1016,7 +1017,7 @@ input::-webkit-datetime-edit-year-field:focus {
 
 	<div class="main-right">
 		<h1 class="title">Lend Money. Get Big Returns.</h1>
-		<p class="subtitle"><span class="subtitle-bold">Lend and Borrow</span> on Instant Borrow - <span class="subtitle-bold">0% Platform Fees</span>, Unmatched <span class="subtitle-bold">Profits</span>, Incredibly <span class="subtitle-bold">Fast and Easy</span>.</p>
+		<h2 class="subtitle"><span class="subtitle-bold">Lend and Borrow</span> on Instant Borrow - <span class="subtitle-bold">0% Platform Fees</span>, Unmatched <span class="subtitle-bold">Profits</span>, Incredibly <span class="subtitle-bold">Fast and Easy</span>.</h2>
 
 		<div class="container">
 		
@@ -1151,14 +1152,14 @@ input::-webkit-datetime-edit-year-field:focus {
 			<div class="loan-request">
 				<div class="loan-details">
 						<div style="padding-bottom: 10px;">
-						<div class="borrower-2"><a href="user-profile-nologin.php?id=<?=$question['id_borrower']; ?>" style="text-decoration: none; color: #3d91e0;"><span><?= $question['username_borrower']; ?></span></a></div>
+						<div class="borrower-2"><a href="user-profile.php?id=<?=$question['id_borrower']; ?>" style="text-decoration: none; color: #3d91e0;"><span><?= $question['username_borrower']; ?></span></a></div>
 						<div class="loan-amount-2"><span><?= $question['loan_amount']; ?>$</span></div>
 						<div class="repay-amount-2"><span><?= $question['repayment_amount']; ?>$</span></div>
 						<div class="interest-rate-2"><span><?= $question['interest']; ?>%</span></div>
 						<div class="repay-date-2"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
 						</div>
 						<div style="text-align: right; margin-top: -40px;">
-						<a href="loan-nologin.php?id=<?= $question['id']; ?>"><button class="lend-button">LEND</button><a>
+						<a href="loan.php?id=<?= $question['id']; ?>"><button class="lend-button">LEND</button><a>
 						</div>
 							<div class="trustscore">
 							<span>Trustscore: <span style="font-weight: bold; color: <?= $trustscore_color; ?>;"><?= $question['borrower_trustscore']; ?>/100</span></span>
@@ -1212,14 +1213,14 @@ input::-webkit-datetime-edit-year-field:focus {
 				<input class="<?= $class9 ?>" id="load_more" name="load_more9" type="submit" value="Load More Offers">
 				</form>
 				
-				<div class="<?= $classButton ?>"><a href="borrow-nologin.php"><button class="borrow-button">Borrow Money</button></a></div>
+				<div class="<?= $classButton ?>"><a href="borrow.php"><button class="borrow-button">Borrow Money</button></a></div>
 			</div>
 		
 		</div>
 		
 		
 		<div class="explain">
-			<a href="lender-info.php" style="text-decoration: none;"><p class="explain-title">How to Lend Money on Instant Borrow</p></a>
+			<a href="lender-info.php" style="text-decoration: none;"><h3 class="explain-title">How to Lend Money on Instant Borrow</h3></a>
 			
 			<p style="font-weight: 500; font-size: 1.28rem; margin-top: 50px; color:#2b80ff;">Welcome to the World of Peer-to-Peer Finance.</p> 
 			
@@ -1230,10 +1231,10 @@ input::-webkit-datetime-edit-year-field:focus {
 			
 			<p style="font-weight: bold; font-size: 1.55rem; color: #00c4ff; margin-top: 60px; margin-bottom: 60px;">THIS IS HOW TO DO IT:</p>
 			
-			<div class="step1"><p class="steps-title">1-BROWSE</p><div class="inner-box"><p class="steps-subtitle">Find in the Loan Requests Section:</p><p><span class="explain-bold">Loan Amounts</span></br><span class="explain-bold">Repayment Amounts</span> and <span class="explain-bold">Dates</span></br><span class="explain-bold">Interest</span> Rates</br><span class="explain-bold">Trustscores</span> and <span class="explain-bold">Feedback</span> Given to Borrowers</p></div></div>
-			<div class="step2"><p class="steps-title">2-SELECT A LOAN</p><div class="inner-box"><p class="steps-subtitle">Get on the Loan Recap Page:</p><p>A <span class="explain-bold">Recap</span> of the Loan</br><span class="explain-bold">Information</span> About the Borrower</br>His Borrowing <span class="explain-bold">History</span></br><span class="explain-bold">Notes</span> Regarding the Loan</p></div></div>
-			<div class="step3"><p class="steps-title">3-LEND</p><div class="inner-box"><p class="steps-subtitle">On the Payment Page:</p><p>Choose your <span class="explain-bold">Payment Method</span></br><span class="explain-bold">Send Funds</span> to the Borrower</br><span class="explain-bold">Confirm</span> the Transaction was Made</p></div></div>
-			<div class="step4"><p class="steps-title">4-PROFIT</p><div class="inner-box"><p class="steps-subtitle">On the Repayment Date:</p><p>Borrower Sends <span class="explain-bold">Repayment</span></br><span class="explain-bold">Confirm</span> Funds Have Been Received</br><span class="explain-bold">Evaluate</span> the Borrower</p></div></div>
+			<div class="step1"><h3 class="steps-title">1-BROWSE</h3><div class="inner-box"><p class="steps-subtitle">Find in the Loan Requests Section:</p><p><span class="explain-bold">Loan Amounts</span></br><span class="explain-bold">Repayment Amounts</span> and <span class="explain-bold">Dates</span></br><span class="explain-bold">Interest</span> Rates</br><span class="explain-bold">Trustscores</span> and <span class="explain-bold">Feedback</span> Given to Borrowers</p></div></div>
+			<div class="step2"><h3 class="steps-title">2-SELECT A LOAN</h3><div class="inner-box"><p class="steps-subtitle">Get on the Loan Recap Page:</p><p>A <span class="explain-bold">Recap</span> of the Loan</br><span class="explain-bold">Information</span> About the Borrower</br>His Borrowing <span class="explain-bold">History</span></br><span class="explain-bold">Notes</span> Regarding the Loan</p></div></div>
+			<div class="step3"><h3 class="steps-title">3-LEND</h3><div class="inner-box"><p class="steps-subtitle">On the Payment Page:</p><p>Choose your <span class="explain-bold">Payment Method</span></br><span class="explain-bold">Send Funds</span> to the Borrower</br><span class="explain-bold">Confirm</span> the Transaction was Made</p></div></div>
+			<div class="step4"><h3 class="steps-title">4-PROFIT</h3><div class="inner-box"><p class="steps-subtitle">On the Repayment Date:</p><p>Borrower Sends <span class="explain-bold">Repayment</span></br><span class="explain-bold">Confirm</span> Funds Have Been Received</br><span class="explain-bold">Evaluate</span> the Borrower</p></div></div>
 			
 			<p style="margin-top: 60px;">All payments are Confirmed by Instant Borrow and are Protected with Advanced security Measures. The Marketplace is closely Monitored and all Users are Verified to ensure a safe Trading Environment.</p>
 			
@@ -1241,7 +1242,7 @@ input::-webkit-datetime-edit-year-field:focus {
 
 			<p>If you have any Questions, please <a href="contact.php" target="blank" style="color: #3d91e0; text-decoration: none;">Contact Us</a> or Read our User Guides at the Bottom of the Page. We'll always be there for you!</p>
 
-			<p style="font-weight: 500; font-size: 1.28rem; color: #2b80ff;">Lending on Instant Borrow is Safe, Easy and Lucrative — Experience the next Revolution in the world of Finance and Make Record Profits in Record Time</p>
+			<h3 style="font-weight: 500; font-size: 1.28rem; color: #2b80ff;">Lending on Instant Borrow is Safe, Easy and Lucrative — Experience the next Revolution in the world of Finance and Make Record Profits in Record Time</h3>
 		</div>
 	</div>
 </div>
