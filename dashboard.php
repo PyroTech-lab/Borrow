@@ -385,7 +385,7 @@ sticky-input[type=number] {
 .symbol-right {
 	margin-top: -49px;
 	font-size:1.35rem;
-	font-weight: bold;
+	font-weight: 500;
 	width: 1px;
 	margin-left: calc(100% - 1px);
 	text-align: left;
@@ -451,9 +451,9 @@ input::-webkit-datetime-edit-year-field:focus {
 	width: 90%;
 	margin-left: 80px;
 	margin-bottom: 40px;
-	font-size: 2.52rem;
-	color: #00c4ff;
-	font-weight: bold;
+	font-size: 3.2rem;
+	color: black;
+	font-weight: 500;
 }
 
 .subtitle {
@@ -462,13 +462,13 @@ input::-webkit-datetime-edit-year-field:focus {
 	margin-bottom: 80px;
 	margin-left: 80px;
 	margin-right:60px;
-	font-size: 1.1rem;
+	font-size: 1.2rem;
 	font-weight: normal;
 	color: #383838;
 }
 
 .subtitle-bold {
-	color: #2b80ff;
+	color: #00c4ff;
 	font-weight: 500;
 }
 
@@ -833,8 +833,27 @@ input::-webkit-datetime-edit-year-field:focus {
 
 .explain-title {
 	font-size: 2.1rem;
-	font-weight: bold;
+	font-weight: 500;
 	color: #00c4ff;
+}
+
+.link-round {
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-right: 6px;
+	padding-left: 6px;
+	font-size: 0.93rem;
+	background-color: white;
+	color: #2b80ff;
+	border: 1px solid #2b80ff;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+
+.explain-title:hover .link-round{
+	background-color: #00c4ff;
+	color: white;
+	border: 1px solid #00c4ff;
 }
 
 .step1 {
@@ -858,7 +877,7 @@ input::-webkit-datetime-edit-year-field:focus {
 }
 
 .inner-box {
-	border: 1px solid #00c4ff;
+	border: 1px solid #b3b3b3;
 	border-radius: 0.25rem;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -980,7 +999,7 @@ input::-webkit-datetime-edit-year-field:focus {
 
 <div class="header">
 	<div class="header-text">
-		<div class="logo"><a href="about-us.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
+		<div class="logo"><a href="lender-guide.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
 		<div class="borrow"><a href="borrow-money.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
@@ -1327,7 +1346,7 @@ input::-webkit-datetime-edit-year-field:focus {
 						<div class="loan-amount-2"><span><?= $question['loan_amount']; ?>$</span></div>
 						<div class="repay-amount-2"><span><?= $question['repayment_amount']; ?>$</span></div>
 						<div class="interest-rate-2"><span><?= $question['interest']; ?>%</span></div>
-						<div class="repay-date-2"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
+						<div class="repay-date-2"><span><?= date('j M Y', strtotime($question['repayment_date'])); ?></span></div>
 						</div>
 						<div style="text-align: right; margin-top: -40px;">
 						<a href="lend.php?id=<?= $question['id']; ?>"><button class="lend-button">LEND</button><a>
@@ -1390,7 +1409,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		
 		
 		<div class="explain">
-			<a href="lender-guide.php" style="text-decoration: none;"><h3 class="explain-title">How to Lend Money on Instant Borrow</h3></a>
+			<a href="lender-guide.php" style="text-decoration: none;" target="blank"><h3 class="explain-title">Lend Money on Instant Borrow <span class="link-round">🡕</span></h3></a>
 			
 			<p style="font-weight: 500; font-size: 1.28rem; margin-top: 50px; color:#2b80ff;">Welcome to the World of Peer-to-Peer Finance.</p> 
 			
@@ -1444,7 +1463,6 @@ input::-webkit-datetime-edit-year-field:focus {
 			<a href="https://facebook.com" class="footer-link" target="blank"><img class="widget" src="assets/images/facebook-widget.png"></a>
 			<a href="https://twitter.com" class="footer-link" target="blank"><img class="widget" src="assets/images/twitter-widget.png"></a>
 			<a href="https://instagram.com" class="footer-link" target="blank"><img class="widget" src="assets/images/instagram-widget.png"></a>
-			<a href="https://reddit.com" class="footer-link" target="blank"><img class="widget" src="assets/images/reddit-widget.png"></a>
 			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
 			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
 			</div>

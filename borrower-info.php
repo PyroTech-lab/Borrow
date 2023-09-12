@@ -8,14 +8,14 @@ require('actions/questions/updateDatabases.php');
 <html>
 
 <head>
-
+ 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <meta name="robots" content="index" />
 
 <meta name="description" content="Borrow Money and Take out a personal loan on Instant Borrow. No credit score checks, no Paperwork, low Fees. Start now and Borrow anywhere from 100$ to 2000$.">
 	
-<title>Instant Loan Platform to Easily Borrow Money Online - Instant Borrow</title>
+<title>Easily Borrow Money Online with No Credit Score - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
@@ -182,6 +182,139 @@ require('actions/questions/updateDatabases.php');
 	width: 100%;
 }
 
+.main {
+	text-align: center;
+		margin-top: 160px;
+}
+
+.content {
+	width: 40%;
+	margin-left: 30%;
+}
+
+.title {
+	font-weight: 500;
+	font-size: 2.82rem;
+}
+
+.subtitle {
+	font-size: 1.1rem;
+	line-height: 32px;
+	color: #4f4f4f;
+	margin-top: 60px;
+}
+
+.button-container {
+	margin-top: 60px;
+}
+
+.button {
+	width: 350px;
+	height: 50px;
+	border: 0px;
+	border-radius: 0.325rem;
+	color: white;
+	font-weight: 500;
+	font-size: 1.32rem;
+	background-color: #2b80ff;
+	transition: background-color 0.2s;
+}
+
+.button:hover {
+	background-color: #00c4ff;
+}
+
+.section1 {
+	
+}
+
+.section-title {
+	font-weight: 500;
+	font-size: 2.82rem;
+	margin-bottom: 200px;
+}
+
+.section2 {
+	 background-color: black;
+	 color: white;
+	 margin-top: 205px;
+	 padding-top: 100px;
+	 padding-bottom: 1px;
+}
+
+.section2-container {
+	text-align: left;
+	width: 30%;
+	margin-left: 18%;
+	margin-top: 60px;
+}
+
+.section2-title {
+	font-weight: 500;
+	font-size: 2rem;
+}
+
+.section2-text {
+	font-size: 1.1rem;
+	line-height: 32px;
+}
+
+.section2-images {
+	text-align: right;
+	margin-right: 18%;
+	margin-top: -300px;
+	margin-bottom: 200px;
+}
+
+
+
+.section3 {
+	 background-color: #f7f7f7;
+	 color: black;
+	 padding-top: 100px;
+	 padding-bottom: 1px;
+}
+
+.section3-container {
+	text-align: left;
+	width: 30%;
+	margin-left: 18%;
+	margin-top: 60px;
+}
+
+.section3-pretitle {
+	text-transform: uppercase;
+	color: #00c4ff;
+	font-weight: 500;
+	margin-bottom: -30px;
+}
+
+.section3-title {
+	font-weight: 500;
+	font-size: 2rem;
+}
+
+.section3-text {
+	font-size: 1.1rem;
+	line-height: 32px;
+}
+
+.section3-images {
+	text-align: right;
+	margin-right: 18%;
+	margin-top: -250px;
+	margin-bottom: 200px;
+}
+
+.bottom {
+	background-color: f7f7f7;
+}
+
+.pretitle-bottom {
+	font-size: 1.2rem;
+	color: #4f4f4f;
+	margin-bottom: -35px;
+}
 
 
 .footer {
@@ -194,8 +327,6 @@ require('actions/questions/updateDatabases.php');
 	border-top: 1px solid #d6d6d6;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
-
-
 
 
 .footer-content {
@@ -274,13 +405,14 @@ require('actions/questions/updateDatabases.php');
 	font-size: 0.86rem;
 	color: #2b2b2b;
 }
+
 </style>
 
 </head>
 
 
 <body style="margin: 0px; font-family: 'Poppins', sans-serif; background-color: #f7f7f7;">
-
+  
 <div class="header">
 	<div class="header-text">
 		<div class="logo"><a href="about.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
@@ -289,16 +421,148 @@ require('actions/questions/updateDatabases.php');
 		<div class="login"><a href="login.php" style="text-decoration: none; color: black"><span class="login-text">Login</span></a></div>
 		<div class="signup"><a href="signup.php" style="text-decoration: none; color: black"><span class="signup-text">Sign Up</span></a></div>
 	</div>
-</div>
+</div>  
 
 <div class="everything-except-header">
 
-<div style="min-height: calc(100vh - 593px);">
+<div class="main">
+      
+<section class="section1">
 
-Borrower-Info
-
+        <div class="content">
+            <h1 class="title">Access Low Interest Loans.</br>Fast, Safe and Easy</h1>
+            <p class="subtitle">Do you need to Quickly <span style="color: #00c4ff; font-weight: 500;">Borrow up to $2000</span>? With Instant Borrow, you'll get Access to a Large Network of Lenders willing to Lend you the Money you need. No matter your <span style="color: #00c4ff; font-weight: 500;">Credit Score</span>, Instant Borrow allows you to Receive a Loan Extremely <span style="color: #00c4ff; font-weight: 500;">Quickly and Easily</span>.</p>
+			<p style="font-weight: 500; font-size: 1.15rem; margin-top: 30px;">Sign Up in less than 30 Seconds and Start Borrowing Now.</p>
+        </div>
+		<div class="button-container">
+           <a style="text-decoration: none;" href="borrow.php"><button class="button">Start Now</button></a>
+        </div>
+		
+<div style="text-align: left; margin-top: -370px;">
+<img class="" src="assets/images/payment-amount.png" alt="Request amount" style="margin-left: 10%;">
 </div>
 
+<div style="text-align: right; margin-top: -40px;">
+<img class="" src="assets/images/loan-amount.png" alt="Choose Loan Amount" style="margin-right: calc(10% + 50px);">
+</div>
+
+</section>
+
+			
+<section class="section2">
+	<div class="container">
+		<div class="section-head">
+			<h2 class="section-title">Why use Instant Borrow?</h2>
+		</div>
+		<div class="row single-feature single-feature-1">
+			<div class="">
+				<div class="section2-container">
+					<p class="section2-title">Low credit score? No problem!</p>
+					<p class="section2-text">Do you have a <span style="color: #00c4ff; font-weight: 500;">Low Credit Score?</span> No problem! Instant Borrow does not use Credit Scores so that Anyone can get the Loans they need.</br>Maximize your Instant Borrow Trust Score, Impress Lenders and <span style="color: #00c4ff; font-weight: 500;">Get your Money Fast!</span></p>
+				</div>
+			</div>
+			<div class="section2-images">
+				<picture><source srcset="assets/images/trustscore.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/trustscore.png" alt="your loan request is being sent to Instant Borrow Lenders"></picture>
+			</div>
+		</div>
+		<div class="row single-feature single-feature-2">
+			<div class="">
+				<div class="section2-container">
+					<p class="section2-title">Loans at your Own rate</p>
+					<p class="section2-text">With Instant Borrow, <span style="color: #00c4ff; font-weight: 500;">Decide the Interest Rate</span> and Repayment Date of your Own Loan.</br>We give you the Power to <span style="color: #00c4ff; font-weight: 500;">Control all Aspects of your Loan</span> and Choose what's Best for you.</p>	
+				</div>
+			</div>
+			<div class="section2-images">
+				<picture><source srcset="assets/images/borrow-money.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/borrow-money.png" alt="Explore offers"></picture>
+			</div>
+		</div>
+		<div class="row single-feature single-feature-3">
+			<div class="">
+				<div class="section2-container">
+					<p class="section2-title">Borrow from All Around the World with no Fees</p>
+					<p class="section2-text">Connect with a <span style="color: #00c4ff; font-weight: 500;">Worldwide Network</span> of Lenders on Instant Borrow.</br>Wichever Country you are in, we charge <span style="color: #00c4ff; font-weight: 500;">no Fees on Transactions</span>, assuring you get the Best possible Rates.</p>
+				</div>
+			</div>
+			<div class="section2-images">
+				<picture><source srcset="assets/images/send-international.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/send-international.png" alt="Send Money Worldwide with no Fees"></picture>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="section3">
+    <div class="container">
+        <div class="section-head">
+            <h2 class="section-title">Get the Money you Need <br> in just a Few Steps</h2>
+        </div>
+        <div class="row step step-1">
+            <div class="">
+                <div class="section3-container">
+					<p class="section3-pretitle">Step 1</p>
+                    <p class="section3-title">Create a Convincing profile</p>
+                    <p class="section3-text">Complete your Profile details by adding Information about Yourself. The more Details you enter, the Higher the Chances of getting a Loan Are.</p>
+                </div>
+            </div>
+            <div class="section3-images">
+                <picture><source srcset="assets/images/profile.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/profile.png" alt="borrower Money online Step-1"></picture>
+			</div>
+        </div>
+        <div class="row step step-2">
+            <div class="">
+                <div class="section3-container">
+					<p class="section3-pretitle">Step 2</p>
+                    <p class="section3-title">Create a Loan Request</p>
+                    <p class="section3-text">Select the Amount you want to Borrow and Repay, choose a Repayment Date and Publish the Request. Your Loan will Instantly be Visible to our large Network of Lenders.</p>
+                </div>
+            </div>
+            <div class="section3-images">
+                <picture><source srcset="assets/images/publish-request.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/publish-request.png" alt="Explore offers"></picture>
+            </div>
+        </div>
+        <div class="row step step-3">
+            <div class="">
+                <div class="section3-container">
+					<p class="section3-pretitle">Step 3</p>
+                    <p class="section3-title">Lenders Receive your Loan Request</p>
+                    <p class="section3-text">Once you've Published your Loan, Lenders will Immediately Receive your Request and Fulfill It as Quickly as possible.</p>
+                </div>
+            </div>
+            <div class="section3-images">
+                <picture><source srcset="assets/images/request-published.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/request-published.png" alt="borrower money online step-3"></picture>
+			</div>
+        </div>
+		<div class="row step step-4">
+            <div class="">
+                <div class="section3-container">
+					<p class="section3-pretitle">Step 4</p>
+                    <p class="section3-title">Get your Money Quickly and Easily!</p>
+                    <p class="section3-text">Once a Lender Accepts your Request, Money will be Transferred Directly to the Account of your Choice. Get the funds you need Quickly and Easily!</p>
+                </div>
+            </div>
+            <div class="section3-images" style="margin-bottom: 150px;">
+				<picture><source srcset="assets/images/loan-received.png" type="image/png"><img class="img-fluid image-2 webpexpress-processed" src="assets/images/loan-received.png" alt="borrower money online step-4"></picture>
+			</div>
+        </div>
+    </div>
+</section>
+
+
+<section class="bottom">
+    <div class="container">
+		<p class="pretitle-bottom">Taking the Hastle out of Finance</p>
+		<p class="title">Because Money Should be Easy!</p>
+			
+		<div class="button-container">
+			<a style="text-decoration: none;" href="borrow.php"><button class="button">Start Now</button></a>
+		</div>
+    </div>
+</section>
+
+
+</div>
+	
+	
 <div class="footer">
 	<div class="footer-content">
 		<div class="footer-1">
@@ -324,7 +588,6 @@ Borrower-Info
 			<a href="https://facebook.com" class="footer-link" target="blank"><img class="widget" src="assets/images/facebook-widget.png"></a>
 			<a href="https://twitter.com" class="footer-link" target="blank"><img class="widget" src="assets/images/twitter-widget.png"></a>
 			<a href="https://instagram.com" class="footer-link" target="blank"><img class="widget" src="assets/images/instagram-widget.png"></a>
-			<a href="https://reddit.com" class="footer-link" target="blank"><img class="widget" src="assets/images/reddit-widget.png"></a>
 			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
 			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
 			</div>
@@ -336,5 +599,4 @@ Borrower-Info
 </div>
 
 </body>
-
 </html>

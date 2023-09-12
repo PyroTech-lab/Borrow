@@ -9,7 +9,7 @@ require('actions/users/userFeedbackProfileAction.php');
 <?php
 session_start();
 if(isset($_SESSION['auth'])){
-    header('Location: profile-user.php?id='$_GET['id']'');
+    header('Location: profile-user.php?id='.$_GET['id'].'');
 }
 ?>
 
@@ -925,7 +925,7 @@ if(isset($_SESSION['auth'])){
 			<div class="interest-rate"><span><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
 			<div class="repay-date"><span style="color: <?=$status_color; ?>;"><?= $status_public;?></span></div>
 			<div class="feedback"><span><?= $question['feedback_given']; ?></span></div>
-			<div class="payment-method"><a style="text-decoration: none; color: #3d91e0;" href="user-profile-nologin.php?id=<?= $question['id_lender']; ?>"><span><?= $question['username_lender']; ?></span></a></div>
+			<div class="payment-method"><a style="text-decoration: none; color: #3d91e0;" href="user-profile.php?id=<?= $question['id_lender']; ?>"><span><?= $question['username_lender']; ?></span></a></div>
 	</div>
 </div>
 <?php
@@ -960,7 +960,6 @@ if(isset($_SESSION['auth'])){
 			<a href="https://facebook.com" class="footer-link" target="blank"><img class="widget" src="assets/images/facebook-widget.png"></a>
 			<a href="https://twitter.com" class="footer-link" target="blank"><img class="widget" src="assets/images/twitter-widget.png"></a>
 			<a href="https://instagram.com" class="footer-link" target="blank"><img class="widget" src="assets/images/instagram-widget.png"></a>
-			<a href="https://reddit.com" class="footer-link" target="blank"><img class="widget" src="assets/images/reddit-widget.png"></a>
 			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
 			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
 			</div>

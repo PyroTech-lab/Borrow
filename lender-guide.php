@@ -15,7 +15,7 @@ require('actions/users/notificationAction.php');
 <meta charset="UTF-8">
 <meta name="robots" content="noindex" />
 	
-<title>Best Microlending Platform to Invest Money Online - Instant Borrow</title>
+<title>Best Platform to Lend Money Online with Big Returns - Instant Borrow</title>
 
 <!-- icons generated with https://favicomatic.com/ -->
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/pageicons/apple-touch-icon-57x57.png" />
@@ -167,7 +167,7 @@ require('actions/users/notificationAction.php');
 	transition: transform 0.2s;
 }
 
-.chat-header {
+.chat-button {
 	height: 25px;
 	width: auto;
 	transition: transform 0.2s;
@@ -179,12 +179,11 @@ require('actions/users/notificationAction.php');
 	transform: scale(1.1); 
 }
 
-.chat-header:hover {
+.chat-button:hover {
 	-ms-transform: scale(1.1); /* IE 9 */
 	-webkit-transform: scale(1.1); /* Safari 3-8 */
 	transform: scale(1.1); 
 }
-
 
 .notification-unpaid {
 	background-color: red;
@@ -301,6 +300,139 @@ require('actions/users/notificationAction.php');
 	width: 100%;
 }
 
+.main {
+	text-align: center;
+		margin-top: 160px;
+}
+
+.content {
+	width: 40%;
+	margin-left: 30%;
+}
+
+.title {
+	font-weight: 500;
+	font-size: 2.82rem;
+}
+
+.subtitle {
+	font-size: 1.1rem;
+	line-height: 32px;
+	color: #4f4f4f;
+	margin-top: 60px;
+}
+
+.button-container {
+	margin-top: 60px;
+}
+
+.button {
+	width: 350px;
+	height: 50px;
+	border: 0px;
+	border-radius: 0.325rem;
+	color: white;
+	font-weight: 500;
+	font-size: 1.32rem;
+	background-color: #2b80ff;
+	transition: background-color 0.2s;
+}
+
+.button:hover {
+	background-color: #00c4ff;
+}
+
+.section1 {
+	
+}
+
+.section-title {
+	font-weight: 500;
+	font-size: 2.82rem;
+	margin-bottom: 200px;
+}
+
+.section2 {
+	 background-color: black;
+	 color: white;
+	 margin-top: 150px;
+	 padding-top: 100px;
+	 padding-bottom: 1px;
+}
+
+.section2-container {
+	text-align: left;
+	width: 30%;
+	margin-left: 18%;
+	margin-top: 60px;
+}
+
+.section2-title {
+	font-weight: 500;
+	font-size: 2rem;
+}
+
+.section2-text {
+	font-size: 1.1rem;
+	line-height: 32px;
+}
+
+.section2-images {
+	text-align: right;
+	margin-right: 18%;
+	margin-top: -300px;
+	margin-bottom: 200px;
+}
+
+
+
+.section3 {
+	 background-color: #f7f7f7;
+	 color: black;
+	 padding-top: 100px;
+	 padding-bottom: 1px;
+}
+
+.section3-container {
+	text-align: left;
+	width: 30%;
+	margin-left: 18%;
+	margin-top: 60px;
+}
+
+.section3-pretitle {
+	text-transform: uppercase;
+	color: #00c4ff;
+	font-weight: 500;
+	margin-bottom: -30px;
+}
+
+.section3-title {
+	font-weight: 500;
+	font-size: 2rem;
+}
+
+.section3-text {
+	font-size: 1.1rem;
+	line-height: 32px;
+}
+
+.section3-images {
+	text-align: right;
+	margin-right: 18%;
+	margin-top: -250px;
+	margin-bottom: 200px;
+}
+
+.bottom {
+	background-color: #f7f7f7;
+}
+
+.pretitle-bottom {
+	font-size: 1.2rem;
+	color: #4f4f4f;
+	margin-bottom: -35px;
+}
 
 
 .footer {
@@ -391,6 +523,7 @@ require('actions/users/notificationAction.php');
 	font-size: 0.86rem;
 	color: #2b2b2b;
 }
+
 </style>
 
 </head>
@@ -464,9 +597,140 @@ require('actions/users/notificationAction.php');
 
 <div class="everything-except-header">
 
-<div style="min-height: calc(100vh - 593px);">
+<div class="main">
+      
+<section class="section1">
 
-Lender-Info-loggedin
+        <div class="content">
+            <h1 class="title">Lend Money with High Returns.</br>Fast, Safe and Easy</h1>
+            <p class="subtitle">Do you want to <span style="color: #00c4ff; font-weight: 500;">Lend Money with returns over 20%</span>? With Instant Borrow, you'll get Access to a Large Pool of Borrowers needing your Money. Start Investing with <span style="color: #00c4ff; font-weight: 500;"> as Little as 10$</span> and watch your Money grow <span style="color: #00c4ff; font-weight: 500;">Quickly, Safely and Easily</span>.</p>
+			<p style="font-weight: 500; font-size: 1.15rem; margin-top: 30px;">Follow the Next few Steps and Start Lending Now.</p>
+        </div>
+		<div class="button-container">
+           <a style="text-decoration: none;" href="dashboard.php"><button class="button">Lend Now</button></a>
+        </div>
+		
+<div style="text-align: left; margin-top: -370px;">
+<img class="" src="assets/images/repayment-received.png" alt="Request amount" style="margin-left: 14%;">
+</div>
+
+<div style="text-align: right; margin-top: -40px;">
+<img class="" src="assets/images/profit-curve.png" alt="Choose Loan Amount" style="margin-right: calc(10% + 50px);">
+</div>
+
+</section>
+
+			
+<section class="section2">
+	<div class="container">
+		<div class="section-head">
+			<h2 class="section-title">Why Lend on Instant Borrow?</h2>
+		</div>
+		<div class="row single-feature single-feature-1">
+			<div class="">
+				<div class="section2-container">
+					<p class="section2-title">High Quality Borrowers</br>Low Risk Loans</p>
+					<p class="section2-text">Easily <span style="color: #00c4ff; font-weight: 500;">Visualise a Borrower's Profile</span>, Loan History, Trust Score and Feedback to ensure you're dealing with a High Quality Borrower. We always <span style="color: #00c4ff; font-weight: 500;">Verify Personnal Information</span> and make sure all our Users are Completely Trustworthy.<p>
+				</div>
+			</div>
+			<div class="section2-images">
+				<picture><source srcset="assets/images/profile-2.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/profile-2.png" alt="your loan request is being sent to Instant Borrow Lenders"></picture>
+			</div>
+		</div>
+		<div class="row single-feature single-feature-2">
+			<div class="">
+				<div class="section2-container">
+					<p class="section2-title">High Profits, Easy Process</p>
+					<p class="section2-text">Enjoy the <span style="color: #00c4ff; font-weight: 500;">Highest Profit Rates</span> on the Market and Experience our Incredibly Easy Lending Process.</br>Returns Frequently Exceeding 20% make us the <span style="color: #00c4ff; font-weight: 500;">Best Platform to grow your Money</span> Quickly and Effortlessly.</p>
+				</div>
+			</div>
+			<div class="section2-images">
+				<picture><source srcset="assets/images/lend-money.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/lend-money.png" alt="Explore offers"></picture>
+			</div>
+		</div>
+		<div class="row single-feature single-feature-3">
+			<div class="">
+				<div class="section2-container">
+					<p class="section2-title">Lend from All Around the World with no Fees</p>
+					<p class="section2-text">Connect with a <span style="color: #00c4ff; font-weight: 500;">Worldwide Network</span> of Borrowers on Instant Borrow.</br>Wichever Country you are in, we charge <span style="color: #00c4ff; font-weight: 500;">no Fees on Transactions</span>, assuring you get the Highest Possible Returns.</p>
+				</div>
+			</div>
+			<div class="section2-images">
+				<picture><source srcset="assets/images/send-international-lend.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/send-international-lend.png" alt="Send Money Worldwide with no Fees"></picture>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="section3">
+    <div class="container">
+        <div class="section-head">
+            <h2 class="section-title">Lend Money and Profit <br> in just a Few Steps</h2>
+        </div>
+        <div class="row step step-1">
+            <div class="">
+                <div class="section3-container">
+					<p class="section3-pretitle">Step 1</p>
+                    <p class="section3-title">Choose Among Hundreds of Loans</p>
+					<p class="section3-text">Access a Huge amount of Loan Requests all in One Place. Get all the Details trough our Seamless Interface and Choose the Loan you Like the Most.</p>
+                </div>
+            </div>
+            <div class="section3-images">
+                <picture><source srcset="assets/images/request-published-lend.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/request-published-lend.png" alt="borrower Money online Step-1"></picture>
+			</div>
+        </div>
+        <div class="row step step-2">
+            <div class="">
+                <div class="section3-container">
+					<p class="section3-pretitle">Step 2</p>
+                    <p class="section3-title">Review Loan & Borrower Details</p>
+					<p class="section3-text">With one Tap, Learn everything about the Loan Request and the Borrower. Use the Borrower's Trust Score, Feedback and Past Loans to ensure you're Lending to someone you Trust.</p>
+                </div>
+            </div>
+            <div class="section3-images">
+                <picture><source srcset="assets/images/profile-lend.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/profile-lend.png" alt="Explore offers"></picture>
+            </div>
+        </div>
+        <div class="row step step-3">
+            <div class="">
+                <div class="section3-container">
+					<p class="section3-pretitle">Step 3</p>
+                    <p class="section3-title">Send Funds and Sit Back</p>
+					<p class="section3-text">Choose the Payment Method you want to use and Send the funds to the Borrower. From this point, we take care of Everything Else and you just have to Sit Back and Relax!</p>
+                </div>
+            </div>
+            <div class="section3-images">
+                <picture><source srcset="assets/images/payment-amount-lend.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/payment-amount-lend.png" alt="borrower money online step-3"></picture>
+			</div>
+        </div>
+		<div class="row step step-4">
+            <div class="">
+                <div class="section3-container">
+					<p class="section3-pretitle">Step 4</p>
+                    <p class="section3-title">Get Repaid, Enjoy the Profit</p>
+                    <p class="section3-text">On or Before the Agreed Upon Date, the Borrower will Send you the Repayment. Confirm you have received the Funds, Rate the Borrower and Enjoy the profit!</p>
+                </div>
+            </div>
+            <div class="section3-images" style="margin-bottom: 150px;">
+				<picture><source srcset="assets/images/repayment-received-2.png" type="image/png"><img class="img-fluid image-2 webpexpress-processed" src="assets/images/repayment-received-2.png" alt="borrower money online step-4"></picture>
+			</div>
+        </div>
+    </div>
+</section>
+
+
+<section class="bottom">
+    <div class="container">
+		<p class="pretitle-bottom">Taking the Hastle out of Finance</p>
+		<p class="title">Because Money Should be Easy!</p>
+			
+		<div class="button-container">
+			<a style="text-decoration: none;" href="dashboard.php"><button class="button">Lend Now</button></a>
+		</div>
+    </div>
+</section>
+
 
 </div>
 
@@ -495,7 +759,6 @@ Lender-Info-loggedin
 			<a href="https://facebook.com" class="footer-link" target="blank"><img class="widget" src="assets/images/facebook-widget.png"></a>
 			<a href="https://twitter.com" class="footer-link" target="blank"><img class="widget" src="assets/images/twitter-widget.png"></a>
 			<a href="https://instagram.com" class="footer-link" target="blank"><img class="widget" src="assets/images/instagram-widget.png"></a>
-			<a href="https://reddit.com" class="footer-link" target="blank"><img class="widget" src="assets/images/reddit-widget.png"></a>
 			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
 			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
 			</div>

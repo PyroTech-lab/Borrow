@@ -182,6 +182,42 @@ require('actions/questions/updateDatabases.php');
 	width: 100%;
 }
 
+.main {
+	margin-top: 160px;
+	text-align: center;
+}
+
+.title {
+	font-weight: 500;
+	font-size: 2.82rem;
+}
+
+
+.button-container {
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.button {
+	width: 350px;
+	height: 50px;
+	border: 0px;
+	border-radius: 0.325rem;
+	color: white;
+	font-weight: 500;
+	font-size: 1.32rem;
+	background-color: #2b80ff;
+	transition: background-color 0.2s;
+}
+
+.button:hover {
+	background-color: #00c4ff;
+}
+
+.highlighted {
+	font-weight: 500;
+	color: #00c4ff;
+}
 
 
 .footer {
@@ -194,8 +230,6 @@ require('actions/questions/updateDatabases.php');
 	border-top: 1px solid #d6d6d6;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
-
-
 
 
 .footer-content {
@@ -295,7 +329,18 @@ require('actions/questions/updateDatabases.php');
 
 <div style="min-height: calc(100vh - 593px);">
 
-Contact
+<div class="main">
+<h1 class="title">Get in Touch with</br>Instant Borrow</h1>
+
+<p>Have a <span class="highlighted">Question</span>, a <span class="highlighted">Request</span> or anything else you want to <span class="highlighted">Tell us?</span></br>Our Team is Here to Listen to You and Reply as Quickly as Possible.</p>
+
+<div class="button-container">
+   <a style="text-decoration: none;" href="mailto:contact@instant-borrow.com"><button class="button">Contact Us</button></a>
+</div>
+
+  <p>contact@instant-borrow.com</p>
+
+</div>
 
 </div>
 
@@ -324,7 +369,6 @@ Contact
 			<a href="https://facebook.com" class="footer-link" target="blank"><img class="widget" src="assets/images/facebook-widget.png"></a>
 			<a href="https://twitter.com" class="footer-link" target="blank"><img class="widget" src="assets/images/twitter-widget.png"></a>
 			<a href="https://instagram.com" class="footer-link" target="blank"><img class="widget" src="assets/images/instagram-widget.png"></a>
-			<a href="https://reddit.com" class="footer-link" target="blank"><img class="widget" src="assets/images/reddit-widget.png"></a>
 			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
 			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
 			</div>

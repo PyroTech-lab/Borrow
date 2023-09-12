@@ -311,9 +311,9 @@ require('actions/users/bannedAction.php');
 
 .title {
 	width: 100%;
-	font-size: 2.52rem;
-	color: #00c4ff;
-	font-weight: bold;
+	font-size: 3.2rem;
+	color: black;
+	font-weight: 500;
 	margin-bottom: 40px;
 }
 
@@ -323,7 +323,7 @@ require('actions/users/bannedAction.php');
 	margin-bottom: 80px;
 	margin-right:60px;
 	font-size: 1.2rem;
-	font-weight: bold;
+	font-weight: normal;
 	color: #383838;
 }
 
@@ -492,15 +492,34 @@ input::-webkit-datetime-edit-year-field:focus {
 }
 
 .explain {
-	margin-top: 50px;
+	margin-top: 100px;
 	text-align: left;
 	color: #2e2e2e;
 }
 
 .explain-title {
 	font-size: 2.1rem;
-	font-weight: bold;
+	font-weight: 500;
 	color: #00c4ff;
+}
+
+.link-round {
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-right: 6px;
+	padding-left: 6px;
+	font-size: 0.93rem;
+	background-color: white;
+	color: #2b80ff;
+	border: 1px solid #2b80ff;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+
+.explain-title:hover .link-round{
+	background-color: #00c4ff;
+	color: white;
+	border: 1px solid #00c4ff;
 }
 
 .step1 {
@@ -524,7 +543,7 @@ input::-webkit-datetime-edit-year-field:focus {
 }
 
 .inner-box {
-	border: 1px solid #00c4ff;
+	border: 1px solid #b3b3b3;
 	border-radius: 0.25rem;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -645,7 +664,7 @@ input::-webkit-datetime-edit-year-field:focus {
 
 <div class="header">
 	<div class="header-text">
-		<div class="logo"><a href="about-us.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
+		<div class="logo"><a href="borrower-guide.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
 		<div class="borrow"><a href="borrow-money.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
@@ -743,7 +762,7 @@ input::-webkit-datetime-edit-year-field:focus {
 			<a href="dashboard.php"><button class="lend-button">Lend Money</button></a>
 		</div>
 		<div class="explain">
-			<a href="borrower-guide" style="text-decoration: none;"><h3 class="explain-title">How to Borrow Money on Instant Borrow</h3></a>
+			<a href="borrower-guide.php" style="text-decoration: none;" target="blank"><h3 class="explain-title">Take out a Loan on Instant Borrow <span class="link-round">🡕</span></h3></a>
 			
 			<p style="font-weight: 500; font-size: 1.28rem; margin-top: 50px; color:#2b80ff;">Welcome to the World of Peer-to-Peer Finance.</p> 
 			
@@ -751,7 +770,7 @@ input::-webkit-datetime-edit-year-field:focus {
 
 			<p style="font-weight: 500; font-size: 1.28rem; color:#2b80ff;">The Easiest Way to Get a Loan Right Now, No Matter Your Credit Score.</p>
 			
-			<p style="font-weight: bold; font-size: 1.55rem; color: #00c4ff; margin-top: 60px; margin-bottom: 60px;">THIS IS HOW TO DO IT:</p>
+			<p style="font-weight: 500; font-size: 1.55rem; color: black; margin-top: 60px; margin-bottom: 60px;">THIS IS HOW TO DO IT:</p>
 			
 			<div class="step1"><h3 class="steps-title">1-CREATE AN ACCOUNT</h3><div class="inner-box"><p class="steps-subtitle ">Sign Up and Verify your Account</p><p>What you Need to <span class="explain-bold">Get Started</span>:</br>-Valid <span class="explain-bold">Email Address</span></br>-<span class="explain-bold">Phone Number</span></br>-Form of <span class="explain-bold">Identification</span></p></div></div>
 			<div class="step2"><h3 class="steps-title">2-REQUEST A LOAN</h3><div class="inner-box"><p class="steps-subtitle">Create a Loan request:</p><p>The <span class="explain-bold">Amount</span> you Want to <span class="explain-bold">Borrow</span></br>The <span class="explain-bold">Amount</span> you Will <span class="explain-bold">Repay</span></br>The  <span class="explain-bold">Repayment Date</span></br><span class="explain-bold">Notes</span> About the Loan</p></div></div>
@@ -794,7 +813,6 @@ input::-webkit-datetime-edit-year-field:focus {
 			<a href="https://facebook.com" class="footer-link" target="blank"><img class="widget" src="assets/images/facebook-widget.png"></a>
 			<a href="https://twitter.com" class="footer-link" target="blank"><img class="widget" src="assets/images/twitter-widget.png"></a>
 			<a href="https://instagram.com" class="footer-link" target="blank"><img class="widget" src="assets/images/instagram-widget.png"></a>
-			<a href="https://reddit.com" class="footer-link" target="blank"><img class="widget" src="assets/images/reddit-widget.png"></a>
 			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
 			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
 			</div>
