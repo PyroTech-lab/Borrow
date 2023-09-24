@@ -57,6 +57,75 @@ require('actions/users/bannedAction.php');
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
+.under-header {
+	display: none;
+	width: 100%;
+	margin-top: 76px;
+	border-bottom: 1px solid #d6d6d6;
+	position: fixed;
+	background-color: #374861;
+	z-index: 100;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	text-align: center;
+}
+
+.text-under {
+	color: white;
+	font-weight: 500;
+	font-size: 1.45rem;
+}
+
+.lend-under {
+	display: none;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.lend-under:hover {
+	background-color: #536b8f;
+}
+
+.borrow-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.borrow-under:hover {
+	background-color: #536b8f;
+}
+
+.login-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+	background-color: #00c4ff;
+}
+
+.login-under:hover {
+	background-color: #536b8f;
+}
+
+.signup-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+}
+
+.signup-under:hover {
+	background-color: #536b8f;
+}
+
 .header-text {
 	margin-left: 10%;
 	width: 80%;
@@ -185,6 +254,16 @@ require('actions/users/bannedAction.php');
 	-ms-transform: scale(1.1); /* IE 9 */
 	-webkit-transform: scale(1.1); /* Safari 3-8 */
 	transform: scale(1.1); 
+}
+
+.header-menu {
+	display: none;
+}
+
+.header-menu-image {
+	width: 31px;
+	height: 31px;
+	margin-top: -3px;
 }
 
 .notification-unpaid {
@@ -320,11 +399,11 @@ require('actions/users/bannedAction.php');
 }
 
 .sticky{
-	z-index: 5;
+	z-index: 1;
 	position: fixed;
 	margin-top: -20px;
 	width: 20%;
-	background-color: #f8f8f8;
+	background-color: transparent;
 	text-align: left;
 }
 
@@ -351,6 +430,8 @@ require('actions/users/bannedAction.php');
 	z-index: 50;
 }
 
+
+
 .sticky-input:hover {
 	outline: 1px solid #00c4ff;
 	background-color: white;
@@ -364,6 +445,46 @@ require('actions/users/bannedAction.php');
 	outline: 1px solid #00c4ff;
 	background-color: rgba(0, 196, 255, 0.08);
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.sticky-input-bottom {
+	display: none;
+	width: calc(100% - 7px);
+	height: 40px;
+	background-color: white;
+	margin-top: -10px;
+	margin-bottom: 10px;
+	border: 1px solid #00c4ff;
+	border-radius: 0.125rem;
+	transition: transform 0.2s;
+	font-size: 1.35rem;
+	font-weight: bold;
+	color: #00c4ff;
+	padding-left: 7px;
+}
+
+.sticky-input-bottom:hover {
+	outline: 1px solid #00c4ff;
+	background-color: white;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	-ms-transform: scale(1.01); /* IE 9 */
+	-webkit-transform: scale(1.01); /* Safari 3-8 */
+	transform: scale(1.01); 
+}
+
+.sticky-input-bottom:focus {
+	outline: 1px solid #00c4ff;
+	background-color: rgba(0, 196, 255, 0.08);
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* Firefox */
+sticky-input-bottom[type=number] {
+  -moz-appearance: textfield;
+}
+
+.sticky-input-bottom[type="date"] {
+  -webkit-text-fill-color: #00c4ff;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -394,6 +515,18 @@ sticky-input[type=number] {
 	z-index: 100
 }
 
+.symbol-bottom {
+	margin-top: -49px;
+	font-size:1.35rem;
+	font-weight: 500;
+	width: 1px;
+	margin-left: calc(100% - 1px);
+	text-align: left;
+	color: #00c4ff;
+	position: relative;
+	z-index: 1
+}
+
 input::-webkit-datetime-edit-day-field:focus,
 input::-webkit-datetime-edit-month-field:focus,
 input::-webkit-datetime-edit-year-field:focus {
@@ -404,7 +537,7 @@ input::-webkit-datetime-edit-year-field:focus {
 
 .find-offers {
 	margin-top: 35px;
-	width: 103%;
+	width: 100%;
 	height: 50px;
 	background-color: #2b80ff;
 	color: white;
@@ -423,10 +556,32 @@ input::-webkit-datetime-edit-year-field:focus {
 	transform: scale(1.015); 
 }
 
+.find-offers-bottom {
+	display: none;
+	margin-top: 35px;
+	width: 100%;
+	height: 50px;
+	background-color: #2b80ff;
+	color: white;
+	font-size: 1.18rem;
+	font-weight: bold;
+	border: 0;
+	border-radius: 0.325rem;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform 0.2s;
+}
+
+.find-offers-bottom:hover {
+	background-color: #00c4ff;
+	-ms-transform: scale(1.015); /* IE 9 */
+	-webkit-transform: scale(1.015); /* Safari 3-8 */
+	transform: scale(1.015); 
+}
+
 .clear-filters {
 	margin-top: 10px;
 	border-radius: 0.125rem;
-	border: 1px solid #2b80ff;
+	border: 1px solid #00c4ff;
 	color: #2b80ff;
 	background-color: white;
 	font-weight: 500;
@@ -485,6 +640,12 @@ input::-webkit-datetime-edit-year-field:focus {
 	margin-bottom: -39px;
 }
 
+.sort-by-title {
+	 margin-left: calc(85% - 150px);
+	 font-size: 1.05rem;
+	 font-weight: 500;
+}
+
 .sort-by-text {
 	margin-top: -10px;
 	text-align: center;
@@ -504,7 +665,6 @@ input::-webkit-datetime-edit-year-field:focus {
 	color: #4d4d4d;
 	text-align: left;
 	background-color: transparent;
-	
 }
 
 .sort-by-input:hover {
@@ -543,6 +703,10 @@ input::-webkit-datetime-edit-year-field:focus {
 	margin-left: 20px;
 }
 
+.latest-requests {
+	margin-left: 60px;
+}
+
 .transaction-details {
 	margin-left: 60px;
 	margin-bottom: 28px;
@@ -551,6 +715,10 @@ input::-webkit-datetime-edit-year-field:focus {
 	background-color: #d9d9d9;
 	border-radius: 0.325rem;
 	text-align: left;
+}
+
+.details-line2 {
+	display: none;
 }
 
 .borrower {
@@ -662,7 +830,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	padding: 4px;
 	color: #383838;
 	font-weight: bold;
-	font-size: 1.25rem;
+	font-size: 1.15rem;
 }
 
 .repay-amount-2 {
@@ -675,7 +843,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	padding: 4px;
 	color: #383838;
 	font-weight: bold;
-	font-size: 1.25rem;
+	font-size: 1.15rem;
 }
 
 .interest-rate-2	{
@@ -704,6 +872,21 @@ input::-webkit-datetime-edit-year-field:focus {
 	font-size: 1.1rem;
 }
 
+.date-format2 {
+	display: none;
+}
+
+.lend-container-bottom {
+	display: none;
+}
+
+.lend-button-bottom {
+	display: none;
+}
+
+.borrower-bottom-2 {
+	display: none;
+}
 
 
 .trustscore {
@@ -743,8 +926,10 @@ input::-webkit-datetime-edit-year-field:focus {
 	margin-bottom: -1px;
 }
 
-
-
+.feedback-spacing {
+	margin-left: 17px;
+	color: red;
+}
 
 .lend-button {
 	width: 100px;
@@ -778,8 +963,7 @@ input::-webkit-datetime-edit-year-field:focus {
 
 .load-more-visible {
 	padding: 9px;
-	width: 15%;
-	min-width: 140px;
+	width: 150px;
 	background-color: #de0404;
 	color: white;
 	border: 2px solid white;
@@ -794,7 +978,7 @@ input::-webkit-datetime-edit-year-field:focus {
 }
 
 .borrow-button-container{
-	margin-left: calc(15% + 7px);
+	margin-left: 155px;
 	margin-top: -38px;
 }
 
@@ -805,8 +989,7 @@ input::-webkit-datetime-edit-year-field:focus {
 
 .borrow-button {
 	padding: 9px;
-	width: 15%;
-	min-width: 140px;
+	width: 150px;
 	right: 0;
 	background-color: #f2a100;
 	color: white;
@@ -825,6 +1008,10 @@ input::-webkit-datetime-edit-year-field:focus {
 	background-color: #edd500;
 }
 
+.search-bottom {
+	display: none;
+}
+
 .explain {
 	margin-left: 80px;
 	text-align: left;
@@ -835,6 +1022,14 @@ input::-webkit-datetime-edit-year-field:focus {
 	font-size: 2.1rem;
 	font-weight: 500;
 	color: #00c4ff;
+}
+
+.explain-howto {
+		font-weight: 500;
+		font-size: 1.55rem;
+		color: black;
+		margin-top: 60px;
+		margin-bottom: 60px;
 }
 
 .link-round {
@@ -884,8 +1079,16 @@ input::-webkit-datetime-edit-year-field:focus {
 	background-color: white;
 }
 
+.inner-box2 {
+	border: 1px solid #b3b3b3;
+	border-radius: 0.25rem;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: white;
+}
+
 .steps-title {
-	font-weight: bold;
+	font-weight: 500;
 	font-size: 1.72rem;
 	color: #00c4ff;
 	margin-bottom: 3px;
@@ -898,6 +1101,17 @@ input::-webkit-datetime-edit-year-field:focus {
 
 .explain-bold {
 	font-weight: 500;
+	color: #2b80ff;
+}
+
+.explain-text-bottom {
+	font-size: 0.99rem;
+	line-height: 27px;
+}
+
+.bottom-text {
+	font-weight: 500;
+	font-size: 1.28rem;
 	color: #2b80ff;
 }
 
@@ -918,6 +1132,12 @@ input::-webkit-datetime-edit-year-field:focus {
 	margin-top: 20px;
 	margin-left: 10%;
 	width: 80%;
+}
+
+.logo-image-footer {
+	height: 75px;
+	width: auto;
+	margin-top: 10px;
 }
 
 .footer-1 {
@@ -966,7 +1186,7 @@ input::-webkit-datetime-edit-year-field:focus {
 .footer-bottom {
 	text-align: center;
 	margin-bottom: 15px;
-}
+}   
 
 .social-widgets {
 	margin-top: 15px;
@@ -986,9 +1206,1273 @@ input::-webkit-datetime-edit-year-field:focus {
   transform: scale(1.1); 
 }
 
+.footer-legal-bottom {
+	font-size: 0.7rem;
+	margin-bottom: 10px;
+	display: none;
+}
+
+.link-legal {
+	text-decoration: none;
+	color: #00c4ff;
+}
+
 .footer-bottom-text {
 	font-size: 0.86rem;
 	color: #2b2b2b;
+}
+</style>
+
+<style>
+
+@media screen and (max-width: 1750px) {
+	
+	.sticky-text	{
+	width: 80%;
+	}
+	
+}
+
+@media screen and (max-width: 1650px) {
+	
+	.sticky	{
+	width: 25%;
+	}
+	
+	.main 	{
+	width: 90%;
+	margin-left: 5%;
+	}
+	
+	.sticky-text	{
+	width: 75%;
+	}
+	
+	.header-text {
+		margin-left: 5%;
+		width: 90%;
+	}
+	
+	.footer-content {
+		margin-left: 5%;
+		width: 90%;
+	}
+	
+}
+
+@media screen and (max-width: 1450px) {
+	
+	.main-right {
+	width: 80%;
+	margin-left: 20%;
+	}
+	
+}
+
+@media screen and (max-width: 1360px) {
+	
+	.main {
+	width: 96%;
+	margin-left: 2%;
+	}
+	
+	.header-text {
+		margin-left: 2%;
+		width: 96%;
+	}
+	
+	.footer-content {
+		margin-left: 2%;
+		width: 96%;
+	}
+	
+	.sticky-text	{
+	width: 82%;
+	}
+	
+}
+
+@media screen and (max-width: 1270px) {
+	
+	.main {
+	width: 80%;
+	margin-left: 10%;
+	}
+	
+	.header-text {
+		margin-left: 10%;
+		width: 80%;
+	}
+	
+	.footer-content {
+		margin-left: 10%;
+		width: 80%;
+	}
+	
+	.sticky	{
+	display: none;
+	}
+	
+	.main-right {
+	width: 100%;
+	margin-left: 0%;
+	}
+	
+	.container {
+	margin-left: 0px;
+	}
+	
+	.latest-requests {
+	margin-left: 0px;
+	}
+	
+	.transaction-details {
+	margin-left: 0px;
+	}
+	
+	.loan-request {
+	margin-left: 0px;
+	}
+	
+	.title {
+	margin-left: 0px;
+	width: 100%;
+	}
+	
+	.subtitle {
+	margin-left: 0px;
+	width: 100%;
+	}
+	
+	.under-container {
+	margin-left: 0px;
+	}
+	
+	.error-message {
+		margin-left: 0px;
+	}
+	
+	.explain {
+	margin-left: 0px;
+	}
+	
+	.under-container	{
+		margin-bottom: 60px;
+	}
+	
+	.search-bottom {
+		display: block;
+		margin-bottom: 100px;
+	}
+	
+	
+	.sticky-input-bottom { 
+		display: block;
+	}
+	
+	.bottom-column-1 {
+		width: calc(48% - 7px);
+	}
+	
+	.bottom-column-2 {
+		margin-top: -170px;
+		margin-left: 52%;
+		width: calc(48% - 7px);
+	}
+	
+	.find-offers-bottom {
+		display: block;
+		margin-top: 0px;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 30%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: 57%;
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+	
+	
+}
+
+
+
+@media screen and (max-width: 1220px) {
+	
+	.main {
+	width: 86%;
+	margin-left: 7%;
+	}
+	
+	.header-text {
+		margin-left: 7%;
+		width: 86%;
+	}
+	
+	.footer-content {
+		margin-left: 7%;
+		width: 86%;
+	}
+
+}
+
+@media screen and (max-width: 1150px) {
+	
+	.main {
+	width: 90%;
+	margin-left: 5%;
+	}
+	
+	.header-text {
+		margin-left: 5%;
+		width: 90%;
+	}
+	
+	.footer-content {
+		margin-left: 5%;
+		width: 90%;
+	}
+
+}
+
+@media screen and (max-width: 1000px) {
+	
+	.main {
+	width: 96%;
+	margin-left: 2%;
+	}
+	
+	.header-text {
+		margin-left: 2%;
+		width: 96%;
+	}
+	
+	.footer-content {
+		margin-left: 2%;
+		width: 96%;
+	}
+
+}
+
+@media screen and (max-width: 935px) {
+	
+	.lend-button {
+	display: none;
+	}
+	
+	.borrower {
+		width: 20%;
+	}
+	
+	.borrower-2 {
+		width: 20%;
+	}
+	
+	.loan-amount {
+		margin-left: 20%;
+		width: 20%;
+	}
+	
+	.loan-amount-2 {
+		margin-left: 20%;
+		width: 20%;
+	}
+	
+	.repay-amount {
+		margin-left: 40%;
+		width: 20%;
+	}
+	
+	.repay-amount-2 {
+		margin-left: 40%;
+		width: 20%;
+	}
+
+	.interest-rate {
+		margin-left: 60%;
+		width: 20%;
+	}
+
+	.interest-rate-2 {
+		margin-left: 60%;
+		width: 20%;
+	}
+	
+	.repay-date {
+		margin-left: 80%;
+		width: 20%;
+	}
+
+	.repay-date-2 {
+		margin-left: 80%;
+		width: 20%;
+	}
+	
+	.top-border {
+		margin-top: -31px;
+	}
+	
+	.lend-container-bottom {
+		display: block;
+		width: 20%;
+		margin-left: 80%;
+		margin-top: -26px;
+	}
+	
+	.lend-button-bottom {
+		display: block;
+		height: 31px;
+		width: 100%;
+		background-color: #04db5a;
+		border: 0;
+		border-radius: 0.325rem;
+		font-weight: bold;
+		font-size: 0.95rem;
+		color: white;
+	}
+
+
+	.lend-button-bottom:hover {
+		background-color: green;
+	}
+	
+	.trustscore {
+		width: 20%;
+		margin-left: 0%;
+		margin-top: 52px;
+	}
+	
+	.feedback {
+		width: 20%;
+		margin-left: 20%;
+		margin-top: -25px;
+	}
+		
+	.main {
+		margin-top: 145px;
+	}
+	
+	.logo-image-footer	{
+		height: 70px;
+		width: auto;
+		margin-top: 10px;
+	}
+		
+
+}
+
+
+@media screen and (max-width: 885px) {
+	
+	
+	.step2 {
+		margin-top: -276px;
+	}
+	
+	.inner-box2 {
+	padding-bottom: 24px;
+	}
+}
+
+@media screen and (max-width: 845px) {
+
+	.borrower {
+		width: 19%;
+	}
+	
+	.borrower-2 {
+		width: 19%;
+	}
+	
+	.loan-amount {
+		margin-left: 19%;
+		width: 19%;
+	}
+	
+	.loan-amount-2 {
+		margin-left: 19%;
+		width: 19%;
+	}
+	
+	.repay-amount {
+		margin-left: 38%;
+		width: 24%;
+	}
+	
+	.repay-amount-2 {
+		margin-left: 38%;
+		width: 24%;
+	}
+
+	.interest-rate {
+		margin-left: 62%;
+		width: 18%;
+	}
+
+	.interest-rate-2 {
+		margin-left: 62%;
+		width: 18%;
+	}
+	
+	.repay-date {
+		margin-left: 81%;
+		width: 19%;
+	}
+
+	.repay-date-2 {
+		margin-left: 81%;
+		width: 19%;
+	}
+	
+	.logo-image-footer	{
+		height: 60px;
+		width: auto;
+		margin-top: 0px;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 27%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(63% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+	
+}
+
+@media screen and (max-width: 820px) {
+
+	.sort-by-text {
+		margin-left: calc(80% - 150px);
+		height: 55px;
+	}
+	
+	.sort-by-title {
+		margin-left: calc(80% - 150px);
+	}
+
+}
+
+@media screen and (max-width: 805px) {
+
+	.trustscore {
+		width: 25%;
+		margin-left: 0%;
+		margin-top: 52px;
+	}
+	
+	.feedback {
+		width: 20%;
+		margin-left: 40%;
+		margin-top: -25px;
+	}
+	
+	.logo-image-footer	{
+		display: none;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(50% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+	
+}
+
+@media screen and (max-width: 748px) {
+	
+	.transaction-details {
+		padding-bottom: 30px;
+	}
+	
+	.details-line1 {
+		display: none;
+	}
+	
+	.details-line2 {
+		display: block;
+	}
+	
+	.date-format1 {
+		display: none;
+	}
+	
+	.date-format2 {
+		display: block;
+	}
+
+}
+
+@media screen and (max-width: 741px) {
+	
+	.step2 {
+		margin-top: -302px;
+	}
+	
+	.inner-box2 {
+	padding-bottom: 50px;
+	}
+
+}
+
+
+
+@media screen and (max-width: 703px) {
+	
+	.step4 {
+		margin-top: -252px;
+	}
+	
+	.inner-box4 {
+	padding-bottom: 24px;
+	}
+	
+	.lend {
+		display: none;
+	}
+	
+	.borrow {
+		display: none;
+	}
+	
+	.login {
+		margin-left: calc(100% - 200px);
+	}
+	
+	.login-text {
+		background-color: #00c4ff;
+		outline: 1px solid #00c4ff;
+		color: white;
+		border-radius: 0.125rem;
+	}
+	
+	.login-text:hover {
+		outline: 1px solid #2b80ff;
+		background-color: #2b80ff;
+	}
+	
+	.signup {
+		margin-left: calc(100% - 70px);
+	}
+	
+	.header-menu {
+		display: block;
+		width: 31px;
+		height: 31px;
+		margin-top: -29px;
+		margin-left: calc(100% - 36px);
+	}
+	
+	.lend-under {
+		display: block;
+	}
+
+	.borrow-under {
+		display: block;
+		border-bottom: 0px;
+		background-color: #00c4ff;
+	}
+	
+	.borrow-under:hover {
+		background-color: #00a2d4;
+	}
+
+	.login-under {
+		display: none;
+	}
+
+	.signup-under {
+		display: none;
+	}
+
+	
+}
+
+@media screen and (max-width: 655px) {
+	
+	.explain-howto {
+		margin-left: 7%;
+		width: 86%;
+	}
+	
+	.box-container {
+		width: 86%;
+		margin-left: 7%;
+	}
+	
+	.step1 {
+		margin-left: 0px;
+		margin-top: 0px;
+		width: 100%;
+	}
+	
+	.step2 {
+		margin-left: 0px;
+		margin-top: 0px;
+		width: 100%;
+	}
+	
+	.inner-box2 {
+		padding-bottom: 0px;
+	}	
+
+	.step3 {
+		margin-left: 0px;
+		margin-top: 0px;
+		width: 100%;
+	}
+	
+	.step4 {
+		margin-left: 0px;
+		margin-top: 0px;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 650px) {
+
+	.trustscore {
+		width: 30%;
+		margin-left: 0%;
+		margin-top: 52px;
+	}
+	
+	.lend-container-bottom {
+		width: 25%;
+		margin-left: 75%;
+		margin-top: -26px;
+	}
+	
+	.sort-by-text {
+	margin-left: calc(75% - 150px);
+	height: 55px;
+	}
+	
+	.sort-by-title {
+	 margin-left: calc(75% - 150px);
+	}
+	
+}
+
+@media screen and (max-width: 595px) {
+	
+	.title {
+		font-size: 2.4rem;
+	}
+	
+	.subtitle {
+		font-size: 1.12rem;
+	}
+	
+	.explain-text-bottom {
+		font-size: 0.95rem;
+		line-height: 27px;
+	}
+	
+	.bottom-text {
+		font-size: 1.15rem;
+		line-height: 27px;
+	}
+	
+	
+	.main {
+		margin-top: 130px;
+	}
+
+}
+
+@media screen and (max-width: 550px) {
+
+	
+	.trustscore {
+		width: 35%;
+		margin-left: 0%;
+		margin-top: 52px;
+	}
+	
+	.feedback-spacing {
+		margin-left: 12px;
+	}
+	
+	.explain-howto {
+		margin-left: 4%;
+		width: 92%;
+	}
+	
+	.box-container {
+		width: 92%;
+		margin-left: 4%;
+	}
+	
+	.logo-image-footer	{
+		display: none;
+	}
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(47% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+	
+}
+
+@media screen and (max-width: 545px) {
+
+	.borrower {
+		display: none;	
+	}
+	
+	.borrower-2 {
+		display: none;
+	}
+	
+	.loan-amount {
+		margin-top: 0px;
+		margin-left: 0%;
+		width: 25%;
+	}
+	
+	.loan-amount-2 {
+		margin-top: 0px;
+		margin-left: 0%;
+		width: 25%;
+	}
+	
+	.repay-amount {
+		margin-left: 25%;
+		width: 25%;
+	}
+	
+	.repay-amount-2 {
+		margin-left: 25%;
+		width: 25%;
+	}
+	
+	.interest-rate {
+		margin-left: 50%;
+		width: 25%;
+	}
+	
+	.interest-rate-2 {
+		margin-left: 50%;
+		width: 25%;
+	}
+	
+	.repay-date {
+		margin-left: 75%;
+		width: 25%;
+	}
+	
+	.repay-date-2 {
+		margin-left: 75%;
+		width: 25%;
+	}
+	
+	.lend-container-bottom {
+		width: 30%;
+		margin-left: 70%;
+		margin-top: -26px;
+	}
+
+	.sort-by-text {
+		margin-left: 0%;
+		height: 55px;
+	}
+	
+	.sort-by-title {
+		margin-left: 0%;
+	}
+	
+	.sort-by {
+		margin-left: 0px;
+		width: 260px;
+		margin-bottom: 0px;
+	}
+
+}
+
+
+@media screen and (max-width: 505px) {
+	
+	.explain-howto {
+		margin-left: 0%;
+		width: 100%;
+	}
+	
+	.box-container {
+		width: 100%;
+		margin-left: 0%;
+	}
+	
+	.bottom-text {
+		font-size: 1.1rem;
+	}
+	
+	.main {
+		margin-top: 120px;
+	}
+	
+	.container {
+		margin-top: -30px;
+	}
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(50% - 64px);
+	}
+
+	.footer-4 {
+		width: 103px;
+		margin-left: calc(100% - 103px);
+	}
+
+}
+
+
+@media screen and (max-width: 460px) {
+	
+	
+	.login {
+		display: none;
+	}
+	
+	.signup-text {
+		background-color: #00c4ff;
+		outline: #00c4ff;
+		border-radius: 0.275rem;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	
+	.signup-text:hover {
+		background-color: #2b80ff;
+		outline: #2b80ff;
+	}
+	
+	.borrow-under {
+		display: block;
+		border-bottom: 1px solid white;
+		background-color: #374861;
+	}
+
+
+	.login-under {
+		display: block;
+		border-bottom: 0px;
+	}
+	
+	.borrow-under:hover {
+		background-color: #536b8f;
+	}
+	
+	.login-under:hover {
+		background-color: #00a2d4;
+	}
+
+	.text-under {
+		font-size: 1.3rem;
+	}
+	
+	.bottom-column-1 {
+		width: calc(100% - 7px);
+	}
+	
+	.bottom-column-2 {
+		margin-top: 0px;
+		margin-left: 0%;
+		width: calc(100% - 7px);
+	}
+	
+	.trustscore {
+		width: 40%;
+	}
+	
+	.feedback {
+		margin-left: 44%;
+	}
+	
+	.feedback-spacing {
+		margin-left: 2px;
+	}
+	
+	.loan-amount {
+		margin-left: 0%;
+		width: 21%;
+	}
+	
+	.loan-amount-2 {
+		margin-left: 0%;
+		width: 21%;
+	}
+	
+	.repay-amount {
+		margin-left: 21%;
+		width: 28%;
+	}
+	
+	.repay-amount-2 {
+		margin-left: 21%;
+		width: 28%;
+	}
+	
+	.interest-rate {
+		margin-left: 49%;
+		width: 23%;
+	}
+	
+	.interest-rate-2 {
+		margin-left: 49%;
+		width: 23%;
+	}
+	
+	.repay-date {
+		margin-left: 72%;
+		width: 28%;
+	}
+	
+	.repay-date-2 {
+		margin-left: 72%;
+		width: 28%;
+	}
+
+}
+
+@media screen and (max-width: 405px) {
+	
+	.logo-image {
+		height: 55px;
+		margin-top: -17px;
+	}
+	
+	.trustscore {
+		width: 44%;
+	}
+	
+	.feedback {
+		margin-left: 47%;
+	}
+	
+	.feedback-spacing {
+		display: none;
+	}
+	
+	.loan-amount {
+		font-size: 0.9rem;
+	}
+	
+	
+	.repay-amount {
+		font-size: 0.9rem;
+	}
+	
+	
+	.interest-rate {
+		font-size: 0.9rem;
+	}
+	
+	
+	.repay-date {
+		font-size: 0.9rem;
+	}
+	
+	.transaction-details {
+		padding-bottom: 27px;
+	}
+	
+	.borrow-button-container{
+		margin-left: 50%;
+		width: 50%
+	}
+
+
+	.borrow-button {
+		width: 100%;
+	}
+	
+	.load-more-visible {
+		width: 50%;
+	}
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 7%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(93% - 128px);
+	}
+
+	.footer-4 {
+		display: none;
+	}
+	
+	.footer-legal-bottom {
+		display: block;
+	}
+	
+	.social-widgets {
+		margin-bottom: 0px;
+	}
+
+}
+
+@media screen and (max-width: 390px) {
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 5%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(95% - 128px);
+	}
+	
+}
+
+
+@media screen and (max-width: 370px) {
+	
+	.loan-amount {
+		margin-left: 0%;
+		width: 18%;
+	}
+	
+	.loan-amount-2 {
+		margin-left: 0%;
+		width: 18%;
+	}
+	
+	.repay-amount {
+		margin-left: 20%;
+		width: 28%;
+	}
+	
+	.repay-amount-2 {
+		margin-left: 20%;
+		width: 28%;
+	}
+	
+	.interest-rate {
+		margin-left: 48%;
+		width: 24%;
+	}
+	
+	.interest-rate-2 {
+		margin-left: 48%;
+		width: 24%;
+	}
+	
+	.repay-date {
+		margin-left: 72%;
+		width: 28%;
+	}
+	
+	.repay-date-2 {
+		margin-left: 72%;
+		width: 28%;
+	}
+	
+	.trustscore {
+		width: 49%;
+	}
+	
+	.feedback {
+		margin-left: 48.5%;
+	}
+	
+	.subtitle {
+		font-size: 1.08rem;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 2%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(98% - 128px);
+	}
+	
+}
+
+@media screen and (max-width: 350px) {
+
+	.logo-image {
+		height: 50px;
+		margin-top: -14px;
+	}
+
+	.loan-amount {
+		margin-left: 0%;
+		width: 33%;
+	}
+	
+	.loan-amount-2 {
+		margin-left: 0%;
+		width: 33%;
+	}
+	
+	.repay-amount {
+		margin-left: 33%;
+		width: 34%;
+	}
+	
+	.repay-amount-2 {
+		margin-left: 33%;
+		width: 34%;
+	}
+	
+	.interest-rate {
+		margin-left: 66%;
+		width: 33%;
+	}
+	
+	.interest-rate-2 {
+		margin-left: 66%;
+		width: 33%;
+	}
+	
+	.repay-date {
+		display: none;
+	}
+	
+	.repay-date-2 {
+		display: none;
+	}
+	
+	.subtitle {
+		font-size: 1.05rem;
+	}
+	
+	.main {
+		margin-top: 100px;
+	}
+	
+}
+
+@media screen and (max-width: 335px) {
+	
+	.header {
+		height: 65px;
+	}
+	
+	.logo-image {
+		margin-top: -18px;
+	}
+	
+	.signup {
+		margin-top: -26px;
+	}
+	
+	.header-menu {
+		margin-top: -29px;
+	}
+	
+	.under-header {
+		margin-top: 66px;
+	}
+
+	.signup-under {
+		display: block;
+	}
+	
+	
+	.trustscore {
+		width: 55%;
+	}
+	
+	.feedback {
+		display: none;
+	}
+	
+	.lend-container-bottom {
+		width: 40%;
+		margin-left: 60%;
+		margin-top: -23px;
+	}
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 6%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(94% - 128px);
+	}
+	
+	.notification-unpaid {
+		background-color: red;
+		color: white;
+		position: fixed; 
+		margin-top: 80px;
+		height: 38px;
+		width: 100%;
+		z-index: 10;
+		text-align: center;
+	}
+
+	.notification-duesoon {
+		margin-top: 70px;
+	}
+
+	.notification-receivedrepayment {
+		margin-top: 70px;
+	}
+
+	.notification-receivedloan {
+		margin-top: 70px;
+	}
+
+	.notification-unpaidborrower {
+		margin-top: 70px;
+	}
+
+	.notification-bannedborrower {
+		margin-top: 70px;
+	}
+	
 }
 </style>
 
@@ -1004,7 +2488,13 @@ input::-webkit-datetime-edit-year-field:focus {
 		<div class="borrow"><a href="borrow-money.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
 		<div class="signup"><div><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
+		<div class="header-menu"><img id="menu-header" class="header-menu-image" src="assets/images/header-menu.jpg"></div>
 	</div>
+</div>
+<div class="under-header" id="under-header">
+		<a href="dashboard.php" style="text-decoration: none; color: black"><div class="lend-under"><span class="text-under">Lend</span></div></a>
+		<a href="borrow.php" style="text-decoration: none; color: black"><div class="borrow-under"><span class="text-under">Borrow</span></div></a>
+		<a href="profile.php" style="text-decoration: none; color: black"><div class="login-under"><span class="text-under">Your Profile</span></div></a>
 </div>
 
 	<?php
@@ -1064,8 +2554,8 @@ input::-webkit-datetime-edit-year-field:focus {
 
 <div class="everything-except-header">
 
-
 <div class="main">
+
 	<div class="sticky" id="sticky">
 	
 	<div class="sticky-text">
@@ -1212,7 +2702,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		<div class="container">
 		
 			<div class="sort-by">
-				<p style="margin-left: calc(85% - 150px); font-size: 1.05rem; font-weight: 500;">Sort By</p>
+				<p class="sort-by-title">Sort By</p>
 				<div class="sort-by-text">
 				
 					<form method="GET" class="<?= $class_sort1 ?>">
@@ -1319,13 +2809,13 @@ input::-webkit-datetime-edit-year-field:focus {
 				</div>
 			</div>
 		
-		<div style="margin-left: 60px;"><p style="font-size: 1.15rem; font-weight: 500;">Latest Loan Requests:</p></div>
+		<div class="latest-requests"><p style="font-size: 1.15rem; font-weight: 500; color: #383838;">Latest Loan Requests:</p></div>
 			<div class="transaction-details">
-						<div class="borrower"><span>Borrower</span></div>
-						<div class="loan-amount"><span>Loan Amount</span></div>
-						<div class="repay-amount"><span >Repayment Amount</span></div>
-						<div class="interest-rate"><span>Interest Rate</span></div>
-						<div class="repay-date"><span>Repayment Date</span></div>
+						<div class="borrower"><span style="color: #383838;">Borrower</span></div>
+						<div class="loan-amount"><span class="details-line1">Loan Amount</span><span class="details-line2">Loan</br>Amount</span></div>
+						<div class="repay-amount"><span class="details-line1">Repayment Amount</span><span class="details-line2">Repayment</br>Amount</span></div>
+						<div class="interest-rate"><span class="details-line1">Interest Rate</span><span class="details-line2">Interest</br>Rate</span></div>
+						<div class="repay-date"><span class="details-line1">Repayment Date</span><span class="details-line2">Repayment</br>Date</span></div>
 			</div>
 			
 			<?php 
@@ -1336,28 +2826,31 @@ input::-webkit-datetime-edit-year-field:focus {
 			}elseif(($question['borrower_trustscore'] >= 50)AND($question['borrower_trustscore'] < 80)){
 				$trustscore_color = "#00c4ff";
 			}elseif($question['borrower_trustscore'] >= 80){
-				$trustscore_color = "#24b300";
+				$trustscore_color = "#2b80ff";
 			}
                 ?>
 			<div class="loan-request">
 				<div class="loan-details">
 						<div style="padding-bottom: 10px;">
-						<div class="borrower-2"><a href="profile-user.php?id=<?=$question['id_borrower']; ?>" style="text-decoration: none; color: #3d91e0;"><span><?= $question['username_borrower']; ?></span></a></div>
+						<div class="borrower-2"><a href="profile-user.php?id=<?=$question['id_borrower']; ?>" style="text-decoration: none; color: #3d91e0;"><span><?= mb_strimwidth($question['username_borrower'], 0, 9, "..."); ?></span></a></div>
 						<div class="loan-amount-2"><span><?= $question['loan_amount']; ?>$</span></div>
 						<div class="repay-amount-2"><span><?= $question['repayment_amount']; ?>$</span></div>
 						<div class="interest-rate-2"><span><?= $question['interest']; ?>%</span></div>
-						<div class="repay-date-2"><span><?= date('j M Y', strtotime($question['repayment_date'])); ?></span></div>
+						<div class="repay-date-2"><span class="date-format1"><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span><span class="date-format2"><?= date('j M y', strtotime($question['repayment_date'])); ?></span></div>
 						</div>
 						<div style="text-align: right; margin-top: -40px;">
 						<a href="lend.php?id=<?= $question['id']; ?>"><button class="lend-button">LEND</button><a>
 						</div>
 							<div class="trustscore">
-							<span>Trustscore: <span style="font-weight: bold; color: <?= $trustscore_color; ?>;"><?= $question['borrower_trustscore']; ?>/100</span></span>
+								<span>Trustscore: <span style="font-weight: bold; color: <?= $trustscore_color; ?>;"><?= $question['borrower_trustscore']; ?>/100</span></span>
 							</div>
 							<div class="top-border"></div>
 							<div class="feedback">
-							<span style="color: green;"><img src="assets/images/positive.png" class="feedback-image"> <?= $question['borrower_positive_feedback']; ?></span>
-							<span style="margin-left: 17px; color: red;"><img src="assets/images/negative.png" class="feedback-image"> <?= $question['borrower_negative_feedback']; ?></span>
+								<span style="color: green;"><img src="assets/images/positive.png" class="feedback-image"> <?php if(($question['borrower_positive_feedback']) < 100){ echo $question['borrower_positive_feedback'];}else{ echo "99";} ?></span>
+								<span class="feedback-spacing"><img src="assets/images/negative.png" class="feedback-image"> <?php if(($question['borrower_negative_feedback']) < 10){ echo $question['borrower_negative_feedback'];}else{ echo "9";} ?></span>
+							</div>
+							<div class="lend-container-bottom">
+								<a href="lend.php?id=<?= $question['id']; ?>" style="text-decoration: none;"><button class="lend-button-bottom">LEND</button><a>
 							</div>
 				</div>
 			</div>
@@ -1370,6 +2863,7 @@ input::-webkit-datetime-edit-year-field:focus {
                 echo '<p class="error-message">'.$errorMsg.'</p>'; 
             }
 			?>
+			
 			
 			
 			<div class="under-container">
@@ -1407,9 +2901,188 @@ input::-webkit-datetime-edit-year-field:focus {
 		
 		</div>
 		
+
+
+	<div class="search-bottom">
+	
+	<form method="GET" class="<?= $class_search1 ?>">
+		<div class="bottom-column-1">
+		<p>Loan Amount</p>
+		<input class="sticky-input-bottom" name="loan_amount_search1" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input-bottom" name="interest_search1" type="number" min="0" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -23px;">%</span></div>
+		</div>
+		<div class="bottom-column-2">
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input-bottom" name="trustscore_search1" type="number" min="0" max="100" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input-bottom" type="date" name="repayment_date_search1" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
+		</div>
+		</br>
+		<input type="submit" class="find-offers-bottom" name="search" value="Find Offers">
+		<input type="submit" name="clear1" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search2 ?>">
+		<div class="bottom-column-1">
+		<p>Loan Amount</p>
+		<input class="sticky-input-bottom" name="loan_amount_search2" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input-bottom" name="interest_search2" type="number" min="0" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -23px;">%</span></div>
+		</div>
+		<div class="bottom-column-2">
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input-bottom" name="trustscore_search2" type="number" min="0" max="100" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input-bottom" type="date" name="repayment_date_search2" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
+		</div>
+		</br>
+		<input type="submit" class="find-offers-bottom" name="search" value="Find Offers">
+		<input type="submit" name="clear2" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search3 ?>">
+		<div class="bottom-column-1">
+		<p>Loan Amount</p>
+		<input class="sticky-input-bottom" name="loan_amount_search3" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input-bottom" name="interest_search3" type="number" min="0" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -23px;">%</span></div>
+		</div>
+		<div class="bottom-column-2">
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input-bottom" name="trustscore_search3" type="number" min="0" max="100" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input-bottom" type="date" name="repayment_date_search3" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
+		</div>
+		</br>
+		<input type="submit" class="find-offers-bottom" name="search" value="Find Offers">
+		<input type="submit" name="clear3" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search4 ?>">
+		<div class="bottom-column-1">
+		<p>Loan Amount</p>
+		<input class="sticky-input-bottom" name="loan_amount_search4" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input-bottom" name="interest_search4" type="number" min="0" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -23px;">%</span></div>
+		</div>
+		<div class="bottom-column-2">
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input-bottom" name="trustscore_search4" type="number" min="0" max="100" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input-bottom" type="date" name="repayment_date_search4" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
+		</div>
+		</br>
+		<input type="submit" class="find-offers-bottom" name="search" value="Find Offers">
+		<input type="submit" name="clear4" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search5 ?>">
+		<div class="bottom-column-1">
+		<p>Loan Amount</p>
+		<input class="sticky-input-bottom" name="loan_amount_search5" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input-bottom" name="interest_search5" type="number" min="0" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -23px;">%</span></div>
+		</div>
+		<div class="bottom-column-2">
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input-bottom" name="trustscore_search5" type="number" min="0" max="100" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input-bottom" type="date" name="repayment_date_search5" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
+		</div>
+		</br>
+		<input type="submit" class="find-offers-bottom" name="search" value="Find Offers">
+		<input type="submit" name="clear5" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search6 ?>">
+		<div class="bottom-column-1">
+		<p>Loan Amount</p>
+		<input class="sticky-input-bottom" name="loan_amount_search6" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input-bottom" name="interest_search6" type="number" min="0" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -23px;">%</span></div>
+		</div>
+		<div class="bottom-column-2">
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input-bottom" name="trustscore_search6" type="number" min="0" max="100" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input-bottom" type="date" name="repayment_date_search6" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
+		</div>
+		</br>
+		<input type="submit" class="find-offers-bottom" name="search" value="Find Offers">
+		<input type="submit" name="clear6" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search7 ?>">
+		<div class="bottom-column-1">
+		<p>Loan Amount</p>
+		<input class="sticky-input-bottom" name="loan_amount_search7" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input-bottom" name="interest_search7" type="number" min="0" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -23px;">%</span></div>
+		</div>
+		<div class="bottom-column-2">
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input-bottom" name="trustscore_search7" type="number" min="0" max="100" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input-bottom" type="date" name="repayment_date_search7" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
+		</div>
+		</br>
+		<input type="submit" class="find-offers-bottom" name="search" value="Find Offers">
+		<input type="submit" name="clear7" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search8 ?>">
+		<div class="bottom-column-1">
+		<p>Loan Amount</p>
+		<input class="sticky-input-bottom" name="loan_amount_search8" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input-bottom" name="interest_search8" type="number" min="0" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -23px;">%</span></div>
+		</div>
+		<div class="bottom-column-2">
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input-bottom" name="trustscore_search8" type="number" min="0" max="100" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input-bottom" type="date" name="repayment_date_search8" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
+		</div>
+		</br>
+		<input type="submit" class="find-offers-bottom" name="search" value="Find Offers">
+		<input type="submit" name="clear8" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search9 ?>">
+		<div class="bottom-column-1">
+		<p>Loan Amount</p>
+		<input class="sticky-input-bottom" name="loan_amount_search9" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input-bottom" name="interest_search9" type="number" min="0" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -23px;">%</span></div>
+		</div>
+		<div class="bottom-column-2">
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input-bottom" name="trustscore_search9" type="number" min="0" max="100" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input-bottom" type="date" name="repayment_date_search9" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
+		</div>
+		</br>
+		<input type="submit" class="find-offers-bottom" name="search" value="Find Offers">
+		<input type="submit" name="clear9" value="Clear Filters" class="clear-filters">
+	</form>
+	<form method="GET" class="<?= $class_search10 ?>">
+		<div class="bottom-column-1">
+		<p>Loan Amount</p>
+		<input class="sticky-input-bottom" name="loan_amount_search10" type="number" min="10" max="2000" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -19px;">$</span></div>
+		<p>Interest Rate</p>
+		<input class="sticky-input-bottom" name="interest_search10" type="number" min="0" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -23px;">%</span></div>
+		</div>
+		<div class="bottom-column-2">
+		<p>Borrower Trust Score</p>
+		<input class="sticky-input-bottom" name="trustscore_search10" type="number" min="0" max="100" autocomplete="off"><div class="symbol-bottom"><span style="margin-left: -50px;">/100</span></div>
+		<p>Repayment Date</p>
+		<input class="sticky-input-bottom" type="date" name="repayment_date_search10" autocomplete="off"  min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
+		</div>
+		</br>
+		<input type="submit" class="find-offers-bottom" name="search" value="Find Offers">
+		<input type="submit" name="clear10" value="Clear Filters" class="clear-filters">
+	</form>
+	
+	</div>
+
+
+		
 		
 		<div class="explain">
-			<a href="lender-guide.php" style="text-decoration: none;" target="blank"><h3 class="explain-title">Lend Money on Instant Borrow <span class="link-round">🡕</span></h3></a>
+			<a href="lender-guide.php" style="text-decoration: none;" target="blank"><h3 class="explain-title">Lend Money on Instant Borrow&nbsp;<span class="link-round">🡕</span></h3></a>
 			
 			<p style="font-weight: 500; font-size: 1.28rem; margin-top: 50px; color:#2b80ff;">Welcome to the World of Peer-to-Peer Finance.</p> 
 			
@@ -1418,25 +3091,25 @@ input::-webkit-datetime-edit-year-field:focus {
 
 			<p style="font-weight: 500; font-size: 1.28rem; color:#2b80ff;">Lending on Instant Borrow is Quick, Easy, and a Great way to Make Money.</p>
 			
-			<p style="font-weight: bold; font-size: 1.55rem; color: #00c4ff; margin-top: 60px; margin-bottom: 60px;">THIS IS HOW TO DO IT:</p>
+			<p class="explain-howto">THIS IS HOW TO DO IT:</p>
 			
+			<div class="box-container">
 			<div class="step1"><h3 class="steps-title">1-BROWSE</h3><div class="inner-box"><p class="steps-subtitle">Find in the Loan Requests Section:</p><p><span class="explain-bold">Loan Amounts</span></br><span class="explain-bold">Repayment Amounts</span> and <span class="explain-bold">Dates</span></br><span class="explain-bold">Interest</span> Rates</br><span class="explain-bold">Trustscores</span> and <span class="explain-bold">Feedback</span> Given to Borrowers</p></div></div>
-			<div class="step2"><h3 class="steps-title">2-SELECT A LOAN</h3><div class="inner-box"><p class="steps-subtitle">Get on the Loan Recap Page:</p><p>A <span class="explain-bold">Recap</span> of the Loan</br><span class="explain-bold">Information</span> About the Borrower</br>His Borrowing <span class="explain-bold">History</span></br><span class="explain-bold">Notes</span> Regarding the Loan</p></div></div>
+			<div class="step2"><h3 class="steps-title">2-SELECT A LOAN</h3><div class="inner-box2"><p class="steps-subtitle">Get on the Loan Recap Page:</p><p>A <span class="explain-bold">Recap</span> of the Loan</br><span class="explain-bold">Information</span> About the Borrower</br>His Borrowing <span class="explain-bold">History</span></br><span class="explain-bold">Notes</span> Regarding the Loan</p></div></div>
 			<div class="step3"><h3 class="steps-title">3-LEND</h3><div class="inner-box"><p class="steps-subtitle">On the Payment Page:</p><p>Choose your <span class="explain-bold">Payment Method</span></br><span class="explain-bold">Send Funds</span> to the Borrower</br><span class="explain-bold">Confirm</span> the Transaction was Made</p></div></div>
 			<div class="step4"><h3 class="steps-title">4-PROFIT</h3><div class="inner-box"><p class="steps-subtitle">On the Repayment Date:</p><p>Borrower Sends <span class="explain-bold">Repayment</span></br><span class="explain-bold">Confirm</span> Funds Have Been Received</br><span class="explain-bold">Evaluate</span> the Borrower</p></div></div>
+			</div>
 			
-			<p style="margin-top: 60px;">All payments are Confirmed by Instant Borrow and are Protected with Advanced security Measures. The Marketplace is closely Monitored and all Users are Verified to ensure a safe Trading Environment.</p>
+			<p class="explain-text-bottom" style="margin-top: 60px;">All payments are Confirmed by Instant Borrow and are Protected with Advanced security Measures. The Marketplace is closely Monitored and all Users are Verified to ensure a safe Trading Environment.</p>
 			
-			<p>Personnal Information is Fully Protected by Instant Borrow and is only Given to the Lender if the Borrower fails to Repay his Loan.</p>
+			<p class="explain-text-bottom">Personnal Information is Fully Protected by Instant Borrow and is only Given to the Lender if the Borrower fails to Repay his Loan.</p>
 
-			<p>If you have any Questions, please <a href="contact-us.php" target="blank" style="color: #3d91e0; text-decoration: none;">Contact Us</a> or Read our User Guides at the Bottom of the Page. We'll always be there for you!</p>
+			<p class="explain-text-bottom">If you have any Questions, please <a href="contact-us.php" target="blank" style="color: #3d91e0; text-decoration: none;">Contact Us</a> or Read our User Guides at the Bottom of the Page. We'll always be there for you!</p>
 
-			<h3 style="font-weight: 500; font-size: 1.28rem; color: #2b80ff;">Lending on Instant Borrow is Safe, Easy and Lucrative — Experience the next Revolution in the world of Finance and Make Record Profits in Record Time</h3>
+			<h3 class="bottom-text">Lending on Instant Borrow is Safe, Easy and Lucrative — Experience the next Revolution in the world of Finance and Make Record Profits in Record Time</h3>
 		</div>
 	</div>
 </div>
-
-
 
 <div class="footer">
 	<div class="footer-content">
@@ -1466,12 +3139,38 @@ input::-webkit-datetime-edit-year-field:focus {
 			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
 			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
 			</div>
+			<div class="footer-legal-bottom"><a class="link-legal" href="privacy.php">Privacy Policy</a> - <a class="link-legal" href="terms.php">Terms and Conditions</a></div>
 			<div class="footer-bottom-text"><span>Copyright © 2023 - <?= date("Y"); ?> Instant Borrow. All rights reserved.</span></div>
 		</div>
 	</div>
 </div>
 
 </div>
+
+<script>
+	var button = document.getElementById('menu-header'); 
+	
+	function closeNav() {
+		document.getElementById("under-header").style.display = "none";
+	}
+
+	button.onclick = function() {
+		var div = document.getElementById('under-header');
+		if (div.style.display !== 'none') {
+			div.style.display = 'none';
+		}
+		else {
+			div.style.display = 'block';
+			
+			document.onclick = function (e) {
+			if (e.target.id !== 'under-header' && e.target.id !== 'menu-header') {
+				if (e.target.offsetParent && e.target.offsetParent.id !== 'under-header')
+					closeNav()
+				}
+			}
+		}
+	};
+</script>
 
 </body>
 

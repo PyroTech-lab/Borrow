@@ -155,6 +155,58 @@ if(isset($_SESSION['auth'])){
 
 </style>
 
+<style>
+
+@media screen and (max-width: 570px) {	
+	
+	.main {
+		width: 100%;
+		border: 0px;
+		margin-top: 0px;
+		box-shadow: 0 0 0 0;
+		height: 700px;
+	}
+	
+	.text {
+		width: 80%;
+		margin-left: 10%;
+	}
+	
+	.under-container {
+		text-align: left;
+		margin-top: 0px;
+		margin-left: 10%;
+	}
+}
+
+@media screen and (max-width: 450px) {	
+	
+	
+	.text {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+	
+	.under-container {
+		margin-left: 7.5%;
+	}
+}
+
+@media screen and (max-width: 340px) {	
+	
+	
+	.text {
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+	.under-container {
+		margin-left: 5%;
+	}
+}
+
+</style>
+
 </head>
 
 

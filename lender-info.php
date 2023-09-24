@@ -55,6 +55,74 @@ require('actions/questions/updateDatabases.php');
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
+.under-header {
+	display: none;
+	width: 100%;
+	margin-top: 76px;
+	border-bottom: 1px solid #d6d6d6;
+	position: fixed;
+	background-color: #374861;
+	z-index: 10;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	text-align: center;
+}
+
+.text-under {
+	color: white;
+	font-weight: 500;
+	font-size: 1.45rem;
+}
+
+.lend-under {
+	display: none;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.lend-under:hover {
+	background-color: #536b8f;
+}
+
+.borrow-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.borrow-under:hover {
+	background-color: #536b8f;
+}
+
+.login-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.login-under:hover {
+	background-color: #536b8f;
+}
+
+.signup-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+}
+
+.signup-under:hover {
+	background-color: #536b8f;
+}
+
 .header-text {
 	margin-left: 10%;
 	width: 80%;
@@ -71,11 +139,6 @@ require('actions/questions/updateDatabases.php');
 	margin-top: -20px;
 }
 
-.logo-image-footer {
-	height: 75px;
-	width: auto;
-	margin-top: 10px;
-}
 
 .lend {
 	width: 75px;
@@ -177,6 +240,16 @@ require('actions/questions/updateDatabases.php');
 	outline: 1px solid #f7d631;
 }
 
+.header-menu {
+	display: none;
+}
+
+.header-menu-image {
+	width: 31px;
+	height: 31px;
+	margin-top: -3px;
+}
+
 .everything-except-header {
 	position: absolute;
 	width: 100%;
@@ -224,9 +297,24 @@ require('actions/questions/updateDatabases.php');
 	background-color: #00c4ff;
 }
 
-.section1 {
-	
+.image-left-container {
+	text-align: left;
+	margin-top: -370px;
 }
+
+.image-right-container {
+	text-align: right;
+	margin-top: -40px;
+}
+
+.image-left {
+	margin-left: 14%;
+}
+
+.image-right {
+	margin-right: calc(10% + 50px);
+}
+
 
 .section-title {
 	font-weight: 500;
@@ -307,13 +395,16 @@ require('actions/questions/updateDatabases.php');
 }
 
 .bottom {
+	margin-top: 150px;
 	background-color: #f7f7f7;
 }
 
 .pretitle-bottom {
 	font-size: 1.2rem;
-	color: #4f4f4f;
+	font-weight: 500;
+	color: #00c4ff;
 	margin-bottom: -35px;
+	text-transform: uppercase;
 }
 
 
@@ -333,6 +424,12 @@ require('actions/questions/updateDatabases.php');
 	margin-top: 20px;
 	margin-left: 10%;
 	width: 80%;
+}
+
+.logo-image-footer {
+	height: 75px;
+	width: auto;
+	margin-top: 10px;
 }
 
 .footer-1 {
@@ -381,7 +478,7 @@ require('actions/questions/updateDatabases.php');
 .footer-bottom {
 	text-align: center;
 	margin-bottom: 15px;
-}
+}   
 
 .social-widgets {
 	margin-top: 15px;
@@ -401,11 +498,999 @@ require('actions/questions/updateDatabases.php');
   transform: scale(1.1); 
 }
 
+.footer-legal-bottom {
+	font-size: 0.7rem;
+	margin-bottom: 10px;
+	display: none;
+}
+
+.link-legal {
+	text-decoration: none;
+	color: #00c4ff;
+}
+
 .footer-bottom-text {
 	font-size: 0.86rem;
 	color: #2b2b2b;
 }
 
+</style>
+
+<style>
+
+@media screen and (max-width: 1850px) {
+
+	.section2-container {
+		margin-left: calc(50% - 590px);
+		width: 550px;
+	}
+
+	.section2-images {
+		margin-left: calc(50% + 90px);
+	}
+	
+	.section3-container {
+		margin-left: calc(50% - 570px);
+		width: 550px;
+	}
+
+	.section3-images {
+		margin-left: calc(50% + 150px);
+	}
+
+}
+
+
+@media screen and (max-width: 1725px) {
+	
+	.image-left {
+		margin-left: calc(50% - 600px);
+	}
+
+	.image-right {
+		margin-right: calc(50% - 620px);
+	}
+	
+	.content {
+		width: 700px;
+		margin-left: calc(50% - 350px);
+	}
+	
+}
+
+@media screen and (max-width: 1275px) {
+
+	.section2-container {
+		margin-left: calc(50% - 540px);
+		width: 550px;
+	}
+
+	.section2-images {
+		margin-left: calc(50% + 20px);
+	}
+	
+	.section3-container {
+		margin-left: calc(50% - 520px);
+		width: 550px;
+	}
+
+	.section3-images {
+		margin-left: calc(50% + 80px);
+	}
+
+}
+
+@media screen and (max-width: 1240px) {
+
+	.image-left-container {
+		margin-top: -170px;
+	}
+	
+	.image-right-container {
+		margin-top: -170px;
+	}
+	
+	.image-left {
+		margin-left: calc(50% - 500px);
+	}
+
+	.image-right {
+		margin-right: calc(50% - 550px);
+	}
+	
+}
+
+@media screen and (max-width: 1140px) {
+
+	.image-1 {
+		width: 450px;
+		height: auto;
+	}
+
+	.image-2 {
+		width: 450px;
+		height: auto;
+	}
+	
+	.image-3 {
+		width: 450px;
+		height: auto;
+	}
+
+	.image-5 {
+		width: 450px;
+		height: auto;
+	}
+	
+
+	.section2-container {
+		margin-left: calc(50% - 500px);
+		width: 550px;
+	}
+
+	.section2-images {
+		margin-left: calc(50% + 50px);
+	}
+	
+	.section3-container {
+		margin-left: calc(50% - 500px);
+		width: 550px;
+	}
+
+	.section3-images {
+		margin-left: calc(50% + 50px);
+	}
+
+}
+
+@media screen and (max-width: 1100px) {
+
+	.image-left-container {
+		margin-top: -110px;
+	}
+	
+	.image-right-container {
+		margin-top: -140px;
+		margin-bottom: -50px;
+	}
+	
+	.image-left {
+		margin-left: calc(50% - 420px);
+	}
+
+	.image-right {
+		margin-right: calc(50% - 420px);
+	}
+	
+}
+
+@media screen and (max-width: 1050px) {
+	
+	.image-1 {
+		width: 400px;
+		height: auto;
+	}
+
+	.image-2 {
+		width: 400px;
+		height: auto;
+	}
+	
+	.image-3 {
+		width: 400px;
+		height: auto;
+	}
+	
+	.image-4 {
+		width: 400px;
+		height: auto;
+	}
+
+	.image-5 {
+		width: 400px;
+		height: auto;
+	}
+	
+
+	.section2-container {
+		margin-left: calc(50% - 480px);
+		width: 550px;
+	}
+
+	.section2-images {
+		margin-left: calc(50% + 80px);
+	}
+	
+	.section3-container {
+		margin-left: calc(50% - 480px);
+		width: 550px;
+	}
+
+	.section3-images {
+		margin-left: calc(50% + 80px);
+	}
+	
+}
+
+@media screen and (max-width: 1000px) {
+	
+	
+	.section2-container {
+		margin-left: calc(50% - 275px);
+		width: 550px;
+		text-align: center;
+	}
+
+	.section2-images {
+		margin-top: 0px;
+		margin-left: 0px;
+		width: 100%;
+		text-align: center;
+	}
+	
+	.section3-container {
+		margin-left: calc(50% - 275px);
+		width: 550px;
+		text-align: center;
+	}
+
+	.section3-images {
+		margin-top: 0px;
+		width: 100%;
+		margin-left: 0px;
+		text-align: center;
+	}
+	
+	.image-1 {
+		width: auto;
+		height: auto;
+		margin-left: 0px;
+	}
+
+	.image-2 {
+		width: auto;
+		height: auto;
+		margin-left: 0px;
+	}
+	
+	.image-3 {
+		width: auto;
+		height: auto;
+		margin-left: 0px;
+	}
+	
+	.image-4 {
+		width: auto;
+		height: auto;
+		margin-left: 0px;
+	}
+
+	.image-5 {
+		width: auto;
+		height: auto;
+		margin-left: 0px;
+	}
+	
+	.image-6 {
+		width: auto;
+		height: auto;
+		margin-left: 0px;
+	}
+	
+	.section-title {
+		font-size: 1.9rem;
+		margin-top: 0px;
+		margin-bottom: 150px;
+	}
+	
+	.section2 {
+		padding-top: 40px;
+	}
+	
+	.section3 {
+		padding-top: 40px;
+	}
+
+	
+	.section2-images {
+		margin-bottom: 50px;
+	}
+	
+	.section3-images {
+		margin-bottom: 50px;
+	}
+	
+	.bottom {
+		margin-top: 100px;
+	}
+	
+}
+
+@media screen and (max-width: 840px) {
+	
+	.main {
+		margin-top: 145px;
+	}
+	
+	.subtitle {
+		margin-top: 40px;
+	}
+	
+	.button-container {
+		margin-top: 30px;
+	}
+
+	.image-left-container {
+		margin-top: 10px;
+	}
+	
+	.image-right-container {
+		margin-top: -220px;
+	}
+	
+	.image-left {
+		margin-left: calc(50% - 250px);
+	}
+
+	.image-right {
+		margin-right: calc(50% - 270px);
+	}
+	
+}
+
+@media screen and (max-width: 730px) {
+	
+	.main {
+			margin-top: 130px;
+	}
+	
+	.content {
+		width: 96%;
+		margin-left: 2%;
+	}
+	
+	.title {
+		font-size: 2.5rem;
+	}
+	
+	.subtitle {
+		font-size: 1.08rem;
+	}
+	
+}
+
+@media screen and (max-width: 560px) {
+	
+	
+	.section2-container {
+		width: 96%;
+		margin-left: 2%;
+	}
+	
+	.section3-container {
+		width: 96%;
+		margin-left: 2%;
+	}
+	
+	.image-3 {
+		width: 400px;
+		height: auto;
+	}
+	
+}
+
+@media screen and (max-width: 550px) {
+	
+	.image-left {
+		margin-left: calc(50% - 20px);
+	}
+
+	.image-right-container {
+		margin-left: calc(50% - 550px);
+		position: relative;
+		z-index: -1;
+	}
+	
+	.bottom {
+		margin-top: 70px;
+	}
+	
+}
+
+@media screen and (max-width: 500px) {
+	
+	
+	.image-1 {
+		max-width: 96%;
+		height: auto;
+	}
+	
+	.image-2 {
+		max-width: 96%;
+		height: auto;
+	}
+	
+	.image-3 {
+		max-width: 96%;
+		height: auto;
+	}
+	
+	.image-4 {
+		max-width: 96%;
+		height: auto;
+	}
+	
+	.image-5 {
+		max-width: 96%;
+		height: auto;
+	}
+	
+	.image-6 {
+		max-width: 96%;
+		height: auto;
+	}
+	
+	.section-title {
+		font-size: 1.8rem;
+		margin-top: 0px;
+		margin-bottom: 100px;
+	}
+	
+	.section2 {
+		padding-top: 20px;
+	}
+	
+	.section3 {
+		padding-top: 20px;
+	}
+	
+	.button-container {
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+	
+	.section2-images {
+		margin-bottom: 20px;
+	}
+	
+	.section3-images {
+		margin-bottom: 20px;
+	}
+	
+}
+
+@media screen and (max-width: 450px) {
+	
+	
+	.main {
+			margin-top: 120px;
+	}
+	
+	.title {
+		font-size: 2.2rem;
+	}
+	
+	.section-title {
+		font-size: 2.2rem;
+	}
+	
+	.image-left {
+		margin-left: calc(50% - 40px);
+	}
+
+	.image-right-container {
+		margin-left: calc(50% - 510px);
+		position: relative;
+		z-index: -1;
+	}
+	
+}
+
+@media screen and (max-width: 420px) {
+	
+	.button {
+		width: 300px;
+	}
+	
+	.image-left {
+		display: none;
+	}
+
+	.image-right-container {
+		margin-left: 0%;
+		width: 100%;
+		text-align: center;
+		margin-top: 0px;
+	}
+	
+	.image-right {
+		
+		margin-left: 0px;
+		margin-right: 0px;
+		max-width: 100%;
+	}
+	
+	
+}
+
+@media screen and (max-width: 359px) {
+	
+	.title {
+		font-size: 2rem;
+	}
+	
+	.section-title {
+		font-size: 2rem;
+	}
+	
+	.subtitle {
+		font-size: 1rem;
+	}
+	
+}
+
+@media screen and (max-width: 335px) {
+	
+	.main {
+		margin-top: 110px;
+	}
+	
+	.title {
+		font-size: 1.8rem;
+	}
+	
+}
+
+
+</style>
+
+<style>
+@media screen and (max-width: 1550px) {
+	
+	.header-text {
+		margin-left: 7.5%;
+		width: 85%;
+	}
+	
+}
+
+@media screen and (max-width: 1200px) {
+	
+	.header-text {
+		margin-left: 5%;
+		width: 90%;
+	}
+	
+}
+
+@media screen and (max-width: 930px) {
+	
+	.header-text {
+		margin-left: 2%;
+		width: 96%;
+	}
+	
+}
+
+@media screen and (max-width: 703px) {
+	
+	.lend {
+		display: none;
+	}
+	
+	.borrow {
+		display: none;
+	}
+	
+	.login {
+		margin-left: calc(100% - 215px);
+	}
+	
+	.login-text {
+		background-color: #00c4ff;
+		outline: 1px solid #00c4ff;
+		color: white;
+		border-radius: 0.125rem;
+	}
+	
+	.login-text:hover {
+		outline: 1px solid #2b80ff;
+		background-color: #2b80ff;
+	}
+	
+	.signup {
+		margin-left: calc(100% - 135px);
+	}
+	
+	.header-menu {
+		display: block;
+		width: 31px;
+		height: 31px;
+		margin-top: -23px;
+		margin-left: calc(100% - 36px);
+	}
+	
+	.lend-under {
+		display: block;
+	}
+
+	.borrow-under {
+		display: block;
+		border-bottom: 0px;
+		background-color: #00c4ff;
+	}
+	
+	.borrow-under:hover {
+		background-color: #00a2d4;
+	}
+
+	.login-under {
+		display: none;
+	}
+
+	.signup-under {
+		display: none;
+	}
+
+}
+
+@media screen and (max-width: 595px) {
+	
+	.explain-text-bottom {
+		font-size: 0.95rem;
+		line-height: 27px;
+	}
+	
+	.bottom-text {
+		font-size: 1.15rem;
+		line-height: 27px;
+	}
+}
+
+@media screen and (max-width: 460px) {
+
+.login {
+		display: none;
+	}
+	
+	.signup-text {
+		background-color: #00c4ff;
+		outline: #00c4ff;
+		border-radius: 0.275rem;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	
+	.signup-text:hover {
+		background-color: #2b80ff;
+		outline: #2b80ff;
+	}
+	
+	.borrow-under {
+		display: block;
+		border-bottom: 1px solid white;
+		background-color: #374861;
+	}
+	
+	.borrow-under:hover {
+		background-color: #536b8f;
+	}
+
+
+	.login-under {
+		display: block;
+		border-bottom: 0px;
+		background-color: #00c4ff;
+	}
+	
+	.login-under:hover {
+		background-color: #00a2d4;
+	}
+
+	.text-under {
+		font-size: 1.3rem;
+	}
+}
+
+@media screen and (max-width: 405px) {
+	
+	.lend-button {
+		width: 100%;
+	}
+	
+	.lend-button-container {
+		margin-left: 51%;
+		width: 49%;
+		margin-top: -38px;
+	}
+	
+	.how-to {
+		width: 49%;
+	}
+}
+
+@media screen and (max-width: 350px) {
+
+	.logo-image {
+		height: 50px;
+		margin-top: -14px;
+	}
+	
+}
+
+@media screen and (max-width: 335px) {
+	
+	.header {
+		height: 65px;
+	}
+	
+	.logo-image {
+		margin-top: -18px;
+	}
+	
+	.signup {
+		display: none;
+	}
+	
+	.header-menu {
+		margin-top: -27px;
+	}
+	
+	.under-header {
+		margin-top: 66px;
+	}
+
+	.signup-under {
+		display: block;
+		background-color: #00c4ff;
+	}
+	
+	.signup-under:hover {
+		background-color: #00a2d4;
+	}
+	
+	.login-under {
+		display: block;
+		border-bottom: 1px solid white;
+		background-color: #374861;
+	}
+	
+	.login-under:hover {
+		background-color: #536b8f;
+	}
+}
+
+</style>
+
+<style>
+@media screen and (max-width: 1650px) {	
+	
+	.footer-content {
+		margin-left: 5%;
+		width: 90%;
+	}
+
+}
+
+@media screen and (max-width: 1360px) {
+
+	.footer-content {
+		margin-left: 2%;
+		width: 96%;
+	}
+}
+
+@media screen and (max-width: 1270px) {
+	
+	.footer-content {
+		margin-left: 10%;
+		width: 80%;
+	}
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 30%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: 57%;
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 1220px) {
+
+	.footer-content {
+		margin-left: 7%;
+		width: 86%;
+	}
+}
+
+@media screen and (max-width: 1150px) {
+
+	.footer-content {
+		margin-left: 5%;
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+
+	.footer-content {
+		margin-left: 2%;
+		width: 96%;
+	}
+}
+
+@media screen and (max-width: 935px) {
+
+	.logo-image-footer	{
+		height: 70px;
+		width: auto;
+		margin-top: 10px;
+	}
+		
+
+}
+
+@media screen and (max-width: 845px) {
+
+	.logo-image-footer	{
+		height: 60px;
+		width: auto;
+		margin-top: 0px;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 27%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(63% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 805px) {
+	
+	.logo-image-footer	{
+		display: none;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(50% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+
+}
+
+@media screen and (max-width: 550px) {
+
+	.logo-image-footer	{
+		display: none;
+	}
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(47% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 505px) {
+
+	.footer-2 {
+		width: 103px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(50% - 64px);
+	}
+
+	.footer-4 {
+		width: 103px;
+		margin-left: calc(100% - 103px);
+	}
+
+}
+
+@media screen and (max-width: 405px) {
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 7%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(93% - 128px);
+	}
+
+	.footer-4 {
+		display: none;
+	}
+	
+	.footer-legal-bottom {
+		display: block;
+	}
+	
+	.social-widgets {
+		margin-bottom: 0px;
+	}
+}
+
+@media screen and (max-width: 390px) {
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 5%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(95% - 128px);
+	}
+	
+}
+
+@media screen and (max-width: 370px) {
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 2%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(98% - 128px);
+	}
+}
+
+
+@media screen and (max-width: 335px) {
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 6%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(94% - 128px);
+	}
+}
 </style>
 
 </head>
@@ -415,13 +1500,20 @@ require('actions/questions/updateDatabases.php');
   
 <div class="header">
 	<div class="header-text">
-		<div class="logo"><a href="about.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
+		<div class="logo"><a href="lender-info.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="index.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
 		<div class="borrow"><a href="borrow.php" style="text-decoration: none; color: black"><span class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="login.php" style="text-decoration: none; color: black"><span class="login-text">Login</span></a></div>
 		<div class="signup"><a href="signup.php" style="text-decoration: none; color: black"><span class="signup-text">Sign Up</span></a></div>
+		<div class="header-menu"><img id="menu-header" class="header-menu-image" src="assets/images/header-menu.jpg"></div>
 	</div>
-</div>  
+</div>
+<div class="under-header" id="under-header">
+		<a href="index.php" style="text-decoration: none; color: black"><div class="lend-under"><span class="text-under">Lend</span></div></a>
+		<a href="borrow.php" style="text-decoration: none; color: black"><div class="borrow-under"><span class="text-under">Borrow</span></div></a>
+		<a href="login.php" style="text-decoration: none; color: black"><div class="login-under"><span class="text-under">Login</span></div></a>
+		<a href="signup.php" style="text-decoration: none; color: black"><div class="signup-under"><span class="text-under">Sign Up</span></div></a>
+</div> 
 
 <div class="everything-except-header">
 
@@ -438,13 +1530,15 @@ require('actions/questions/updateDatabases.php');
            <a style="text-decoration: none;" href="index.php"><button class="button">Start Now</button></a>
         </div>
 		
-<div style="text-align: left; margin-top: -370px;">
-<img class="" src="assets/images/repayment-received.png" alt="Request amount" style="margin-left: 14%;">
+		
+<div class="image-left-container">
+<img class="image-left" src="assets/images/repayment-received.png" alt="Request amount">
 </div>
 
-<div style="text-align: right; margin-top: -40px;">
-<img class="" src="assets/images/profit-curve.png" alt="Choose Loan Amount" style="margin-right: calc(10% + 50px);">
+<div class="image-right-container">
+<img class="image-right" src="assets/images/profit-curve.png" alt="Choose Loan Amount">
 </div>
+
 
 </section>
 
@@ -462,7 +1556,7 @@ require('actions/questions/updateDatabases.php');
 				</div>
 			</div>
 			<div class="section2-images">
-				<picture><source srcset="assets/images/profile-2.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/profile-2.png" alt="your loan request is being sent to Instant Borrow Lenders"></picture>
+				<picture><source srcset="assets/images/profile-2.png" type="image/png"><img class="image-1" src="assets/images/profile-2.png" alt="your loan request is being sent to Instant Borrow Lenders"></picture>
 			</div>
 		</div>
 		<div class="row single-feature single-feature-2">
@@ -473,7 +1567,7 @@ require('actions/questions/updateDatabases.php');
 				</div>
 			</div>
 			<div class="section2-images">
-				<picture><source srcset="assets/images/lend-money.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/lend-money.png" alt="Explore offers"></picture>
+				<picture><source srcset="assets/images/lend-money.png" type="image/png"><img class="image-2" src="assets/images/lend-money.png" alt="Explore offers"></picture>
 			</div>
 		</div>
 		<div class="row single-feature single-feature-3">
@@ -484,7 +1578,7 @@ require('actions/questions/updateDatabases.php');
 				</div>
 			</div>
 			<div class="section2-images">
-				<picture><source srcset="assets/images/send-international-lend.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/send-international-lend.png" alt="Send Money Worldwide with no Fees"></picture>
+				<picture><source srcset="assets/images/send-international-lend.png" type="image/png"><img class="image-3" src="assets/images/send-international-lend.png" alt="Send Money Worldwide with no Fees"></picture>
 			</div>
 		</div>
 	</div>
@@ -505,7 +1599,7 @@ require('actions/questions/updateDatabases.php');
                 </div>
             </div>
             <div class="section3-images">
-                <picture><source srcset="assets/images/request-published-lend.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/request-published-lend.png" alt="borrower Money online Step-1"></picture>
+                <picture><source srcset="assets/images/request-published-lend.png" type="image/png"><img class="image-4" src="assets/images/request-published-lend.png" alt="borrower Money online Step-1"></picture>
 			</div>
         </div>
         <div class="row step step-2">
@@ -517,7 +1611,7 @@ require('actions/questions/updateDatabases.php');
                 </div>
             </div>
             <div class="section3-images">
-                <picture><source srcset="assets/images/profile-lend.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/profile-lend.png" alt="Explore offers"></picture>
+                <picture><source srcset="assets/images/profile-lend.png" type="image/png"><img class="image-5" src="assets/images/profile-lend.png" alt="Explore offers"></picture>
             </div>
         </div>
         <div class="row step step-3">
@@ -529,7 +1623,7 @@ require('actions/questions/updateDatabases.php');
                 </div>
             </div>
             <div class="section3-images">
-                <picture><source srcset="assets/images/payment-amount-lend.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/payment-amount-lend.png" alt="borrower money online step-3"></picture>
+                <picture><source srcset="assets/images/payment-amount-lend.png" type="image/png"><img class="image-6" src="assets/images/payment-amount-lend.png" alt="borrower money online step-3"></picture>
 			</div>
         </div>
 		<div class="row step step-4">
@@ -540,8 +1634,8 @@ require('actions/questions/updateDatabases.php');
                     <p class="section3-text">On or Before the Agreed Upon Date, the Borrower will Send you the Repayment. Confirm you have received the Funds, Rate the Borrower and Enjoy the profit!</p>
                 </div>
             </div>
-            <div class="section3-images" style="margin-bottom: 150px;">
-				<picture><source srcset="assets/images/repayment-received-2.png" type="image/png"><img class="img-fluid image-2 webpexpress-processed" src="assets/images/repayment-received-2.png" alt="borrower money online step-4"></picture>
+            <div class="section3-images">
+				<picture><source srcset="assets/images/repayment-received-2.png" type="image/png"><img class="image-7" src="assets/images/repayment-received-2.png" alt="borrower money online step-4"></picture>
 			</div>
         </div>
     </div>
@@ -591,12 +1685,38 @@ require('actions/questions/updateDatabases.php');
 			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
 			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
 			</div>
+			<div class="footer-legal-bottom"><a class="link-legal" href="privacy-policy.php">Privacy Policy</a> - <a class="link-legal" href="terms-conditions.php">Terms and Conditions</a></div>
 			<div class="footer-bottom-text"><span>Copyright © 2023 - <?= date("Y"); ?> Instant Borrow. All rights reserved.</span></div>
 		</div>
 	</div>
 </div>
 
 </div>
+
+<script>
+	var button = document.getElementById('menu-header'); 
+	
+	function closeNav() {
+		document.getElementById("under-header").style.display = "none";
+	}
+
+	button.onclick = function() {
+		var div = document.getElementById('under-header');
+		if (div.style.display !== 'none') {
+			div.style.display = 'none';
+		}
+		else {
+			div.style.display = 'block';
+			
+			document.onclick = function (e) {
+			if (e.target.id !== 'under-header' && e.target.id !== 'menu-header') {
+				if (e.target.offsetParent && e.target.offsetParent.id !== 'under-header')
+					closeNav()
+				}
+			}
+		}
+	};
+</script>
 
 </body>
 </html>

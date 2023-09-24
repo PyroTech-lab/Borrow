@@ -55,6 +55,74 @@ require('actions/questions/updateDatabases.php');
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
+.under-header {
+	display: none;
+	width: 100%;
+	margin-top: 76px;
+	border-bottom: 1px solid #d6d6d6;
+	position: fixed;
+	background-color: #374861;
+	z-index: 10;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	text-align: center;
+}
+
+.text-under {
+	color: white;
+	font-weight: 500;
+	font-size: 1.45rem;
+}
+
+.lend-under {
+	display: none;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.lend-under:hover {
+	background-color: #536b8f;
+}
+
+.borrow-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.borrow-under:hover {
+	background-color: #536b8f;
+}
+
+.login-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.login-under:hover {
+	background-color: #536b8f;
+}
+
+.signup-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+}
+
+.signup-under:hover {
+	background-color: #536b8f;
+}
+
 .header-text {
 	margin-left: 10%;
 	width: 80%;
@@ -71,11 +139,6 @@ require('actions/questions/updateDatabases.php');
 	margin-top: -20px;
 }
 
-.logo-image-footer {
-	height: 75px;
-	width: auto;
-	margin-top: 10px;
-}
 
 .lend {
 	width: 75px;
@@ -177,6 +240,16 @@ require('actions/questions/updateDatabases.php');
 	outline: 1px solid #f7d631;
 }
 
+.header-menu {
+	display: none;
+}
+
+.header-menu-image {
+	width: 31px;
+	height: 31px;
+	margin-top: -3px;
+}
+
 .everything-except-header {
 	position: absolute;
 	width: 100%;
@@ -184,7 +257,7 @@ require('actions/questions/updateDatabases.php');
 
 .main {
 	text-align: center;
-		margin-top: 160px;
+	margin-top: 160px;
 }
 
 .content {
@@ -222,6 +295,24 @@ require('actions/questions/updateDatabases.php');
 
 .button:hover {
 	background-color: #00c4ff;
+}
+
+.image-left-container {
+	text-align: left;
+	margin-top: -370px;
+}
+
+.image-right-container {
+	text-align: right;
+	margin-top: -40px;
+}
+
+.image-left {
+	margin-left: 12%;
+}
+
+.image-right {
+	margin-right: calc(10% + 50px);
 }
 
 .section1 {
@@ -327,8 +418,10 @@ require('actions/questions/updateDatabases.php');
 
 .pretitle-bottom {
 	font-size: 1.2rem;
-	color: #4f4f4f;
+	font-weight: 500;
+	color: #00c4ff;
 	margin-bottom: -35px;
+	text-transform: uppercase;
 }
 
 
@@ -348,6 +441,12 @@ require('actions/questions/updateDatabases.php');
 	margin-top: 20px;
 	margin-left: 10%;
 	width: 80%;
+}
+
+.logo-image-footer {
+	height: 75px;
+	width: auto;
+	margin-top: 10px;
 }
 
 .footer-1 {
@@ -396,7 +495,7 @@ require('actions/questions/updateDatabases.php');
 .footer-bottom {
 	text-align: center;
 	margin-bottom: 15px;
-}
+}   
 
 .social-widgets {
 	margin-top: 15px;
@@ -416,11 +515,1093 @@ require('actions/questions/updateDatabases.php');
   transform: scale(1.1); 
 }
 
+.footer-legal-bottom {
+	font-size: 0.7rem;
+	margin-bottom: 10px;
+	display: none;
+}
+
+.link-legal {
+	text-decoration: none;
+	color: #00c4ff;
+}
+
 .footer-bottom-text {
 	font-size: 0.86rem;
 	color: #2b2b2b;
 }
 
+</style>
+
+
+
+<style>
+
+@media screen and (max-width: 1850px) {
+
+	.section2-container {
+		margin-left: calc(50% - 590px);
+		width: 550px;
+	}
+
+	.section2-images {
+		margin-left: calc(50% + 90px);
+	}
+	
+	.section3-container {
+		margin-left: calc(50% - 570px);
+		width: 550px;
+	}
+
+	.section3-images {
+		margin-left: calc(50% + 150px);
+	}
+	
+	.section3-container2 {
+		width: 600px;
+		margin-left: calc(50% - 700px);
+	}
+	
+	.section3-container3 {
+		width: 600px;
+		margin-left: calc(50% + 100px);
+	}
+
+}
+
+
+@media screen and (max-width: 1725px) {
+	
+	.image-left {
+		margin-left: calc(50% - 650px);
+	}
+
+	.image-right {
+		margin-right: calc(50% - 600px);
+	}
+	
+	.content {
+		width: 700px;
+		margin-left: calc(50% - 350px);
+	}
+	
+}
+
+@media screen and (max-width: 1455px) {
+	
+	.image-3 {
+		margin-left: -100px;
+	}
+	
+	.section3-container2 {
+		width: 500px;
+		margin-left: calc(50% - 600px);
+	}
+	
+	.section3-container3 {
+		width: 500px;
+		margin-left: calc(50% + 100px);
+	}
+}
+
+@media screen and (max-width: 1275px) {
+
+	.section2-container {
+		margin-left: calc(50% - 560px);
+		width: 550px;
+	}
+
+	.section2-images {
+		margin-left: calc(50% + 60px);
+	}
+	
+	.section3-container {
+		margin-left: calc(50% - 520px);
+		width: 550px;
+	}
+
+	.section3-images {
+		margin-left: calc(50% + 80px);
+	}
+	
+	.image-3 {
+		margin-left: -50px;
+	}
+	
+	.section3-container2 {
+		width: 500px;
+		margin-left: calc(50% - 550px);
+	}
+	
+	.section3-container3 {
+		width: 500px;
+		margin-left: calc(50% + 50px);
+	}
+
+}
+
+@media screen and (max-width: 1265px) {
+
+	.image-left-container {
+		margin-top: -190px;
+	}
+	
+	.image-right-container {
+		margin-top: -240px;
+	}
+	
+	.image-left {
+		margin-left: calc(50% - 520px);
+	}
+
+	.image-right {
+		margin-right: calc(50% - 510px);
+	}
+	
+}
+
+@media screen and (max-width: 1220px) {
+	
+	.image-2 {
+		width: 500px;
+		height: auto;
+	}
+	
+}
+
+@media screen and (max-width: 1220px) {
+	
+	.image-3 {
+		width: 500px;
+		height: auto;
+	}
+	
+}
+
+@media screen and (max-width: 1140px) {
+
+	.image-1 {
+		width: 450px;
+		height: auto;
+	}
+
+	.image-2 {
+		width: 450px;
+		height: auto;
+	}
+	
+	.image-3 {
+		width: 450px;
+		height: auto;
+		margin-left: 0px;
+	}
+	
+
+	.section2-container {
+		margin-left: calc(50% - 520px);
+		width: 550px;
+	}
+
+	.section2-images {
+		margin-left: calc(50% + 70px);
+	}
+	
+	.section3-container {
+		margin-left: calc(50% - 500px);
+		width: 550px;
+	}
+
+	.section3-images {
+		margin-left: calc(50% + 50px);
+	}
+	
+	.section3-container2 {
+		width: 640px;
+		margin-left: calc(50% - 320px);
+	}
+	
+	.section3-container3 {
+		margin-top: 150px;
+		width: 640px;
+		margin-left: calc(50% - 320px);
+		margin-bottom: 180px;
+	}
+
+}
+
+
+@media screen and (max-width: 1060px) {
+	
+	.image-1 {
+		width: 400px;
+		height: auto;
+	}
+
+	.image-2 {
+		width: 400px;
+		height: auto;
+	}
+	
+	.image-3 {
+		width: 400px;
+		height: auto;
+	}
+	
+
+	.section2-container {
+		margin-left: calc(50% - 490px);
+		width: 550px;
+	}
+
+	.section2-images {
+		margin-left: calc(50% + 90px);
+	}
+	
+	.section3-container {
+		margin-left: calc(50% - 480px);
+		width: 550px;
+	}
+
+	.section3-images {
+		margin-left: calc(50% + 80px);
+	}
+	
+}
+
+
+@media screen and (max-width: 1025px) {
+
+	.image-left-container {
+		margin-top: -120px;
+	}
+	
+	.image-right-container {
+		margin-top: -190px;
+		margin-bottom: -50px;
+	}
+	
+	.image-left {
+		margin-left: calc(50% - 480px);
+	}
+
+	.image-right {
+		margin-right: calc(50% - 420px);
+	}
+	
+}
+
+
+@media screen and (max-width: 1010px) {
+	
+	
+	.section2-container {
+		margin-left: calc(50% - 275px);
+		width: 550px;
+		text-align: center;
+	}
+
+	.section2-images {
+		margin-top: 0px;
+		margin-left: 0px;
+		width: 100%;
+		text-align: center;
+	}
+	
+	.section3-container {
+		margin-left: calc(50% - 275px);
+		width: 550px;
+		text-align: center;
+	}
+
+	.section3-images {
+		margin-top: 0px;
+		width: 100%;
+		margin-left: 0px;
+		text-align: center;
+	}
+	
+	.image-1 {
+		width: auto;
+		height: auto;
+		margin-left: 0px;
+	}
+
+	.image-2 {
+		width: auto;
+		height: auto;
+		margin-left: 0px;
+	}
+	
+	.image-3 {
+		width: auto;
+		height: auto;
+		margin-left: 0px;
+	}
+	
+	.section-title {
+		font-size: 1.9rem;
+		margin-top: 0px;
+		margin-bottom: 150px;
+	}
+	
+	.section2 {
+		padding-top: 40px;
+	}
+	
+	.section3 {
+		padding-top: 40px;
+	}
+
+	
+	.section2-images {
+		margin-bottom: 50px;
+	}
+	
+	.section3-images {
+		margin-bottom: 50px;
+	}
+	
+	.bottom {
+		margin-top: 100px;
+	}
+	
+}
+
+@media screen and (max-width: 935px) {
+	
+	.main {
+		margin-top: 145px;
+	}
+	
+	.subtitle {
+		margin-top: 40px;
+	}
+	
+	.button-container {
+		margin-top: 30px;
+	}
+
+	.image-left-container {
+		margin-top: 20px;
+	}
+	
+	.image-right-container {
+		margin-top: -240px;
+	}
+	
+	.image-left {
+		margin-left: calc(50% - 288px);
+	}
+
+	.image-right {
+		margin-right: calc(50% - 308px);
+	}
+	
+}
+
+@media screen and (max-width: 730px) {
+	
+	.main {
+		margin-top: 130px;
+	}
+	
+	.content {
+		width: 96%;
+		margin-left: 2%;
+	}
+	
+	.title {
+		font-size: 2.5rem;
+	}
+	
+	.subtitle {
+		font-size: 1.08rem;
+	}
+	
+}
+
+@media screen and (max-width: 660px) {
+
+	.section3-container2 {
+		width: 540px;
+		margin-left: calc(50% - 270px);
+	}
+	
+	.section3-container3 {
+		margin-top: 150px;
+		width: 540px;
+		margin-left: calc(50% - 270px);
+		margin-bottom: 180px;
+	}
+
+}
+
+@media screen and (max-width: 620px) {
+	
+	.image-left {
+		margin-left: calc(50% - 60px);
+	}
+	
+	.image-right {
+		margin-right: calc(50% - 100px);
+	}
+
+	.image-right-container {
+		position: relative;
+		z-index: -1;
+	}
+	
+	.bottom {
+		margin-top: 70px;
+	}
+	
+}
+
+@media screen and (max-width: 595px) {
+	.image-1 {
+		max-width: 96%;
+		height: auto;
+	}
+	
+	.image-2 {
+		max-width: 96%;
+		height: auto;
+	}
+	
+	.image-3 {
+		max-width: 96%;
+		height: auto;
+	}
+}
+
+@media screen and (max-width: 660px) {
+
+	.section3-container2 {
+		width: 96%;
+		margin-left: 2%;
+	}
+	
+	.section3-container3 {
+		margin-top: 150px;
+		width: 96%;
+		margin-left: 2%;
+		margin-bottom: 180px;
+	}
+
+}
+
+
+@media screen and (max-width: 560px) {
+	
+	
+	.section2-container {
+		width: 96%;
+		margin-left: 2%;
+	}
+	
+	.section3-container {
+		width: 96%;
+		margin-left: 2%;
+	}
+	
+	
+}
+
+@media screen and (max-width: 525px) {
+
+	.image-left {
+		margin-left: calc(50% - 90px);
+	}
+	
+	.image-right {
+		margin-right: calc(50% - 150px);
+	}
+
+	.image-right-container {
+		margin-top: -190px;
+		position: relative;
+		z-index: 1;
+	}
+	
+}
+
+
+@media screen and (max-width: 500px) {
+	
+	.section-title {
+		font-size: 1.8rem;
+		margin-top: 0px;
+		margin-bottom: 100px;
+	}
+	
+	.section2 {
+		padding-top: 20px;
+	}
+	
+	.section3 {
+		padding-top: 20px;
+	}
+	
+	.button-container {
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+	
+	.section2-images {
+		margin-bottom: 20px;
+	}
+	
+	.section3-images {
+		margin-bottom: 20px;
+	}
+	
+	.section3-container3 {
+		margin-bottom: 80px;
+	}
+	
+}
+
+@media screen and (max-width: 475px) {
+
+	.image-left {
+		margin-left: calc(50% - 120px);
+	}
+	
+	.image-right {
+		margin-right: calc(50% - 160px);
+	}
+
+	
+}
+
+@media screen and (max-width: 450px) {
+	
+	
+	.main {
+			margin-top: 120px;
+	}
+	
+	.title {
+		font-size: 2.2rem;
+	}
+	
+	.section-title {
+		font-size: 2.2rem;
+	}
+	
+	
+}
+
+@media screen and (max-width: 420px) {
+	
+	.button {
+		width: 300px;
+	}
+	
+}
+
+@media screen and (max-width: 405px) {
+
+	.image-left {
+		margin-left: 0px;
+		margin-bottom: 100px;
+		width: 300px;
+	}
+	
+	.image-left-container {
+		width: 100%;
+		margin-left: 0px;
+		margin-right: 0px;
+		text-align: center;
+	}
+	
+	.image-right {
+		display: none;
+	}
+
+	
+}
+
+@media screen and (max-width: 359px) {
+	
+	.title {
+		font-size: 2rem;
+	}
+	
+	.section-title {
+		font-size: 2rem;
+	}
+	
+	.subtitle {
+		font-size: 1rem;
+	}
+	
+}
+
+@media screen and (max-width: 335px) {
+	
+	.main {
+		margin-top: 110px;
+	}
+	
+	.title {
+		font-size: 1.8rem;
+	}
+	
+}
+
+
+</style>
+
+
+
+<style>
+@media screen and (max-width: 1550px) {
+	
+	.header-text {
+		margin-left: 7.5%;
+		width: 85%;
+	}
+	
+}
+
+@media screen and (max-width: 1200px) {
+	
+	.header-text {
+		margin-left: 5%;
+		width: 90%;
+	}
+	
+}
+
+@media screen and (max-width: 930px) {
+	
+	.header-text {
+		margin-left: 2%;
+		width: 96%;
+	}
+	
+}
+
+@media screen and (max-width: 703px) {
+	
+	.lend {
+		display: none;
+	}
+	
+	.borrow {
+		display: none;
+	}
+	
+	.login {
+		margin-left: calc(100% - 215px);
+	}
+	
+	.login-text {
+		background-color: #00c4ff;
+		outline: 1px solid #00c4ff;
+		color: white;
+		border-radius: 0.125rem;
+	}
+	
+	.login-text:hover {
+		outline: 1px solid #2b80ff;
+		background-color: #2b80ff;
+	}
+	
+	.signup {
+		margin-left: calc(100% - 135px);
+	}
+	
+	.header-menu {
+		display: block;
+		width: 31px;
+		height: 31px;
+		margin-top: -23px;
+		margin-left: calc(100% - 36px);
+	}
+	
+	.lend-under {
+		display: block;
+	}
+
+	.borrow-under {
+		display: block;
+		border-bottom: 0px;
+		background-color: #00c4ff;
+	}
+	
+	.borrow-under:hover {
+		background-color: #00a2d4;
+	}
+
+	.login-under {
+		display: none;
+	}
+
+	.signup-under {
+		display: none;
+	}
+
+}
+
+@media screen and (max-width: 595px) {
+	
+	.explain-text-bottom {
+		font-size: 0.95rem;
+		line-height: 27px;
+	}
+	
+	.bottom-text {
+		font-size: 1.15rem;
+		line-height: 27px;
+	}
+}
+
+@media screen and (max-width: 460px) {
+
+.login {
+		display: none;
+	}
+	
+	.signup-text {
+		background-color: #00c4ff;
+		outline: #00c4ff;
+		border-radius: 0.275rem;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	
+	.signup-text:hover {
+		background-color: #2b80ff;
+		outline: #2b80ff;
+	}
+	
+	.borrow-under {
+		display: block;
+		border-bottom: 1px solid white;
+		background-color: #374861;
+	}
+	
+	.borrow-under:hover {
+		background-color: #536b8f;
+	}
+
+
+	.login-under {
+		display: block;
+		border-bottom: 0px;
+		background-color: #00c4ff;
+	}
+	
+	.login-under:hover {
+		background-color: #00a2d4;
+	}
+
+	.text-under {
+		font-size: 1.3rem;
+	}
+}
+
+@media screen and (max-width: 405px) {
+	
+	.lend-button {
+		width: 100%;
+	}
+	
+	.lend-button-container {
+		margin-left: 51%;
+		width: 49%;
+		margin-top: -38px;
+	}
+	
+	.how-to {
+		width: 49%;
+	}
+}
+
+@media screen and (max-width: 350px) {
+
+	.logo-image {
+		height: 50px;
+		margin-top: -14px;
+	}
+	
+}
+
+@media screen and (max-width: 335px) {
+	
+	.header {
+		height: 65px;
+	}
+	
+	.logo-image {
+		margin-top: -18px;
+	}
+	
+	.signup {
+		display: none;
+	}
+	
+	.header-menu {
+		margin-top: -27px;
+	}
+	
+	.under-header {
+		margin-top: 66px;
+	}
+
+	.signup-under {
+		display: block;
+		background-color: #00c4ff;
+	}
+	
+	.signup-under:hover {
+		background-color: #00a2d4;
+	}
+	
+	.login-under {
+		display: block;
+		border-bottom: 1px solid white;
+		background-color: #374861;
+	}
+	
+	.login-under:hover {
+		background-color: #536b8f;
+	}
+}
+
+</style>
+
+<style>
+@media screen and (max-width: 1650px) {	
+	
+	.footer-content {
+		margin-left: 5%;
+		width: 90%;
+	}
+
+}
+
+@media screen and (max-width: 1360px) {
+
+	.footer-content {
+		margin-left: 2%;
+		width: 96%;
+	}
+}
+
+@media screen and (max-width: 1270px) {
+	
+	.footer-content {
+		margin-left: 10%;
+		width: 80%;
+	}
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 30%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: 57%;
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 1220px) {
+
+	.footer-content {
+		margin-left: 7%;
+		width: 86%;
+	}
+}
+
+@media screen and (max-width: 1150px) {
+
+	.footer-content {
+		margin-left: 5%;
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+
+	.footer-content {
+		margin-left: 2%;
+		width: 96%;
+	}
+}
+
+@media screen and (max-width: 935px) {
+
+	.logo-image-footer	{
+		height: 70px;
+		width: auto;
+		margin-top: 10px;
+	}
+		
+
+}
+
+@media screen and (max-width: 845px) {
+
+	.logo-image-footer	{
+		height: 60px;
+		width: auto;
+		margin-top: 0px;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 27%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(63% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 805px) {
+	
+	.logo-image-footer	{
+		display: none;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(50% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+
+}
+
+@media screen and (max-width: 550px) {
+
+	.logo-image-footer	{
+		display: none;
+	}
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(47% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 505px) {
+
+	.footer-2 {
+		width: 103px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(50% - 64px);
+	}
+
+	.footer-4 {
+		width: 103px;
+		margin-left: calc(100% - 103px);
+	}
+
+}
+
+@media screen and (max-width: 405px) {
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 7%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(93% - 128px);
+	}
+
+	.footer-4 {
+		display: none;
+	}
+	
+	.footer-legal-bottom {
+		display: block;
+	}
+	
+	.social-widgets {
+		margin-bottom: 0px;
+	}
+}
+
+@media screen and (max-width: 390px) {
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 5%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(95% - 128px);
+	}
+	
+}
+
+@media screen and (max-width: 370px) {
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 2%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(98% - 128px);
+	}
+}
+
+
+@media screen and (max-width: 335px) {
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 6%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(94% - 128px);
+	}
+}
 </style>
 
 </head>
@@ -430,13 +1611,20 @@ require('actions/questions/updateDatabases.php');
   
 <div class="header">
 	<div class="header-text">
-		<div class="logo"><a href="about.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
+		<div class="logo"><a href="lender-info.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="index.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
 		<div class="borrow"><a href="borrow.php" style="text-decoration: none; color: black"><span class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="login.php" style="text-decoration: none; color: black"><span class="login-text">Login</span></a></div>
 		<div class="signup"><a href="signup.php" style="text-decoration: none; color: black"><span class="signup-text">Sign Up</span></a></div>
+		<div class="header-menu"><img id="menu-header" class="header-menu-image" src="assets/images/header-menu.jpg"></div>
 	</div>
-</div>  
+</div>
+<div class="under-header" id="under-header">
+		<a href="index.php" style="text-decoration: none; color: black"><div class="lend-under"><span class="text-under">Lend</span></div></a>
+		<a href="borrow.php" style="text-decoration: none; color: black"><div class="borrow-under"><span class="text-under">Borrow</span></div></a>
+		<a href="login.php" style="text-decoration: none; color: black"><div class="login-under"><span class="text-under">Login</span></div></a>
+		<a href="signup.php" style="text-decoration: none; color: black"><div class="signup-under"><span class="text-under">Sign Up</span></div></a>
+</div> 
 
 <div class="everything-except-header">
 
@@ -453,12 +1641,12 @@ require('actions/questions/updateDatabases.php');
            <a style="text-decoration: none;" href="signup.php"><button class="button">Start Now</button></a>
         </div>
 		
-<div style="text-align: left; margin-top: -370px;">
-<img class="" src="assets/images/loan-received.png" alt="Request amount" style="margin-left: 13%;">
+<div class="image-left-container">
+<img class="image-left" src="assets/images/loan-received.png" alt="Request amount">
 </div>
 
-<div style="text-align: right; margin-top: -40px;">
-<img class="" src="assets/images/profit-curve.png" alt="Choose Loan Amount" style="margin-right: calc(10% + 50px);">
+<div class="image-right-container">
+<img class="image-right" src="assets/images/profit-curve.png" alt="Choose Loan Amount">
 </div>
 
 </section>
@@ -473,14 +1661,14 @@ require('actions/questions/updateDatabases.php');
 			<div class="">
 				<div class="section2-container">
 					<p class="section2-title">Access Money</br>Without the Hassle</p>
-					<p class="section2-text">High Costs and Lengthy Procedures have Previously made Lending Innaccesible to Millions of People.</br>Experience our Safe, Fast and Easy Lending Proccess that is Opening up  the World of Lending to Anyone.<p>
+					<p class="section2-text">High Costs and <span style="color: #00c4ff; font-weight: 500;">Lengthy Procedures</span> have Previously made Lending Innaccesible to Millions of People.</br>Experience our <span style="color: #00c4ff; font-weight: 500;">Safe, Fast and Easy</span> Lending Proccess that is Opening up  the World of Lending to Anyone.<p>
 				</div>
 			</div>
 			<div class="section2-images">
-				<picture><source srcset="assets/images/smile.jpg" type="image/png" style="width: 350px; border-radius: 1.5rem;"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/smile.jpg" style="width: 350px; border-radius: 1.5rem;" alt="your loan request is being sent to Instant Borrow Lenders"></picture>
+				<picture><source srcset="assets/images/smile.jpg" type="image/png" style="width: 350px; border-radius: 1.5rem;"><img class="image-1" src="assets/images/smile.jpg" style="width: 350px; border-radius: 1.5rem;" alt="your loan request is being sent to Instant Borrow Lenders"></picture>
 			</div>
 		</div>
-		<div class="row single-feature single-feature-3">
+		<div>
 			<div class="">
 				<div class="section2-container">
 					<p class="section2-title">Lend & Borrow from All Around the World with no Fees</p>
@@ -488,7 +1676,7 @@ require('actions/questions/updateDatabases.php');
 				</div>
 			</div>
 			<div class="section2-images">
-				<picture><source srcset="assets/images/send-international-about.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/send-international-about.png" alt="Send Money Worldwide with no Fees"></picture>
+				<picture><source srcset="assets/images/send-international-about.png" type="image/png"><img class="image-2" src="assets/images/send-international-about.png" alt="Send Money Worldwide with no Fees"></picture>
 			</div>
 		</div>
 	</div>
@@ -508,7 +1696,7 @@ require('actions/questions/updateDatabases.php');
                 </div>
             </div>
             <div class="section3-images">
-			<picture><source srcset="assets/images/finance.png" type="image/png"><img class="img-fluid image-1 webpexpress-processed" src="assets/images/finance.png" alt="Explore offers"></picture>
+			<picture><source srcset="assets/images/finance.png" type="image/png"><img class="image-3" src="assets/images/finance.png" alt="Explore offers"></picture>
 			</div>
         </div>
         <div class="row step step-2">
@@ -575,12 +1763,38 @@ require('actions/questions/updateDatabases.php');
 			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
 			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
 			</div>
+			<div class="footer-legal-bottom"><a class="link-legal" href="privacy-policy.php">Privacy Policy</a> - <a class="link-legal" href="terms-conditions.php">Terms and Conditions</a></div>
 			<div class="footer-bottom-text"><span>Copyright © 2023 - <?= date("Y"); ?> Instant Borrow. All rights reserved.</span></div>
 		</div>
 	</div>
 </div>
 
 </div>
+
+<script>
+	var button = document.getElementById('menu-header'); 
+	
+	function closeNav() {
+		document.getElementById("under-header").style.display = "none";
+	}
+
+	button.onclick = function() {
+		var div = document.getElementById('under-header');
+		if (div.style.display !== 'none') {
+			div.style.display = 'none';
+		}
+		else {
+			div.style.display = 'block';
+			
+			document.onclick = function (e) {
+			if (e.target.id !== 'under-header' && e.target.id !== 'menu-header') {
+				if (e.target.offsetParent && e.target.offsetParent.id !== 'under-header')
+					closeNav()
+				}
+			}
+		}
+	};
+</script>
 
 </body>
 </html>

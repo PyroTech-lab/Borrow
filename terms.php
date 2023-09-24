@@ -54,6 +54,75 @@ require('actions/users/notificationAction.php');
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
+.under-header {
+	display: none;
+	width: 100%;
+	margin-top: 76px;
+	border-bottom: 1px solid #d6d6d6;
+	position: fixed;
+	background-color: #374861;
+	z-index: 100;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	text-align: center;
+}
+
+.text-under {
+	color: white;
+	font-weight: 500;
+	font-size: 1.45rem;
+}
+
+.lend-under {
+	display: none;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.lend-under:hover {
+	background-color: #536b8f;
+}
+
+.borrow-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.borrow-under:hover {
+	background-color: #536b8f;
+}
+
+.login-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+	background-color: #00c4ff;
+}
+
+.login-under:hover {
+	background-color: #536b8f;
+}
+
+.signup-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+}
+
+.signup-under:hover {
+	background-color: #536b8f;
+}
+
 .header-text {
 	margin-left: 10%;
 	width: 80%;
@@ -103,6 +172,7 @@ require('actions/users/notificationAction.php');
 
 .borrow {
 	width: 75px;
+	text-align: right;
 	height: 23px;
 	margin-top: -23px;
 	margin-left: calc(47% + 44px);
@@ -183,117 +253,15 @@ require('actions/users/notificationAction.php');
 	transform: scale(1.1); 
 }
 
-
-.notification-unpaid {
-	background-color: red;
-	color: white;
-	position: fixed; 
-	margin-top: 80px;
-	height: 38px;
-	width: 100%;
-	z-index: 10;
-	text-align: center;
+.header-menu {
+	display: none;
 }
 
-
-
-.notification-duesoon {
-	background-color: orange;
-	color: white;
-	position: fixed; 
-	margin-top: 80px;
-	height: 38px;
-	width: 100%;
-	z-index: 10;
-	text-align: center;
+.header-menu-image {
+	width: 31px;
+	height: 31px;
+	margin-top: -3px;
 }
-
-
-
-.notification-receivedrepayment {
-	background-color: #1bbf02;
-	color: white;
-	position: fixed; 
-	margin-top: 80px;
-	height: 38px;
-	width: 100%;
-	z-index: 10;
-	text-align: center;
-}
-
-
-
-.notification-receivedloan {
-	background-color: #1bbf02;
-	color: white;
-	position: fixed; 
-	margin-top: 80px;
-	height: 38px;
-	width: 100%;
-	z-index: 10;
-	text-align: center;
-}
-
-.notification-unpaidborrower {
-	background-color: orange;
-	color: white;
-	position: fixed; 
-	margin-top: 80px;
-	height: 38px;
-	width: 100%;
-	z-index: 10;
-	text-align: center;
-}
-
-.notification-bannedborrower {
-	background-color: red;
-	color: white;
-	position: fixed; 
-	margin-top: 80px;
-	height: 38px;
-	width: 100%;
-	z-index: 10;
-	text-align: center;
-}
-
-
-.notification-text {
-	font-weight: 500;
-	font-size: 1.04rem;
-}
-
-.notification-image {
-	height: 28px;
-	width: auto;
-	margin-top: 5px;
-	margin-bottom: -7px;
-}
-
-.notification_acknowledge {
-	margin-top: -29px;
-	background-color: transparent;
-	text-align: right;
-}
-
-.notification_acknowledge-button {
-	background-color: white;
-	color: #1bbf02;
-	border-radius: 0.325rem;
-	height: 30px;
-	padding-left: 6px;
-	padding-right: 6px;
-	border: 0px;
-	font-weight: bold;
-	font-size: 0.9rem;
-	margin-right: calc(10% + 15px);
-	transition: background-color 0.2s;
-}
-
-.notification_acknowledge-button:hover {
-	background-color: #1bbf02;
-	color: white;
-}
-
 
 .everything-except-header {
 	position: absolute;
@@ -343,6 +311,12 @@ require('actions/users/notificationAction.php');
 	margin-top: 60px;
 }
 
+.title-one {
+	font-weight: 500;
+	font-size: 1.2rem;
+	margin-top: 100px;
+}
+
 .text {
 	line-height: 28px;
 	color: #383838;
@@ -360,12 +334,16 @@ require('actions/users/notificationAction.php');
 }
 
 
-
-
 .footer-content {
 	margin-top: 20px;
 	margin-left: 10%;
 	width: 80%;
+}
+
+.logo-image-footer {
+	height: 75px;
+	width: auto;
+	margin-top: 10px;
 }
 
 .footer-1 {
@@ -414,7 +392,7 @@ require('actions/users/notificationAction.php');
 .footer-bottom {
 	text-align: center;
 	margin-bottom: 15px;
-}
+}   
 
 .social-widgets {
 	margin-top: 15px;
@@ -434,10 +412,498 @@ require('actions/users/notificationAction.php');
   transform: scale(1.1); 
 }
 
+.footer-legal-bottom {
+	font-size: 0.7rem;
+	margin-bottom: 10px;
+	display: none;
+}
+
+.link-legal {
+	text-decoration: none;
+	color: #00c4ff;
+}
+
 .footer-bottom-text {
 	font-size: 0.86rem;
 	color: #2b2b2b;
 }
+</style>
+
+<style>
+
+@media screen and (max-width: 1550px) {
+	
+	.message-container {
+		margin-left: 7.5%;
+		width: 85%;
+	}
+	
+}
+
+@media screen and (max-width: 1200px) {
+	
+	.message-container {
+		margin-left: 5%;
+		width: 90%;
+	}
+	
+}
+
+@media screen and (max-width: 739px) {
+	
+	.message-container {
+		margin-top: 150px;
+	}
+	
+	.title-one {
+		margin-top: 50px;
+	}
+	
+}
+
+@media screen and (max-width: 650px) {
+	
+	.message-title {
+		font-size: 2.52rem;
+	}
+	
+}
+
+@media screen and (max-width: 519px) {
+	
+	.message-container {
+		margin-top: 130px;
+	}
+	
+	.title-one {
+		margin-top: 40px;
+	}
+	
+	.text {
+		font-size: 0.96rem;
+	}
+	
+}
+
+@media screen and (max-width: 340px) {
+	
+	.message-title {
+		font-size: 2.32rem;
+	}
+	
+}
+
+</style>
+
+<style>
+@media screen and (max-width: 1650px) {	
+	
+	.footer-content {
+		margin-left: 5%;
+		width: 90%;
+	}
+
+}
+
+@media screen and (max-width: 1360px) {
+
+	.footer-content {
+		margin-left: 2%;
+		width: 96%;
+	}
+}
+
+@media screen and (max-width: 1270px) {
+	
+	.footer-content {
+		margin-left: 10%;
+		width: 80%;
+	}
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 30%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: 57%;
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 1220px) {
+
+	.footer-content {
+		margin-left: 7%;
+		width: 86%;
+	}
+}
+
+@media screen and (max-width: 1150px) {
+
+	.footer-content {
+		margin-left: 5%;
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+
+	.footer-content {
+		margin-left: 2%;
+		width: 96%;
+	}
+}
+
+@media screen and (max-width: 935px) {
+
+	.logo-image-footer	{
+		height: 70px;
+		width: auto;
+		margin-top: 10px;
+	}
+		
+
+}
+
+@media screen and (max-width: 845px) {
+
+	.logo-image-footer	{
+		height: 60px;
+		width: auto;
+		margin-top: 0px;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 27%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(63% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 805px) {
+	
+	.logo-image-footer	{
+		display: none;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(50% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+
+}
+
+@media screen and (max-width: 550px) {
+
+	.logo-image-footer	{
+		display: none;
+	}
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(47% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 505px) {
+
+	.footer-2 {
+		width: 103px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(50% - 64px);
+	}
+
+	.footer-4 {
+		width: 103px;
+		margin-left: calc(100% - 103px);
+	}
+
+}
+
+@media screen and (max-width: 405px) {
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 7%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(93% - 128px);
+	}
+
+	.footer-4 {
+		display: none;
+	}
+	
+	.footer-legal-bottom {
+		display: block;
+	}
+	
+	.social-widgets {
+		margin-bottom: 0px;
+	}
+}
+
+@media screen and (max-width: 390px) {
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 5%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(95% - 128px);
+	}
+	
+}
+
+@media screen and (max-width: 370px) {
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 2%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(98% - 128px);
+	}
+}
+
+
+@media screen and (max-width: 335px) {
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 6%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(94% - 128px);
+	}
+}
+</style>
+
+<style>
+
+@media screen and (max-width: 1450px) {
+
+	.header-text {
+		margin-left: 7.5%;
+		width: 85%;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+
+	.header-text {
+		margin-left: 5%;
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 975px) {
+
+	.header-text {
+		margin-left: 2%;
+		width: 96%;
+	}
+}
+
+@media screen and (max-width: 703px) {
+
+	.lend {
+		display: none;
+	}
+	
+	.borrow {
+		display: none;
+	}
+	
+	.login {
+		margin-left: calc(100% - 200px);
+	}
+	
+	.login-text {
+		background-color: #00c4ff;
+		outline: 1px solid #00c4ff;
+		color: white;
+		border-radius: 0.125rem;
+	}
+	
+	.login-text:hover {
+		outline: 1px solid #2b80ff;
+		background-color: #2b80ff;
+	}
+	
+	.signup {
+		margin-left: calc(100% - 70px);
+	}
+	
+	.header-menu {
+		display: block;
+		width: 31px;
+		height: 31px;
+		margin-top: -29px;
+		margin-left: calc(100% - 36px);
+	}
+	
+	.lend-under {
+		display: block;
+	}
+
+	.borrow-under {
+		display: block;
+		border-bottom: 0px;
+		background-color: #00c4ff;
+	}
+	
+	.borrow-under:hover {
+		background-color: #00a2d4;
+	}
+
+	.login-under {
+		display: none;
+	}
+
+	.signup-under {
+		display: none;
+	}
+	
+}
+
+@media screen and (max-width: 460px) {
+	
+	
+	.login {
+		display: none;
+	}
+	
+	.signup-text {
+		background-color: #00c4ff;
+		outline: #00c4ff;
+		border-radius: 0.275rem;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	
+	.signup-text:hover {
+		background-color: #2b80ff;
+		outline: #2b80ff;
+	}
+	
+	.borrow-under {
+		display: block;
+		border-bottom: 1px solid white;
+		background-color: #374861;
+	}
+
+
+	.login-under {
+		display: block;
+		border-bottom: 0px;
+	}
+	
+	.borrow-under:hover {
+		background-color: #536b8f;
+	}
+	
+	.login-under:hover {
+		background-color: #00a2d4;
+	}
+
+	.text-under {
+		font-size: 1.3rem;
+	}
+}
+
+@media screen and (max-width: 405px) {
+	
+	.logo-image {
+		height: 55px;
+		margin-top: -17px;
+	}
+}
+
+@media screen and (max-width: 350px) {
+
+	.logo-image {
+		height: 50px;
+		margin-top: -14px;
+	}
+}
+
+@media screen and (max-width: 335px) {
+	
+	.header {
+		height: 65px;
+	}
+	
+	.logo-image {
+		margin-top: -18px;
+	}
+	
+	.signup {
+		margin-top: -26px;
+	}
+	
+	.header-menu {
+		margin-top: -29px;
+	}
+	
+	.under-header {
+		margin-top: 66px;
+	}
+
+	.signup-under {
+		display: block;
+	}
+	
+}
+
+
 </style>
 
 </head>
@@ -447,12 +913,18 @@ require('actions/users/notificationAction.php');
 
 <div class="header">
 	<div class="header-text">
-		<div class="logo"><a href="about-us.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
+		<div class="logo"><a href="borrower-guide.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
 		<div class="borrow"><a href="borrow-money.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
 		<div class="signup"><div><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
+		<div class="header-menu"><img id="menu-header" class="header-menu-image" src="assets/images/header-menu.jpg"></div>
 	</div>
+</div>
+<div class="under-header" id="under-header">
+		<a href="dashboard.php" style="text-decoration: none; color: black"><div class="lend-under"><span class="text-under">Lend</span></div></a>
+		<a href="borrow.php" style="text-decoration: none; color: black"><div class="borrow-under"><span class="text-under">Borrow</span></div></a>
+		<a href="profile.php" style="text-decoration: none; color: black"><div class="login-under"><span class="text-under">Your Profile</span></div></a>
 </div>
 
 	<?php
@@ -518,7 +990,7 @@ require('actions/users/notificationAction.php');
 
 <h1 class="message-title">Instant Borrow Terms Of Use</h1>
 
-<p class="title" style="margin-top: 100px;">Acceptance of the Terms of Use</p>
+<p class="title-one">Acceptance of the Terms of Use</p>
 <p class="text">These terms of use are entered into by and between you and Instant Borrow LLC (“Company”, “we” or “us”). The following terms and conditions, together with any documents they expressly incorporate by reference (collectively, these “Terms of Use”), govern your access to and use of the Instant Borrow platform and related services, whether through a mobile or desktop application (collectively, the “Platform”), including any content, functionality and services offered on or through the Platform, whether as a guest or a registered user.
 Please read these Terms of Use carefully before you start to use the Platform. By using the Platform or by clicking to accept or agree to the Terms of Use when this option is made available to you, you accept and agree to be bound and abide by these Terms of Use and our Privacy Policy, found at https://instant-borrow.com/privacy-policy/, incorporated herein by reference. If you do not want to agree to these Terms of Use or the Privacy Policy, you must not access or use the Platform.
 The Platform is offered and available to users who are 18 years of age or older and reside in the United States or any of its territories or possessions. By using the Platform, you represent and warrant that you are of legal age to form a binding contract with the Company and meet all of the foregoing eligibility requirements. If you do not meet all of these requirements, you must not access or use the Platform.</p>
@@ -768,12 +1240,38 @@ I understand that my authorization will remain in full force and effect until In
 			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
 			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
 			</div>
+			<div class="footer-legal-bottom"><a class="link-legal" href="privacy.php">Privacy Policy</a> - <a class="link-legal" href="terms.php">Terms and Conditions</a></div>
 			<div class="footer-bottom-text"><span>Copyright © 2023 - <?= date("Y"); ?> Instant Borrow. All rights reserved.</span></div>
 		</div>
 	</div>
 </div>
 
 </div>
+
+<script>
+	var button = document.getElementById('menu-header'); 
+	
+	function closeNav() {
+		document.getElementById("under-header").style.display = "none";
+	}
+
+	button.onclick = function() {
+		var div = document.getElementById('under-header');
+		if (div.style.display !== 'none') {
+			div.style.display = 'none';
+		}
+		else {
+			div.style.display = 'block';
+			
+			document.onclick = function (e) {
+			if (e.target.id !== 'under-header' && e.target.id !== 'menu-header') {
+				if (e.target.offsetParent && e.target.offsetParent.id !== 'under-header')
+					closeNav()
+				}
+			}
+		}
+	};
+</script>
 
 </body>
 

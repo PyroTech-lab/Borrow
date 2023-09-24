@@ -60,6 +60,75 @@ if(!isset($_SESSION['auth'])){
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
+.under-header {
+	display: none;
+	width: 100%;
+	margin-top: 76px;
+	border-bottom: 1px solid #d6d6d6;
+	position: fixed;
+	background-color: #374861;
+	z-index: 100;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	text-align: center;
+}
+
+.text-under {
+	color: white;
+	font-weight: 500;
+	font-size: 1.45rem;
+}
+
+.lend-under {
+	display: none;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.lend-under:hover {
+	background-color: #536b8f;
+}
+
+.borrow-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.borrow-under:hover {
+	background-color: #536b8f;
+}
+
+.login-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+	background-color: #00c4ff;
+}
+
+.login-under:hover {
+	background-color: #536b8f;
+}
+
+.signup-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+}
+
+.signup-under:hover {
+	background-color: #536b8f;
+}
+
 .header-text {
 	margin-left: 10%;
 	width: 80%;
@@ -190,6 +259,17 @@ if(!isset($_SESSION['auth'])){
 	transform: scale(1.1); 
 }
 
+.header-menu {
+	display: none;
+}
+
+.header-menu-image {
+	width: 31px;
+	height: 31px;
+	margin-top: -3px;
+}
+
+
 .notification-unpaid {
 	background-color: red;
 	color: white;
@@ -305,11 +385,16 @@ if(!isset($_SESSION['auth'])){
 	width: 100%;
 }
 
+.main {
+	margin-top: 160px;
+	min-height: calc(100vh - 553px);
+}
+
 
 .title {
 	margin-left: 10%;
 	color: #00c4ff;
-	font-weight: bold;
+	font-weight: 500;
 	font-size: 2.32rem
 }
 
@@ -326,6 +411,11 @@ if(!isset($_SESSION['auth'])){
 }
 
 
+.details-line2 {
+	display: none;
+}
+
+
 .loan-amount {
 	height: 23px;
 	margin-top: 15px;
@@ -338,7 +428,32 @@ if(!isset($_SESSION['auth'])){
 	font-size: 1.05rem;
 }
 
+.loan-amount-1 {
+	height: 23px;
+	margin-top: 15px;
+	text-align: center;
+	width: 16.6%;
+	background-color: transparent;
+	padding: 4px;
+	color: #383838;
+	font-weight: 500;
+	font-size: 1.05rem;
+}
+
 .repay-amount {
+	height: 23px;
+	text-align: center;
+	width: 16.6%;
+	background-color: transparent;
+	margin-top: -31px;
+	margin-left: 16.6%;
+	padding: 4px;
+	color: #383838;
+	font-weight: 500;
+	font-size: 1.05rem;
+}
+
+.repay-amount-1 {
 	height: 23px;
 	text-align: center;
 	width: 16.6%;
@@ -364,7 +479,33 @@ if(!isset($_SESSION['auth'])){
 	font-size: 1.05rem;
 }
 
+.interest-rate-1	{
+	height: 23px;
+	text-align: center;
+	width: 16.6%;
+	background-color: transparent;
+	margin-top: -31px;
+	margin-left: 33.2%;
+	padding: 4px;
+	color: #383838;
+	font-weight: 500;
+	font-size: 1.05rem;
+}
+
 .repay-date {
+	height: 23px;
+	text-align: center;
+	width: 16.6%;
+	background-color: transparent;
+	margin-top: -31px;
+	margin-left: 49.8%;
+	padding: 4px;
+	color: #383838;
+	font-weight: 500;
+	font-size: 1.05rem;
+}
+
+.repay-date-1 {
 	height: 23px;
 	text-align: center;
 	width: 16.6%;
@@ -385,7 +526,20 @@ if(!isset($_SESSION['auth'])){
 	margin-top: -31px;
 	margin-left: 66%;
 	padding: 4px;
-	color: #383838;
+	color: #2b80ff;
+	font-weight: 500;
+	font-size: 1.05rem;
+}
+
+.feedback-1 {
+	height: 23px;
+	text-align: center;
+	width: 16.6%;
+	background-color: transparent;
+	margin-top: -31px;
+	margin-left: 66%;
+	padding: 4px;
+	color: #2b80ff;
 	font-weight: 500;
 	font-size: 1.05rem;
 }
@@ -395,12 +549,69 @@ if(!isset($_SESSION['auth'])){
 	text-align: center;
 	width: 16.6%;
 	background-color: transparent;
-	margin-top: -31px;
+	margin-top: -35px;
+	margin-bottom: 12px;
 	margin-left: 82.6%;
-	padding: 4px;
+}
+
+
+.payment-method-1 {
+	height: 23px;
+	text-align: center;
+	width: 16.6%;
+	background-color: transparent;
+	margin-top: -35px;
+	margin-bottom: 12px;
+	margin-left: 82.6%;
+}
+
+.delete-button {
+	width: 140px;
+	background-color: red;
+	border: 0;
+	padding: 10px;
+	border-radius: 0.325rem;
+	font-weight: bold;
+	font-size: 1.02rem;
+	color: white;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	transition: transform .2s;
+}
+
+.delete-button:hover {
+	background-color: #e00000;
+	-ms-transform: scale(1.05); /* IE 9 */
+	-webkit-transform: scale(1.05); /* Safari 3-8 */
+	transform: scale(1.05); 
+}
+
+
+.display-bottom {
+	display: none;
+	height: 23px;
+	text-align: left;
+	width: 100%;
+	background-color: transparent;
+	margin-top: 8px;
+	padding-top: 2px;
+	margin-left: 0%;
 	color: #383838;
 	font-weight: 500;
 	font-size: 1.05rem;
+	margin-bottom: -9px;
+	border-top: 1px solid #bababa;
+}
+
+.status-bottom {
+	display: none;
+}
+
+.expiry-2 {
+	display: none;
+}
+
+.feedback-bottom-visible {
+	display: none;
 }
 
 
@@ -418,6 +629,26 @@ if(!isset($_SESSION['auth'])){
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
+.image-negative {
+	height: 18px;
+	margin-bottom: -3px;
+}
+
+.image-positive {
+	height: 18px;
+	margin-bottom: -1px;
+}
+
+.no-feedback-image {
+	height: 18px;
+	margin-bottom: -3px;
+}
+
+.feedback-type-2 {
+	display: none;
+}
+
+
 .loan-request:hover {
 	background-color: #fbfbfb;
   -ms-transform: scale(1.0055); /* IE 9 */
@@ -425,26 +656,20 @@ if(!isset($_SESSION['auth'])){
   transform: scale(1.0055); 
 }
 
-.delete-button {
-	width: 140px;
-	background-color: #ff2121;
-	border: 0;
-	border-radius: 0.325rem;
-	height: 40px;
-	font-weight: bold;
-	font-size: 1.02rem;
-	color: white;
+.time-format2 {
+	display: none;
 }
-
-.delete-button:hover {
-	background-color: #d90000;
-}
-
 
 .error-message {
 	font-weight: 500;
 	font-size: 1.05rem;
 	margin-bottom: 30px;
+	text-align: left;
+}
+
+.error-message-container {
+	color: #383838;
+	margin-left: 10%;
 }
 
 .under-container {
@@ -454,8 +679,7 @@ if(!isset($_SESSION['auth'])){
 
 .load-more {
 	padding: 9px;
-	width: 15%;
-	min-width: 140px;
+	width: 150px;
 	background-color: #de0404;
 	color: white;
 	border: 2px solid white;
@@ -466,8 +690,7 @@ if(!isset($_SESSION['auth'])){
 
 .borrow-button {
 	padding: 9px;
-	width: 15%;
-	min-width: 140px;
+	min-width: 150px;
 	right: 0;
 	background-color:  #f2a100;
 	color: white;
@@ -494,10 +717,9 @@ if(!isset($_SESSION['auth'])){
 
 .explain-title {
 	font-size: 1.8rem;
-	font-weight: bold;
+	font-weight: 500;
 	color: #00c4ff;
 }
-
 
 
 
@@ -517,6 +739,12 @@ if(!isset($_SESSION['auth'])){
 	margin-top: 20px;
 	margin-left: 10%;
 	width: 80%;
+}
+
+.logo-image-footer {
+	height: 75px;
+	width: auto;
+	margin-top: 10px;
 }
 
 .footer-1 {
@@ -565,7 +793,7 @@ if(!isset($_SESSION['auth'])){
 .footer-bottom {
 	text-align: center;
 	margin-bottom: 15px;
-}
+}   
 
 .social-widgets {
 	margin-top: 15px;
@@ -585,11 +813,1118 @@ if(!isset($_SESSION['auth'])){
   transform: scale(1.1); 
 }
 
+.footer-legal-bottom {
+	font-size: 0.7rem;
+	margin-bottom: 10px;
+	display: none;
+}
+
+.link-legal {
+	text-decoration: none;
+	color: #00c4ff;
+}
+
 .footer-bottom-text {
 	font-size: 0.86rem;
 	color: #2b2b2b;
 }
 
+</style>
+
+<style>
+
+@media screen and (max-width: 1850px) {
+	
+	.title {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+	
+	.transaction-details {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+	
+	.error-message-container {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+	
+	.loan-request {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+	
+	.under-container {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+	
+	.explain {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+}
+
+@media screen and (max-width: 1550px) {
+	
+	.title {
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+	.transaction-details {
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+	.error-message-container {
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+	.loan-request {
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+	.under-container {
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+	.explain {
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+	.loan-amount {
+		
+	}
+	
+	.repay-amount {
+		width: 20%
+	}
+	
+	.interest-rate {
+		width: 20%;
+		margin-left: 36.6%;
+	}
+	
+	.repay-date {
+		width: 13.2%;
+		margin-left: 56.6%;
+	}
+	
+	.feedback {
+		width: 17%;
+		margin-left: 69.8%;
+	}
+	
+	.payment-method {
+		width: 13.2%;
+		margin-left: 86.8%;
+	}
+	
+	.repay-amount-1 {
+		width: 20%
+	}
+	
+	.interest-rate-1 {
+		width: 20%;
+		margin-left: 36.6%;
+	}
+	
+	.repay-date-1 {
+		width: 13.2%;
+		margin-left: 56.6%;
+	}
+	
+	.feedback-1 {
+		width: 17%;
+		margin-left: 69.8%;
+	}
+	
+	.payment-method-1 {
+		width: 13.2%;
+		margin-left: 86.8%;
+	}
+	
+}
+
+@media screen and (max-width: 1300px) {
+	
+	.title {
+		width: 96%;
+		margin-left: 2%;
+	}
+
+	.transaction-details {
+		width: 96%;
+		margin-left: 2%;
+	}
+	
+	.error-message-container {
+		width: 96%;
+		margin-left: 2%;
+	}
+	
+	.loan-request {
+		width: 96%;
+		margin-left: 2%;
+	}
+	
+	.under-container {
+		width: 96%;
+		margin-left: 2%;
+	}
+	
+	.explain {
+		width: 94%;
+		margin-left: 3%;
+	}
+	
+}
+
+@media screen and (max-width: 1260px) {
+
+	.loan-amount {
+		width: 15%;
+	}
+	
+	.repay-amount {
+		width: 19%;
+		margin-left: 15%;
+	}
+	
+	.interest-rate {
+		width: 17%;
+		margin-left: 34%;
+	}
+	
+	.repay-date {
+		width: 17%;
+		margin-left: 51%;
+	}
+	
+	.feedback {
+		width: 17%;
+		margin-left: 68%;
+	}
+	
+	.payment-method {
+		width: 15%;
+		margin-left: 83%;
+	}
+
+	
+	.loan-amount-1 {
+		width: 15%;
+	}
+	
+	.repay-amount-1 {
+		width: 19%;
+		margin-left: 15%;
+	}
+	
+	.interest-rate-1 {
+		width: 17%;
+		margin-left: 34%;
+	}
+	
+	.repay-date-1 {
+		width: 17%;
+		margin-left: 51%;
+	}
+	
+	.feedback-1 {
+		width: 17%;
+		margin-left: 68%;
+	}
+	
+	.payment-method-1 {
+		width: 15%;
+		margin-left: 83%;
+	}
+	
+	.delete-button {
+		margin-left: 15px;
+	}
+}
+
+@media screen and (max-width: 980px) {
+	
+	.delete-button {
+		padding-left: 1px;
+		padding-right: 1px;
+		width: 125px;
+		margin-left: 15px;
+	}
+	
+}
+
+@media screen and (max-width: 950px) {
+
+	.transaction-details {
+		padding-bottom: 21px;
+	}
+
+	.loan-amount-1 {
+		margin-top: 2px;
+		width: 16.6%;
+	}
+	
+	.loan-amount {
+		width: 16.6%;
+	}
+	
+	.repay-amount {
+		width: 16.6%;
+		margin-left: 16.6%;
+	}
+	
+	.repay-amount-1 {
+		width: 16.6%;
+		margin-left: 16.6%;
+	}
+	
+	.interest-rate {
+		width: 16.6%;
+		margin-left: 33.2%;
+	}
+	
+	.interest-rate-1 {
+		width: 16.6%;
+		margin-left: 33.2%;
+	}
+	
+	.repay-date {
+		width: 17%;
+		margin-left: 49.8%;
+	}
+	
+	.repay-date-1 {
+		width: 17%;
+		margin-left: 49.8%;
+		margin-top: -31px;
+	}
+	
+	.feedback {
+		width: 16.6%;
+		margin-left: 66.8%;
+	}
+	
+	.feedback-1 {
+		width: 16.6%;
+		margin-left: 66.8%;
+		margin-bottom: 10px;
+	}
+	
+	.payment-method {
+		width: 16.6%;
+		margin-left: 83.4%;
+	}
+	
+	.payment-method-1 {
+		width: 16.6%;
+		margin-left: 83.4%;
+	}
+	
+	.details-line1 {
+		display: none;
+	}
+	
+	.details-line2 {
+		display: block;
+	}	
+	
+	.time-format1 {
+		display: none;
+	}
+	
+	.time-format2 {
+		display: block;
+	}
+	
+	.delete-button {
+		margin-left: -10px;
+	}
+	
+}
+
+@media screen and (max-width: 760px) {
+
+	
+	.loan-amount-1 {
+		width: 20%;
+		margin-left: 0%;
+	}
+	
+	.loan-amount {
+		width: 20%;
+		margin-left: 0%;
+	}
+	
+	.repay-amount {
+		width: 20%;
+		margin-left: 20%;
+	}
+	
+	.repay-amount-1 {
+		width: 20%;
+		margin-left: 20%;
+	}
+	
+	.interest-rate {
+		width: 20%;
+		margin-left: 40%;
+	}
+	
+	.interest-rate-1 {
+		width: 20%;
+		margin-left: 40%;
+	}
+	
+	.repay-date {
+		width: 20%;
+		margin-left: 60%;
+	}
+	
+	.repay-date-1 {
+		width: 20%;
+		margin-left: 60%;
+	}
+	
+	.feedback {
+		width: 20%;
+		margin-left: 80%;
+	}
+	
+	.feedback-1 {
+		width: 20%;
+		margin-left: 80%;
+	}
+	
+	.payment-method {
+		display: none;
+	}
+	
+	.payment-method-1 {
+		display: none;
+	}
+	
+	.display-bottom {
+		display: block;
+		height: 38px;
+	}
+	
+	.button-bottom {
+		display: block;
+		text-align: left;
+		margin-top: 11px;
+	}
+	
+	.delete-button {
+		padding-top: 8px;
+		padding-bottom: 8px;
+		width: 200px;
+		margin-left: 10px;
+	}
+	
+
+}
+
+@media screen and (max-width: 670px) {
+	
+	.main {
+		margin-top: 130px;
+	}
+	
+	.under-container {
+		margin-bottom: 70px;
+	}
+	
+}
+
+@media screen and (max-width: 615px) {
+	
+	.title {
+		font-size: 2.17rem;
+	}
+
+	.loan-amount-1 {
+		width: 25%;
+		margin-left: 0%;
+	}
+	
+	.loan-amount {
+		width: 25%;
+		margin-left: 0%;
+	}
+	
+	.repay-amount {
+		width: 25%;
+		margin-left: 25%;
+	}
+	
+	.repay-amount-1 {
+		width: 25%;
+		margin-left: 25%;
+	}
+	
+	.interest-rate {
+		width: 25%;
+		margin-left: 50%;
+	}
+	
+	.interest-rate-1 {
+		width: 25%;
+		margin-left: 50%;
+	}
+	
+	.repay-date {
+		width: 25%;
+		margin-left: 75%;
+	}
+	
+	.repay-date-1 {
+		width: 25%;
+		margin-left: 75%;
+		margin-bottom: 10px;
+	}
+	
+	.feedback {
+		display: none;
+	}
+	
+	.feedback-1 {
+		display: none;
+	}
+	
+	.payment-method {
+		width: 25%;
+		margin-left: 75%;
+	}
+	
+	.payment-method-1 {
+		width: 25%;
+		margin-left: 75%;
+	}
+	
+	.status-bottom { 
+		display: block;
+		text-align: right;
+		margin-right: 10px;
+		margin-top: -31px;
+	}
+
+	
+}
+
+@media screen and (max-width: 505px) {
+	
+	.main {
+		margin-top: 120px;
+	}
+
+}
+
+@media screen and (max-width: 485px) {
+	
+	.delete-button {
+		width: 170px;
+	}
+
+}
+
+@media screen and (max-width: 450px) {
+	
+	.loan-amount-1 {
+		width: 20%;
+		margin-left: 0%;
+		font-size: 0.95rem;
+	}
+	
+	.loan-amount {
+		width: 20%;
+		margin-left: 0%;
+	}
+	
+	.repay-amount {
+		width: 28%;
+		margin-left: 20%;
+	}
+	
+	.repay-amount-1 {
+		width: 28%;
+		margin-left: 20%;
+		font-size: 0.95rem;
+	}
+	
+	.repay-date-1 {
+		font-size: 0.95rem;
+		margin-bottom: 5px;
+	}
+	
+	.interest-rate {
+		width: 30%;
+		margin-left: 48%;
+	}
+	
+	.interest-rate-1 {
+		width: 30%;
+		margin-left: 48%;
+		font-size: 0.95rem;
+	}
+	
+	
+	.feedback {
+		width: 22%;
+		margin-left: 78%;
+	}
+	
+	.feedback-1 {
+		width: 22%;
+		margin-left: 78%;
+		margin-top: -17px;
+		font-size: 0.95rem;
+		margin-bottom: -8px;
+	}
+	
+	.delete-button {
+		width: 160px;
+		margin-left: 7px;
+	}
+	
+}
+
+@media screen and (max-width: 405px) {
+
+	.loan-amount-1 {
+		font-size: 0.9rem;
+	}
+
+	
+	.repay-amount-1 {
+		font-size: 0.9rem;
+	}
+	
+	
+	.interest-rate-1 {
+		font-size: 0.9rem;
+	}
+	
+	.repay-date-1 {
+		font-size: 0.9rem;
+		margin-bottom: 1px;
+	}
+
+	
+	.feedback-1 {
+		font-size: 0.9rem;
+		margin-bottom: -12px;
+	}
+
+	.borrow-button {
+		width: 49%;
+	}
+	
+	.load-more {
+		width: 49%;
+	}
+	
+	.title {
+		font-size: 2.02rem;
+	}
+	
+	.explain-text {
+		font-size: 0.95rem;
+	}
+	
+
+}
+
+@media screen and (max-width: 385px) {
+	
+	.delete-button {
+		width: 140px;
+	}
+	
+	.status-bottom {
+		margin-right: 2px;
+	}
+
+}
+
+@media screen and (max-width: 365px) {
+	
+	.title {
+		font-size: 1.97rem;
+	}
+	
+	.interest-rate {
+		font-size: 0.95rem;
+	}
+	
+	.repay-date {
+		font-size: 0.95rem;
+	}
+	
+}
+
+@media screen and (max-width: 350px) {
+	
+	.error-message {
+		font-size: 0.95rem;
+	}
+	
+	.delete-button {
+		padding-top: 6px;
+		padding-bottom: 6px;
+		margin-left: 5px;
+	}
+	
+	.status-bottom {
+		margin-top: -29px;
+	}
+	
+	.expiry-1 {
+		display: none;
+	}
+	
+	.expiry-2 {
+		display: inline;
+	}
+	
+	.display-bottom {
+		height: 34px;
+	}
+	
+}
+
+@media screen and (max-width: 335px) {
+	
+	.main {
+		margin-top: 100px;
+	}
+	
+}
+
+
+</style>
+
+<style>
+
+@media screen and (max-width: 1850px) {
+	
+	.header-text { 
+		width: 85%;
+		margin-left: 7.5%;
+	}
+
+}
+
+@media screen and (max-width: 1550px) {
+	
+	.header-text { 
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+	
+}
+
+@media screen and (max-width: 1300px) {
+	
+	.header-text {
+		width: 96%;
+		margin-left: 2%;
+	}
+	
+}
+
+@media screen and (max-width: 703px) {
+
+	.lend {
+		display: none;
+	}
+	
+	.borrow {
+		display: none;
+	}
+	
+	.login {
+		margin-left: calc(100% - 200px);
+	}
+	
+	.login-text {
+		background-color: #00c4ff;
+		outline: 1px solid #00c4ff;
+		color: white;
+		border-radius: 0.125rem;
+	}
+	
+	.login-text:hover {
+		outline: 1px solid #2b80ff;
+		background-color: #2b80ff;
+	}
+	
+	.signup {
+		margin-left: calc(100% - 70px);
+	}
+	
+	.header-menu {
+		display: block;
+		width: 31px;
+		height: 31px;
+		margin-top: -29px;
+		margin-left: calc(100% - 36px);
+	}
+	
+	.lend-under {
+		display: block;
+	}
+
+	.borrow-under {
+		display: block;
+		border-bottom: 0px;
+		background-color: #00c4ff;
+	}
+	
+	.borrow-under:hover {
+		background-color: #00a2d4;
+	}
+
+	.login-under {
+		display: none;
+	}
+
+	.signup-under {
+		display: none;
+	}
+	
+}
+
+@media screen and (max-width: 460px) {
+	
+	
+	.login {
+		display: none;
+	}
+	
+	.signup-text {
+		background-color: #00c4ff;
+		outline: #00c4ff;
+		border-radius: 0.275rem;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	
+	.signup-text:hover {
+		background-color: #2b80ff;
+		outline: #2b80ff;
+	}
+	
+	.borrow-under {
+		display: block;
+		border-bottom: 1px solid white;
+		background-color: #374861;
+	}
+
+
+	.login-under {
+		display: block;
+		border-bottom: 0px;
+	}
+	
+	.borrow-under:hover {
+		background-color: #536b8f;
+	}
+	
+	.login-under:hover {
+		background-color: #00a2d4;
+	}
+
+	.text-under {
+		font-size: 1.3rem;
+	}
+}
+
+@media screen and (max-width: 405px) {
+	
+	.logo-image {
+		height: 55px;
+		margin-top: -17px;
+	}
+}
+
+@media screen and (max-width: 350px) {
+
+	.logo-image {
+		height: 50px;
+		margin-top: -14px;
+	}
+}
+
+@media screen and (max-width: 335px) {
+	
+	.header {
+		height: 65px;
+	}
+	
+	.logo-image {
+		margin-top: -18px;
+	}
+	
+	.signup {
+		margin-top: -26px;
+	}
+	
+	.header-menu {
+		margin-top: -29px;
+	}
+	
+	.under-header {
+		margin-top: 66px;
+	}
+
+	.signup-under {
+		display: block;
+	}
+	
+}
+
+</style>
+
+<style>
+@media screen and (max-width: 1650px) {	
+	
+	.footer-content {
+		margin-left: 5%;
+		width: 90%;
+	}
+
+}
+
+@media screen and (max-width: 1360px) {
+
+	.footer-content {
+		margin-left: 2%;
+		width: 96%;
+	}
+}
+
+@media screen and (max-width: 1270px) {
+	
+	.footer-content {
+		margin-left: 10%;
+		width: 80%;
+	}
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 30%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: 57%;
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 1220px) {
+
+	.footer-content {
+		margin-left: 7%;
+		width: 86%;
+	}
+}
+
+@media screen and (max-width: 1150px) {
+
+	.footer-content {
+		margin-left: 5%;
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+
+	.footer-content {
+		margin-left: 2%;
+		width: 96%;
+	}
+}
+
+@media screen and (max-width: 935px) {
+
+	.logo-image-footer	{
+		height: 70px;
+		width: auto;
+		margin-top: 10px;
+	}
+		
+
+}
+
+@media screen and (max-width: 845px) {
+
+	.logo-image-footer	{
+		height: 60px;
+		width: auto;
+		margin-top: 0px;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 27%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(63% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 805px) {
+	
+	.logo-image-footer	{
+		display: none;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(50% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+
+}
+
+@media screen and (max-width: 550px) {
+
+	.logo-image-footer	{
+		display: none;
+	}
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(47% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 505px) {
+
+	.footer-2 {
+		width: 103px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(50% - 64px);
+	}
+
+	.footer-4 {
+		width: 103px;
+		margin-left: calc(100% - 103px);
+	}
+
+}
+
+@media screen and (max-width: 405px) {
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 7%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(93% - 128px);
+	}
+
+	.footer-4 {
+		display: none;
+	}
+	
+	.footer-legal-bottom {
+		display: block;
+	}
+	
+	.social-widgets {
+		margin-bottom: 0px;
+	}
+}
+
+@media screen and (max-width: 390px) {
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 5%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(95% - 128px);
+	}
+	
+}
+
+@media screen and (max-width: 370px) {
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 2%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(98% - 128px);
+	}
+}
+
+
+@media screen and (max-width: 335px) {
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 6%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(94% - 128px);
+	}
+}
 </style>
 
 </head>
@@ -599,12 +1934,18 @@ if(!isset($_SESSION['auth'])){
 
 <div class="header">
 	<div class="header-text">
-		<div class="logo"><a href="about-us.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
+		<div class="logo"><a href="borrower-guide.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
 		<div class="borrow"><a href="borrow-money.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
 		<div class="signup"><div><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
+		<div class="header-menu"><img id="menu-header" class="header-menu-image" src="assets/images/header-menu.jpg"></div>
 	</div>
+</div>
+<div class="under-header" id="under-header">
+		<a href="dashboard.php" style="text-decoration: none; color: black"><div class="lend-under"><span class="text-under">Lend</span></div></a>
+		<a href="borrow.php" style="text-decoration: none; color: black"><div class="borrow-under"><span class="text-under">Borrow</span></div></a>
+		<a href="profile.php" style="text-decoration: none; color: black"><div class="login-under"><span class="text-under">Your Profile</span></div></a>
 </div>
 
 	<?php
@@ -664,15 +2005,15 @@ if(!isset($_SESSION['auth'])){
 
 <div class="everything-except-header">
 
-	<div style="margin-top: 160px;">
+	<div class="main">
 	<p class="title">Your Loans Requests</p>
 
  	<div class="transaction-details">
-	<div class="loan-amount"><span>Loan Amount</span></div>
-	<div class="repay-amount"><span >Repayment Amount</span></div>
-	<div class="interest-rate"><span>Repayment Date</span></div>
-	<div class="repay-date"><span>Request Date</span></div>
-	<div class="feedback"><span>Expiry Date</span></div>
+	<div class="loan-amount-1"><span class="details-line1">Loan Amount</span><span class="details-line2">Loan</br>Amount</span></div>
+	<div class="repay-amount-1"><span class="details-line1">Repayment Amount</span><span class="details-line2">Repayment</br>Amount</span></div>
+	<div class="interest-rate-1"><span class="details-line1">Repayment Date</span><span class="details-line2">Repayment</br>Date</span></div>
+	<div class="repay-date-1"><span class="details-line1">Request Date</span><span class="details-line2">Request</br>Date</span></div>
+	<div class="feedback-1"><span class="details-line1">Expiry Date</span><span class="details-line2">Expiry</br>Date</span></div>
 	</div>
 			
 	<div style="margin-left: 10%; color: #383838;">
@@ -686,17 +2027,20 @@ if(!isset($_SESSION['auth'])){
 
             while($question = $getAllMyQuestions->fetch()){
                 ?>
-			
-
+	
 	<div class="loan-request">
 		<div class="loan-details">	
 				<div class="loan-amount"><span><?= $question['loan_amount']; ?>$</span></div>
 				<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
-				<div class="interest-rate"><span><?=  date('M jS, Y', strtotime($question['repayment_date'])); ?></span></div>
-				<div class="repay-date"><span><?= date('M jS, Y', strtotime($question['request_date'])); ?></span></div>
-				<div class="feedback"><span><?= date('M jS, Y', strtotime($question['request_date']. ' + 2 days')); ?></span></div>
+				<div class="interest-rate"><span class="time-format1"><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span><span class="time-format2"><?= date('j M y', strtotime($question['repayment_date'])); ?></span></div>
+				<div class="repay-date"><span class="time-format1"><?= date('M jS, Y', strtotime($question['request_date'])); ?></span><span class="time-format2"><?= date('j M y', strtotime($question['request_date'])); ?></span></div>
+				<div class="feedback"><span class="time-format1"><?= date('M jS, Y', strtotime($question['request_date']. ' + 2 days')); ?></span><span class="time-format2"><?= date('j M y', strtotime($question['request_date']. ' + 2 days')); ?></span></div>
 				<div class="payment-method">
 				<form method="post" style="margin-top: -8px;"><input name="delete_request" class="delete-button" value="Delete Request" type="submit"></form>
+				</div>
+				<div class="display-bottom">
+					<div class="button-bottom"><form method="post" style="margin-top: -8px;"><input name="delete_request" class="delete-button" value="Delete Request" type="submit"></form></div>
+					<div class="status-bottom"><span class="time-format2" style="color: #2b80ff;"><span class="expiry-1">Expiry Date:</span><span class="expiry-2">Expires:</span> <?= date('j M y', strtotime($question['request_date']. ' + 2 days')); ?></span></div>
 				</div>
 		</div>
 	</div>
@@ -757,12 +2101,38 @@ if(!isset($_SESSION['auth'])){
 			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
 			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
 			</div>
+			<div class="footer-legal-bottom"><a class="link-legal" href="privacy.php">Privacy Policy</a> - <a class="link-legal" href="terms.php">Terms and Conditions</a></div>
 			<div class="footer-bottom-text"><span>Copyright © 2023 - <?= date("Y"); ?> Instant Borrow. All rights reserved.</span></div>
 		</div>
 	</div>
 </div>
 
 </div>
+
+<script>
+	var button = document.getElementById('menu-header'); 
+	
+	function closeNav() {
+		document.getElementById("under-header").style.display = "none";
+	}
+
+	button.onclick = function() {
+		var div = document.getElementById('under-header');
+		if (div.style.display !== 'none') {
+			div.style.display = 'none';
+		}
+		else {
+			div.style.display = 'block';
+			
+			document.onclick = function (e) {
+			if (e.target.id !== 'under-header' && e.target.id !== 'menu-header') {
+				if (e.target.offsetParent && e.target.offsetParent.id !== 'under-header')
+					closeNav()
+				}
+			}
+		}
+	};
+</script>
 
 </body>
 

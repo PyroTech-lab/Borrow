@@ -62,6 +62,74 @@ if(isset($_SESSION['auth'])){
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
+.under-header {
+	display: none;
+	width: 100%;
+	margin-top: 76px;
+	border-bottom: 1px solid #d6d6d6;
+	position: fixed;
+	background-color: #374861;
+	z-index: 10;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	text-align: center;
+}
+
+.text-under {
+	color: white;
+	font-weight: 500;
+	font-size: 1.45rem;
+}
+
+.lend-under {
+	display: none;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.lend-under:hover {
+	background-color: #536b8f;
+}
+
+.borrow-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.borrow-under:hover {
+	background-color: #536b8f;
+}
+
+.login-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.login-under:hover {
+	background-color: #536b8f;
+}
+
+.signup-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+}
+
+.signup-under:hover {
+	background-color: #536b8f;
+}
+
 .header-text {
 	margin-left: 10%;
 	width: 80%;
@@ -78,11 +146,6 @@ if(isset($_SESSION['auth'])){
 	margin-top: -20px;
 }
 
-.logo-image-footer {
-	height: 75px;
-	width: auto;
-	margin-top: 10px;
-}
 
 .lend {
 	width: 75px;
@@ -182,6 +245,16 @@ if(isset($_SESSION['auth'])){
 .signup-text:hover {
 	background-color: #f7d631;
 	outline: 1px solid #f7d631;
+}
+
+.header-menu {
+	display: none;
+}
+
+.header-menu-image {
+	width: 31px;
+	height: 31px;
+	margin-top: -3px;
 }
 
 .everything-except-header {
@@ -830,6 +903,14 @@ input::-webkit-datetime-edit-year-field:focus {
 	color: #00c4ff;
 }
 
+.explain-howto {
+		font-weight: 500;
+		font-size: 1.55rem;
+		color: black;
+		margin-top: 60px;
+		margin-bottom: 60px;
+}
+
 .link-round {
 	padding-top: 1px;
 	padding-bottom: 1px;
@@ -902,6 +983,17 @@ input::-webkit-datetime-edit-year-field:focus {
 	color: #2b80ff;
 }
 
+.explain-text-bottom {
+	font-size: 0.99rem;
+	line-height: 27px;
+}
+
+.bottom-text {
+	font-weight: 500;
+	font-size: 1.28rem;
+	color: #2b80ff;
+}
+
 .footer {
 	z-index: 10;
 	position: absolute;
@@ -919,6 +1011,12 @@ input::-webkit-datetime-edit-year-field:focus {
 	margin-top: 20px;
 	margin-left: 10%;
 	width: 80%;
+}
+
+.logo-image-footer {
+	height: 75px;
+	width: auto;
+	margin-top: 10px;
 }
 
 .footer-1 {
@@ -987,6 +1085,17 @@ input::-webkit-datetime-edit-year-field:focus {
   transform: scale(1.1); 
 }
 
+.footer-legal-bottom {
+	font-size: 0.7rem;
+	margin-bottom: 10px;
+	display: none;
+}
+
+.link-legal {
+	text-decoration: none;
+	color: #00c4ff;
+}
+
 .footer-bottom-text {
 	font-size: 0.86rem;
 	color: #2b2b2b;
@@ -1024,6 +1133,11 @@ input::-webkit-datetime-edit-year-field:focus {
 		width: 90%;
 	}
 	
+	.footer-content {
+		margin-left: 5%;
+		width: 90%;
+	}
+	
 }
 
 @media screen and (max-width: 1450px) {
@@ -1047,6 +1161,11 @@ input::-webkit-datetime-edit-year-field:focus {
 		width: 96%;
 	}
 	
+	.footer-content {
+		margin-left: 2%;
+		width: 96%;
+	}
+	
 	.sticky-text	{
 	width: 82%;
 	}
@@ -1061,6 +1180,11 @@ input::-webkit-datetime-edit-year-field:focus {
 	}
 	
 	.header-text {
+		margin-left: 10%;
+		width: 80%;
+	}
+	
+	.footer-content {
 		margin-left: 10%;
 		width: 80%;
 	}
@@ -1141,6 +1265,21 @@ input::-webkit-datetime-edit-year-field:focus {
 		margin-top: 0px;
 	}
 	
+	.footer-2 {
+		width: 159px;
+		margin-left: 30%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: 57%;
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+	
 	
 }
 
@@ -1154,6 +1293,11 @@ input::-webkit-datetime-edit-year-field:focus {
 	}
 	
 	.header-text {
+		margin-left: 7%;
+		width: 86%;
+	}
+	
+	.footer-content {
 		margin-left: 7%;
 		width: 86%;
 	}
@@ -1171,6 +1315,11 @@ input::-webkit-datetime-edit-year-field:focus {
 		margin-left: 5%;
 		width: 90%;
 	}
+	
+	.footer-content {
+		margin-left: 5%;
+		width: 90%;
+	}
 
 }
 
@@ -1182,6 +1331,11 @@ input::-webkit-datetime-edit-year-field:focus {
 	}
 	
 	.header-text {
+		margin-left: 2%;
+		width: 96%;
+	}
+	
+	.footer-content {
 		margin-left: 2%;
 		width: 96%;
 	}
@@ -1282,6 +1436,15 @@ input::-webkit-datetime-edit-year-field:focus {
 		margin-top: -25px;
 	}
 		
+	.main {
+		margin-top: 145px;
+	}
+	
+	.logo-image-footer	{
+		height: 70px;
+		width: auto;
+		margin-top: 10px;
+	}
 		
 
 }
@@ -1349,6 +1512,27 @@ input::-webkit-datetime-edit-year-field:focus {
 		width: 19%;
 	}
 	
+	.logo-image-footer	{
+		height: 60px;
+		width: auto;
+		margin-top: 0px;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 27%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(63% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+	
 }
 
 @media screen and (max-width: 820px) {
@@ -1378,6 +1562,25 @@ input::-webkit-datetime-edit-year-field:focus {
 		margin-top: -25px;
 	}
 	
+	.logo-image-footer	{
+		display: none;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(50% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+	
 }
 
 @media screen and (max-width: 748px) {
@@ -1393,8 +1596,141 @@ input::-webkit-datetime-edit-year-field:focus {
 	.details-line2 {
 		display: block;
 	}
+	
+	.date-format1 {
+		display: none;
+	}
+	
+	.date-format2 {
+		display: block;
+	}
+
+}
+
+@media screen and (max-width: 741px) {
+	
+	.step2 {
+		margin-top: -302px;
+	}
+	
+	.inner-box2 {
+	padding-bottom: 50px;
+	}
+
+}
+
+
+
+@media screen and (max-width: 703px) {
+	
+	.step4 {
+		margin-top: -252px;
+	}
+	
+	.inner-box4 {
+	padding-bottom: 24px;
+	}
+	
+	.lend {
+		display: none;
+	}
+	
+	.borrow {
+		display: none;
+	}
+	
+	.login {
+		margin-left: calc(100% - 215px);
+	}
+	
+	.login-text {
+		background-color: #00c4ff;
+		outline: 1px solid #00c4ff;
+		color: white;
+		border-radius: 0.125rem;
+	}
+	
+	.login-text:hover {
+		outline: 1px solid #2b80ff;
+		background-color: #2b80ff;
+	}
+	
+	.signup {
+		margin-left: calc(100% - 135px);
+	}
+	
+	.header-menu {
+		display: block;
+		width: 31px;
+		height: 31px;
+		margin-top: -23px;
+		margin-left: calc(100% - 36px);
+	}
+	
+	.lend-under {
+		display: block;
+	}
+
+	.borrow-under {
+		display: block;
+		border-bottom: 0px;
+		background-color: #00c4ff;
+	}
+	
+	.borrow-under:hover {
+		background-color: #00a2d4;
+	}
+
+	.login-under {
+		display: none;
+	}
+
+	.signup-under {
+		display: none;
+	}
 
 	
+}
+
+@media screen and (max-width: 655px) {
+	
+	.explain-howto {
+		margin-left: 7%;
+		width: 86%;
+	}
+	
+	.box-container {
+		width: 86%;
+		margin-left: 7%;
+	}
+	
+	.step1 {
+		margin-left: 0px;
+		margin-top: 0px;
+		width: 100%;
+	}
+	
+	.step2 {
+		margin-left: 0px;
+		margin-top: 0px;
+		width: 100%;
+	}
+	
+	.inner-box2 {
+		padding-bottom: 0px;
+	}	
+
+	.step3 {
+		margin-left: 0px;
+		margin-top: 0px;
+		width: 100%;
+	}
+	
+	.step4 {
+		margin-left: 0px;
+		margin-top: 0px;
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 650px) {
@@ -1423,19 +1759,35 @@ input::-webkit-datetime-edit-year-field:focus {
 }
 
 @media screen and (max-width: 595px) {
-
-	.date-format1 {
-		display: none;
+	
+	.title {
+		font-size: 2.4rem;
 	}
 	
-	.date-format2 {
-		display: block;
+	.subtitle {
+		font-size: 1.12rem;
+	}
+	
+	.explain-text-bottom {
+		font-size: 0.95rem;
+		line-height: 27px;
+	}
+	
+	.bottom-text {
+		font-size: 1.15rem;
+		line-height: 27px;
+	}
+	
+	
+	.main {
+		margin-top: 130px;
 	}
 
 }
 
 @media screen and (max-width: 550px) {
 
+	
 	.trustscore {
 		width: 35%;
 		margin-left: 0%;
@@ -1444,6 +1796,35 @@ input::-webkit-datetime-edit-year-field:focus {
 	
 	.feedback-spacing {
 		margin-left: 12px;
+	}
+	
+	.explain-howto {
+		margin-left: 4%;
+		width: 92%;
+	}
+	
+	.box-container {
+		width: 92%;
+		margin-left: 4%;
+	}
+	
+	.logo-image-footer	{
+		display: none;
+	}
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(47% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
 	}
 	
 }
@@ -1524,7 +1905,97 @@ input::-webkit-datetime-edit-year-field:focus {
 }
 
 
+@media screen and (max-width: 505px) {
+
+
+	.login {
+		margin-left: calc(100% - 210px);
+	}
+	
+	.explain-howto {
+		margin-left: 0%;
+		width: 100%;
+	}
+	
+	.box-container {
+		width: 100%;
+		margin-left: 0%;
+	}
+	
+	.bottom-text {
+		font-size: 1.1rem;
+	}
+	
+	.main {
+		margin-top: 120px;
+	}
+	
+	.container {
+		margin-top: -30px;
+	}
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(50% - 64px);
+	}
+
+	.footer-4 {
+		width: 103px;
+		margin-left: calc(100% - 103px);
+	}
+
+}
+
+
 @media screen and (max-width: 460px) {
+	
+	
+	.login {
+		display: none;
+	}
+	
+	.signup-text {
+		background-color: #00c4ff;
+		outline: #00c4ff;
+		border-radius: 0.275rem;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	
+	.signup-text:hover {
+		background-color: #2b80ff;
+		outline: #2b80ff;
+	}
+	
+	.borrow-under {
+		display: block;
+		border-bottom: 1px solid white;
+		background-color: #374861;
+	}
+	
+	.borrow-under:hover {
+		background-color: #536b8f;
+	}
+
+
+	.login-under {
+		display: block;
+		border-bottom: 0px;
+		background-color: #00c4ff;
+	}
+	
+	.login-under:hover {
+		background-color: #00a2d4;
+	}
+
+	.text-under {
+		font-size: 1.3rem;
+	}
 	
 	.bottom-column-1 {
 		width: calc(100% - 7px);
@@ -1548,7 +2019,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		margin-left: 2px;
 	}
 	
-.loan-amount {
+	.loan-amount {
 		margin-left: 0%;
 		width: 21%;
 	}
@@ -1591,6 +2062,11 @@ input::-webkit-datetime-edit-year-field:focus {
 }
 
 @media screen and (max-width: 405px) {
+	
+	.logo-image {
+		height: 55px;
+		margin-top: -17px;
+	}
 	
 	.trustscore {
 		width: 44%;
@@ -1641,7 +2117,44 @@ input::-webkit-datetime-edit-year-field:focus {
 		width: 50%;
 	}
 
+	.footer-2 {
+		width: 159px;
+		margin-left: 7%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(93% - 128px);
+	}
+
+	.footer-4 {
+		display: none;
+	}
+	
+	.footer-legal-bottom {
+		display: block;
+	}
+	
+	.social-widgets {
+		margin-bottom: 0px;
+	}
+
 }
+
+@media screen and (max-width: 390px) {
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 5%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(95% - 128px);
+	}
+	
+}
+
 
 @media screen and (max-width: 370px) {
 	
@@ -1693,11 +2206,28 @@ input::-webkit-datetime-edit-year-field:focus {
 		margin-left: 48.5%;
 	}
 	
+	.subtitle {
+		font-size: 1.08rem;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 2%;
+	}
 
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(98% - 128px);
+	}
 	
 }
 
 @media screen and (max-width: 350px) {
+
+	.logo-image {
+		height: 50px;
+		margin-top: -14px;
+	}
 
 	.loan-amount {
 		margin-left: 0%;
@@ -1737,9 +2267,56 @@ input::-webkit-datetime-edit-year-field:focus {
 		display: none;
 	}
 	
+	.subtitle {
+		font-size: 1.05rem;
+	}
+	
+	.main {
+		margin-top: 100px;
+	}
+	
 }
 
 @media screen and (max-width: 335px) {
+	
+	.header {
+		height: 65px;
+	}
+	
+	.logo-image {
+		margin-top: -18px;
+	}
+	
+	.signup {
+		display: none;
+	}
+	
+	.header-menu {
+		margin-top: -27px;
+	}
+	
+	.under-header {
+		margin-top: 66px;
+	}
+
+	.signup-under {
+		display: block;
+		background-color: #00c4ff;
+	}
+	
+	.signup-under:hover {
+		background-color: #00a2d4;
+	}
+	
+	.login-under {
+		display: block;
+		border-bottom: 1px solid white;
+		background-color: #374861;
+	}
+	
+	.login-under:hover {
+		background-color: #536b8f;
+	}
 	
 	.trustscore {
 		width: 55%;
@@ -1753,6 +2330,16 @@ input::-webkit-datetime-edit-year-field:focus {
 		width: 40%;
 		margin-left: 60%;
 		margin-top: -23px;
+	}
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 6%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(94% - 128px);
 	}
 	
 }
@@ -1770,7 +2357,14 @@ input::-webkit-datetime-edit-year-field:focus {
 		<div class="borrow"><a href="borrow.php" style="text-decoration: none; color: black"><span class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="login.php" style="text-decoration: none; color: black"><span class="login-text">Login</span></a></div>
 		<div class="signup"><a href="signup.php" style="text-decoration: none; color: black"><span class="signup-text">Sign Up</span></a></div>
+		<div class="header-menu"><img id="menu-header" class="header-menu-image" src="assets/images/header-menu.jpg"></div>
 	</div>
+</div>
+<div class="under-header" id="under-header">
+		<a href="index.php" style="text-decoration: none; color: black"><div class="lend-under"><span class="text-under">Lend</span></div></a>
+		<a href="borrow.php" style="text-decoration: none; color: black"><div class="borrow-under"><span class="text-under">Borrow</span></div></a>
+		<a href="login.php" style="text-decoration: none; color: black"><div class="login-under"><span class="text-under">Login</span></div></a>
+		<a href="signup.php" style="text-decoration: none; color: black"><div class="signup-under"><span class="text-under">Sign Up</span></div></a>
 </div>
 
 
@@ -2059,7 +2653,7 @@ input::-webkit-datetime-edit-year-field:focus {
 						<div class="loan-amount-2"><span><?= $question['loan_amount']; ?>$</span></div>
 						<div class="repay-amount-2"><span><?= $question['repayment_amount']; ?>$</span></div>
 						<div class="interest-rate-2"><span><?= $question['interest']; ?>%</span></div>
-						<div class="repay-date-2"><span class="date-format1"><?= date('j M Y', strtotime($question['repayment_date'])); ?></span><span class="date-format2"><?= date('j M y', strtotime($question['repayment_date'])); ?></span></div>
+						<div class="repay-date-2"><span class="date-format1"><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span><span class="date-format2"><?= date('j M y', strtotime($question['repayment_date'])); ?></span></div>
 						</div>
 						<div style="text-align: right; margin-top: -40px;">
 						<a href="loan.php?id=<?= $question['id']; ?>"><button class="lend-button">LEND</button><a>
@@ -2306,7 +2900,7 @@ input::-webkit-datetime-edit-year-field:focus {
 		
 		
 		<div class="explain">
-			<a href="lender-info.php" style="text-decoration: none;" target="blank"><h3 class="explain-title">Lend Money on Instant Borrow <span class="link-round">🡕</span></h3></a>
+			<a href="lender-info.php" style="text-decoration: none;" target="blank"><h3 class="explain-title">Lend Money on Instant Borrow&nbsp;<span class="link-round">🡕</span></h3></a>
 			
 			<p style="font-weight: 500; font-size: 1.28rem; margin-top: 50px; color:#2b80ff;">Welcome to the World of Peer-to-Peer Finance.</p> 
 			
@@ -2315,20 +2909,22 @@ input::-webkit-datetime-edit-year-field:focus {
 
 			<p style="font-weight: 500; font-size: 1.28rem; color:#2b80ff;">Lending on Instant Borrow is Quick, Easy, and a Great way to Make Money.</p>
 			
-			<p style="font-weight: 500; font-size: 1.55rem; color: black; margin-top: 60px; margin-bottom: 60px;">THIS IS HOW TO DO IT:</p>
+			<p class="explain-howto">THIS IS HOW TO DO IT:</p>
 			
+			<div class="box-container">
 			<div class="step1"><h3 class="steps-title">1-BROWSE</h3><div class="inner-box"><p class="steps-subtitle">Find in the Loan Requests Section:</p><p><span class="explain-bold">Loan Amounts</span></br><span class="explain-bold">Repayment Amounts</span> and <span class="explain-bold">Dates</span></br><span class="explain-bold">Interest</span> Rates</br><span class="explain-bold">Trustscores</span> and <span class="explain-bold">Feedback</span> Given to Borrowers</p></div></div>
 			<div class="step2"><h3 class="steps-title">2-SELECT A LOAN</h3><div class="inner-box2"><p class="steps-subtitle">Get on the Loan Recap Page:</p><p>A <span class="explain-bold">Recap</span> of the Loan</br><span class="explain-bold">Information</span> About the Borrower</br>His Borrowing <span class="explain-bold">History</span></br><span class="explain-bold">Notes</span> Regarding the Loan</p></div></div>
 			<div class="step3"><h3 class="steps-title">3-LEND</h3><div class="inner-box"><p class="steps-subtitle">On the Payment Page:</p><p>Choose your <span class="explain-bold">Payment Method</span></br><span class="explain-bold">Send Funds</span> to the Borrower</br><span class="explain-bold">Confirm</span> the Transaction was Made</p></div></div>
 			<div class="step4"><h3 class="steps-title">4-PROFIT</h3><div class="inner-box"><p class="steps-subtitle">On the Repayment Date:</p><p>Borrower Sends <span class="explain-bold">Repayment</span></br><span class="explain-bold">Confirm</span> Funds Have Been Received</br><span class="explain-bold">Evaluate</span> the Borrower</p></div></div>
+			</div>
 			
-			<p style="margin-top: 60px;">All payments are Confirmed by Instant Borrow and are Protected with Advanced security Measures. The Marketplace is closely Monitored and all Users are Verified to ensure a safe Trading Environment.</p>
+			<p class="explain-text-bottom" style="margin-top: 60px;">All payments are Confirmed by Instant Borrow and are Protected with Advanced security Measures. The Marketplace is closely Monitored and all Users are Verified to ensure a safe Trading Environment.</p>
 			
-			<p>Personnal Information is Fully Protected by Instant Borrow and is only Given to the Lender if the Borrower fails to Repay his Loan.</p>
+			<p class="explain-text-bottom">Personnal Information is Fully Protected by Instant Borrow and is only Given to the Lender if the Borrower fails to Repay his Loan.</p>
 
-			<p>If you have any Questions, please <a href="contact.php" target="blank" style="color: #3d91e0; text-decoration: none;">Contact Us</a> or Read our User Guides at the Bottom of the Page. We'll always be there for you!</p>
+			<p class="explain-text-bottom">If you have any Questions, please <a href="contact.php" target="blank" style="color: #3d91e0; text-decoration: none;">Contact Us</a> or Read our User Guides at the Bottom of the Page. We'll always be there for you!</p>
 
-			<h3 style="font-weight: 500; font-size: 1.28rem; color: #2b80ff;">Lending on Instant Borrow is Safe, Easy and Lucrative — Experience the next Revolution in the world of Finance and Make Record Profits in Record Time</h3>
+			<h3 class="bottom-text">Lending on Instant Borrow is Safe, Easy and Lucrative — Experience the next Revolution in the world of Finance and Make Record Profits in Record Time</h3>
 		</div>
 	</div>
 </div>
@@ -2361,12 +2957,38 @@ input::-webkit-datetime-edit-year-field:focus {
 			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
 			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
 			</div>
+			<div class="footer-legal-bottom"><a class="link-legal" href="privacy-policy.php">Privacy Policy</a> - <a class="link-legal" href="terms-conditions.php">Terms and Conditions</a></div>
 			<div class="footer-bottom-text"><span>Copyright © 2023 - <?= date("Y"); ?> Instant Borrow. All rights reserved.</span></div>
 		</div>
 	</div>
 </div>
 
 </div>
+
+<script>
+	var button = document.getElementById('menu-header'); 
+	
+	function closeNav() {
+		document.getElementById("under-header").style.display = "none";
+	}
+
+	button.onclick = function() {
+		var div = document.getElementById('under-header');
+		if (div.style.display !== 'none') {
+			div.style.display = 'none';
+		}
+		else {
+			div.style.display = 'block';
+			
+			document.onclick = function (e) {
+			if (e.target.id !== 'under-header' && e.target.id !== 'menu-header') {
+				if (e.target.offsetParent && e.target.offsetParent.id !== 'under-header')
+					closeNav()
+				}
+			}
+		}
+	};
+</script>
 
 
 </body>
