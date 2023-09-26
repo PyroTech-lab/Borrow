@@ -63,6 +63,75 @@ require('actions/users/bannedAction.php');
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
+.under-header {
+	display: none;
+	width: 100%;
+	margin-top: 76px;
+	border-bottom: 1px solid #d6d6d6;
+	position: fixed;
+	background-color: #374861;
+	z-index: 100;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	text-align: center;
+}
+
+.text-under {
+	color: white;
+	font-weight: 500;
+	font-size: 1.45rem;
+}
+
+.lend-under {
+	display: none;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.lend-under:hover {
+	background-color: #536b8f;
+}
+
+.borrow-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.borrow-under:hover {
+	background-color: #536b8f;
+}
+
+.login-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	border-bottom: 1px solid white;
+	background-color: #00c4ff;
+}
+
+.login-under:hover {
+	background-color: #536b8f;
+}
+
+.signup-under {
+	display: none;
+	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+}
+
+.signup-under:hover {
+	background-color: #536b8f;
+}
+
 .header-text {
 	margin-left: 10%;
 	width: 80%;
@@ -193,6 +262,16 @@ require('actions/users/bannedAction.php');
 	transform: scale(1.1); 
 }
 
+.header-menu {
+	display: none;
+}
+
+.header-menu-image {
+	width: 31px;
+	height: 31px;
+	margin-top: -3px;
+}
+
 
 .notification-unpaid {
 	background-color: red;
@@ -317,6 +396,24 @@ require('actions/users/bannedAction.php');
 	background-color: #f7f7f7;
 }
 
+.title {
+	font-weight: 500;
+	font-size: 3.2rem;
+}
+
+.user-title {
+	margin-top: -70px;
+	margin-bottom: 80px;
+}
+
+
+.profile-picture {
+	height: 70px;
+	width: 70px;
+	margin-bottom: -82px;
+	border-radius: 50%;
+}
+
 .dashboard {
 	height: 300px;
 	width: 100%;
@@ -324,13 +421,6 @@ require('actions/users/bannedAction.php');
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	border: 1px solid #2b80ff;
-}
-
-.profile-picture {
-	height: 70px;
-	width: 70px;
-	margin-bottom: -82px;
-	border-radius: 50%;
 }
 
 .subsection-title-dashboard {
@@ -375,7 +465,19 @@ require('actions/users/bannedAction.php');
 .column-4 {
 	margin-left: 82%;
 	height: 300px;
-	margin-top: -316px;
+	margin-top: -329px;
+}
+
+.borrowing-activity {
+	display: none;
+	height: 300px;
+	width: 49%;
+	margin-left: 0%;
+	margin-top: 50px;
+	background-color: #fcfcfc;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	border: 1px solid #2b80ff;
+	border-radius: 0.425rem;
 }
 
 .verifications {
@@ -480,6 +582,13 @@ require('actions/users/bannedAction.php');
 }
 
 .column-12 {
+	margin-left: 55%;
+	height: 300px;
+	width: 50%;
+	margin-top: -316px;
+}
+
+.column-12-verifications {
 	margin-left: 55%;
 	height: 300px;
 	width: 50%;
@@ -634,11 +743,11 @@ require('actions/users/bannedAction.php');
 }
 
 .subsection-title {
-	font-weight: bold;
+	font-weight: 500;
 	margin-left: 20px;
 	margin-top: 20px;
-	font-size: 1.8rem;
-	color: #00c4ff;
+	font-size: 2.01rem;
+	color: black;
 }
 
 .checkmark {
@@ -1024,6 +1133,12 @@ require('actions/users/bannedAction.php');
 	width: 80%;
 }
 
+.logo-image-footer {
+	height: 75px;
+	width: auto;
+	margin-top: 10px;
+}
+
 .footer-1 {
 	height: 150px;
 	width: 25%;
@@ -1070,7 +1185,7 @@ require('actions/users/bannedAction.php');
 .footer-bottom {
 	text-align: center;
 	margin-bottom: 15px;
-}
+}   
 
 .social-widgets {
 	margin-top: 15px;
@@ -1090,13 +1205,698 @@ require('actions/users/bannedAction.php');
   transform: scale(1.1); 
 }
 
+.footer-legal-bottom {
+	font-size: 0.7rem;
+	margin-bottom: 10px;
+	display: none;
+}
+
+.link-legal {
+	text-decoration: none;
+	color: #00c4ff;
+}
+
 .footer-bottom-text {
 	font-size: 0.86rem;
 	color: #2b2b2b;
 }
 
+</style>
+
+
+
+<style>
+
+@media screen and (max-width: 1700px) {
+	
+	.main {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+	
+}
+
+@media screen and (max-width: 1550px) {
+	
+	.main {
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+}
+
+@media screen and (max-width: 1350px) {
+	
+	.main {
+		width: 93%;
+		margin-left: 3.5%;
+	}
+	
+}
+
+@media screen and (max-width: 1280px) {
+	
+	.main {
+		width: 95%;
+		margin-left: 2.5%;
+	}
+	
+	.column-112 {
+		margin-left: 40%;
+	}
+	
+	.column-113 {
+		margin-left: 75%;
+		width: 25%;
+	}
+	
+}
+
+@media screen and (max-width: 1235px) {
+	
+	.main {
+		width: 96%;
+		margin-left: 2%;
+	}
+}
+
+@media screen and (max-width: 1215px) {
+	  
+	.main {
+		width: 80%;
+		margin-left: 10%;
+	}
+	
+	.column-1 {
+		
+	}
+	
+	.column-2 {
+		margin-left: 37%;
+		width: 210px;
+	}
+	
+	.column-3 {
+		margin-left: 75%;
+	}
+	  
+	.column-4 {
+		display: none;
+	}
+	
+	.borrowing-activity {
+		display: block;
+	}
+	
+	
+	.verifications {
+		margin-left: 51%;
+		width: 49%;
+		margin-top: -302px;
+	}
+	
+	.profile-trust {
+		margin-top: 50px;
+		margin-left: 0%;
+		width: 49%;
+	}
+	
+	.payment-details {
+		margin-left: 51%;
+		width: 49%;
+	}
+	
+}
+
+@media screen and (max-width: 1160px) {
+	
+
+	.column-112 {
+		margin-left: 43%;
+	}
+	
+	.column-113 {
+		margin-left: 78%;
+	}
+	
+}
+
+@media screen and (max-width: 1095px) {
+	
+	.column-113 {
+		display: none;
+	}
+	
+	.column-112 {
+		margin-left: 60%;
+	}
+	
+	.title-part2 {
+		display: none;
+	}
+	
+}
+
+@media screen and (max-width: 975px) {
+	
+	.main {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+	
+}
+
+@media screen and (max-width: 915px) {
+	
+	.main {
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+}
+
+@media screen and (max-width: 850px) {
+	
+	.main {
+		width: calc(96% - 2px);
+		margin-left: 2%;
+	}
+	
+}
+
+@media screen and (max-width: 815px) {
+	
+	.column-12-verifications {
+		margin-left: 50%;
+	}
+}
+
+@media screen and (max-width: 735px) {
+	
+	.column-3 {
+		display: none;
+	}
+	
+	.borrowing-activity {
+		width: 100%;
+	}
+	
+	.verifications {
+		margin-top: 50px;
+		margin-left:  0%;
+		width: 100%;		
+	}
+	
+	.profile-trust {
+		margin-top: 50px;
+		margin-left:  0%;
+		width: 100%;		
+	}
+	
+	.payment-details {
+		margin-top: 50px;
+		margin-left:  0%;
+		width: 100%;		
+	}
+	
+}
+
 
 </style>
+
+
+
+<style>
+
+@media screen and (max-width: 1700px) {
+	
+	.header-text {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+	
+}
+
+@media screen and (max-width: 1550px) {
+	
+	.header-text {
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+}
+
+@media screen and (max-width: 1350px) {
+	
+	.header-text {
+		width: 93%;
+		margin-left: 3.5%;
+	}
+	
+}
+
+@media screen and (max-width: 1280px) {
+	
+	.header-text {
+		width: 95%;
+		margin-left: 2.5%;
+	}
+	
+}
+
+@media screen and (max-width: 1235px) {
+	
+	.header-text {
+		width: 96%;
+		margin-left: 2%;
+	}
+}
+
+@media screen and (max-width: 1215px) {
+	  
+	.header-text {
+		width: 80%;
+		margin-left: 10%;
+	}
+	
+}
+
+
+
+@media screen and (max-width: 975px) {
+	
+	.header-text {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+	
+}
+
+@media screen and (max-width: 915px) {
+	
+	.header-text {
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+}
+
+@media screen and (max-width: 850px) {
+	
+	.header-text {
+		width: calc(96% - 2px);
+		margin-left: 2%;
+	}
+	
+}
+
+@media screen and (max-width: 703px) {
+
+	.lend {
+		display: none;
+	}
+	
+	.borrow {
+		display: none;
+	}
+	
+	.login {
+		margin-left: calc(100% - 200px);
+	}
+	
+	.login-text {
+		background-color: #00c4ff;
+		outline: 1px solid #00c4ff;
+		color: white;
+		border-radius: 0.125rem;
+	}
+	
+	.login-text:hover {
+		outline: 1px solid #2b80ff;
+		background-color: #2b80ff;
+	}
+	
+	.signup {
+		margin-left: calc(100% - 70px);
+	}
+	
+	.header-menu {
+		display: block;
+		width: 31px;
+		height: 31px;
+		margin-top: -29px;
+		margin-left: calc(100% - 36px);
+	}
+	
+	.lend-under {
+		display: block;
+	}
+
+	.borrow-under {
+		display: block;
+		border-bottom: 0px;
+		background-color: #00c4ff;
+	}
+	
+	.borrow-under:hover {
+		background-color: #00a2d4;
+	}
+
+	.login-under {
+		display: none;
+	}
+
+	.signup-under {
+		display: none;
+	}
+	
+}
+
+@media screen and (max-width: 460px) {
+	
+	
+	.login {
+		display: none;
+	}
+	
+	.signup-text {
+		background-color: #00c4ff;
+		outline: #00c4ff;
+		border-radius: 0.275rem;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	
+	.signup-text:hover {
+		background-color: #2b80ff;
+		outline: #2b80ff;
+	}
+	
+	.borrow-under {
+		display: block;
+		border-bottom: 1px solid white;
+		background-color: #374861;
+	}
+
+
+	.login-under {
+		display: block;
+		border-bottom: 0px;
+	}
+	
+	.borrow-under:hover {
+		background-color: #536b8f;
+	}
+	
+	.login-under:hover {
+		background-color: #00a2d4;
+	}
+
+	.text-under {
+		font-size: 1.3rem;
+	}
+}
+
+@media screen and (max-width: 405px) {
+	
+	.logo-image {
+		height: 55px;
+		margin-top: -17px;
+	}
+}
+
+@media screen and (max-width: 350px) {
+
+	.logo-image {
+		height: 50px;
+		margin-top: -14px;
+	}
+}
+
+@media screen and (max-width: 335px) {
+	
+	.header {
+		height: 65px;
+	}
+	
+	.logo-image {
+		margin-top: -18px;
+	}
+	
+	.signup {
+		margin-top: -26px;
+	}
+	
+	.header-menu {
+		margin-top: -29px;
+	}
+	
+	.under-header {
+		margin-top: 66px;
+	}
+
+	.signup-under {
+		display: block;
+	}
+	
+}
+	
+</style>
+
+
+
+<style>
+@media screen and (max-width: 1650px) {	
+	
+	.footer-content {
+		margin-left: 5%;
+		width: 90%;
+	}
+
+}
+
+@media screen and (max-width: 1360px) {
+
+	.footer-content {
+		margin-left: 2%;
+		width: 96%;
+	}
+}
+
+@media screen and (max-width: 1270px) {
+	
+	.footer-content {
+		margin-left: 10%;
+		width: 80%;
+	}
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 30%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: 57%;
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 1220px) {
+
+	.footer-content {
+		margin-left: 7%;
+		width: 86%;
+	}
+}
+
+@media screen and (max-width: 1150px) {
+
+	.footer-content {
+		margin-left: 5%;
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+
+	.footer-content {
+		margin-left: 2%;
+		width: 96%;
+	}
+}
+
+@media screen and (max-width: 935px) {
+
+	.logo-image-footer	{
+		height: 70px;
+		width: auto;
+		margin-top: 10px;
+	}
+		
+
+}
+
+@media screen and (max-width: 845px) {
+
+	.logo-image-footer	{
+		height: 60px;
+		width: auto;
+		margin-top: 0px;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 27%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(63% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 805px) {
+	
+	.logo-image-footer	{
+		display: none;
+	}
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(50% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+
+}
+
+@media screen and (max-width: 550px) {
+
+	.logo-image-footer	{
+		display: none;
+	}
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(47% - 64px);
+	}
+
+	.footer-4 {
+		width: 149px;
+		margin-left: calc(100% - 149px);
+	}
+}
+
+@media screen and (max-width: 505px) {
+
+	.footer-2 {
+		width: 103px;
+		margin-left: 0%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(50% - 64px);
+	}
+
+	.footer-4 {
+		width: 103px;
+		margin-left: calc(100% - 103px);
+	}
+
+}
+
+@media screen and (max-width: 405px) {
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 7%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(93% - 128px);
+	}
+
+	.footer-4 {
+		display: none;
+	}
+	
+	.footer-legal-bottom {
+		display: block;
+	}
+	
+	.social-widgets {
+		margin-bottom: 0px;
+	}
+}
+
+@media screen and (max-width: 390px) {
+	
+	.footer-2 {
+		width: 159px;
+		margin-left: 5%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(95% - 128px);
+	}
+	
+}
+
+@media screen and (max-width: 370) {
+
+	.footer-2 {
+		width: 159px;
+		margin-left: 2%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(98% - 128px);
+	}
+}
+
+
+@media screen and (max-width: 335px) {
+	
+	.footer-2 {
+		width: 103px;
+		margin-left: 6%;
+	}
+
+	.footer-3 {
+		width: 128px;
+		margin-left: calc(94% - 128px);
+	}
+}
+</style>
+
+
 
 </head>
 
@@ -1105,12 +1905,18 @@ require('actions/users/bannedAction.php');
 
 <div class="header">
 	<div class="header-text">
-		<div class="logo"><a href="about-us.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
+		<div class="logo"><a href="borrower-guide.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="dashboard.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
 		<div class="borrow"><a href="borrow-money.php" style="text-decoration: none; color: black"><span  class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="profile.php" style="text-decoration: none; color: black"><span class="login-text">Your Profile</span></a></div>
 		<div class="signup"><div><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
+		<div class="header-menu"><img id="menu-header" class="header-menu-image" src="assets/images/header-menu.jpg"></div>
 	</div>
+</div>
+<div class="under-header" id="under-header">
+		<a href="dashboard.php" style="text-decoration: none; color: black"><div class="lend-under"><span class="text-under">Lend</span></div></a>
+		<a href="borrow.php" style="text-decoration: none; color: black"><div class="borrow-under"><span class="text-under">Borrow</span></div></a>
+		<a href="profile.php" style="text-decoration: none; color: black"><div class="login-under"><span class="text-under">Your Profile</span></div></a>
 </div>
 
 	<?php
@@ -1272,12 +2078,17 @@ require('actions/users/bannedAction.php');
 
 
 <div class="main">
+
+	<h1 class="title">Instant Borrow Profile</h1>
+
+	<div class="user-title">
+		<img onclick="ProfilePicturePopup()" src="assets/images/profile-images/<?= $profile_picture; ?>" class="profile-picture">
+		<p class="subsection-title-dashboard"><?= $_SESSION['name']; ?></p>
+	</div>
+
 	<div class="dashboard">
 	
-	<div style="margin-left: 20px; margin-top: -20px;">
-	<img src="assets/images/profile-images/<?= $profile_picture; ?>" class="profile-picture">
-	<p class="subsection-title-dashboard"><?= $_SESSION['name']; ?></p>
-	</div>
+		<p class="subsection-title">Your Activity</p>
 	
 		<div class="column-1">
 		<p class="main-text">Amount Lent<br><span class="main-subtext"><?php echo ''.ROUND($getLentAmountMessage).'';?>$</span><a href="profile-lent-loans.php" style="text-decoration: none;"><span style="color: red;"> <?php echo ''.$AllLentCountMessage.'';?> <?php echo ''.$singular2.'';?></span></a></p>
@@ -1298,10 +2109,10 @@ require('actions/users/bannedAction.php');
 		</div>
 	</div>
 	
-			
+	<div class="borrowing-activity">
 	
-	<div class="verifications">
-	<p class="subsection-title">Verifications</p>
+		<p class="subsection-title">Despacito</p>
+	
 		<div class="column-11">
 			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Email<br><img class="checkmark" src="<?php if(isset($checkmark4)){echo ''.$checkmark4.'';}else {echo ''.$cross4.'';}?>"><span class="verification-box2"><?php if(isset($verified_email)){echo ''.$verified_email.'';}?></span><span class="verification-box"><?php if(isset($not_verified_email)){echo ''.$not_verified_email.'';}?></span></p></a>
 			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Phone Number<br><img class="checkmark" src="<?php if(isset($checkmark1)){echo ''.$checkmark1.'';}else {echo ''.$cross1.'';}?>"><span class="verification-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span><span class="verification-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span></p></a>
@@ -1310,10 +2121,26 @@ require('actions/users/bannedAction.php');
 			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Address<br><img class="checkmark" src="<?php if(isset($checkmark2)){echo ''.$checkmark2.'';}else {echo ''.$cross2.'';}?>"><span class="verification-box2"><?php if(isset($verified_address)){echo ''.$verified_address.'';}?></span><span class="verification-box"><?php if(isset($not_verified_address)){echo ''.$not_verified_address.'';}?></span></p></a>
 			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">ID & Picture<br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}elseif(isset($cross31)){echo ''.$cross31.'';}else {echo ''.$cross3.'';}?>"><span class="verification-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="verification-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span><span class="verification-box3"><?php if(isset($underverification_idcard)){echo ''.$underverification_idcard.'';}?></span></p></a>
 		</div>
+	</div>		
+	
+	<div class="verifications">
+	
+		<p class="subsection-title">Verifications</p>
+	
+		<div class="column-11">
+			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Email<br><img class="checkmark" src="<?php if(isset($checkmark4)){echo ''.$checkmark4.'';}else {echo ''.$cross4.'';}?>"><span class="verification-box2"><?php if(isset($verified_email)){echo ''.$verified_email.'';}?></span><span class="verification-box"><?php if(isset($not_verified_email)){echo ''.$not_verified_email.'';}?></span></p></a>
+			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Phone Number<br><img class="checkmark" src="<?php if(isset($checkmark1)){echo ''.$checkmark1.'';}else {echo ''.$cross1.'';}?>"><span class="verification-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span><span class="verification-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span></p></a>
+		</div>
+		<div class="column-12-verifications">
+			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Address<br><img class="checkmark" src="<?php if(isset($checkmark2)){echo ''.$checkmark2.'';}else {echo ''.$cross2.'';}?>"><span class="verification-box2"><?php if(isset($verified_address)){echo ''.$verified_address.'';}?></span><span class="verification-box"><?php if(isset($not_verified_address)){echo ''.$not_verified_address.'';}?></span></p></a>
+			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">ID & Picture<br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}elseif(isset($cross31)){echo ''.$cross31.'';}else {echo ''.$cross3.'';}?>"><span class="verification-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="verification-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span><span class="verification-box3"><?php if(isset($underverification_idcard)){echo ''.$underverification_idcard.'';}?></span></p></a>
+		</div>
 	</div>
 	
 	<div class="profile-trust">
-	<p class="subsection-title">Profile trust</p>
+	
+		<p class="subsection-title">Profile trust</p>
+	
 		<div class="column-11">
 			<div><span>Positive feedback</br><img class="thumbs-up" src="assets/images/positive.png"><span style="font-weight: bold; font-size: 1.35rem;"><?php echo ''.$positive_feedback.'';?></span></span></div>
 			<div style="margin-top: 15px;"><span>Negative feedback</br><img class="thumbs-down" src="assets/images/negative.png"><span style="font-weight: bold; font-size: 1.35rem;"><?php echo ''.$negative_feedback.'';?></span></span></div>
@@ -1324,7 +2151,9 @@ require('actions/users/bannedAction.php');
 	</div>
 	
 	<div class="payment-details">
-	<p class="subsection-title">Payment Details</p>
+	
+		<p class="subsection-title">Payment Details</p>
+	
 		<div class="column-11">
 			<p class="payment-method">Paypal <a href="set-payment-method.php" style="text-decoration: none;"><span class="payment-method-box"><?php if(isset($paypal_no)){echo ''.$paypal_no.'';}?></span><span class="payment-method-box2"><?php if(isset($paypal_yes)){echo ''.$paypal_yes.'';}?></span></a></p>
 			<p class="payment-method">Cashapp <a href="set-payment-method.php" style="text-decoration: none;"><span class="payment-method-box"><?php if(isset($cashapp_no)){echo ''.$cashapp_no.'';}?></span><span class="payment-method-box2"><?php if(isset($cashapp_yes)){echo ''.$cashapp_yes.'';}?></span></a></p>
@@ -1336,7 +2165,9 @@ require('actions/users/bannedAction.php');
 		</div>
 	</div>
 	<div class="account-settings">
-	<p class="subsection-title">Account Details & Settings</p>
+	
+		<p class="subsection-title">Account Details<span class="title-part2"> & Settings</span></p>
+	
 		<div class="column-111">
 			<p>Name: <span class="user-details"><?= $_SESSION['name']; ?></span></p>
 			<p>Username: <span class="user-details"><?= $_SESSION['username']; ?></span></p>
@@ -1389,12 +2220,38 @@ require('actions/users/bannedAction.php');
 			<a href="https://linkedin.com" class="footer-link" target="blank"><img class="widget" src="assets/images/linkedin-widget.png"></a>
 			<a href="https://discord.com" class="footer-link" target="blank"><img class="widget" src="assets/images/discord-widget.png"></a>
 			</div>
+			<div class="footer-legal-bottom"><a class="link-legal" href="privacy.php">Privacy Policy</a> - <a class="link-legal" href="terms.php">Terms and Conditions</a></div>
 			<div class="footer-bottom-text"><span>Copyright © 2023 - <?= date("Y"); ?> Instant Borrow. All rights reserved.</span></div>
 		</div>
 	</div>
 </div>
 
 </div>
+
+<script>
+	var button = document.getElementById('menu-header'); 
+	
+	function closeNav() {
+		document.getElementById("under-header").style.display = "none";
+	}
+
+	button.onclick = function() {
+		var div = document.getElementById('under-header');
+		if (div.style.display !== 'none') {
+			div.style.display = 'none';
+		}
+		else {
+			div.style.display = 'block';
+			
+			document.onclick = function (e) {
+			if (e.target.id !== 'under-header' && e.target.id !== 'menu-header') {
+				if (e.target.offsetParent && e.target.offsetParent.id !== 'under-header')
+					closeNav()
+				}
+			}
+		}
+	};
+</script>
 
 <script>
 function ProfilePicturePopup() {

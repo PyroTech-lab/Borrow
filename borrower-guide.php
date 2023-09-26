@@ -421,6 +421,24 @@ require('actions/users/notificationAction.php');
 	background-color: #00c4ff;
 }
 
+.image-left-container {
+	text-align: left;
+	margin-top: -370px;
+}
+
+.image-right-container {
+	text-align: right;
+	margin-top: -40px;
+}
+
+.image-left {
+	margin-left: 10%;
+}
+
+.image-right {
+	margin-right: calc(10% + 50px);
+}
+
 .section1 {
 	
 }

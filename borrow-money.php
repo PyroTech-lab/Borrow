@@ -555,6 +555,18 @@ input::-webkit-datetime-edit-year-field:focus {
 	margin-top: -38px;	
 }
 
+.success-message {
+	color: green;
+	font-weight: 500;
+	font-size: 1.2rem;
+}
+
+.error-message {
+	color: red;
+	font-weight: 500;
+	font-size: 1.2rem;
+}
+
 .how-to:hover {
 	background-color: #ff0303;
 	border: 2px solid #ff0303;
@@ -1651,7 +1663,7 @@ input::-webkit-datetime-edit-year-field:focus {
 	<h1 class="title">Borrow Money</h1>
 	<h2 class="subtitle"><span class="subtitle-bold">Take out a Loan</span> on Instant Borrow - <span class="subtitle-bold">0% Platform Fees</span>, No <span class="subtitle-bold">Paperwork</span>, Incredibly <span class="subtitle-bold">Fast and Easy</span>.</h2>
 		
-		<form onsubmit="return validateMyForm();" method="post">
+		<form onsubmit="return validateMyForm();" method="post" action="#message">
 		<p class="form-text">Loan Amount (USD)</p>
 		<input name="loan_amount" id="loan" class="input" type="number" min="10" max="2000" required autocomplete="off">
 		<p class="form-text">Repayment Amount (USD)</p>
@@ -1660,9 +1672,18 @@ input::-webkit-datetime-edit-year-field:focus {
 		<p class="form-text">Repayment Date</p>
 		<input name="repayment_date" id="datefield" class="input" type="date" required min="<?=date('Y-m-d');?>" max="<?=date('Y-m-d',strtotime('now +4 month'));?>">
 		</br>
-		<p class="form-text">Notes</p>
+		<p class="form-text"  id="message">Notes</p>
 		<textarea name="notes" class="input-notes" autocomplete="off"></textarea>
-		<input name="submit" type="submit" class="borrow-button" value="Borrow Money" formaction="signup-borrow.php">
+		<input name="submit" type="submit" class="borrow-button" value="Borrow Money">
+		
+		<?php 
+            if(isset($errorMsg)){ 
+                echo '<p class="error-message">'.$errorMsg.'</p>'; 
+            }elseif(isset($successMsg)){ 
+                echo '<p class="success-message">'.$successMsg.'</p>'; 
+            }
+        ?>
+		
 		</form>
 		
 		
@@ -1674,7 +1695,7 @@ input::-webkit-datetime-edit-year-field:focus {
 			<div class="lend-button-container"><a href="dashboard.php"><button class="lend-button">Lend Money</button></a></div>
 		</div>
 
-		<div class="explain">
+		<div class="explain" id="explain">
 			<a href="borrower-guide.php" style="text-decoration: none;" target="blank"><h3 class="explain-title">Take out a Loan on Instant Borrow&nbsp;<span class="link-round">🡕</span></h3></a>
 			
 			<p style="font-weight: 500; font-size: 1.28rem; margin-top: 50px; color:#2b80ff;">Welcome to the World of Peer-to-Peer Finance.</p> 

@@ -1990,7 +1990,7 @@ if(!isset($_SESSION['auth'])){
 		
 		<p class="explain-text" style="font-weight: 500;">A Loan is marked as <span style="color: red; font-weight: bold;">Unpaid</span> when the Repayment hasn't been made on the Agreed Upon Date.
 		</br>If the Borrower does not send Funds to the Lender <b>7 days</b> after the Repayment date, the Borrower will be <span style="color: red; font-weight: bold;">Banned</span> and his Personnal Information will be Given to the lender.
-		</br>Additionaly, the Borrower's information will be Published on Instant Borrow's <a href="page-of-shame.php" style="text-decoration: none; color: #3d91e0;" target="blank">Wall of Shame</a> and Social media Accounts.</p>
+		</br>Additionaly, the Borrower's information will be Published on Instant Borrow's Social media Accounts to Warn others about the User.</p>
 
 	
 		<div>

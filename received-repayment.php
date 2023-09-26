@@ -1117,9 +1117,6 @@ require('actions/users/bannedAction.php');
 
 }
 
-
-
-
 </style>
 
 <style>
@@ -1602,7 +1599,7 @@ require('actions/users/bannedAction.php');
 		</div>
 		<div class="column-2">
 		<div class="text">Profit margin</br><span class="subtext1" style="color: #2b80ff"><?= ROUND((($repayment_amount/$loan_amount)-1)*100); ?>%</span></div>
-		<div class="text">Borrower</br><a href="profile-user.php?id=<?= $id_borrower; ?>" target="blank" style="text-decoration: none;"><span class="subtext2"><?= $username_borrower; ?></span></a></div>
+		<div class="text">Borrower</br><a href="profile-user.php?id=<?= $id_borrower; ?>" target="blank" style="text-decoration: none;"><span class="subtext2"><?= mb_strimwidth($username_borrower, 0, 12, "..."); ?></span></a></div>
 		<div class="text-hidden">Status</br><span class="subtext2-status"><?= $status_public; ?></span></div>
 		</div>
 		<div class="column-3">
@@ -1701,7 +1698,7 @@ require('actions/users/bannedAction.php');
 	</div>
 	
 	<div class="chat-div">
-		<div class="subtitle-chat"><span>Contact <a href="profile-user.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span style="color: #00c4ff;"><?= $username_borrower; ?></span></a></span></div>
+		<div class="subtitle-chat"><span>Contact <a href="profile-user.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span style="color: #00c4ff;"><?= mb_strimwidth($username_borrower, 0, 12, "..."); ?></span></a></span></div>
 		<div class="chat-text"><span style="color: red;">Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
 		<button class="chat-button" onclick="OpenPopup()">Contact</button>
 	</div>

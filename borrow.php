@@ -1497,7 +1497,7 @@ input::-webkit-datetime-edit-year-field:focus {
 
 <div class="header">
 	<div class="header-text">
-		<div class="logo"><a href="lender-info.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
+		<div class="logo"><a href="borrower-info.php" style="text-decoration: none; color: black"><img src="assets/images/logo.png" class="logo-image"></a></div>
 		<div class="lend"><a href="index.php" style="text-decoration: none; color: black"><span class="lend-text">Lend</span></a></div>
 		<div class="borrow"><a href="borrow.php" style="text-decoration: none; color: black"><span class="borrow-text">Borrow</span></a></div>
 		<div class="login"><a href="login.php" style="text-decoration: none; color: black"><span class="login-text">Login</span></a></div>
@@ -1541,7 +1541,7 @@ input::-webkit-datetime-edit-year-field:focus {
 			<div class="lend-button-container"><a href="index.php"><button class="lend-button">Lend Money</button></a></div>
 		</div>
 
-		<div class="explain">
+		<div class="explain" id="explain">
 			<a href="borrower-info.php" style="text-decoration: none;" target="blank"><h3 class="explain-title">Take out a Loan on Instant Borrow&nbsp;<span class="link-round">🡕</span></h3></a>
 			
 			<p style="font-weight: 500; font-size: 1.28rem; margin-top: 50px; color:#2b80ff;">Welcome to the World of Peer-to-Peer Finance.</p> 
