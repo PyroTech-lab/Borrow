@@ -87,6 +87,8 @@ $verifyAccount3->execute(array($idOfUser));
 		$upload_disabled="disabled";
 		$setbutton_class = "set-button3";
 		$setbutton_value = "ID Under Verification";
+		$margin_left = "-20px;";
+		$margin_left2 = "-28px;";
 		
 		}
 	}

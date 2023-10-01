@@ -33,7 +33,7 @@ if(isset($_POST['login'])){
                 $_SESSION['username'] = $usersInfos['username'];
 
 
-                header('Location: lend-yeslogin.php?id=<?= $id_author; ?>');
+                header('Location: lend.php?id=<?= $id_author; ?>');
     
             }else{
                 $errorMsg = "Wrong password";

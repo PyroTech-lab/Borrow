@@ -64,6 +64,7 @@ $verifyAccount3->execute(array($getIDfromBorrower));
 		$setbutton_class = "set-button";
 		$uploadDisplay="block";
 		$setbutton_value = "Upload ID";
+		$box_display = "none";
 	
 	}else{
 		
@@ -81,6 +82,7 @@ $verifyAccount3->execute(array($getIDfromBorrower));
 		$upload_disabled="disabled";
 		$setbutton_class = "set-button2";
 		$setbutton_value = "ID Verified";
+		$box_display = "none";
 		
 		}
 		
@@ -92,6 +94,9 @@ $verifyAccount3->execute(array($getIDfromBorrower));
 		$upload_disabled="disabled";
 		$setbutton_class = "set-button3";
 		$setbutton_value = "ID Under Verification";
+		$box_display = "inline";
+		$margin_left = "-20px;";
+		$margin_left2 = "-28px;";
 		
 		}
 	}

@@ -12,7 +12,7 @@ $verifyAccount->execute(array($_SESSION['id']));
 	$user_join_date= $row['join_date'];
 	
 	if (strlen($verified_orNot) == 0) {
-		$not_verified_phone = "Not Verified";
+		$not_verified_phone = "Not&nbsp;Verified";
 		$cross1 = "assets/images/cross.png";
 		$phone_placeholder = "Add Phone Number";
 	
@@ -39,7 +39,7 @@ $verifyAccount2->execute(array($_SESSION['id']));
 	}
 	
 	if (strlen($verified_orNot2) == 0) {
-		$not_verified_address = "Not Verified";
+		$not_verified_address = "Not&nbsp;Verified";
 		$cross2 = "assets/images/cross.png";
 		$address_placeholder = "Add Address";
 	
@@ -59,11 +59,12 @@ $verifyAccount3->execute(array($_SESSION['id']));
 	$verified_orNot3 = $row3['identity_card'];
 	
 	if (strlen($verified_orNot3) == 0) {
-		$not_verified_idcard = "Not Verified";
+		$not_verified_idcard = "Not&nbsp;Verified";
 		$cross3 = "assets/images/cross.png";
 		$setbutton_class = "set-button";
 		$uploadDisplay="block";
 		$setbutton_value = "Upload ID & Picture";
+		$verification_display = "none";
 	
 	}else{
 		
@@ -81,17 +82,20 @@ $verifyAccount3->execute(array($_SESSION['id']));
 		$upload_disabled="disabled";
 		$setbutton_class = "set-button2";
 		$setbutton_value = "ID & Picture Verified";
+		$verification_display = "none";
 		
 		}
 		
 		if($verified_orNot31 == "under_verification"){
 
-		$underverification_idcard = "Under Verification";
+		$underverification_idcard = "Under&nbsp;Verification";
+		$underverification_idcard2 = "Under&nbsp;Review";
 		$cross31 ="assets/images/cross2.png";
 		$uploadDisplay="none";
 		$upload_disabled="disabled";
 		$setbutton_class = "set-button3";
 		$setbutton_value = "ID & Picture Under Verification";
+		$verification_display = "inline";
 		
 		}
 	}
@@ -106,7 +110,7 @@ $verifyAccount4->execute(array($_SESSION['id']));
 	$verified_orNot4 = $row4['email_verified'];
 	
 	if (strlen($verified_orNot4) == 0) {
-		$not_verified_email = "Not Verified";
+		$not_verified_email = "Not&nbsp;Verified";
 		$email_button = "Verify Email";
 		$email_button_class = "set-button";
 		$cross4 = "assets/images/cross.png";

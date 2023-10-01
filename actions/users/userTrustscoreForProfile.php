@@ -80,10 +80,18 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	$trustscore5 = $trustscore4+$positive_feedback-(3*$negative_feedback);
 	
 	$trustscore6 = max($trustscore5, 0);
-	$trustscore7 = min($trustscore6, 100);
+	$trustscore7 = min($trustscore6, 99);
 	
 	
 $UpdateTrustscore = $bdd->prepare('UPDATE loan SET borrower_trustscore = '.$trustscore7.' WHERE id_borrower = ?');
 $UpdateTrustscore->execute(array($idOfUser));
+
+if($trustscore7 < 50){
+	$trustscore_color = "red";
+}elseif(($trustscore7 >= 50)AND($trustscore7 < 80)){
+	$trustscore_color = "#00c4ff";
+}elseif($trustscore7 >= 80){
+	$trustscore_color = "#2b80ff";
+}
 	
 }

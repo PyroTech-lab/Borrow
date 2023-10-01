@@ -32,7 +32,7 @@ if(isset($_POST['login'])){
                 $_SESSION['username'] = $usersInfos['username'];
 
 
-                header('Location: borrow-yeslogin.php');
+                header('Location: borrow-money.php');
     
             }else{
                 $errorMsg = "Wrong Email or Password";

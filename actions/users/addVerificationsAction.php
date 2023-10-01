@@ -106,12 +106,14 @@ if ((isset($_POST['idcard_submit']) && $_POST['idcard_submit'] == 'Upload ID & P
 
 		$newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
-		$allowedfileExtensions = array('jpg','png','pdf');
+		$allowedfileExtensions = array('jpg','png','pdf','webp');
 		if (in_array($fileExtension, $allowedfileExtensions)){
 
 		  $uploadFileDir = 'assets/images/id-verification/';
 		  $dest_path = $uploadFileDir . $newFileName;
 		  
+		}else{
+		$dest_path = "wrongformat";
 		}
 		  
 		  
@@ -125,16 +127,18 @@ if ((isset($_POST['idcard_submit']) && $_POST['idcard_submit'] == 'Upload ID & P
 
 		$newFileName2 = md5(time() . $fileName2) . '.' . $fileExtension2;
 
-		$allowedfileExtensions2 = array('jpg','png','pdf');
+		$allowedfileExtensions2 = array('jpg','png','pdf','webp');
 		if (in_array($fileExtension2, $allowedfileExtensions2)){
 
 		  $uploadFileDir2 = 'assets/images/id-pictures/';
 		  $dest_path2 = $uploadFileDir2 . $newFileName2;
 		
+		}else{
+		$dest_path2 = "wrongformat";
 		}
 		  
 		  
-		  
+		  if(($dest_path2 !== "wrongformat")AND($dest_path !== "wrongformat")){
 		  
 		  if((move_uploaded_file($fileTmpPath, $dest_path))AND(move_uploaded_file($fileTmpPath2, $dest_path2))) {
 			
@@ -148,7 +152,11 @@ if ((isset($_POST['idcard_submit']) && $_POST['idcard_submit'] == 'Upload ID & P
 	
 	   
 		}else{
-		  $file_error_message = "<div style='font-weight: 500; color: red; margin-top: 15px;'>Only PNG, JPG and PDF files are Accepted.</div>";
+		  $file_error_message = "<div style='font-weight: 500; color: red; margin-top: 15px;'>Only PNG, JPG, WEBP, and PDF files are Accepted.</div>";
+		}
+		
+		}else{
+		  $file_error_message = "<div style='font-weight: 500; color: red; margin-top: 15px;'>Only PNG, JPG, WEBP, and PDF files are Accepted.</div>";
 		}
 
 

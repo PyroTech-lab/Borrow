@@ -205,7 +205,6 @@ if(isset($_POST['delete_account'])){
 	$phpmailer->AltBody = 'Your Instant Borrow Account was Deleted.';
 
 	$phpmailer->send();
-	}
 		
 	$TranferUsertoDeletedTable = $bdd->prepare('INSERT INTO deleted_users(id_user, email, name,date_birth, username, phone_number, address, city, country, identity_card) SELECT id, email, name,date_birth, username, phone_number, address, city, country, identity_card, picture FROM users WHERE id = ?');
     $TranferUsertoDeletedTable->execute(array($_SESSION['id']));
@@ -241,4 +240,3 @@ if(isset($_POST['delete_account'])){
 	}
 
 }
-

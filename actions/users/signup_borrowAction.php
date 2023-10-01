@@ -62,7 +62,7 @@ if(isset($_POST['signup'])){
 				$AddUserToFeedbackSystem->execute(array($_SESSION['id']));
 				
 
-				header('Location: borrow-yeslogin.php');
+				header('Location: borrow-money.php');
 				
 				}else{
 					 $errorMsg = "Password must contain at least 8 Characters";

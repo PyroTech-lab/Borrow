@@ -138,9 +138,11 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 				
 				if (empty($getcountry['country'])){
 				$country = "Unknown";
+				$country_image_display = "none";
 				}
 				else{
 				$country = $getcountry['country'];
+				$country_image_display = "inline";
 				}
 				
 				

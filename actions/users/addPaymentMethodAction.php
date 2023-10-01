@@ -87,41 +87,126 @@ if(isset($_POST['chime_submit'])){
 
 
 if(isset($_POST['remove_paypal'])){
-$removePaypal = $bdd->prepare('UPDATE payment_method SET paypal = NULL WHERE id_user= ?');
-    $removePaypal->execute(array($_SESSION['id']));
+
+$CheckOtherPaymentmethods = $bdd->prepare('SELECT * FROM payment_method WHERE id_user= ?');
+$CheckOtherPaymentmethods->execute(array($_SESSION['id']));	
 	
-	header("Refresh:0");
+$CheckForPaypal = $CheckOtherPaymentmethods->fetch(PDO::FETCH_ASSOC);
+$checkCashapp = $CheckForPaypal['cashapp'];
+$checkVenmo = $CheckForPaypal['venmo'];
+$checkZelle = $CheckForPaypal['zelle'];
+$checkChime = $CheckForPaypal['chime'];
+	
+if ((strlen($checkCashapp) == 0)AND(strlen($checkVenmo) == 0)AND(strlen($checkZelle)== 0)AND(strlen($checkChime) == 0)) {
+
+	$error_message1 = "<div class='error-message'>You Cannot Remove your only Payment Method</div>";
+	
+	}else {
+		$removePaypal = $bdd->prepare('UPDATE payment_method SET paypal = NULL WHERE id_user= ?');
+		$removePaypal->execute(array($_SESSION['id']));
+		
+		header("Refresh:0");
+	}
+	
 }
 
 
 if(isset($_POST['remove_cashapp'])){
-$removeCashapp = $bdd->prepare('UPDATE payment_method SET cashapp = NULL WHERE id_user= ?');
-    $removeCashapp->execute(array($_SESSION['id']));
+
+$CheckOtherPaymentmethods = $bdd->prepare('SELECT * FROM payment_method WHERE id_user= ?');
+$CheckOtherPaymentmethods->execute(array($_SESSION['id']));	
 	
-	header("Refresh:0");
+$CheckForCashapp = $CheckOtherPaymentmethods->fetch(PDO::FETCH_ASSOC);
+$checkPaypal = $CheckForCashapp['paypal'];
+$checkVenmo = $CheckForCashapp['venmo'];
+$checkZelle = $CheckForCashapp['zelle'];
+$checkChime = $CheckForCashapp['chime'];
+	
+if ((strlen($checkPaypal) == 0)AND(strlen($checkVenmo) == 0)AND(strlen($checkZelle)== 0)AND(strlen($checkChime) == 0)) {
+
+	$error_message2 = "<div class='error-message'>You Cannot Remove your only Payment Method</div>";
+	
+	}else {
+		$removePaypal = $bdd->prepare('UPDATE payment_method SET cashapp = NULL WHERE id_user= ?');
+		$removePaypal->execute(array($_SESSION['id']));
+		
+		header("Refresh:0");
+	}
+	
 }
 
 
 
 if(isset($_POST['remove_venmo'])){
-$removeVenmo = $bdd->prepare('UPDATE payment_method SET venmo = NULL WHERE id_user= ?');
-    $removeVenmo->execute(array($_SESSION['id']));
+
+$CheckOtherPaymentmethods = $bdd->prepare('SELECT * FROM payment_method WHERE id_user= ?');
+$CheckOtherPaymentmethods->execute(array($_SESSION['id']));	
 	
-	header("Refresh:0");
+$CheckForVenmo = $CheckOtherPaymentmethods->fetch(PDO::FETCH_ASSOC);
+$checkCashapp = $CheckForVenmo['cashapp'];
+$checkPaypal = $CheckForVenmo['paypal'];
+$checkZelle = $CheckForVenmo['zelle'];
+$checkChime = $CheckForVenmo['chime'];
+	
+if ((strlen($checkCashapp) == 0)AND(strlen($checkPaypal) == 0)AND(strlen($checkZelle)== 0)AND(strlen($checkChime) == 0)) {
+
+	$error_message3 = "<div class='error-message'>You Cannot Remove your only Payment Method</div>";
+	
+	}else {
+		$removePaypal = $bdd->prepare('UPDATE payment_method SET venmo = NULL WHERE id_user= ?');
+		$removePaypal->execute(array($_SESSION['id']));
+		
+		header("Refresh:0");
+	}
+	
 }
 
 
 if(isset($_POST['remove_zelle'])){
-$removeZelle = $bdd->prepare('UPDATE payment_method SET zelle = NULL WHERE id_user= ?');
-    $removeZelle->execute(array($_SESSION['id']));
+
+$CheckOtherPaymentmethods = $bdd->prepare('SELECT * FROM payment_method WHERE id_user= ?');
+$CheckOtherPaymentmethods->execute(array($_SESSION['id']));	
 	
-	header("Refresh:0");
+$CheckForZelle = $CheckOtherPaymentmethods->fetch(PDO::FETCH_ASSOC);
+$checkCashapp = $CheckForZelle['cashapp'];
+$checkVenmo = $CheckForZelle['venmo'];
+$checkPaypal = $CheckForZelle['paypal'];
+$checkChime = $CheckForZelle['chime'];
+	
+if ((strlen($checkCashapp) == 0)AND(strlen($checkVenmo) == 0)AND(strlen($checkPaypal)== 0)AND(strlen($checkChime) == 0)) {
+
+	$error_message4 = "<div class='error-message'>You Cannot Remove your only Payment Method</div>";
+	
+	}else {
+		$removePaypal = $bdd->prepare('UPDATE payment_method SET zelle = NULL WHERE id_user= ?');
+		$removePaypal->execute(array($_SESSION['id']));
+		
+		header("Refresh:0");
+	}
+	
 }
 
 
 if(isset($_POST['remove_chime'])){
-$removeChime = $bdd->prepare('UPDATE payment_method SET chime = NULL WHERE id_user= ?');
-    $removeChime->execute(array($_SESSION['id']));
+
+$CheckOtherPaymentmethods = $bdd->prepare('SELECT * FROM payment_method WHERE id_user= ?');
+$CheckOtherPaymentmethods->execute(array($_SESSION['id']));	
 	
-	header("Refresh:0");
+$CheckForChime = $CheckOtherPaymentmethods->fetch(PDO::FETCH_ASSOC);
+$checkCashapp = $CheckForChime['cashapp'];
+$checkVenmo = $CheckForChime['venmo'];
+$checkZelle = $CheckForChime['zelle'];
+$checkPaypal = $CheckForChime['paypal'];
+	
+if ((strlen($checkCashapp) == 0)AND(strlen($checkVenmo) == 0)AND(strlen($checkZelle)== 0)AND(strlen($checkPaypal) == 0)) {
+
+	$error_message5 = "<div class='error-message'>You Cannot Remove your only Payment Method</div>";
+	
+	}else {
+		$removePaypal = $bdd->prepare('UPDATE payment_method SET chime = NULL WHERE id_user= ?');
+		$removePaypal->execute(array($_SESSION['id']));
+		
+		header("Refresh:0");
+	}
+	
 }
