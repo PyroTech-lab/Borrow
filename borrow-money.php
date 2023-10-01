@@ -380,6 +380,59 @@ require('actions/users/bannedAction.php');
 	width: 100%;
 }
 
+.popup-success {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	display: <?= $success_display; ?>;
+}
+
+.success-div {
+	background-color: white;
+	color: black;
+	height: 320px; 
+	width: 370px;
+	text-align: center;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 200px);
+	border-radius: 0.325rem;
+	padding: 15px;
+}
+
+.subtitle-success {
+	margin-top: 10px;
+	font-weight: 500;
+	font-size: 2.12rem;
+	color: black;
+}
+
+.success-image {
+	margin-top: 30px;
+	width: 35%;
+	height: auto;
+}
+
+.success-button {
+	margin-top: 30px;
+	height: 50px;
+	width: 300px;
+	background-color: #2b80ff;
+	color: white;
+	font-weight: 500;
+	font-size: 1.35rem;
+	border-radius: 0.325rem;
+	border: 0px;
+	outline: 0px;
+	transition: background-color 0.2s;
+}
+
+.success-button:hover {
+	background-color: #00c4ff;
+}
+
 .title {
 	width: 100%;
 	font-size: 3.2rem;
@@ -457,7 +510,7 @@ require('actions/users/bannedAction.php');
 	transition: transform 0.2s;
 	font-size: 1.11rem;
 	font-weight: 500;
-	color: #00c4ff;
+	color: #5e5e5e;
 	padding-left: 7px;
 	resize: vertical;
 	padding-top: 5px;
@@ -1118,10 +1171,32 @@ input::-webkit-datetime-edit-year-field:focus {
 	
 }
 
+@media screen and (max-width: 465px) {
+
+	.success-div {
+		height: 320px; 
+		width: calc(90% - 30px);
+		margin-left: 5%;
+	}
+	
+	.success-image {
+		width: 135px;
+	}
+	
+}
+
 @media screen and (max-width: 430px) {
 	
 	.steps-title {
 		font-size: 1.5rem;
+	}
+	
+}
+
+@media screen and (max-width: 425px) {
+	
+	.subtitle-success {
+		font-size: 1.9rem;
 	}
 	
 }
@@ -1152,6 +1227,26 @@ input::-webkit-datetime-edit-year-field:focus {
 	
 }
 
+@media screen and (max-width: 385px) {
+
+	.success-button {
+		width: 90%;
+	}
+	
+	
+	.subtitle-success {
+		font-size: 1.8rem;
+	}
+}
+
+@media screen and (max-width: 365px) {
+	
+	.subtitle-success {
+		font-size: 1.75rem;
+	}
+	
+}
+
 @media screen and (max-width: 350px) {
 	.main {
 		margin-top: 100px;
@@ -1160,6 +1255,14 @@ input::-webkit-datetime-edit-year-field:focus {
 	.explain-title {
 		font-size: 1.87rem;
 	}
+}
+
+@media screen and (max-width: 345px) {
+
+	.subtitle-success {
+		font-size: 1.65rem;
+	}
+
 }
 
 @media screen and (max-width: 335px) {
@@ -1658,6 +1761,14 @@ input::-webkit-datetime-edit-year-field:focus {
 	?>
 
 <div class="everything-except-header">
+
+<div class="popup-success">	
+	<div class="success-div">
+		<div class="subtitle-success"><span>Request Published</span></div>
+		<img class="success-image" src="assets/images/success.jpg">
+		<a href="dashboard.php"><button class="success-button">Go Home</button></a>
+	</div>	
+</div>
 
 <div class="main">
 	<h1 class="title">Borrow Money</h1>

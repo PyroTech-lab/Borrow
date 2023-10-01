@@ -338,7 +338,7 @@ if(isset($_SESSION['auth'])){
 	transition: transform 0.2s;
 	font-size: 1.11rem;
 	font-weight: 500;
-	color: #00c4ff;
+	color: #5e5e5e;
 	padding-left: 7px;
 	resize: vertical;
 	padding-top: 5px;

@@ -2016,7 +2016,7 @@ if(!isset($_SESSION['auth'])){
 	<div class="feedback-1"><span class="details-line1">Expiry Date</span><span class="details-line2">Expiry</br>Date</span></div>
 	</div>
 			
-	<div style="margin-left: 10%; color: #383838;">
+	<div class="error-message-container">
 		<?php
 		
 		 if(isset($errorMsg)){ 
@@ -2057,13 +2057,13 @@ if(!isset($_SESSION['auth'])){
 		<div class="explain">
 		<p class="explain-title">Manage Loan Requests</p>
 		
-		<p style="font-weight: 500;">A Loan is marked as a <span style="color: #2b80ff; font-weight: bold;">Request</span> when it has been published but nobody has granted it yet.</p>
+		<p style="font-weight: 500;">A Loan is marked as a <span style="color: #2b80ff; font-weight: 500;">Request</span> when it has been published but nobody has granted it yet.</p>
 		
 		<div>
-		<p>If the Loan request hasn't been granted <b>2 days</b> after its publication, it will be <span style="color: red; font-weight: bold;">Deleted</span> automatically.</p>
+		<p>If the Loan request hasn't been granted <b>2 days</b> after its publication, it will be <span style="color: red; font-weight: 500;">Deleted</span> automatically.</p>
 
-		<p>You can also <span style="color: red; font-weight: bold;">Delete</span> your Loan Request manually by using the Button on this page.
-		</br>Users can only have one loan request at a time. If you want to Publish another one, you will have to <span style="color: red; font-weight: bold;">Delete</span> your Current Request first.</p>
+		<p>You can also <span style="color: red; font-weight: 500;">Delete</span> your Loan Request manually by using the Button on this page.
+		</br>Users can only have one loan request at a time. If you want to Publish another one, you will have to <span style="color: red; font-weight: 500;">Delete</span> your Current Request first.</p>
 		
 		<p style="font-weight: 500; margin-top: 40px;">If you Have any Questions about Loans, Refer to the <a href="borrower-guide.php" style="text-decoration: none; color: #3d91e0;">Borrower's Guide</a> Or <a href="contact-us.php" style="text-decoration: none; color: #3d91e0;">Contact our Support team.</a></p>
 		</div>

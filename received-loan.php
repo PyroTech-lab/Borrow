@@ -482,8 +482,8 @@ require('actions/users/bannedAction.php');
 
 
 .bottom-button {
-	width: 250px;
-	margin-left: calc(50% - 125px);
+	width: 300px;
+	margin-left: calc(50% - 150px);
 	margin-top: 50px;
 	background-color: #11cf00;
 	color: white;
@@ -1365,7 +1365,7 @@ require('actions/users/bannedAction.php');
 	<div class="phone-number-div" id="phone-number-div">
 		<div class="subtitle-popup"><span>Contact Lender</span></div>
 		<p class="popup-text">Phone Number:</p>
-		<p class="popup-phone-text"><?= $phone_number_display; ?></p>
+		<p class="popup-phone-text"><?= mb_strimwidth($phone_number_display, 0, 26, "..."); ?></p>
 		<div class="popup-text"><span style="color: red;">Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
 		<button class="close-button" onclick="ClosePopup()">Close</button>
 	</div>	
@@ -1384,7 +1384,7 @@ require('actions/users/bannedAction.php');
 		<div class="text-hidden">Payment Method</br><span class="subtext2"><?= $payment_method_payment; ?></span></div>
 		</div>
 		<div class="column-2">
-		<div class="text">Lender</br><a href="profile-user.php?id=<?= $id_lender; ?>" target="blank" style="text-decoration: none;"><span class="subtext2"><?= mb_strimwidth($username_lender, 0, 14, "..."); ?></span></a></div>
+		<div class="text">Lender</br><a href="profile-user.php?id=<?= $id_lender; ?>" target="blank" style="text-decoration: none;"><span class="subtext2"><?= mb_strimwidth($username_lender, 0, 13, "..."); ?></span></a></div>
 		<div class="text">Repayment Date</br><span class="subtext1-date" style="color: red;"><span class="date-type1"><?= date('M jS, Y', strtotime($repayment_date)); ?></span><span class="date-type2"><?= date('j M Y', strtotime($repayment_date)); ?></span></span></div>
 		<div class="text-hidden">Transaction ID</br><span class="subtext2-id"><?= mb_strimwidth($payment_transaction_id, 0, 14, "..."); ?></span></div>
 		</div>
@@ -1404,7 +1404,7 @@ require('actions/users/bannedAction.php');
 		</br>
 		<div class="text"><span class="text-left">Transaction ID:</span><span class="text-right" style="text-transform: uppercase; font-size: 1rem;"><?= mb_strimwidth($payment_transaction_id, 0, 12, "..."); ?></span></div>
 		</br>
-		<div class="text"  style="margin-top: 40px;"><span class="text-left">Lender:</span><a href="profile-user.php?id=<?= $id_lender; ?>" target="blank" style="text-decoration: none;"><span class="text-right" style="font-size: 1.15rem; color: #2b80ff;"><?= mb_strimwidth($username_lender, 0, 12, "..."); ?></span></a></div>
+		<div class="text"  style="margin-top: 40px;"><span class="text-left">Lender:</span><a href="profile-user.php?id=<?= $id_lender; ?>" target="blank" style="text-decoration: none;"><span class="text-right" style="font-size: 1.15rem; color: #2b80ff;"><?= mb_strimwidth($username_lender, 0, 13, "..."); ?></span></a></div>
 		</br>
 		<div class="text"><span class="text-left">Repayment Date:</span><span class="text-right" style="color: red; font-size: 1.15rem;"><?= date('j M Y', strtotime($repayment_date)); ?></span></div>
 	</div>

@@ -1282,14 +1282,14 @@ require('actions/users/bannedAction.php');
 	
 	<div class="loan-recap">
 		<div class="subtitle"><span>Repayment Received</span></div>
-		<div class="presentation"><span style="color: #2b80ff; font-weight: 500;"><?= mb_strimwidth($username_borrower, 0, 14, "..."); ?></span> Was banned and has Repaid You.</div>
+		<div class="presentation"><span style="color: #2b80ff; font-weight: 500;"><?= mb_strimwidth($username_borrower, 0, 13, "..."); ?></span> Was banned and has Repaid You.</div>
 		<div class="column-1">
 		<div class="text">Repayment<span class="received-text"> Received</span></br><span class="subtext1"><?= $repayment_amount; ?>$</span></div>
 		<div class="text">Instant Borrow Fee</br><span class="subtext1">0$</span></div>
 		<div class="text-hidden">Payment Method</br><span class="subtext2"><?= $payment_method_repayment; ?></span></div>
 		</div>
 		<div class="column-2">
-		<div class="text">Borrower</br><a href="profile-user.php?id=<?= $id_lender; ?>" target="blank" style="text-decoration: none;"><span class="subtext2"><?= mb_strimwidth($username_borrower, 0, 14, "..."); ?></span></a></div>
+		<div class="text">Borrower</br><a href="profile-user.php?id=<?= $id_lender; ?>" target="blank" style="text-decoration: none;"><span class="subtext2"><?= mb_strimwidth($username_borrower, 0, 13, "..."); ?></span></a></div>
 		<div class="text">Repayment Date</br><span class="subtext1-date" style="color: red;"><span class="date-type1"><?= date('M jS, Y', strtotime($repaid_date)); ?></span><span class="date-type2"><?= date('j M Y', strtotime($repaid_date)); ?></span></span></div>
 		<div class="text-hidden">Transaction ID</br><span class="subtext2-id"><?= mb_strimwidth($repayment_transaction_id, 0, 14, "..."); ?></span></div>
 		</div>
@@ -1301,12 +1301,12 @@ require('actions/users/bannedAction.php');
 	
 	<div class="loan-recap-2">
 		<div class="subtitle"><span>Loan Received</span></div>
-		<div class="presentation"><span style="color: #2b80ff; font-weight: 500;"><?= mb_strimwidth($username_borrower, 0, 14, "..."); ?></span> Was banned and has Repaid You.</div>
+		<div class="presentation"><span style="color: #2b80ff; font-weight: 500;"><?= mb_strimwidth($username_borrower, 0, 13, "..."); ?></span> Was banned and has Repaid You.</div>
 		<div class="text" style="margin-top: 50px;"><span class="text-left">Repayment:</span><span class="text-right" style="color: #2b80ff; margin-top: -10px;"><?= $repayment_amount; ?>$</span></div>
 		</br>
 		<div class="text"><span class="text-left">Instant Borrow Fee:</span><span class="text-right" style="color: #2b80ff; margin-top: -10px;">0$</span></div>
 		</br>
-		<div class="text" style="margin-top: 45px;"><span class="text-left">Borrower:</span><a href="profile-user.php?id=<?= $id_lborrower; ?>" target="blank" style="text-decoration: none;"><span class="text-right" style="font-size: 1.15rem; color: #2b80ff;"><?= mb_strimwidth($username_borrower, 0, 12, "..."); ?></span></a></div>
+		<div class="text" style="margin-top: 45px;"><span class="text-left">Borrower:</span><a href="profile-user.php?id=<?= $id_lborrower; ?>" target="blank" style="text-decoration: none;"><span class="text-right" style="font-size: 1.15rem; color: #2b80ff;"><?= mb_strimwidth($username_borrower, 0, 13, "..."); ?></span></a></div>
 		</br>
 		<div class="text"><span class="text-left">Repayment Date:</span><span class="text-right" style="color: red; font-size: 1.15rem;"><?= date('j M Y', strtotime($repaid_date)); ?></span></div>
 		</br>

@@ -394,12 +394,16 @@ require('actions/users/bannedAction.php');
 
 .title {
 	color: #2b80ff;
-	font-weight: bold;
-	font-size: 2.32rem
+	font-weight: 500;
+	font-size: 2.52rem
 }
 
 .subtitle {
 	margin-top: -25px;
+}
+
+.form-prediv {
+	background-color: red;
 }
 
 .form {
@@ -510,7 +514,7 @@ input[type=number] {
 }
 
 .input {
-	width: calc(100% - 7px);
+	width: calc(100% - 10px);
 	height: 40px;
 	background-color: #f7f7f7;
 	margin-top: 0px;
@@ -527,9 +531,9 @@ input[type=number] {
 .input:hover {
 	outline: 1px solid #00c4ff;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	-ms-transform: scale(1.015); /* IE 9 */
-	-webkit-transform: scale(1.015); /* Safari 3-8 */
-	transform: scale(1.015); 
+	-ms-transform: scale(1.005); /* IE 9 */
+	-webkit-transform: scale(1.005); /* Safari 3-8 */
+	transform: scale(1.005); 
 }
 
 .input:focus {
@@ -540,7 +544,7 @@ input[type=number] {
 
 
 .input-address {
-	width: calc(100% - 7px);
+	width: calc(100% - 10px);
 	height: 40px;
 	background-color: #f7f7f7;
 	margin-top: 5px;
@@ -557,9 +561,9 @@ input[type=number] {
 .input-address:hover {
 	outline: 1px solid #00c4ff;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	-ms-transform: scale(1.015); /* IE 9 */
-	-webkit-transform: scale(1.015); /* Safari 3-8 */
-	transform: scale(1.015); 
+	-ms-transform: scale(1.005); /* IE 9 */
+	-webkit-transform: scale(1.005); /* Safari 3-8 */
+	transform: scale(1.005); 
 }
 
 .input-address:focus {
@@ -580,7 +584,7 @@ input[type=number] {
 
 
 .input-select {
-	width: 100%;
+	width: calc(100% - 10px);
 	height: 44px;
 	background-color: #f7f7f7;
 	margin-top: 0px;
@@ -612,8 +616,8 @@ input[type=number] {
 	height: 50px;
 	background-color: #2b80ff;
 	color: white;
-	font-size: 1.18rem;
-	font-weight: bold;
+	font-size: 1.21rem;
+	font-weight: 500;
 	border: 0;
 	border-radius: 0.325rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
@@ -622,9 +626,9 @@ input[type=number] {
 
 .set-button:hover {
 	background-color: #00c4ff;
-	-ms-transform: scale(1.015); /* IE 9 */
-	-webkit-transform: scale(1.015); /* Safari 3-8 */
-	transform: scale(1.015); 
+	-ms-transform: scale(1.005); /* IE 9 */
+	-webkit-transform: scale(1.005); /* Safari 3-8 */
+	transform: scale(1.005); 
 }
 
 .set-button-verified {
@@ -633,8 +637,8 @@ input[type=number] {
 	height: 50px;
 	background-color: #00b81f;
 	color: white;
-	font-size: 1.18rem;
-	font-weight: bold;
+	font-size: 1.21rem;
+	font-weight: 500;
 	border: 0;
 	border-radius: 0.325rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
@@ -647,8 +651,8 @@ input[type=number] {
 	height: 50px;
 	background-color: #00b81f;
 	color: white;
-	font-size: 1.18rem;
-	font-weight: bold;
+	font-size: 1.21rem;
+	font-weight: 500;
 	border: 0;
 	border-radius: 0.325rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
@@ -661,8 +665,8 @@ input[type=number] {
 	height: 50px;
 	background-color: orange;
 	color: white;
-	font-size: 1.18rem;
-	font-weight: bold;
+	font-size: 1.21rem;
+	font-weight: 500;
 	border: 0;
 	border-radius: 0.325rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
@@ -683,7 +687,7 @@ input[type=number] {
 	border: 1px solid #2b80ff;
 	color: #2b80ff;
 	font-size: 0.9rem;
-	font-weight: bold;
+	font-weight: 500;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	padding-top: 3px;
 	padding-bottom: 3px;
@@ -691,7 +695,7 @@ input[type=number] {
 
 
 .input-container {
-	width: calc(100% - 7px);
+	width: calc(100% - 10px);
 	height: 35px;
 	background-color: #f7f7f7;
 	margin-top: 14px;
@@ -699,7 +703,7 @@ input[type=number] {
 	border-radius: 0.125rem;
 	transition: transform 0.2s;
 	font-size: 1.01rem;
-	font-weight: bold;
+	font-weight: 500;
 	color: #383838;
 	padding-left: 7px;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
@@ -772,8 +776,8 @@ input::-webkit-datetime-edit-year-field:focus {
 }
 
 .explain-title {
-	font-size: 1.8rem;
-	font-weight: bold;
+	font-size: 2.1rem;
+	font-weight: 500;
 	color: #00c4ff;
 }
 
@@ -919,11 +923,45 @@ input::-webkit-datetime-edit-year-field:focus {
 	}
 }
 
+@media screen and (max-width: 570px) {
+
+	.input {
+		font-size: 1.04rem;
+	}
+	
+	.input-address {
+		font-size: 1.04rem;
+	}
+	
+	.input-select {
+		font-size: 1.04rem;
+	}
+
+	
+}
+
 @media screen and (max-width: 550px) {
 
 	.main {
 		margin-top: 140px;
 	}
+	
+}
+
+@media screen and (max-width: 485px) {
+
+	.input {
+		font-size: 0.99rem;
+	}
+	
+	.input-address {
+		font-size: 0.99rem;
+	}
+	
+	.input-select {
+		font-size:0.99rem;
+	}
+
 	
 }
 
@@ -957,10 +995,34 @@ input::-webkit-datetime-edit-year-field:focus {
 	}
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 385px) {
+
+	.input {
+		font-size: 0.96rem;
+	}
+	
+	.input-address {
+		font-size: 0.96rem;
+	}
+	
+	.input-select {
+		font-size: 0.96rem;
+	}
+	
+	
+}
+
+@media screen and (max-width: 380px) {
 	
 	.title {
 		font-size: 1.9rem;
+	}
+}
+
+@media screen and (max-width: 359px) {
+	
+	.title {
+		font-size: 1.7rem;
 	}
 	
 	.main {
@@ -1396,7 +1458,7 @@ input::-webkit-datetime-edit-year-field:focus {
 </head>
 
 
-<body style="margin: 0px; font-family: 'Poppins', sans-serif;" onLoad="window.scroll(0, 0)">
+<body style="margin: 0px; font-family: 'Poppins', sans-serif;">
 
 <div class="header">
 	<div class="header-text">
@@ -1477,15 +1539,15 @@ input::-webkit-datetime-edit-year-field:focus {
 	<p class="title">Account Verifications</p>
 	<p class="subtitle">We collect this information to make our platform more secure and to ensure a smooth lending process.</p>
 	
-	
-	<form style="display: <?= $EmailDisplay ?>; margin-top: 100px;" class="form" method="post">
-		<p class="input-text"><span style="margin-right: 5px;">Email Address </span><span class="account" style="overflow-wrap: break-word;"><?= $row4['email']; ?></span><span class="payment-method-box"><?php if(isset($not_verified_email)){echo ''.$not_verified_email.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_email)){echo ''.$verified_email.'';}?></span></p>
+	<div class="form-prediv" id="email-verify"></div>
+	<form style="display: <?= $EmailDisplay ?>; margin-top: 100px;" class="form" method="post" action="#email-verify">
+		<p class="input-text"><span style="margin-right: 5px;">Email Address </span><span class="account" style="overflow-wrap: break-word;"><?= mb_strimwidth($row4['email'], 0, 50, "..."); ?></span><span class="payment-method-box"><?php if(isset($not_verified_email)){echo ''.$not_verified_email.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_email)){echo ''.$verified_email.'';}?></span></p>
 		<p>Verify your Email in Order to be able to receive Important Notifications from Instant Borrow</p>
 		<input name="email_verify" type="submit" class="<?= $email_button_class; ?>" value="<?= $email_button; ?>" <?php if(isset($disabled)){echo ''.$disabled.'';}?>>
 	</form>
 	<form class="form" method="post" style="display: <?= $EnterCodeBoxDisplay ?>;">
 		<p class="input-text">Enter Email Verification Code</p>
-		<div style="margin-bottom: 30px;">We sent a 6-digit code to <?= $row4['email']; ?></div>
+		<div style="margin-bottom: 30px;">We sent a 6-digit code to <span style="overflow-wrap: break-word;"><?= mb_strimwidth($row4['email'], 0, 50, "..."); ?></span></div>
 		<input name="email_verification_code" type="number" class="input" required autocomplete="off">
 		<input name="email_verifcation_submit" type="submit" class="set-button" value="Confirm">
 	</form>
@@ -1497,10 +1559,11 @@ input::-webkit-datetime-edit-year-field:focus {
 	?>
 	</div>
 	
-	<form method="post" class="form">
-		<p class="input-text"><span style="margin-right: 5px;">Phone Number </span><span class="account" style="overflow: hidden; white-space: nowrap;"><?= $row['phone_number']; ?></span><span class="payment-method-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span></p>
+	<div class="form-prediv" id="phone-verify"></div>
+	<form method="post" class="form" action="#phone-verify">
+		<p class="input-text"><span style="margin-right: 5px;">Phone Number </span><span class="account" style="overflow: hidden; white-space: nowrap;"><?= mb_strimwidth($row['phone_number'], 0, 50, "..."); ?></span><span class="payment-method-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span></p>
 		<p>Verify your Phone Number to Communicate with other Users when Lending and Borrowing</p>
-		<input name="phone_set" id="loan" class="input" style="width: calc(64% - 7px); margin-left: 36%" required autocomplete="off" placeholder="Phone Number" type="number">
+		<input name="phone_set" id="loan" class="input" style="width: calc(64% - 10px); margin-left: 36%" required autocomplete="off" placeholder="Phone Number" type="number">
 		
 		<div style="width: calc(34% - 7px); margin-top: -54px;">
 		<select name="country_code_set" class="input-select" required>
@@ -1518,15 +1581,16 @@ input::-webkit-datetime-edit-year-field:focus {
 		<div style="color: red; margin-top: 15px;"><?php if(isset($invalid_phone_number)){echo ''.$invalid_phone_number.'';}?></div>
 	</form>
 
-	<form method="post" class="form" id="address-form">
+	<div class="form-prediv" id="address-verify"></div>
+	<form method="post" class="form" id="address-form"  action="#address-verify">
 		<p class="input-text">Address <span class="payment-method-box"><?php if(isset($not_verified_address)){echo ''.$not_verified_address.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_address)){echo ''.$verified_address.'';}?></span></p>
 		
-		<span class="address-text"><span style="margin-right: 5px;">Street Address </span><span class="account"><?= $row2['address']; ?></span></span>
+		<span class="address-text"><span style="margin-right: 5px;">Street Address </span><span class="account"><?= mb_strimwidth($row2['address'], 0, 100, "..."); ?></span></span>
 		<input  id="ship-address" name="address_set" class="input-address" required autocomplete="off" placeholder="Street Name and House Number">
 		
-		<span class="address-text"><span style="margin-right: 5px;">City and ZIP Code </span><span class="account"><?= $row2['city']; ?><?php if(isset($separator)){echo ''.$separator.'';}?> <?= $row2['postcode']; ?></span></span>
+		<span class="address-text"><span style="margin-right: 5px;">City and ZIP Code </span><span class="account"><?= mb_strimwidth($row2['city'], 0, 50, "..."); ?><?php if(isset($separator)){echo ''.$separator.'';}?> <?= mb_strimwidth($row2['postcode'], 0, 20, "..."); ?></span></span>
 		<div style="width: calc(59% - 7px);" ><input id="locality" name="city_set" class="input-address" required autocomplete="off" placeholder="City"></div>
-		<div style="width: calc(39% - 7px); margin-left: calc(61% + 7px); margin-top: -74px;"><input id="postcode" name="postcode_set" class="input-address" required autocomplete="off" placeholder="ZIP Code"></div>
+		<div style="width: calc(39% - 10px); margin-left: calc(61% + 10px); margin-top: -74px;"><input id="postcode" name="postcode_set" class="input-address" required autocomplete="off" placeholder="ZIP Code"></div>
 		
 		<span class="address-text"><span style="margin-right: 5px;">Country </span><span class="account"><?= $row2['country']; ?></span></span>
 		<input id="country" name="country_set" class="input-address" required autocomplete="off" placeholder="Country" style="margin-bottom: 10px;">
@@ -1538,7 +1602,8 @@ input::-webkit-datetime-edit-year-field:focus {
 		<div style="color: red; margin-top: 15px;"><?php if(isset($invalidCountry)){echo ''.$invalidCountry.'';}?></div>
 	</form>
 
-	<form method="post" class="form" enctype="multipart/form-data">
+	<div class="form-prediv" id="id-verify"></div>
+	<form method="post" class="form" enctype="multipart/form-data" action="#id-verify" id="id-verification">
 		<p class="input-text">ID Card & Picture<span class="payment-method-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span><span class="payment-method-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="payment-method-box3"><?php if(isset($underverification_idcard)){echo ''.$underverification_idcard.'';}?></span></p>
 		<p>Upload a Valid form of ID and a Clear Picture of your Face</p>
 		<p style="margin-top: -7px;">Both are Required for Verification and will not be Shared with other Users</p>
@@ -1613,84 +1678,6 @@ input::-webkit-datetime-edit-year-field:focus {
 
 </div>
 
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKe4FApOiKCzUPX__wKOQgfV-Gds153io&callback=initAutocomplete&libraries=places&v=weekly" defer ></script>
-
-<script>
-let autocomplete;
-let address1Field;
-let address2Field;
-let postalField;
-
-function initAutocomplete() {
-  address1Field = document.querySelector("#ship-address");
-  address2Field = document.querySelector("#address2");
-  postalField = document.querySelector("#postcode");
-
-
-  autocomplete = new google.maps.places.Autocomplete(address1Field, {
-    fields: ["address_components", "geometry"],
-    types: ["address"],
-  });
-  address1Field.focus();
-
-
-  autocomplete.addListener("place_changed", fillInAddress);
-}
-
-function fillInAddress() {
-
-  const place = autocomplete.getPlace();
-  let address1 = "";
-  let postcode = "";
-
-
-  for (const component of place.address_components) {
-  
-    const componentType = component.types[0];
-
-    switch (componentType) {
-      case "street_number": {
-        address1 = `${component.long_name} ${address1}`;
-        break;
-      }
-
-      case "route": {
-        address1 += component.short_name;
-        break;
-      }
-
-      case "postal_code": {
-        postcode = `${component.long_name}${postcode}`;
-        break;
-      }
-
-      case "postal_code_suffix": {
-        postcode = `${postcode}-${component.long_name}`;
-        break;
-      }
-      case "locality":
-        document.querySelector("#locality").value = component.long_name;
-        break;
-      case "administrative_area_level_1": {
-        document.querySelector("#state").value = component.short_name;
-        break;
-      }
-      case "country":
-        document.querySelector("#country").value = component.long_name;
-        break;
-    }
-  }
-
-  address1Field.value = address1;
-  postalField.value = postcode;
- 
-  address2Field.focus();
-}
-
-window.initAutocomplete = initAutocomplete;
-
-</script>
 
 <script>
 	var button = document.getElementById('menu-header'); 

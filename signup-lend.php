@@ -135,7 +135,7 @@ if(isset($_SESSION['auth'])){
 }
 
 .signup-button:hover {
-	background-color: red;
+	background-color: #2b80ff;
 	-ms-transform: scale(1.015); /* IE 9 */
 	-webkit-transform: scale(1.015); /* Safari 3-8 */
 	transform: scale(1.015); 
@@ -215,7 +215,7 @@ if(isset($_SESSION['auth'])){
 <div class="main">
 	<div class="text">
 	
-		<p style="font-size: 1.3rem; font-weight: 500;">Signup to Lend Money</p>
+		<p style="font-size: 1.3rem; font-weight: 500;">Sign Up to Lend Money</p>
 		<form method="post">
 		<p style="margin-top: 40px;">Email</p>
 		<input class="input" name="email" required autocomplete="off">

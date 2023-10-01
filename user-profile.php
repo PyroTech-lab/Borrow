@@ -277,7 +277,7 @@ if(isset($_SESSION['auth'])){
 .phone-number-div {
 	background-color:  white;
 	color: black;
-	height: 250px; 
+	height: 220px; 
 	width: 360px;
 	text-align: center;
 	margin-left: calc(50% - 200px);
@@ -296,7 +296,6 @@ if(isset($_SESSION['auth'])){
 .popup-phone-text {
 	font-weight: 500;
 	font-size:1.1rem;
-	color: red;
 }
 
 .popup-text {
@@ -322,6 +321,51 @@ if(isset($_SESSION['auth'])){
 	background-color: #00c4ff;
 }
 
+.popup-location {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	display: none;
+}
+
+.location-div {
+	background-color:  white;
+	color: black;
+	height: 150px; 
+	width: 500px;
+	text-align: center;
+	margin-left: calc(50% - 250px);
+	margin-top: calc(50vh - 120px);
+	border-radius: 0.325rem;
+	padding: 1px;
+}
+
+
+.location-text {
+	font-size:1.1rem;
+}
+
+.location-button {
+	margin-top: 0px;
+	height: 40px;
+	width: 200px;
+	background-color: #2b80ff;
+	color: white;
+	font-weight: 500;
+	font-size: 1.35rem;
+	border-radius: 0.325rem;
+	border: 0px;
+	outline: 0px;
+	transition: background-color 0.2s;
+}
+
+.location-button:hover {
+	background-color: #00c4ff;
+}
+
 .borrower-details {
 	margin-top: 50px;
 	width: 39%;
@@ -329,7 +373,7 @@ if(isset($_SESSION['auth'])){
 	margin-top: 160px;
 	border: 1px solid #2b80ff;
 	border-radius: 0.325rem;
-	height: 520px;
+	height: 525px;
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
@@ -351,26 +395,33 @@ if(isset($_SESSION['auth'])){
 	margin-left: 10px;
 	margin-bottom: -6px;
 	margin-top: 5px;
+	transition: transform 0.2s;
 }
 
-.country-icon:hover + .location-hidden {
-	display: inline;
-	margin-left: 10px;
-	border: 1px solid #e03434;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	padding: 3px;
-	border-radius: 0.325rem;
+.country-icon:hover {
+	-ms-transform: scale(1.09); /* IE 9 */
+	-webkit-transform: scale(1.09); /* Safari 3-8 */
+	transform: scale(1.09); 
 }
 
-.location-hidden {
-	display: none;
-}
-
-.location-text {
+.borrower-username-title {
+	color: #00c4ff;
 	font-weight: 500;
+	font-size: 1.65rem;
 }
 
 .member-date-2 {
+	display: none;
+}
+
+.name-2 {
+	display: none;
+}
+.name-3 {
+	display: none;
+}
+
+.name-4 {
 	display: none;
 }
 
@@ -547,7 +598,7 @@ if(isset($_SESSION['auth'])){
 }
 
 .loan-history {
-	margin-top: -522px;
+	margin-top: -527px;
 	width: 39%;
 	margin-left: 51%;
 	border: 1px solid #2b80ff;
@@ -575,7 +626,7 @@ if(isset($_SESSION['auth'])){
 	margin-left: 10%;
 	font-weight: 500;
 	font-size: 2.1rem;
-	margin-top: 130px;
+	margin-top: 135px;
 	color: black;
 }
 
@@ -1103,6 +1154,41 @@ if(isset($_SESSION['auth'])){
 		width: 40%;
 		margin-left: 60%;
 	}
+	
+	.name-1 {
+		display: none;
+	}
+	
+	.name-2 {
+		display: inline;
+	}
+	.name-3 {
+		display: none;
+	}
+
+	.name-4 {
+		display: none;
+	}
+
+}
+
+@media screen and (max-width: 1180px) {
+
+	.lender-name-1 {
+		display: none;
+	}
+
+	.lender-name-2 {
+		display: block;
+	}
+
+	.lender-name-3 {
+		display: none;
+	}
+	
+	.lender-name-4 {
+		display: none;
+	}
 
 }
 
@@ -1209,6 +1295,45 @@ if(isset($_SESSION['auth'])){
 	
 }
 
+@media screen and (max-width: 880px) {
+
+	.lender-name-1 {
+		display: none;
+	}
+
+	.lender-name-2 {
+		display: none;
+	}
+
+	.lender-name-3 {
+		display: block;
+	}
+	
+	.lender-name-4 {
+		display: none;
+	}
+
+}
+
+@media screen and (max-width: 860px) {
+
+	.name-1 {
+		display: none;
+	}
+	
+	.name-2 {
+		display: none;
+	}
+	.name-3 {
+		display: inline;
+	}
+
+	.name-4 {
+		display: none;
+	}
+
+}
+
 @media screen and (max-width: 800px) {
 	
 	.borrower-details {
@@ -1306,6 +1431,10 @@ if(isset($_SESSION['auth'])){
 		margin-left: 10px;
 	}
 	
+	.borrower-username-title {
+		font-size: 1.55rem;
+	}
+	
 }
 
 @media screen and (max-width: 630px) {
@@ -1389,6 +1518,14 @@ if(isset($_SESSION['auth'])){
 		margin-top: -26px;
 	}
 
+}
+
+@media screen and (max-width: 550px) {
+	
+	.location-div {
+		width: calc(90% - 2px);
+		margin-left: 5%;
+	}
 	
 }
 
@@ -1406,6 +1543,10 @@ if(isset($_SESSION['auth'])){
 		margin-top: 120px;
 	}
 	
+	.borrower-username-title {
+		font-size: 1.45rem;
+	}
+	
 }
 
 @media screen and (max-width: 500px) {
@@ -1413,7 +1554,7 @@ if(isset($_SESSION['auth'])){
 	.phone-number-div {
 		width: calc(90% - 40px);
 		text-align: center;
-		margin-left: calc(5%);
+		margin-left: 5%;
 		margin-top: calc(50vh - 220px);
 		border-radius: 0.325rem;
 		padding: 20px;
@@ -1502,6 +1643,22 @@ if(isset($_SESSION['auth'])){
 	.recent-loans-title {
 		font-size: 1.9rem;
 	}
+	
+	.lender-name-1 {
+		display: none;
+	}
+
+	.lender-name-2 {
+		display: none;
+	}
+
+	.lender-name-3 {
+		display: none;
+	}
+	
+	.lender-name-4 {
+		display: block;
+	}
 
 	
 }
@@ -1514,7 +1671,7 @@ if(isset($_SESSION['auth'])){
 	}
 	
 	.phone-number-div {
-		height: 230px;
+		height: 200px;
 	}
 }
 
@@ -1564,6 +1721,10 @@ if(isset($_SESSION['auth'])){
 	
 	.loan-text {
 		display: none;
+	}
+	
+	.borrower-username-title {
+		font-size: 1.35rem;
 	}
 
 }
@@ -1627,6 +1788,28 @@ if(isset($_SESSION['auth'])){
 	
 	.recent-loans-title {
 		font-size: 1.7rem;
+	}
+	
+	.name-1 {
+		display: none;
+	}
+	
+	.name-2 {
+		display: none;
+	}
+	.name-3 {
+		display: none;
+	}
+
+	.name-4 {
+		display: inline;
+	}
+}
+
+@media screen and (max-width: 345px) {
+	
+	.location-text {
+		font-size: 1.03rem;
 	}
 	
 }
@@ -2108,9 +2291,6 @@ if(isset($_SESSION['auth'])){
 }
 </style>
 
-
-</head>
-
 </head>
 
 
@@ -2139,9 +2319,15 @@ if(isset($_SESSION['auth'])){
 	
 	<div class="phone-number-div" id="phone-number-div">
 		<div class="subtitle-popup"><span>Contact user</span></div>
-		<p class="popup-text">Phone Number:</p>
-		<p class="popup-phone-text"><?= $phone_number; ?></p>
+		<p class="popup-phone-text">Log In to Access Contact Info</p>
 		<button class="close-button" onclick="ClosePopup()">Close</button>
+	</div>	
+</div>
+
+<div class="popup-location" id="popup-location">
+	<div class="location-div" id="location-div">
+		<p class="location-text">Location:</br><span style="color: #00c4ff;"><?= $country; ?></span></p>
+		<button class="location-button" onclick="locationClose()">Close</button>
 	</div>	
 </div>
 
@@ -2149,7 +2335,7 @@ if(isset($_SESSION['auth'])){
 		<p class="subsection-title">User Information</p>
 		<div class="borrower-presentation">
 		<img class="profile-picture" src="assets/images/profile-images/<?= $profile_picture; ?>">
-		<div style="margin-top: -70px; margin-left: 80px;"><span style="color: #00c4ff; font-weight: 500; font-size: 1.65rem;"><?= mb_strimwidth($user_username, 0, 15, "..."); ?></span><img style="display: <?= $country_image_display;?>" class="country-icon" src="assets/images/country-icons/<?=$country?>.png"><span class="location-hidden">Location: <span class="location-text"><?=$country?></span></span></br><span>Member since <span class="member-date-1"><?= date('F Y', strtotime($user_join_date)); ?></span><span class="member-date-2"><?= date('M Y', strtotime($user_join_date)); ?></span></span></div>
+		<div style="margin-top: -70px; margin-left: 80px;"><span class="borrower-username-title"><span class="name-1"><?= mb_strimwidth($user_username, 0, 18, "..."); ?></span><span class="name-2"><?= mb_strimwidth($user_username, 0, 18, "..."); ?></span><span class="name-3"><?= mb_strimwidth($user_username, 0, 17, "..."); ?></span><span class="name-4"><?= mb_strimwidth($user_username, 0, 11, "..."); ?></span></span><img style="display: <?= $country_image_display;?>" class="country-icon" src="assets/images/country-icons/<?=$country?>.png" onclick="locationOpen()"></br><span>Member since <span class="member-date-1"><?= date('F Y', strtotime($user_join_date)); ?></span><span class="member-date-2"><?= date('M Y', strtotime($user_join_date)); ?></span></span></div>
 		</div>
 		
 		<button class="chat-button" onclick="OpenPopup()">Contact</button>
@@ -2235,16 +2421,16 @@ if(isset($_SESSION['auth'])){
 						$image_status = "<img class='status-image' src='assets/images/status-active.png'>";
 					}elseif(($question['status'] == "paid_afterban_notseen")OR($question['status'] == "paid_afterban")){
 						$status_color = "orange";
-						$status_public = "Paid After ban";
+						$status_public = "Paid Late";
 						$image_status = "<img class='status-image' src='assets/images/status-paidlate.png'>";
 					}
 				}
 				
-				if($question['feedback_given'] == "positive"){
+				if($question['feedback_given'] == "Positive"){
 					$feedback = "Positive";
 					$feedback_color ="green";
 					$feedback_image ="<img src='assets/images/positive.png' class='image-positive'>";
-				}elseif($question['feedback_given'] == "negative"){
+				}elseif($question['feedback_given'] == "Negative"){
 					$feedback = "Negative";
 					$feedback_color ="red";
 					$feedback_image ="<img src='assets/images/negative.png' class='image-negative'>";
@@ -2262,7 +2448,7 @@ if(isset($_SESSION['auth'])){
 				<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
 				<div class="interest-rate"><span class="time-format1"><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span><span class="time-format2"><?= date('j M y', strtotime($question['repayment_date'])); ?></span></div>
 				<div class="repay-date"><span style="color: <?= $status_color; ?>;"><?= $status_public; ?></span></div>
-				<div class="feedback"><a style="text-decoration: none; color: #3d91e0;" href="user-profile.php?id=<?= $question['id_lender']; ?>"><span><?= mb_strimwidth($question['username_lender'], 0, 9, "..."); ?></span></a></div>
+				<div class="feedback"><a style="text-decoration: none; color: #3d91e0;" href="user-profile.php?id=<?= $question['id_lender']; ?>"><span class="lender-name-1"><?= mb_strimwidth($question['username_lender'], 0, 18, "..."); ?></span><span class="lender-name-2"><?= mb_strimwidth($question['username_lender'], 0, 12, "..."); ?></span><span class="lender-name-3"><?= mb_strimwidth($question['username_lender'], 0, 9, "..."); ?></span><span class="lender-name-4"><?= mb_strimwidth($question['username_lender'], 0, 6, "..."); ?></span></a></div>
 				<div class="payment-method"><span style="color: <?= $feedback_color; ?>;"><?= $feedback; ?></span></div>
 				<div class="display-bottom">
 				<div class="feedback-bottom-visible">Feedback: <span class="feedback-type-1" style="color: <?= $feedback_color; ?>;"><?= $feedback; ?></span><span class="feedback-type-2"><?= $feedback_image; ?></span></div>
@@ -2350,6 +2536,20 @@ function OpenPopup() {
 
 <script>
 function ClosePopup() {
+  document.getElementById("phone-number-div").style.display = "none";
+  document.getElementById("popup-phone-number").style.display = "none";
+}
+</script>
+
+<script>
+function locationOpen() {
+  document.getElementById("location-div").style.display = "block";
+  document.getElementById("popup-location").style.display = "block";
+}
+</script>
+
+<script>
+function locationClose() {
   document.getElementById("phone-number-div").style.display = "none";
   document.getElementById("popup-phone-number").style.display = "none";
 }

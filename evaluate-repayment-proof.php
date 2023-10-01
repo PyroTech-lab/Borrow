@@ -322,6 +322,113 @@ require('actions/users/bannedAction.php');
 	background-color: #00c4ff;
 }
 
+.popup-confirmed {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+}
+
+.confirmed-div {
+	background-color: white;
+	color: black;
+	height: 320px; 
+	width: 384px;
+	text-align: center;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 200px);
+	border-radius: 0.325rem;
+	padding-top: 7px;
+	padding-bottom: 20px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.subtitle-confirmed {
+	margin-top: 10px;
+	font-weight: 500;
+	font-size: 2.07rem;
+	color: black;
+}
+
+.confirmed-image {
+	margin-top: 30px;
+	width: 35%;
+	height: auto;
+}
+
+.confirmed-button {
+	margin-top: 30px;
+	height: 50px;
+	width: 300px;
+	background-color: #2b80ff;
+	color: white;
+	font-weight: 500;
+	font-size: 1.35rem;
+	border-radius: 0.325rem;
+	border: 0px;
+	outline: 0px;
+	transition: background-color 0.2s;
+}
+
+.confirmed-button:hover {
+	background-color: #00c4ff;
+}
+
+.popup-notconfirmed {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+}
+
+.notconfirmed-div {
+	background-color:  white;
+	color: black;
+	height: 330px; 
+	width: 360px;
+	text-align: center;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 200px);
+	border-radius: 0.325rem;
+	padding: 20px;
+}
+
+.subtitle-notconfirmed {
+	margin-top: 10px;
+	font-weight: 500;
+	font-size: 2.32rem;
+	color: black;
+}
+
+.notconfirmed-text {
+	color: red;
+	margin-top: 20px;
+}
+
+
+.notconfirmed-button {
+	margin-top: 30px;
+	height: 50px;
+	width: 300px;
+	background-color: #2b80ff;
+	color: white;
+	font-weight: 500;
+	font-size: 1.35rem;
+	border-radius: 0.325rem;
+	border: 0px;
+	outline: 0px;
+	transition: background-color 0.2s;
+}
+
+.notconfirmed-button:hover {
+	background-color: #00c4ff;
+}
+
 .main {
 	margin-top: 160px;
 	margin-left: 20%;
@@ -956,6 +1063,35 @@ require('actions/users/bannedAction.php');
 	}
 }
 
+@media screen and (max-width: 465px) {
+	
+
+	.confirmed-div {
+		height: 320px; 
+		width: calc(90% - 16px);
+		margin-left: 5%;
+	}
+	
+	.confirmed-image {
+		width: 135px;
+	}
+	
+	.subtitle-confirmed {
+		font-size: 1.9rem;
+	}
+	
+	.notconfirmed-div {
+		height: 320px; 
+		width: calc(90% - 50px);
+		margin-left: 5%;
+	}
+	
+	.subtitle-notconfirmed {
+		font-size: 2.18rem;
+	}
+	
+}
+
 @media screen and (max-width: 434px) {
 	
 	.confirmation-div {
@@ -968,6 +1104,14 @@ require('actions/users/bannedAction.php');
 	
 	.chat-div {
 		height: 235px;
+	}
+	
+}
+
+@media screen and (max-width: 425px) {
+	
+	.subtitle-confirmed {
+		font-size: 1.7rem;
 	}
 	
 }
@@ -1045,6 +1189,22 @@ require('actions/users/bannedAction.php');
 		height: 50px;
 		width: 90%;
 	}
+	
+	.confirmed-button {
+		width: 90%;
+	}
+	
+	.notconfirmed-button {
+		width: 90%;
+	}	
+	
+	.subtitle-confirmed {
+		font-size: 1.6rem;
+	}
+	
+	.subtitle-notconfirmed {
+		font-size: 2.04rem;
+	}
 
 }
 
@@ -1052,6 +1212,11 @@ require('actions/users/bannedAction.php');
 	
 	.loan-recap {
 		height: 340px;
+	}
+	
+	
+	.subtitle-confirmed {
+		font-size: 1.5rem;
 	}
 	
 }
@@ -1069,7 +1234,16 @@ require('actions/users/bannedAction.php');
 		font-size: 1.8rem;
 	}
 	
+	.subtitle-confirmed {
+		font-size: 1.45rem;
+	}
+	
+	.subtitle-notconfirmed {
+		font-size: 1.98rem;
+	}
+	
 }
+
 
 @media screen and (max-width: 335px) {
 	
@@ -1077,6 +1251,14 @@ require('actions/users/bannedAction.php');
 		margin-top: 105px;
 	}
 	
+}
+
+@media screen and (max-width: 330px) {
+
+	.subtitle-confirmed {
+		font-size: 1.4rem;
+	}
+
 }
 
 </style>
@@ -1540,22 +1722,28 @@ require('actions/users/bannedAction.php');
 <div class="everything-except-header">
 
 <div class="popup-phone-number" id="popup-phone-number">
-	
 	<div class="phone-number-div" id="phone-number-div">
 		<div class="subtitle-popup"><span>Contact Borrower</span></div>
 		<p class="popup-text">Phone Number:</p>
-		<p class="popup-phone-text"><?= $phone_number_display; ?></p>
+		<p class="popup-phone-text"><?= mb_strimwidth($phone_number_display, 0, 26, "..."); ?></p>
 		<div class="popup-text"><span style="color: red;">Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
 		<button class="close-button" onclick="ClosePopup()">Close</button>
 	</div>	
 </div>
+
+<?php 
+if(isset($confirmed_message)){ echo $confirmed_message; }
+?>
+<?php 
+if(isset($notreceived_message)){ echo $notreceived_message; }
+?>
 
 <div class="main">
 	
 	<div class="loan-recap">
 		<div class="subtitle"><span>Repayment Proof Received</span></div>
 		<div class="recap-container">
-		<div class="text-subtitle"><a href="profile-user.php?id=<?= $id_borrower; ?>" target="blank" style="text-decoration: none;"><span class="subtext2"><?= mb_strimwidth($username_borrower, 0, 12, "..."); ?></span></a> Submitted Proof of his <span class="subtext2"><?= $repayment_amount; ?>$</span> Repayment.</span></div>
+		<div class="text-subtitle"><a href="profile-user.php?id=<?= $id_borrower; ?>" target="blank" style="text-decoration: none;"><span class="subtext2"><?= mb_strimwidth($username_borrower, 0, 13, "..."); ?></span></a> Submitted Proof of his <span class="subtext2"><?= $repayment_amount; ?>$</span> Repayment.</span></div>
 		<div style="margin-top: 40px;" class="text">Payment Date</br><span class="subtext2" style="color: #00c4ff;"><?= date('M jS, Y', strtotime($repaid_date)); ?></span></div>
 		<div class="text">Payment Method</br><span class="subtext2" style="color: #00c4ff;"><?= $payment_method_repayment; ?></span></div>
 		</div>
@@ -1566,7 +1754,7 @@ require('actions/users/bannedAction.php');
 	</div>
 	
 	<div class="chat-div">
-		<div class="subtitle-chat"><span>Contact <a href="profile-user.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span style="color: #00c4ff;"><?= mb_strimwidth($username_borrower, 0, 12, "..."); ?></span></a></span></div>
+		<div class="subtitle-chat"><span>Contact <a href="profile-user.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span style="color: #00c4ff;"><?= mb_strimwidth($username_borrower, 0, 9, "..."); ?></span></a></span></div>
 		<div class="chat-text"><span style="color: red;">Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
 		<button class="chat-button" onclick="OpenPopup()">Contact</button>
 	</div>
@@ -1591,31 +1779,6 @@ require('actions/users/bannedAction.php');
 		<p style="color: red; font-weight: 500;">If Funds are Once Again Reported as Not Received, the Borrower will be Banned for Fraud.</p>
 		<input type="submit" value="OK" name="repayment_receivedconfirmation" class="submit">
 		</form>
-		
-		
-		
-		<?php 
-		if(isset($confirmed_message)){ 
-                echo ''.$confirmed_message.''; 
-            }
-        ?>
-		<?php 
-		if(isset($notreceived_message)){ 
-                echo ''.$notreceived_message.''; 
-            }
-        ?>
-		<?php 
-		if(isset($error_message_received)){ 
-                echo ''.$error_message_received.''; 
-            }
-        ?>
-		<?php 
-		if(isset($error_message_not_received)){ 
-                echo ''.$error_message_not_received.''; 
-            }
-        ?>
-		
-		
 	</div>
 	
 		

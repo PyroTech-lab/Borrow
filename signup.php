@@ -133,7 +133,7 @@ if(isset($_SESSION['auth'])){
 }
 
 .signup-button:hover {
-	background-color: red;
+	background-color: #2b80ff;
 	-ms-transform: scale(1.015); /* IE 9 */
 	-webkit-transform: scale(1.015); /* Safari 3-8 */
 	transform: scale(1.015); 

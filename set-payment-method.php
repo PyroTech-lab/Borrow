@@ -393,12 +393,16 @@ require('actions/users/bannedAction.php');
 
 .title {
 	color: #2b80ff;
-	font-weight: bold;
-	font-size: 2.32rem
+	font-weight: 500;
+	font-size: 2.52rem
 }
 
 .subtitle {
 	margin-top: -25px;
+}
+
+.form-prediv {
+	
 }
 
 .form {
@@ -407,8 +411,8 @@ require('actions/users/bannedAction.php');
 
 .account {
 	color: #2b80ff;
-	margin-left: 5px;
 	overflow-wrap: break-word;
+	font-size: 1.22rem;
 }
 
 .payment-method-box {
@@ -474,10 +478,11 @@ require('actions/users/bannedAction.php');
 .input-text {
 	font-weight: 500;
 	font-size: 1.35rem;
+	width: calc(100% - 140px);
 }
 
 .input {
-	width: calc(100% - 7px);
+	width: calc(100% - 10px);
 	height: 40px;
 	background-color: #f7f7f7;
 	margin-top: 0px;
@@ -494,9 +499,9 @@ require('actions/users/bannedAction.php');
 .input:hover {
 	outline: 1px solid #00c4ff;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	-ms-transform: scale(1.015); /* IE 9 */
-	-webkit-transform: scale(1.015); /* Safari 3-8 */
-	transform: scale(1.015); 
+	-ms-transform: scale(1.005); /* IE 9 */
+	-webkit-transform: scale(1.005); /* Safari 3-8 */
+	transform: scale(1.005); 
 }
 
 .input:focus {
@@ -511,8 +516,8 @@ require('actions/users/bannedAction.php');
 	height: 50px;
 	background-color: #2b80ff;
 	color: white;
-	font-size: 1.18rem;
-	font-weight: bold;
+	font-size: 1.21rem;
+	font-weight: 500;
 	border: 0;
 	border-radius: 0.325rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
@@ -520,10 +525,10 @@ require('actions/users/bannedAction.php');
 }
 
 .set-button:hover {
-	background-color: red;
-	-ms-transform: scale(1.015); /* IE 9 */
-	-webkit-transform: scale(1.015); /* Safari 3-8 */
-	transform: scale(1.015); 
+	background-color: #00c4ff;
+	-ms-transform: scale(1.005); /* IE 9 */
+	-webkit-transform: scale(1.005); /* Safari 3-8 */
+	transform: scale(1.005); 
 }
 
 .delete-form {
@@ -537,11 +542,12 @@ require('actions/users/bannedAction.php');
 	border-radius: 0.125rem;
 	border: 1px solid #2b80ff;
 	color: #2b80ff;
-	font-size: 0.9rem;
-	font-weight: bold;
+	font-size: 0.93rem;
+	font-weight: 500;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	padding-top: 3px;
 	padding-bottom: 3px;
+	background-color: white;
 }
 
 
@@ -555,8 +561,8 @@ require('actions/users/bannedAction.php');
 }
 
 .explain-title {
-	font-size: 1.8rem;
-	font-weight: bold;
+	font-size: 2.1rem;
+	font-weight: 500;
 	color: #00c4ff;
 }
 
@@ -700,6 +706,10 @@ require('actions/users/bannedAction.php');
 		margin-left: 2%;
 		width: 95%;
 	}
+	
+	.account {
+		font-size: 1.17rem;
+	}	
 }
 
 @media screen and (max-width: 700px) {
@@ -713,14 +723,43 @@ require('actions/users/bannedAction.php');
 	
 	.error-message {
 		margin-top: 10px;
+	}
+
+	.account {
+		font-size: 1.14rem;
 	}	
+	
+	.input-text {
+		width: 100%;
+	}
 
 }
+
+@media screen and (max-width: 570px) {
+
+	.input {
+		font-size: 1.04rem;
+	}
+	
+}
+
 
 @media screen and (max-width: 550px) {
 
 	.main {
 		margin-top: 140px;
+	}
+	
+	.account {
+		font-size: 1.06rem;
+	}
+	
+}
+
+@media screen and (max-width: 485px) {
+
+	.input {
+		font-size: 0.99rem;
 	}
 	
 }
@@ -740,26 +779,30 @@ require('actions/users/bannedAction.php');
 	}
 }
 
+
+
 @media screen and (max-width: 410px) {
-	
-	.title {
-		font-size: 2.02rem;
-	}
 	
 	.main {
 		margin-top: 110px;
 	}
 	
 	.account {
-		font-size: 1.03rem;
+		font-size: 1.02rem;
 	}
 }
 
-@media screen and (max-width: 350px) {
-	
-	.title {
-		font-size: 1.9rem;
+@media screen and (max-width: 385px) {
+
+	.input {
+		font-size: 0.96rem;
 	}
+	
+}
+
+
+
+@media screen and (max-width: 350px) {
 	
 	.main {
 		margin-top: 105px;
@@ -768,7 +811,21 @@ require('actions/users/bannedAction.php');
 	.form {
 		margin-top: 80px;
 	}
+	
+	.account {
+		font-size: 0.98rem;
+	}
 }
+
+
+@media screen and (max-width: 340px) {
+	
+	.title {
+		font-size: 2.07rem;
+	}
+	
+}
+
 
 @media screen and (max-width: 335px) {
 
@@ -1272,48 +1329,57 @@ require('actions/users/bannedAction.php');
 <div class="everything-except-header">
 
 	<div class="main">
-	<p class="title">Your Payment Methods</p>
-	<p class="subtitle">This information allows users to send you money. Make sure it is correct to be able to receive payments.</p>
+	<p class="title">Payment Methods</p>
+	<p class="subtitle" id="paypal">This information allows users to send you money. Make sure it is correct to be able to receive payments.</p>
 	
 	
-	<form method="post" class="form">
-		<p class="input-text">Paypal<span class="account"><?= $rowpaypal['paypal']; ?></span><span class="payment-method-box"><?php if(isset($paypal_no)){echo ''.$paypal_no.'';}?></span><span class="payment-method-box2"><?php if(isset($paypal_yes)){echo ''.$paypal_yes.'';}?></span></p>
+
+	<form method="post" class="form" action="#paypal">
+		<p class="input-text">Paypal <span class="account"><?= mb_strimwidth($rowpaypal['paypal'], 0, 80, "..."); ?></span><span class="payment-method-box"><?php if(isset($paypal_no)){echo ''.$paypal_no.'';}?></span><span class="payment-method-box2"><?php if(isset($paypal_yes)){echo ''.$paypal_yes.'';}?></span></p>
 		<input name="paypal_set" id="loan" class="input" required autocomplete="off" placeholder="PayPal Username, Email Address, Name, or Phone Number">
-		<input name="paypal_submit" type="submit" class="set-button" value="<?php if(isset($paypal_add)){echo ''.$paypal_add.'';} else{ echo ''.$paypal_update.'';}?>">
+		<input name="paypal_submit" type="submit" class="set-button" value="<?php if(isset($paypal_add)){echo ''.$paypal_add.'';} else{ echo ''.$paypal_update.'';}?>" id="cashapp">
 	</form>
 	<form  method="post" <?php if(isset($paypal_no)){ echo 'style="display:none;"'; } ?> class="delete-form">
 	<input name="remove_paypal" type="submit" value="Remove Account" class="delete-button">
 	</form>
 	<?php if(isset($error_message1)){ echo $error_message1; } ?>
-	<form method="post" class="form">
-		<p class="input-text">Cashapp<span class="account"><?= $rowcashapp['cashapp']; ?></span><span class="payment-method-box"><?php if(isset($cashapp_no)){echo ''.$cashapp_no.'';}?></span><span class="payment-method-box2"><?php if(isset($cashapp_yes)){echo ''.$cashapp_yes.'';}?></span></p>
+	
+
+	<form method="post" class="form" action="#cashapp">
+		<p class="input-text">Cashapp <span class="account"><?= mb_strimwidth($rowcashapp['cashapp'], 0, 80, "..."); ?></span><span class="payment-method-box"><?php if(isset($cashapp_no)){echo ''.$cashapp_no.'';}?></span><span class="payment-method-box2"><?php if(isset($cashapp_yes)){echo ''.$cashapp_yes.'';}?></span></p>
 		<input name="cashapp_set" id="loan" class="input" required autocomplete="off" placeholder="$Cashtag, Email Address or Phone Number">
-		<input name="cashapp_submit" type="submit" class="set-button" value="<?php if(isset($cashapp_add)){echo ''.$cashapp_add.'';} else{ echo ''.$cashapp_update.'';}?>">
+		<input name="cashapp_submit" type="submit" class="set-button" value="<?php if(isset($cashapp_add)){echo ''.$cashapp_add.'';} else{ echo ''.$cashapp_update.'';}?>" id="venmo">
 	</form>
 	<form  method="post" <?php if(isset($cashapp_no)){ echo 'style="display:none;"'; } ?> class="delete-form">
 	<input name="remove_cashapp" type="submit" value="Remove Account" class="delete-button">
 	</form>
 	<?php if(isset($error_message2)){ echo $error_message2; } ?>
-	<form method="post" class="form">
-		<p class="input-text">Venmo<span class="account"><?= $rowvenmo['venmo']; ?></span><span class="payment-method-box"><?php if(isset($venmo_no)){echo ''.$venmo_no.'';}?></span><span class="payment-method-box2"><?php if(isset($venmo_yes)){echo ''.$venmo_yes.'';}?></span></p>
+	
+	
+	<form method="post" class="form" action="#venmo">
+		<p class="input-text">Venmo <span class="account"><?= mb_strimwidth($rowvenmo['venmo'], 0, 80, "..."); ?></span><span class="payment-method-box"><?php if(isset($venmo_no)){echo ''.$venmo_no.'';}?></span><span class="payment-method-box2"><?php if(isset($venmo_yes)){echo ''.$venmo_yes.'';}?></span></p>
 		<input name="venmo_set" id="loan" class="input" required autocomplete="off" placeholder="Venmo Username, Email Address or Phone Number">
-		<input name="venmo_submit" type="submit" class="set-button" value="<?php if(isset($venmo_add)){echo ''.$venmo_add.'';} else{ echo ''.$venmo_update.'';}?>">
+		<input name="venmo_submit" type="submit" class="set-button" value="<?php if(isset($venmo_add)){echo ''.$venmo_add.'';} else{ echo ''.$venmo_update.'';}?>" id="zelle">
 	</form>
 	<form  method="post" <?php if(isset($venmo_no)){ echo 'style="display:none;"'; } ?>class="delete-form">
 	<input name="remove_venmo" type="submit" value="Remove Account" class="delete-button">
 	</form>
 	<?php if(isset($error_message3)){ echo $error_message3; } ?>
-	<form method="post" class="form">
-		<p class="input-text">Zelle<span class="account"><?= $rowzelle['zelle']; ?></span><span class="payment-method-box"><?php if(isset($zelle_no)){echo ''.$zelle_no.'';}?></span><span class="payment-method-box2"><?php if(isset($zelle_yes)){echo ''.$zelle_yes.'';}?></span></p>
+	
+	
+	<form method="post" class="form" action="#zelle">
+		<p class="input-text">Zelle <span class="account"><?= mb_strimwidth($rowzelle['zelle'], 0, 80, "..."); ?></span><span class="payment-method-box"><?php if(isset($zelle_no)){echo ''.$zelle_no.'';}?></span><span class="payment-method-box2"><?php if(isset($zelle_yes)){echo ''.$zelle_yes.'';}?></span></p>
 		<input name="zelle_set" id="loan" class="input" required autocomplete="off" placeholder="Email address, Name or Phone Number">
-		<input name="zelle_submit" type="submit" class="set-button" value="<?php if(isset($zelle_add)){echo ''.$zelle_add.'';} else{ echo ''.$zelle_update.'';}?>">
+		<input name="zelle_submit" type="submit" class="set-button" value="<?php if(isset($zelle_add)){echo ''.$zelle_add.'';} else{ echo ''.$zelle_update.'';}?>" id="chime">
 	</form>
 	<form  method="post" <?php if(isset($zelle_no)){ echo 'style="display:none;"'; } ?> class="delete-form">
 	<input name="remove_zelle" type="submit" value="Remove Account" class="delete-button">
 	</form>
 	<?php if(isset($error_message4)){ echo $error_message4; } ?>
-	<form method="post" class="form">
-		<p class="input-text">Chime<span class="account"><?= $rowchime['chime']; ?></span><span class="payment-method-box"><?php if(isset($chime_no)){echo ''.$chime_no.'';}?></span><span class="payment-method-box2"><?php if(isset($chime_yes)){echo ''.$chime_yes.'';}?></span></p>
+	
+	
+	<form method="post" class="form" action="#chime">
+		<p class="input-text">Chime <span class="account"><?= mb_strimwidth($rowchime['chime'], 0, 80, "..."); ?></span><span class="payment-method-box"><?php if(isset($chime_no)){echo ''.$chime_no.'';}?></span><span class="payment-method-box2"><?php if(isset($chime_yes)){echo ''.$chime_yes.'';}?></span></p>
 		<input name="chime_set" id="loan" class="input" required autocomplete="off" placeholder="Email Address or Phone Number">
 		<input name="chime_submit" type="submit" class="set-button" value="<?php if(isset($chime_add)){echo ''.$chime_add.'';} else{ echo ''.$chime_update.'';}?>">
 	</form>

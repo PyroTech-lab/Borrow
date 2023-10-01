@@ -699,17 +699,29 @@ input::-webkit-datetime-edit-year-field:focus {
 	font-size: 1.02rem;
 }
 
+.borrower-name-2 {
+	display: none;
+}
+
+.borrower-name-3 {
+	display: none;
+}
+
+.borrower-name-4 {
+	display: none;
+}
+
 .loan-amount-2 {
 	height: 23px;
 	text-align: center;
 	width: 18%;
 	background-color: transparent;
-	margin-top: -31px;
+	margin-top: -34px;
 	margin-left: 18%;
 	padding: 4px;
 	color: #383838;
-	font-weight: bold;
-	font-size: 1.15rem;
+	font-weight: 500;
+	font-size: 1.45rem;
 }
 
 .repay-amount-2 {
@@ -721,8 +733,8 @@ input::-webkit-datetime-edit-year-field:focus {
 	margin-left: 36%;
 	padding: 4px;
 	color: #383838;
-	font-weight: bold;
-	font-size: 1.15rem;
+	font-weight: 500;
+	font-size: 1.45rem;
 }
 
 .interest-rate-2	{
@@ -734,8 +746,8 @@ input::-webkit-datetime-edit-year-field:focus {
 	margin-left: 54%;
 	padding: 4px;
 	color: #383838;
-	font-weight: bold;
-	font-size: 1.15rem;
+	font-weight: 500;
+	font-size: 1.45rem;
 }
 
 .repay-date-2 {
@@ -743,10 +755,10 @@ input::-webkit-datetime-edit-year-field:focus {
 	text-align: center;
 	width: 17%;
 	background-color: transparent;
-	margin-top: -31px;
+	margin-top: -27px;
 	margin-left: 72%;
 	padding: 4px;
-	color: #383838;
+	color: #2b80ff;
 	font-weight: 500;
 	font-size: 1.1rem;
 }
@@ -1458,7 +1470,23 @@ input::-webkit-datetime-edit-year-field:focus {
 	}
 	
 	.inner-box2 {
-	padding-bottom: 24px;
+		padding-bottom: 24px;
+	}
+	
+	.borrower-name-1 {
+		display: none;
+	}
+
+	.borrower-name-2 {
+		display: inline;
+	}
+	
+	.borrower-name-3 {
+		display: none;
+	}
+
+	.borrower-name-4 {
+		display: none;
 	}
 }
 
@@ -1754,6 +1782,22 @@ input::-webkit-datetime-edit-year-field:focus {
 	
 	.sort-by-title {
 	 margin-left: calc(75% - 150px);
+	}
+	
+	.borrower-name-1 {
+		display: none;
+	}
+
+	.borrower-name-2 {
+		display: none;
+	}
+	
+	.borrower-name-3 {
+		display: inline;
+	}
+
+	.borrower-name-4 {
+		display: none;
 	}
 	
 }
@@ -2649,7 +2693,7 @@ input::-webkit-datetime-edit-year-field:focus {
 			<div class="loan-request">
 				<div class="loan-details">
 						<div style="padding-bottom: 10px;">
-						<div class="borrower-2"><a href="user-profile.php?id=<?=$question['id_borrower']; ?>" style="text-decoration: none; color: #3d91e0;"><span><?= mb_strimwidth($question['username_borrower'], 0, 9, "..."); ?></span></a></div>
+						<div class="borrower-2"><a href="user-profile.php?id=<?=$question['id_borrower']; ?>" style="text-decoration: none; color: #3d91e0;"><span class="borrower-name-1"><?= mb_strimwidth($question['username_borrower'], 0, 15, "..."); ?></span><span class="borrower-name-2"><?= mb_strimwidth($question['username_borrower'], 0, 12, "..."); ?></span><span class="borrower-name-3"><?= mb_strimwidth($question['username_borrower'], 0, 9, "..."); ?></span><span class="borrower-name-4"><?= mb_strimwidth($question['username_borrower'], 0, 6, "..."); ?></span></a></div>
 						<div class="loan-amount-2"><span><?= $question['loan_amount']; ?>$</span></div>
 						<div class="repay-amount-2"><span><?= $question['repayment_amount']; ?>$</span></div>
 						<div class="interest-rate-2"><span><?= $question['interest']; ?>%</span></div>
@@ -2659,7 +2703,7 @@ input::-webkit-datetime-edit-year-field:focus {
 						<a href="loan.php?id=<?= $question['id']; ?>"><button class="lend-button">LEND</button><a>
 						</div>
 							<div class="trustscore">
-								<span>Trustscore: <span style="font-weight: bold; color: <?= $trustscore_color; ?>;"><?= $question['borrower_trustscore']; ?>/100</span></span>
+								<span>Trustscore: <span style="font-weight: 500; color: <?= $trustscore_color; ?>;"><?= $question['borrower_trustscore']; ?>/100</span></span>
 							</div>
 							<div class="top-border"></div>
 							<div class="feedback">

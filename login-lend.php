@@ -304,7 +304,7 @@ input[type=number] {
 </div>
 
 <div class="under-container">
-	<p>Don't have an account? <a href="signup-lend.php" style="text-decoration: none; color: #00c4ff;">Sign Up</a></p>
+	<p>Don't have an account? <a href="signup-lend.php?id=<?=$_GET['id']; ?>" style="text-decoration: none; color: #00c4ff;">Sign Up</a></p>
 </div>
 
 <script>

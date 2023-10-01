@@ -424,10 +424,10 @@ require('actions/users/bannedAction.php');
 }
 
 .subsection-title-dashboard {
-	font-weight: bold;
+	font-weight: 500;
 	margin-left: 80px;
 	margin-top: 20px;
-	font-size: 1.8rem;
+	font-size: 2.1rem;
 	color: #00c4ff;
 }
 
@@ -437,9 +437,13 @@ require('actions/users/bannedAction.php');
 }
 
 .main-subtext {
-	font-weight: bold;
+	font-weight: 500;
 	font-size: 1.8rem;
 	color: #00c4ff;
+}
+
+.returns-2 {
+	display: none;
 }
 
 .column-1 {
@@ -478,6 +482,11 @@ require('actions/users/bannedAction.php');
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	border: 1px solid #2b80ff;
 	border-radius: 0.425rem;
+}
+
+.borrowing-container {
+	margin-left: 20px;
+	width: calc(100% - 20px);
 }
 
 .verifications {
@@ -561,6 +570,7 @@ require('actions/users/bannedAction.php');
 	transition: font-size .2s;
 	transition: color .2s;
 	transition: border .2s;
+	display: <?= $verification_display; ?>;
 }
 
 .verification-box3:hover {
@@ -584,7 +594,7 @@ require('actions/users/bannedAction.php');
 .column-12 {
 	margin-left: 55%;
 	height: 300px;
-	width: 50%;
+	width: 45%;
 	margin-top: -316px;
 }
 
@@ -595,32 +605,18 @@ require('actions/users/bannedAction.php');
 	margin-top: -316px;
 }
 
-.column-111 {
-	margin-left: 20px;
-	height: 300px;
-	width: 33%;
+.under-verification-text2 {
+	display: none;
 }
 
-.column-112 {
-	margin-left: 33%;
-	height: 300px;
-	width: 33%;
-	margin-top: -316px;
+.under-verification-text1 {
+	display: inline;
 }
 
-.column-113 {
-	margin-left: 66%;
-	height: 200px;
-	width: 33%;
-	margin-top: -316px;
+.column-300 {
+	display: none;
 }
 
-.column-113-2 {
-	margin-left: 66%;
-	height: 120px;
-	width: 33%;
-	margin-top: -316px;
-}
 
 .profile-trust {
 	height: 300px;
@@ -733,13 +729,191 @@ require('actions/users/bannedAction.php');
 }
 
 .account-settings {
-	height: 300px;
-	width: 100%;
-	background-color: #fcfcfc;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+	margin-top: 80px;
+	margin-bottom: 100px;
+}
+
+.settings-title {
+	font-weight: 500;
+	font-size: 3.2rem;
+	color: black;
+	margin-bottom: 30px;
+}
+
+.settings-subtitle {
+	font-weight: 500;
+	font-size: 2.1rem;
+	color: #00c4ff;
+	
+}
+
+.settings-subtitle-line2 {
+	margin-top: -10px;
+}
+
+.settings-text {
+	font-size: 1.05rem;
+	color: #383838;
+}
+
+.setting-date {
+	color: #2b80ff;
+	font-weight: 500;
+	font-size: 1.10rem;
+}
+
+
+.buttons-container-2 {
+	display: none;
+}
+
+.add-picture {
+	margin-top: 0px;
+	height: 50px;
+	background-color: white;
+	color: #2b80ff;
+	font-weight: 500;
+	font-size: 1.09rem;
 	border: 1px solid #2b80ff;
-	border-radius: 0.425rem;
-	margin-top: 50px;
+	border-radius: 0.325rem;
+	width: 160px;
+	transition: background-color 0.5s;
+}
+
+.add-picture:hover {
+	background-color: #2b80ff;
+	color: white;
+}
+
+.change-password {
+	height: 50px;
+	background-color: white;
+	color: #2b80ff;
+	font-weight: 500;
+	font-size: 1.09rem;
+	border: 1px solid #2b80ff;
+	border-radius: 0.325rem;
+	width: 160px;
+	margin-left: 4px;
+	transition: background-color 0.5s;
+}
+
+.change-password:hover {
+	background-color: #2b80ff;
+	color: white;
+}
+
+.update-verifications {
+	height: 50px;
+	background-color: white;
+	color: #2b80ff;
+	font-weight: 500;
+	font-size: 1.09rem;
+	border: 1px solid #2b80ff;
+	border-radius: 0.325rem;
+	width: 192px;
+	margin-left: 4px;
+	transition: background-color 0.5s;
+}
+
+.update-verifications:hover {
+	background-color: #2b80ff;
+	color: white;
+}
+
+.delete-account {
+	height: 50px;
+	background-color: white;
+	color: red;
+	font-weight: 500;
+	font-size: 1.09rem;
+	border: 1px solid red;
+	border-radius: 0.325rem;
+	width: 140px;
+	margin-left: 4px;
+	transition: background-color 0.5s;
+}
+
+.delete-account:hover {
+	background-color: red;
+	color: white;
+}
+
+
+.add-picture-2 {
+	margin-top: 0px;
+	height: 50px;
+	background-color: white;
+	color: #2b80ff;
+	font-weight: 500;
+	font-size: 1.09rem;
+	border: 1px solid #2b80ff;
+	border-radius: 0.325rem;
+	width: 192px;
+	transition: background-color 0.5s;
+}
+
+.add-picture-2:hover {
+	background-color: #2b80ff;
+	color: white;
+}
+
+.change-password-2 {
+	height: 50px;
+	background-color: white;
+	color: #2b80ff;
+	font-weight: 500;
+	font-size: 1.09rem;
+	border: 1px solid #2b80ff;
+	border-radius: 0.325rem;
+	width: 192px;
+	margin-left: 4px;
+	transition: background-color 0.5s;
+}
+
+.change-password-2:hover {
+	background-color: #2b80ff;
+	color: white;
+}
+
+.update-verifications-2 {
+	height: 50px;
+	background-color: white;
+	color: #2b80ff;
+	font-weight: 500;
+	font-size: 1.09rem;
+	border: 1px solid #2b80ff;
+	border-radius: 0.325rem;
+	width: 192px;
+	transition: background-color 0.5s;
+	margin-top: 10px;
+}
+
+.update-verifications-2:hover {
+	background-color: #2b80ff;
+	color: white;
+}
+
+.delete-account-2 {
+	height: 50px;
+	background-color: white;
+	color: red;
+	font-weight: 500;
+	font-size: 1.09rem;
+	border: 1px solid red;
+	border-radius: 0.325rem;
+	width: 192px;
+	margin-left: 4px;
+	transition: background-color 0.5s;
+}
+
+.delete-account-2:hover {
+	background-color: red;
+	color: white;
+}
+
+.button-text-2 {
+	display: none;
 }
 
 .subsection-title {
@@ -749,6 +923,15 @@ require('actions/users/bannedAction.php');
 	font-size: 2.01rem;
 	color: black;
 }
+
+.name-2 {
+	display: none;
+}
+
+.title-2 {
+	display: none;
+}
+
 
 .checkmark {
 	height: 15px;
@@ -781,8 +964,8 @@ require('actions/users/bannedAction.php');
 	height: 50px;
 	background-color: #2b80ff;
 	color: white;
-	font-size: 1.01rem;
-	font-weight: bold;
+	font-size: 1.11rem;
+	font-weight: 500;
 	border: 0;
 	border-radius: 0.325rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
@@ -934,11 +1117,12 @@ require('actions/users/bannedAction.php');
 
 .delete-image-button {
 	margin-top: 10px;
-	height: 35px;
+	height: 45px;
+	width: 200px;
 	background-color: #2b80ff;
 	color: white;
-	font-size: 1.01rem;
-	font-weight: bold;
+	font-size: 1.11rem;
+	font-weight: 500;
 	border: 0;
 	border-radius: 0.325rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
@@ -1019,8 +1203,8 @@ require('actions/users/bannedAction.php');
 
 .popup-title {
 	font-weight: 500;
-	font-size: 1.52rem;
-	color: #383838;
+	font-size: 1.8rem;
+	color: black;
 }
 
 .popup-input {
@@ -1058,8 +1242,8 @@ require('actions/users/bannedAction.php');
 	height: 50px;
 	background-color: #00c4ff;
 	color: white;
-	font-size: 1.01rem;
-	font-weight: bold;
+	font-size: 1.11rem;
+	font-weight: 500;
 	border: 0;
 	border-radius: 0.325rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
@@ -1073,17 +1257,17 @@ require('actions/users/bannedAction.php');
 .input-title {
 	margin-bottom: -28px;
 	margin-top: 45px;
-	font-weight: 500;
+	font-size: 1.2rem;
 }
 
 .cancel-button {
 	margin-top: 50px;
-	width: 25%;
-	height: 35px;
+	width: 150px;
+	height: 40px;
 	background-color: red;
 	color: white;
-	font-size: 1.01rem;
-	font-weight: bold;
+	font-size: 1.11rem;
+	font-weight: 500;
 	border: 0;
 	border-radius: 0.325rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
@@ -1261,15 +1445,6 @@ require('actions/users/bannedAction.php');
 		margin-left: 2.5%;
 	}
 	
-	.column-112 {
-		margin-left: 40%;
-	}
-	
-	.column-113 {
-		margin-left: 75%;
-		width: 25%;
-	}
-	
 }
 
 @media screen and (max-width: 1235px) {
@@ -1287,6 +1462,7 @@ require('actions/users/bannedAction.php');
 		margin-left: 10%;
 	}
 	
+	
 	.column-1 {
 		
 	}
@@ -1298,6 +1474,7 @@ require('actions/users/bannedAction.php');
 	
 	.column-3 {
 		margin-left: 75%;
+		width: 25%;
 	}
 	  
 	.column-4 {
@@ -1319,37 +1496,30 @@ require('actions/users/bannedAction.php');
 		margin-top: 50px;
 		margin-left: 0%;
 		width: 49%;
+		height: 260px;
 	}
 	
 	.payment-details {
 		margin-left: 51%;
 		width: 49%;
+		height: 260px;
+		margin-top: -262px;
+	}
+	
+	.column-12-verifications {
+		width: 45%;
+	}
+	
+	.account-settings {
+		margin-top: 60px;
 	}
 	
 }
 
-@media screen and (max-width: 1160px) {
-	
 
-	.column-112 {
-		margin-left: 43%;
-	}
-	
-	.column-113 {
-		margin-left: 78%;
-	}
-	
-}
 
 @media screen and (max-width: 1095px) {
 	
-	.column-113 {
-		display: none;
-	}
-	
-	.column-112 {
-		margin-left: 60%;
-	}
 	
 	.title-part2 {
 		display: none;
@@ -1388,39 +1558,676 @@ require('actions/users/bannedAction.php');
 	
 	.column-12-verifications {
 		margin-left: 50%;
+		width: 51%;
 	}
+	
+	.main {
+		margin-top: 135px;
+	}
+	
+	.user-title {
+		margin-bottom: 50px;
+	}
+	
+	
+}
+
+@media screen and (max-width: 780px) {
+	
+	.your-word {
+		display: none;
+	}
+	
+	.column-12 {
+		margin-left: 60%;
+		width: 40%;
+	}
+	
+	.title {
+		font-size: 2.7rem;
+		margin-bottom: 40px;
+	}
+	
+	.subsection-title-dashboard {
+		font-size: 1.8rem;
+	}
+	
+	.subsection-title {
+		font-size: 1.8rem;
+	}
+	
+	.settings-title {
+		font-size: 2.7rem;
+	}
+	
+	.settings-subtitle {
+		font-size: 1.8rem;
+	}
+	
+	.setting-date {
+		font-size: 1.05rem;
+	}
+	
 }
 
 @media screen and (max-width: 735px) {
+	
+
+	.borrowing-activity {
+		width: 46%;
+	}
+	
+	.verifications {
+		width: 52%;
+		margin-left: 48%;
+	}
+	
+	.profile-trust {
+		width: 46%;
+	}
+	
+	.payment-details {
+		width: 52%;
+		margin-left: 48%;
+	}
+	
+}
+
+@media screen and (max-width: 725px) {
+	
+	.add-picture {
+		width: 159px;
+	}
+
+
+	.change-password {
+		width: 157px;
+		margin-left: 3px;
+	}
+
+
+	.update-verifications {
+		width: 192px;
+		margin-left: 3px;
+	}
+
+
+	.delete-account {
+		width: 132px;
+		margin-left: 3px;
+	}
+
+}
+
+@media screen and (max-width: 714px) {
+	
+	
+	.main {
+		width: 80%;
+		margin-left: 10%;
+		margin-top: 128px;
+	}
+	
+	.dashboard {
+		height: 275px;
+	}
+
+	
+	.borrowing-activity {
+		width: 100%;
+		margin-top: 30px;
+		height: 275px;
+	}
+	
+	.verifications {
+		width: 100%;
+		margin-left: 0%;
+		margin-top: 30px;
+		height: 245px;
+	}
+	
+	.profile-trust {
+		width: 100%;
+		margin-top: 30px;
+	}
+	
+	.payment-details {
+		width: 100%;
+		margin-left: 0%;
+		margin-top: 30px;
+		height: 235px;
+	}
 	
 	.column-3 {
 		display: none;
 	}
 	
-	.borrowing-activity {
-		width: 100%;
+	.column-1 {
+		width: 50%;
 	}
 	
-	.verifications {
-		margin-top: 50px;
-		margin-left:  0%;
-		width: 100%;		
+	.column-2 {
+		margin-left: 50%;
+		width: 50%;
 	}
 	
-	.profile-trust {
-		margin-top: 50px;
-		margin-left:  0%;
-		width: 100%;		
+	.column-300 {
+		display: block;
+		margin-left: 20px;
+		width: 50%;
 	}
 	
-	.payment-details {
-		margin-top: 50px;
-		margin-left:  0%;
-		width: 100%;		
+	.borrowing-container {
+		width: 50%;
+		margin-left: 50%;
+		margin-top: -185px;
+	}
+	
+	.title-1 {
+		display: none;
+	}
+	
+	.title-2 {
+		display: inline;
+	}
+	
+	.account-settings {
+		margin-top: 30px;
+	}
+	
+	.buttons-container-2 {
+		display: block;
+	}
+	
+	.buttons-container-1 {
+		display: none;
 	}
 	
 }
 
+@media screen and (max-width: 680px) {
+	
+	.main {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+	
+}
+
+@media screen and (max-width: 640px) {
+	
+	.main {
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+}
+
+@media screen and (max-width: 610px) {
+	
+	.main {
+		width: calc(96% - 2px);
+		margin-left: 2%;
+		margin-top: 120px;
+	}
+
+	.column-1 {
+		width: 55%;
+	}
+	
+	.column-2 {
+		margin-left: 55%;
+		width: 45%;
+	}
+	
+	.column-300 {
+		display: block;
+		margin-left: 20px;
+		width: 55%;
+	}
+	
+	.borrowing-container {
+		width: 45%;
+		margin-left: 55%;
+	}
+
+}
+
+@media screen and (max-width: 510px) {
+	
+	.column-1 {
+		width: 60%;
+	}
+	
+	.column-2 {
+		margin-left: 60%;
+		width: 40%;
+	}
+	
+	.column-300 {
+		display: block;
+		margin-left: 20px;
+		width:60%;
+	}
+	
+	.borrowing-container {
+		width: 40%;
+		margin-left: 60%;
+	}
+	
+	.returns-1 {
+		display: none;
+	}
+	
+	.returns-2 {
+		display: inline;
+	}
+	
+	.title {
+		font-size: 2.5rem;
+		margin-bottom: 40px;
+	}
+	
+	.subsection-title-dashboard {
+		font-size: 1.7rem;
+	}
+	
+	.subsection-title {
+		font-size: 1.7rem;
+	}
+	
+	.settings-title {
+		font-size: 2.5rem;
+	}
+	
+	.settings-subtitle {
+		font-size: 1.7rem;
+	}
+	
+	.setting-date {
+		font-size: 1.05rem;
+	}
+	
+	.edit-profile-picture-div {
+		width: calc(90% - 60px);
+		margin-left: 5%;
+		margin-top: calc(50vh - 220px);
+	}
+
+	.edit-profile-picture-div-visible {
+		width: calc(90% - 60px);
+		margin-left: 5%;
+		margin-top: calc(50vh - 220px);
+	}
+	
+	.change-password-div {
+		width: calc(90% - 60px);
+		margin-left: 5%;
+		margin-top: calc(50vh - 240px);
+	}
+
+	.change-password-div-visible {
+		width: calc(90% - 60px);
+		margin-left: 5%;
+		margin-top: calc(50vh - 240px);
+	}
+
+	.change-email-div {
+		width: calc(90% - 60px);
+		margin-left: 5%;
+		margin-top: calc(50vh - 230px);
+	}
+
+	.change-email-div-visible {
+		width: calc(90% - 60px);
+		margin-left: 5%;
+		margin-top: calc(50vh - 230px);
+	}
+
+	.delete-account-div {
+		width: calc(90% - 60px);
+		margin-left: 5%;
+		margin-top: calc(50vh - 220px);
+	}
+
+	.delete-account-div-visible {
+		width: calc(90% - 60px);
+		margin-left: 5%;
+		margin-top: calc(50vh - 220px);
+	}
+	
+	.name-2 {
+		display: inline;
+	}
+	
+	.name-1 {
+		display: none;
+	}
+
+}
+
+
+@media screen and (max-width: 450px) {
+
+	.main {
+		margin-top: 110px;
+	}
+
+	.title {
+		font-size: 2.3rem;
+		margin-bottom: 40px;
+	}
+
+	
+	.subsection-title-dashboard {
+		font-size: 1.7rem;
+	}
+	
+	.subsection-title {
+		font-size: 1.7rem;
+	}
+	
+	.settings-title {
+		font-size: 2.3rem;
+	}
+	
+	.settings-subtitle {
+		font-size: 1.7rem;
+	}
+	
+	.setting-date {
+		font-size: 1.05rem;
+	}
+	
+	.account-settings {
+		margin-bottom: 70px;
+	}
+	
+	.input-title {
+		margin-top: 35px;
+	}
+	
+}
+
+@media screen and (max-width: 420px) {
+	
+	.column-1 {
+		margin-left: 10px;
+	}
+	
+	.column-2 {
+		margin-left: 57%;
+		width: 43%;
+	}
+	
+	.column-300 {
+		margin-left: 10px;
+	}
+	
+	.borrowing-container {
+		width: 43%;
+		margin-left: 57%;
+	}
+	
+	.title-2 {
+		margin-left: -10px;
+	}
+	
+	.add-picture-2 {
+		width: calc(49% - 2px);
+	}
+
+
+	.change-password-2 {
+		font-weight: 500;
+		font-size: 1.09rem;
+		width: calc(48.9% - 2px);
+		margin-left: 2%;
+	}
+
+
+	.update-verifications-2 {
+		font-weight: 500;
+		font-size: 1.09rem;
+		width: calc(49% - 2px);
+	}
+
+	.delete-account-2 {
+		font-weight: 500;
+		font-size: 1.09rem;
+		width: 160px;
+		margin-left: 2%;
+		width: calc(48.9% - 2px);
+	}
+	
+	.edit-profile-picture-div {
+		width: calc(90% - 30px);
+		margin-left: 5%;
+		padding: 15px;
+	}
+
+	.edit-profile-picture-div-visible {
+		width: calc(90% - 30px);
+		margin-left: 5%;
+		padding: 15px;
+	}
+	
+	.change-password-div {
+		width: calc(90% - 30px);
+		margin-left: 5%;
+		padding: 15px;
+	}
+
+	.change-password-div-visible {
+		width: calc(90% - 30px);
+		margin-left: 5%;
+		padding: 15px;
+	}
+
+	.change-email-div {
+		width: calc(90% - 30px);
+		margin-left: 5%;
+		padding: 15px;
+	}
+
+	.change-email-div-visible {
+		width: calc(90% - 30px);
+		margin-left: 5%;
+		padding: 15px;
+	}
+
+	.delete-account-div {
+		width: calc(90% - 30px);
+		margin-left: 5%;
+		padding: 15px;
+	}
+
+	.delete-account-div-visible {
+		width: calc(90% - 30px);
+		margin-left: 5%;
+		padding: 15px;
+	}
+
+	
+}
+
+@media screen and (max-width: 410px) {
+
+	.title {
+		font-size: 2.1rem;
+		margin-bottom: 40px;
+	}
+	
+	.subsection-title-dashboard {
+		font-size: 1.6rem;
+	}
+	
+	.subsection-title {
+		font-size: 1.6rem;
+	}
+	
+	.settings-title {
+		font-size: 2.1rem;
+	}
+	
+	.settings-subtitle {
+		font-size: 1.6rem;
+	}
+	
+}
+
+@media screen and (max-width: 385px) {
+	
+	.main-text {
+		font-size: 1.05rem;
+	}
+	
+	.borrowing-container {
+		width: 45%;
+		margin-left: 55%;
+		margin-top: -182px;
+	}
+	
+	
+}
+
+@media screen and (max-width: 374px) {
+
+	.title {
+		font-size: 1.9rem;
+		margin-bottom: 40px;
+	}
+	
+	.subsection-title-dashboard {
+		font-size: 1.5rem;
+	}
+	
+	.subsection-title {
+		font-size: 1.6rem;
+	}
+	
+	.settings-title {
+		font-size: 1.9rem;
+	}
+	
+	.settings-subtitle {
+		font-size: 1.6rem;
+	}
+
+}
+
+@media screen and (max-width: 359px) {
+	
+	.under-verification-text2 {
+		display: inline;
+	}
+
+	.under-verification-text1 {
+		display: none;
+	}
+	
+	.main {
+		margin-top: 105px;
+	}
+	
+}
+
+@media screen and (max-width: 349px) {
+	
+	.last-word {
+		display: none;
+	}
+	
+	.borrowing-container {
+		width: 35%;
+		margin-left: 65%;
+	}
+	
+	.column-2 {
+		margin-left: 65%;
+		width: 35%;
+	}
+	
+	
+	.button-text-2 {
+		display: block;
+	}
+
+	.button-text-1 {
+		display: none;
+	}
+	
+	.popup-title {
+		font-size: 1.6rem;
+	}
+	
+	.popup-delete-image {
+		font-size: 1.05rem;
+	}
+	
+}
+
+@media screen and (max-width: 340px) {
+
+	.title {
+		font-size: 1.8rem;
+		margin-bottom: 40px;
+	}
+	
+	.subsection-title-dashboard {
+		font-size: 1.4rem;
+	}
+	
+	.subsection-title {
+		font-size: 1.6rem;
+	}
+	
+	.settings-title {
+		font-size: 1.8rem;
+	}
+	
+	.settings-subtitle {
+		font-size: 1.6rem;
+	}
+	
+	.payment-method {
+		font-size: 1.04rem;
+	}
+
+}
+
+@media screen and (max-width: 335px) {
+	
+	.main {
+		margin-top: 95px;
+	}
+	
+}
+
+@media screen and (max-width: 325px) {
+
+	.title {
+		font-size: 1.75rem;
+		margin-bottom: 40px;
+	}
+	
+	.subsection-title-dashboard {
+		font-size: 1.4rem;
+	}
+	
+	.subsection-title {
+		font-size: 1.6rem;
+	}
+	
+	.settings-title {
+		font-size: 1.8rem;
+	}
+	
+	.settings-subtitle {
+		font-size: 1.6rem;
+	}
+	
+}
 
 </style>
 
@@ -2001,7 +2808,7 @@ require('actions/users/bannedAction.php');
 						
 						<div class="change-password-div<?= $visible_onload_changepassword; ?>" id="change-password-div">
 							<form method="post">
-							<span class="popup-title">Change your Password</span>
+							<span class="popup-title">Change Password</span>
 							<div>
 							<div class="input-title">Current Password</div>
 							<input id="popup_input" class="popup-input" name="current_password" type="password" required>
@@ -2029,7 +2836,7 @@ require('actions/users/bannedAction.php');
 						
 						<div class="change-email-div<?= $visible_onload_changeemail; ?>" id="change-email-div">
 							<form method="post">
-							<span class="popup-title">Change your Email</span>
+							<span class="popup-title">Change Email</span>
 							<div>
 							<div class="input-title">Password</div>
 							<input id="popup_input3" class="popup-input" name="emailchange_password" type="password" required>
@@ -2083,12 +2890,12 @@ require('actions/users/bannedAction.php');
 
 	<div class="user-title">
 		<img onclick="ProfilePicturePopup()" src="assets/images/profile-images/<?= $profile_picture; ?>" class="profile-picture">
-		<p class="subsection-title-dashboard"><?= $_SESSION['name']; ?></p>
+		<p class="subsection-title-dashboard"><span class="name-1"><?= mb_strimwidth($_SESSION['name'], 0, 30, "..."); ?></span><span class="name-2"><?= mb_strimwidth($_SESSION['name'], 0, 23, "..."); ?></span></p>
 	</div>
 
 	<div class="dashboard">
 	
-		<p class="subsection-title">Your Activity</p>
+		<p class="subsection-title"><span class="title-1">Your Activity</span><span class="title-2">Lending Activity</span></p>
 	
 		<div class="column-1">
 		<p class="main-text">Amount Lent<br><span class="main-subtext"><?php echo ''.ROUND($getLentAmountMessage).'';?>$</span><a href="profile-lent-loans.php" style="text-decoration: none;"><span style="color: red;"> <?php echo ''.$AllLentCountMessage.'';?> <?php echo ''.$singular2.'';?></span></a></p>
@@ -2096,7 +2903,7 @@ require('actions/users/bannedAction.php');
 		</div>
 		<div class="column-2">
 		<p class="main-text">Total Profit<br><span class="main-subtext"><?php echo ''.ROUND($getRepayedAmountMessage-$getLentAmountMessage).'';?>$</span></p>
-		<p class="main-text">Return On Investement<br><span class="main-subtext"><?php echo ''.ROUND((($getRepayedAmountMessage/$getLentAmountMessage)-1)*100).'';?>%</span></p>
+		<p class="main-text"><span class="returns-1">Return On Investement</span><span class="returns-2"><span class="last-word">Average </span>Return</span><br><span class="main-subtext"><?php echo ''.ROUND((($getRepayedAmountMessage/$getLentAmountMessage)-1)*100).'';?>%</span></p>
 		</div>
 		<div class="column-3">
 		<p class="main-text">Amount Borrowed<br><span class="main-subtext"><?php echo ''.ROUND($getBorrowedAmountMessage).'';?>$</span><a href="profile-borrowed-loans.php" style="text-decoration: none;"><span  style="color: red;"> <?php echo ''.$AllCountMessage.'';?> <?php echo ''.$singular1.'';?></span></a></p>
@@ -2111,16 +2918,19 @@ require('actions/users/bannedAction.php');
 	
 	<div class="borrowing-activity">
 	
-		<p class="subsection-title">Despacito</p>
+		<p class="subsection-title"><span class="title-1">Ongoing Loans</span><span class="title-2">Borrowing Activity</span></p>
+		
+		<div class="column-300">
+		<p class="main-text">Amount Borrowed<br><span class="main-subtext"><?php echo ''.ROUND($getBorrowedAmountMessage).'';?>$</span><a href="profile-borrowed-loans.php" style="text-decoration: none;"><span  style="color: red;"> <?php echo ''.$AllCountMessage.'';?> <?php echo ''.$singular1.'';?></span></a></p>
+		<p class="main-text">Amount Repaid<br><span class="main-subtext"><?php echo ''.ROUND(($getRepayedBorrowedAmountMessage/$getSupposedRepaymentBorrowedAmountMessage)*100).'';?>%</span></p>
+		</div>
 	
-		<div class="column-11">
-			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Email<br><img class="checkmark" src="<?php if(isset($checkmark4)){echo ''.$checkmark4.'';}else {echo ''.$cross4.'';}?>"><span class="verification-box2"><?php if(isset($verified_email)){echo ''.$verified_email.'';}?></span><span class="verification-box"><?php if(isset($not_verified_email)){echo ''.$not_verified_email.'';}?></span></p></a>
-			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Phone Number<br><img class="checkmark" src="<?php if(isset($checkmark1)){echo ''.$checkmark1.'';}else {echo ''.$cross1.'';}?>"><span class="verification-box2"><?php if(isset($verified_phone)){echo ''.$verified_phone.'';}?></span><span class="verification-box"><?php if(isset($not_verified_phone)){echo ''.$not_verified_phone.'';}?></span></p></a>
+		<div class="borrowing-container">
+		<a href="active-loans.php" style="text-decoration: none; color: black;"><p class="main-text"><span class="main-subtext"><?php echo ''.$activeCountMessage.'';?></span> Active<span class="last-word"> <?php echo ''.$singular3.'';?></span></p></a>
+		<a href="loan-requests.php" style="text-decoration: none; color: black;"><p class="main-text"><span class="main-subtext"><?php echo ''.$requestCountMessage.'';?></span><span class="last-word"> Loan</span> <?php echo ''.$singular4.'';?></p></a>
+		<a href="unpaid-loans.php" style="text-decoration: none; color: black;"><p class="main-text"><span class="main-subtext"><?php echo ''.$unpaidCountMessage.'';?></span> Unpaid <span class="last-word"><?php echo ''.$singular5.'';?></span></p></a>
 		</div>
-		<div class="column-12">
-			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Address<br><img class="checkmark" src="<?php if(isset($checkmark2)){echo ''.$checkmark2.'';}else {echo ''.$cross2.'';}?>"><span class="verification-box2"><?php if(isset($verified_address)){echo ''.$verified_address.'';}?></span><span class="verification-box"><?php if(isset($not_verified_address)){echo ''.$not_verified_address.'';}?></span></p></a>
-			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">ID & Picture<br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}elseif(isset($cross31)){echo ''.$cross31.'';}else {echo ''.$cross3.'';}?>"><span class="verification-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="verification-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span><span class="verification-box3"><?php if(isset($underverification_idcard)){echo ''.$underverification_idcard.'';}?></span></p></a>
-		</div>
+		
 	</div>		
 	
 	<div class="verifications">
@@ -2133,7 +2943,7 @@ require('actions/users/bannedAction.php');
 		</div>
 		<div class="column-12-verifications">
 			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">Address<br><img class="checkmark" src="<?php if(isset($checkmark2)){echo ''.$checkmark2.'';}else {echo ''.$cross2.'';}?>"><span class="verification-box2"><?php if(isset($verified_address)){echo ''.$verified_address.'';}?></span><span class="verification-box"><?php if(isset($not_verified_address)){echo ''.$not_verified_address.'';}?></span></p></a>
-			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">ID & Picture<br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}elseif(isset($cross31)){echo ''.$cross31.'';}else {echo ''.$cross3.'';}?>"><span class="verification-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="verification-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span><span class="verification-box3"><?php if(isset($underverification_idcard)){echo ''.$underverification_idcard.'';}?></span></p></a>
+			<a href="verifications.php" style="text-decoration: none;"><p style="color: black;">ID & Picture<br><img class="checkmark" src="<?php if(isset($checkmark3)){echo ''.$checkmark3.'';}elseif(isset($cross31)){echo ''.$cross31.'';}else {echo ''.$cross3.'';}?>"><span class="verification-box2"><?php if(isset($verified_idcard)){echo ''.$verified_idcard.'';}?></span><span class="verification-box"><?php if(isset($not_verified_idcard)){echo ''.$not_verified_idcard.'';}?></span><span class="verification-box3"><span class="under-verification-text1"><?php if(isset($underverification_idcard)){echo ''.$underverification_idcard.'';}?></span><span class="under-verification-text2"><?php if(isset($underverification_idcard2)){echo ''.$underverification_idcard2.'';}?></span></span></p></a>
 		</div>
 	</div>
 	
@@ -2146,7 +2956,7 @@ require('actions/users/bannedAction.php');
 			<div style="margin-top: 15px;"><span>Negative feedback</br><img class="thumbs-down" src="assets/images/negative.png"><span style="font-weight: bold; font-size: 1.35rem;"><?php echo ''.$negative_feedback.'';?></span></span></div>
 		</div>
 		<div class="column-12">
-			<div style= "margin-top: 15px;"><span style="font-weight: 500; font-size: 1.15rem;">Your Trust Score</span></br><span style="font-size: 1.35rem; font-weight: bold; color: #00c4ff;"><?php echo ''.ROUND($trustscore6).'';?>/100</span></div>
+			<div style= "margin-top: 15px;"><span style="font-weight: 500; font-size: 1.15rem;"><span class="your-word">Your </span>Trust Score</span></br><span style="font-size: 1.45rem; font-weight: 500; color: <?= $trustscore_color; ?>;"><?php echo ''.ROUND($trustscore6).'';?>/100</span></div>
 		</div>
 	</div>
 	
@@ -2165,28 +2975,28 @@ require('actions/users/bannedAction.php');
 		</div>
 	</div>
 	<div class="account-settings">
-	
-		<p class="subsection-title">Account Details<span class="title-part2"> & Settings</span></p>
-	
-		<div class="column-111">
-			<p>Name: <span class="user-details"><?= $_SESSION['name']; ?></span></p>
-			<p>Username: <span class="user-details"><?= $_SESSION['username']; ?></span></p>
-			<p>Email: <span class="user-details"><?= $_SESSION['email']; ?></span></p>
-			<p>Phone Number: <span class="user-details"><?= $row['phone_number']; ?></span></p>
-		</div>
-		<div class="column-112">
-			<p>Address: <span class="user-details"><?= $row['address']; ?></span></p>
-			<p>City: <span class="user-details"><?= $row['city']; ?></span></p>
-			<p>Country: <span class="user-details"><?= $row['country']; ?></span></p>
-			<p>Member Since: <span class="user-details"><?= date('M jS, Y', strtotime($user_join_date)); ?></span></p>
-		</div>
-		<div class="column-113" style="font-weight: 500;">
-			<p class="add-picture" onclick="ProfilePicturePopup()"><?= $addOrEdit; ?> Profile Picture</p>
-			<p class="change-password" onclick="ChangePasswordPopup()">Change Password</p>
-			<p class="update-verifications" onclick="ChangeEmailPopup()">Change Email Address</p>
-			<p class="delete-account" style="color: red;" onclick="DeleteAccountPopup()">Delete Account</p>
-		</div>
+		<p class="settings-title">Account Settings</span></p>
+			
+			<p><span class="settings-subtitle"><span class="name-1"><?= mb_strimwidth($_SESSION['username'], 0, 18, "..."); ?></span><span class="name-2"><?= mb_strimwidth($_SESSION['username'], 0, 15, "..."); ?></span></span></p>
+			<p class="settings-subtitle-line2"><span class="settings-text">Member Since </span><span class="setting-date"><?= date('M jS, Y', strtotime($user_join_date)); ?></span></p>
+			
+			<div class="buttons-container-1">
+			<button class="add-picture" onclick="ProfilePicturePopup()"><?= $addOrEdit; ?> Profile Picture</button>
+			<button class="change-password" onclick="ChangePasswordPopup()">Change Password</button>
+			<button class="update-verifications" onclick="ChangeEmailPopup()">Change Email Address</button>
+			<button class="delete-account" onclick="DeleteAccountPopup()">Delete Account</button>
+			</div>
+			
+			<div class="buttons-container-2">
+			<button class="add-picture-2" onclick="ProfilePicturePopup()"><span class="button-text-1"><?= $addOrEdit; ?> Profile Picture</span><span class="button-text-2"><?= $addOrEdit; ?> Profile</br>Picture</span></button>
+			<button class="change-password-2" onclick="ChangePasswordPopup()"><span class="button-text-1">Change Password</span><span class="button-text-2">Change</br>Password</span></button>
+			</br>
+			<button class="update-verifications-2" onclick="ChangeEmailPopup()">Change Email</button>
+			<button class="delete-account-2" onclick="DeleteAccountPopup()">Delete Account</button>
+			</div>
+			
 	</div>
+	
 </div>
 
 

@@ -457,6 +457,7 @@ require('actions/users/bannedAction.php');
 	font-weight: 500;
 	font-size: 1.1rem;
 	color: #2b80ff;
+	overflow-wrap: break-word;
 }
 
 
@@ -838,6 +839,10 @@ require('actions/users/bannedAction.php');
 	.payment2 {
 		height: 545px;
 	}
+	
+	.subtext3 {
+		font-size: 1rem;
+	}
 
 }
 
@@ -879,6 +884,10 @@ require('actions/users/bannedAction.php');
 	}
 	
 	.chat-button {
+		margin-left: 10px;
+	}
+	
+	.chat-text-name {
 		margin-left: 10px;
 	}
 
@@ -936,7 +945,7 @@ require('actions/users/bannedAction.php');
 @media screen and (max-width: 366px) {
 
 	.payment2 {
-		height: 582px;
+		height: 595px;
 	}
 
 }
@@ -972,6 +981,10 @@ require('actions/users/bannedAction.php');
 	
 	.popup-img {
 		max-height: 250px;
+	}
+	
+	.subtext3 {
+		font-size: 0.96rem;
 	}
 	
 }
@@ -1431,7 +1444,7 @@ require('actions/users/bannedAction.php');
 	<div class="phone-number-div" id="phone-number-div">
 		<div class="subtitle-popup"><span>Contact Borrower</span></div>
 		<p class="popup-text">Phone Number:</p>
-		<p class="popup-phone-text"><?= $phone_number_display; ?></p>
+		<p class="popup-phone-text"><?= mb_strimwidth($phone_number_display, 0, 26, "..."); ?></p>
 		<div class="popup-text"><span style="color: red;">Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
 		<button class="close-button" onclick="ClosePopup()">Close</button>
 	</div>	
@@ -1442,7 +1455,7 @@ require('actions/users/bannedAction.php');
 	<div class="image-div" id="image-div">
 		<div class="subtitle-popup2"><span>Borrower ID Picture</span></div>
 		<img src="assets/images/id-pictures/<?= $borrower_picture; ?>" class="popup-img">
-		<div class="popup-text2"><span>This is a Picture of <?= $name; ?>.</br>Instant Borrow gives as much Information as possible about the Borrower to facilitate the Repayment Process.</span></div>
+		<div class="popup-text2"><span style="overflow-wrap: break-word;">This is a Picture of <span style="font-weight: 500"><?= mb_strimwidth($name, 0, 50, "..."); ?></span>.</br>Instant Borrow gives as much Information as possible about the Borrower to facilitate the Repayment Process.</span></div>
 		<button class="close-button2" onclick="ImageClose()">Close</button>
 	</div>	
 </div>
@@ -1457,33 +1470,33 @@ require('actions/users/bannedAction.php');
 		</div>
 		<div class="column-2">
 		<div class="text"><span class="agreed-word">Agreed </span>Repayment Date</br><span class="subtext2" style="color: red;"><span class="date-type-1"><?= date('M jS, Y', strtotime($repayment_date)); ?></span><span class="date-type-2"><?= date('j M Y', strtotime($repayment_date)); ?></span></span></div>
-		<div class="text"  style="margin-top: 24px;">Borrower</br><a href="profile-user.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span class="subtext2"><?= mb_strimwidth($username_borrower, 0, 14, "..."); ?></span></a></div>
+		<div class="text"  style="margin-top: 24px;">Borrower</br><a href="profile-user.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span class="subtext2"><?= mb_strimwidth($username_borrower, 0, 13, "..."); ?></span></a></div>
 		</div>
 	</div>
 	
 	<div class="payment2">
 		<div class="subtitle-chat" style="margin-bottom: 30px;"><span>Borrower Details</span></div>
-		<div class="chat-text" style="margin-top: 20px; margin-bottom: 30px;"><span class="subtext2"><?= mb_strimwidth($username_borrower, 0, 12, "..."); ?></span> Hasn't Repaid you. He will be <span style="color: red;">Banned</span> In 7 Days.</br>This is the Information we Have about him:</div>
-		<div class="chat-text-name" onclick="ImageOpen()">Full Name: </br><span class="subtext3"><?= $name; ?></span>&nbsp;<span class="link-round">🡕</span></div>
-		<div class="chat-text">Email Address: </br><span class="subtext3"><?= $email_address; ?></span></div>
-		<div class="chat-text">Phone Number: </br><span class="subtext3"><?= $phone_number; ?></span></div>
-		<div class="chat-text">Location: </br><span class="subtext3"><?= $city; ?>, <?= $country; ?></span></div>
+		<div class="chat-text" style="margin-top: 20px; margin-bottom: 30px;"><span class="subtext2"><?= mb_strimwidth($username_borrower, 0, 13, "..."); ?></span> Hasn't Repaid you. He will be <span style="color: red;">Banned</span> In 7 Days.</br>This is the Information we Have about him:</div>
+		<div class="chat-text-name" onclick="ImageOpen()">Full Name: </br><span class="subtext3"><?= mb_strimwidth($name, 0, 50, "..."); ?></span>&nbsp;<span class="link-round">🡕</span></div>
+		<div class="chat-text">Email Address: </br><span class="subtext3"><?= mb_strimwidth($email_address, 0, 50, "..."); ?></span></div>
+		<div class="chat-text">Phone Number: </br><span class="subtext3"><?= mb_strimwidth($phone_number, 0, 26, "..."); ?></span></div>
+		<div class="chat-text">Location: </br><span class="subtext3"><?= mb_strimwidth($city, 0, 50, "..."); ?>, <?= $country; ?></span></div>
 		<div class="chat-text" style="margin-top: 30px;">The Borrower will Always be Able to Repay you on His Account, even after being Banned.</div>
 	</div>
 	
 	<div class="chat-div">
-		<div class="subtitle-chat"><span>Contact <a href="profile-user.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span style="color: #00c4ff;"><?= mb_strimwidth($username_borrower, 0, 12, "..."); ?></span></a></span></div>
+		<div class="subtitle-chat"><span>Contact <a href="profile-user.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><span style="color: #00c4ff;"><?= mb_strimwidth($username_borrower, 0, 9, "..."); ?></span></a></span></div>
 		<div class="chat-text"><span style="color: red;">Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
 		<button class="chat-button" onclick="OpenPopup()">Contact</button>
 	</div>
 	
 	<div class="payment">
 		<div class="subtitle-chat" style="margin-bottom: 30px;"><span>Borrower Details</span></div>
-		<div class="chat-text" style="margin-top: 20px; margin-bottom: 30px;"><span class="subtext2"><?= mb_strimwidth($username_borrower, 0, 12, "..."); ?></span> Hasn't Repaid you. He will be <span style="color: red;">Banned</span> In 7 Days.</br>This is the Information we Have about him:</div>
-		<div class="chat-text-name" onclick="ImageOpen()">Full Name: </br><span class="subtext3"><?= $name; ?></span>&nbsp;<span class="link-round">🡕</span></div>
-		<div class="chat-text">Email Address: </br><span class="subtext3"><?= $email_address; ?></span></div>
-		<div class="chat-text">Phone Number: </br><span class="subtext3"><?= $phone_number; ?></span></div>
-		<div class="chat-text">Location: </br><span class="subtext3"><?= $city; ?>, <?= $country; ?></span></div>
+		<div class="chat-text" style="margin-top: 20px; margin-bottom: 30px;"><span class="subtext2"><?= mb_strimwidth($username_borrower, 0, 13, "..."); ?></span> Hasn't Repaid you. He will be <span style="color: red;">Banned</span> In 7 Days.</br>This is the Information we Have about him:</div>
+		<div class="chat-text-name" onclick="ImageOpen()">Full Name: </br><span class="subtext3"><?= mb_strimwidth($name, 0, 50, "..."); ?></span>&nbsp;<span class="link-round">🡕</span></div>
+		<div class="chat-text">Email Address: </br><span class="subtext3"><?= mb_strimwidth($email_address, 0, 50, "..."); ?></span></div>
+		<div class="chat-text">Phone Number: </br><span class="subtext3"><?= mb_strimwidth($phone_number, 0, 26, "..."); ?></span></div>
+		<div class="chat-text">Location: </br><span class="subtext3"><?= mb_strimwidth($city, 0, 50, "..."); ?>, <?= $country; ?></span></div>
 		<div class="chat-text" style="margin-top: 30px;">The Borrower will Always be Able to Repay you on His Account, even after being Banned.</div>
 	</div>
 

@@ -322,6 +322,86 @@ require('actions/users/bannedAction.php');
 	background-color: #00c4ff;
 }
 
+.popup-error {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	display: <?= $error_display; ?>;
+}
+
+.error-div {
+	background-color:  white;
+	color: black;
+	height: 140px; 
+	width: 370px;
+	text-align: center;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 70px);
+	border-radius: 0.325rem;
+	padding: 15px;
+}
+
+.error-text {
+	margin-top: 10px;
+	font-size: 1.1rem;
+}
+
+.popup-success {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	display: <?= $success_display; ?>;
+}
+
+.success-div {
+	background-color: white;
+	color: black;
+	height: 320px; 
+	width: 370px;
+	text-align: center;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 200px);
+	border-radius: 0.325rem;
+	padding: 15px;
+}
+
+.subtitle-success {
+	margin-top: 10px;
+	font-weight: 500;
+	font-size: 2.12rem;
+	color: black;
+}
+
+.success-image {
+	margin-top: 30px;
+	width: 35%;
+	height: auto;
+}
+
+.success-button {
+	margin-top: 30px;
+	height: 50px;
+	width: 300px;
+	background-color: #2b80ff;
+	color: white;
+	font-weight: 500;
+	font-size: 1.35rem;
+	border-radius: 0.325rem;
+	border: 0px;
+	outline: 0px;
+	transition: background-color 0.2s;
+}
+
+.success-button:hover {
+	background-color: #00c4ff;
+}
+
 .main {
 	margin-top: 160px;
 	margin-left: 10%;
@@ -333,7 +413,7 @@ require('actions/users/bannedAction.php');
 	border-radius: 0.425rem;
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	width: 49%;
 	height: 300px;
 }
@@ -342,7 +422,7 @@ require('actions/users/bannedAction.php');
 	border-radius: 0.425rem;
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 	width: calc(49% - 5px);
 	height: 200px;
 	margin-top: 50px;
@@ -444,7 +524,7 @@ require('actions/users/bannedAction.php');
 	border-radius: 0.425rem;
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	border: 1px solid #00c4ff;
+	border: 1px solid #2b80ff;
 }
 
 
@@ -557,29 +637,35 @@ require('actions/users/bannedAction.php');
 .warning {
 	font-size: 0.95rem;
 	color: red;
-	font-weight: 500;
 	margin-top: 35px;
 }
 
-.error {
-	margin-top: 20px;
-	color: white;
+
+.connect {
+	width: calc(100%);
+	margin-left: 0px;
+	margin-top: 17px;
+	color: #3d91e0;
+}
+
+.link-round {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-size: 0.87rem;
+	background-color: white;
+	color: #2b80ff;
+	border: 1px solid #2b80ff;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+
+.connect:hover .link-round{
 	background-color: #00c4ff;
-	text-align: center;
-	border-radius: 0.325rem;
-	font-weight: 500;
-}
-
-.success {
-	margin-top: 20px;
 	color: white;
-	background-color: #12d400;
-	border: 1px solid #12d400;
-	text-align: center;
-	border-radius: 0.325rem;
-	font-weight: 500;
+	border: 1px solid #00c4ff;
 }
-
 
 
 .footer {
@@ -889,6 +975,8 @@ require('actions/users/bannedAction.php');
 		padding: 20px;
 	}
 	
+
+	
 }
 
 @media screen and (max-width: 465px) {
@@ -899,6 +987,26 @@ require('actions/users/bannedAction.php');
 	
 	.subtitle-chat {
 		font-size: 1.9rem;
+	}
+	
+	.success-div {
+		height: 320px; 
+		width: calc(90% - 30px);
+		margin-left: 5%;
+	}
+	
+	.success-image {
+		width: 135px;
+	}
+	
+	.error-div {
+		width: calc(90% - 30px);
+		margin-left: 5%;
+	}
+
+	.error-text {
+		margin-top: 10px;
+		font-size: 1.1rem;
 	}
 	
 }
@@ -921,6 +1029,10 @@ require('actions/users/bannedAction.php');
 	
 	.subtitle-chat {
 		font-size: 1.7rem;
+	}
+	
+	.subtitle-success {
+		font-size: 1.9rem;
 	}
 	
 }
@@ -947,6 +1059,7 @@ require('actions/users/bannedAction.php');
 		margin-top: 5px;
 		font-size: 1.9rem;
 	}
+
 	
 }
 
@@ -986,6 +1099,23 @@ require('actions/users/bannedAction.php');
 		height: 50px;
 		width: 90%;
 	}
+
+	.success-button {
+		width: 90%;
+	}
+	
+	
+	.subtitle-success {
+		font-size: 1.8rem;
+	}
+	
+}
+
+@media screen and (max-width: 380px) {
+		
+	.error-div {
+		height: 175px;
+	}
 	
 }
 
@@ -1016,6 +1146,10 @@ require('actions/users/bannedAction.php');
 		padding-right: 2px;
 	}
 	
+	.subtitle-success {
+		font-size: 1.75rem;
+	}
+	
 }
 
 @media screen and (max-width: 355px) {
@@ -1044,6 +1178,11 @@ require('actions/users/bannedAction.php');
 	.submit-text {
 		font-size: 1.02rem;
 	}
+	
+	.subtitle-success {
+		font-size: 1.65rem;
+	}
+	
 
 }
 
@@ -1059,7 +1198,15 @@ require('actions/users/bannedAction.php');
 	.subtitle-popup {
 		font-size: 1.8rem;
 	}
-	
+		
+}
+
+@media screen and (max-width: 335px) {
+
+	.subtitle-success {
+		font-size: 1.55rem;
+	}
+
 }
 
 </style>
@@ -1524,14 +1671,28 @@ require('actions/users/bannedAction.php');
 
 
 
-<div class="popup-phone-number" id="popup-phone-number">
-	
+<div class="popup-phone-number" id="popup-phone-number">	
 	<div class="phone-number-div" id="phone-number-div">
 		<div class="subtitle-popup"><span>Contact Borrower</span></div>
 		<p class="popup-text">Phone Number:</p>
-		<p class="popup-phone-text"><?= $phone_number_display; ?></p>
+		<p class="popup-phone-text"><?= mb_strimwidth($phone_number_display, 0, 26, "..."); ?></p>
 		<div class="popup-text"><span style="color: red;">Never Lend Money without Establishing communication with the Borrower first.</span></div>
 		<button class="close-button" onclick="ClosePopup()">Close</button>
+	</div>	
+</div>
+
+<div class="popup-error" id="popup-error">
+	<div class="error-div" id="error-div">
+		<div class="error-text"><span>You Cannot Lend Money to yourself.</span></div>
+		<button class="close-button" onclick="CloseErrorPopup()">Close</button>
+	</div>	
+</div>
+
+<div class="popup-success">	
+	<div class="success-div">
+		<div class="subtitle-success"><span>Payment Confirmed</span></div>
+		<img class="success-image" src="assets/images/success.jpg">
+		<a href="dashboard.php"><button class="success-button">Go Home</button></a>
 	</div>	
 </div>
 
@@ -1547,7 +1708,7 @@ require('actions/users/bannedAction.php');
 		</div>
 		<div class="column-2">
 		<div class="text">Repayment<span class="date-word"> Date</span></br><span class="subtext2" style="color: red;"><span class="date-type1"><?= date('M jS, Y', strtotime($repayment_date)); ?></span><span class="date-type2"><?= date('j M Y', strtotime($repayment_date)); ?></span></span></div>
-		<div class="text"  style="margin-top: 24px;">Borrower</br><a href="profile-user.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><p class="subtext2-username"><?= mb_strimwidth($username_borrower, 0, 14, "..."); ?></p></a></div>
+		<div class="text"  style="margin-top: 24px;">Borrower</br><a href="profile-user.php?id=<?= $id_borrower; ?>" style="text-decoration: none;" target="blank"><p class="subtext2-username"><?= mb_strimwidth($username_borrower, 0, 13, "..."); ?></p></a></div>
 		</div>
 	</div>
 	
@@ -1567,7 +1728,12 @@ require('actions/users/bannedAction.php');
 				
 				<div class="payment-box" id="paypal">
 					<span class="payment-box-title">Paypal</span>
-					<p>Borrower's Paypal Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= $paypal; ?></span></p>
+					<p style="display: <?= $paypal_address_display; ?>">Borrower's Paypal Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= mb_strimwidth($paypal, 0, 80, "..."); ?></span></p>
+					<?php
+					if(isset($error_message_paypal)){ 
+					echo $error_message_paypal;
+					}
+					?>	
 					<p>Amount to Send:</br><span class="payment-box-bold"><?= $loan_amount; ?>$</span></p>
 					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
 					<form method="post">
@@ -1583,18 +1749,16 @@ require('actions/users/bannedAction.php');
 					</div>
 					<div class="warning"><span>Borrower will Confirm Payment. Any Abuse will Result in a Ban.</span></div>
 					</form>
-				
-	
-				<?php
-				if(isset($error_message_paypal)){ 
-				echo $error_message_paypal;
-				}
-				?>
 				</div>
 				
 				<div class="payment-box" id="cashapp">
 					<span class="payment-box-title">Cashapp</span>
-					<p>Borrower's Cashapp Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= $cashapp; ?></span></p>
+					<p style="display: <?= $cashapp_address_display; ?>">Borrower's Cashapp Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= mb_strimwidth($cashapp, 0, 80, "..."); ?></span></p>
+					<?php
+					if(isset($error_message_cashapp)){ 
+					echo $error_message_cashapp;
+					}
+					?>		
 					<p>Amount to Send:</br><span class="payment-box-bold"><?= $loan_amount; ?>$</span></p>
 					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
 					<form method="post">
@@ -1610,16 +1774,16 @@ require('actions/users/bannedAction.php');
 					</div>
 					<div class="warning"><span>Borrower will Confirm Payment. Any Abuse will Result in a Ban.</span></div>
 					</form>
-				<?php
-				if(isset($error_message_cashapp)){ 
-				echo $error_message_cashapp;
-				}
-				?>
 				</div>
 				
 				<div class="payment-box" id="venmo">
 					<span class="payment-box-title">Venmo</span>
-					<p>Borrower's Venmo Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= $venmo; ?></span></p>
+					<p style="display: <?= $venmo_address_display; ?>">Borrower's Venmo Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= mb_strimwidth($venmo, 0, 80, "..."); ?></span></p>
+					<?php
+					if(isset($error_message_venmo)){ 
+					echo $error_message_venmo;
+					}
+					?>			
 					<p>Amount to Send:</br><span class="payment-box-bold"><?= $loan_amount; ?>$</span></p>
 					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
 					<form method="post">
@@ -1635,16 +1799,16 @@ require('actions/users/bannedAction.php');
 					</div>
 					<div class="warning"><span>Borrower will Confirm Payment. Any Abuse will Result in a Ban.</span></div>
 					</form>
-				<?php
-				if(isset($error_message_venmo)){ 
-				echo $error_message_venmo;
-				}
-				?>
 				</div>
 				
 				<div class="payment-box" id="zelle">
 					<span class="payment-box-title">Zelle</span>
-					<p>Borrower's Zelle Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= $zelle; ?></span></p>
+					<p style="display: <?= $zelle_address_display; ?>">Borrower's Zelle Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= mb_strimwidth($zelle, 0, 80, "..."); ?></span></p>
+					<?php
+					if(isset($error_message_zelle)){ 
+					echo $error_message_zelle;
+					}
+					?>
 					<p>Amount to Send:</br><span class="payment-box-bold"><?= $loan_amount; ?>$</span></p>
 					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
 					<form method="post">
@@ -1660,16 +1824,16 @@ require('actions/users/bannedAction.php');
 					</div>
 					<div class="warning"><span>Borrower will Confirm Payment. Any Abuse will Result in a Ban.</span></div>
 					</form>
-				<?php
-				if(isset($error_message_zelle)){ 
-				echo $error_message_zelle;
-				}
-				?>
 				</div>
 				
 				<div class="payment-box" id="chime">
 					<span class="payment-box-title">Chime</span>
-					<p>Borrower's Chime Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= $chime; ?></span></p>
+					<p style="display: <?= $chime_address_display; ?>">Borrower's Chime Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= mb_strimwidth($chime, 0, 80, "..."); ?></span></p>
+					<?php
+					if(isset($error_message_chime)){ 
+					echo $error_message_chime;
+					}
+					?>
 					<p>Amount to Send:</br><span class="payment-box-bold"><?= $loan_amount; ?>$</span></p>
 					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
 					<form method="post">
@@ -1685,19 +1849,7 @@ require('actions/users/bannedAction.php');
 					</div>
 					<div class="warning"><span>Borrower will Confirm Payment. Any Abuse will Result in a Ban.</span></div>
 					</form>
-				<?php
-				if(isset($error_message_chime)){ 
-				echo $error_message_chime;
-				}
-				?>
 				</div>
-			
-				
-				<?php
-				if(isset($success_message)){ 
-				echo $success_message;
-				}
-				?>
 	</div>
 	
 
@@ -1888,6 +2040,13 @@ function OpenPopup() {
 function ClosePopup() {
   document.getElementById("phone-number-div").style.display = "none";
   document.getElementById("popup-phone-number").style.display = "none";
+}
+</script>
+
+<script>
+function CloseErrorPopup() {
+  document.getElementById("error-div").style.display = "none";
+  document.getElementById("popup-error").style.display = "none";
 }
 </script>
 

@@ -61,135 +61,121 @@ if(!isset($_SESSION['banned'])AND(isset($_SESSION['auth']))){
 
 <style>
 
-.header {
-	width: 100%;
-	height: 75px;
-	border-bottom: 1px solid #d6d6d6;
-	position: fixed;
-	background-color: white;
-	z-index: 10;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-}
-
-.header-text {
-	margin-left: 10%;
-	width: 80%;
-}
-
-.logo {
-	height: 23px;
-	margin-top: 26px;
-}
-
-.lend {
-	width: 75px;
-	text-align: center;
-	height: 23px;
-	margin-top: -23px;
-	margin-left: calc(47% - 44px);
-}
-
-.lend-text {
-	font-weight: 500;
-	border-radius: 0.125rem;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	padding-left: 10px;
-	padding-right: 10px;
-	outline: 1px solid #4d4d4d;
-	color: #4d4d4d;
-	transition: background-color 0.2s;
-}
-
-.lend-text:hover {
-	background-color: #4d4d4d;
-	color: white;
-}
-
-.borrow {
-	width: 75px;
-	text-align: right;
-	height: 23px;
-	margin-top: -23px;
-	margin-left: calc(47% + 44px);
-}
-
-.borrow-text {
-	background-color: #00c4ff;
-	color: white;
-	font-weight: 500;
-	border-radius: 0.125rem;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	padding-left: 10px;
-	padding-right: 10px;
-	outline: 1px solid #00c4ff;
-	transition: background-color 0.2s;
-}
-
-.borrow-text:hover {
-	background-color: #2b80ff;
-	outline: 1px solid #2b80ff;
-}
-
-
-.login {
-	width: 120px;
-	text-align: left;
-	height: 23px;
-	margin-top: -23px;
-	margin-left: calc(100% - 207px);
-}
-
-.login-text {
-	font-weight: 500;
-	color: #4d4d4d;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	padding-left: 10px;
-	padding-right: 10px;
-	transition: outline 0.2s;
-	transition: background-color 0.2s;
-}
-
-.login-text:hover {
-	outline: 1px solid #4d4d4d;
-	background-color: #fcfcfc;
-	border-radius: 0.125rem;
-}
-
-.signup {
-	margin-top: -22px;
-	margin-left: calc(100% - 67px);
-}
-
-.logout-button {
-	height: 20px;
-	width: auto;
-	transition: transform 0.2s;
-}
-
-.chat-header {
-	height: 25px;
-	width: auto;
-	transition: transform 0.2s;
-}
-
-.logout-button:hover {
-	-ms-transform: scale(1.1); /* IE 9 */
-	-webkit-transform: scale(1.1); /* Safari 3-8 */
-	transform: scale(1.1); 
-}
-
-.chat-header:hover {
-	-ms-transform: scale(1.1); /* IE 9 */
-	-webkit-transform: scale(1.1); /* Safari 3-8 */
-	transform: scale(1.1); 
-}
-
 .everything-except-header {
 	position: absolute;
 	width: 100%;
+}
+
+.popup-phone-number {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	display: none;
+}
+
+.phone-number-div {
+	background-color:  white;
+	color: black;
+	height: 340px; 
+	width: 360px;
+	text-align: center;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 200px);
+	border-radius: 0.325rem;
+	padding: 20px;
+}
+
+.subtitle-popup {
+	margin-top: 10px;
+	font-weight: 500;
+	font-size: 2.32rem;
+	color: #00c4ff;
+}
+
+.popup-phone-text {
+	font-weight: 500;
+	font-size:1.1rem;
+}
+
+.popup-text {
+	font-weight: 500;
+	font-size: 0.98rem;
+}
+
+.close-button {
+	margin-top: 40px;
+	height: 50px;
+	width: 300px;
+	background-color: #2b80ff;
+	color: white;
+	font-weight: 500;
+	font-size: 1.35rem;
+	border-radius: 0.325rem;
+	border: 0px;
+	outline: 0px;
+	transition: background-color 0.2s;
+}
+
+.close-button:hover {
+	background-color: #00c4ff;
+}
+
+.popup-confirmed {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+}
+
+.confirmed-div {
+	background-color: white;
+	color: black;
+	height: 320px; 
+	width: 384px;
+	text-align: center;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 200px);
+	border-radius: 0.325rem;
+	padding-top: 7px;
+	padding-bottom: 20px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.subtitle-confirmed {
+	margin-top: 10px;
+	font-weight: 500;
+	font-size: 2.07rem;
+	color: black;
+}
+
+.confirmed-image {
+	margin-top: 30px;
+	width: 35%;
+	height: auto;
+}
+
+.confirmed-button {
+	margin-top: 30px;
+	height: 50px;
+	width: 300px;
+	background-color: #2b80ff;
+	color: white;
+	font-weight: 500;
+	font-size: 1.35rem;
+	border-radius: 0.325rem;
+	border: 0px;
+	outline: 0px;
+	transition: background-color 0.2s;
+}
+
+.confirmed-button:hover {
+	background-color: #00c4ff;
 }
 
 .main {
@@ -231,11 +217,20 @@ if(!isset($_SESSION['banned'])AND(isset($_SESSION['auth']))){
 
 
 .subtitle {
-	font-weight: bold;
+	font-weight: 500;
 	margin-top: 20px;
 	margin-bottom: 30px;
-	font-size: 1.8rem;
-	color: #00c4ff;
+	margin-left: 20px;
+	font-size: 2.1rem;
+	color: black;
+}
+
+.subtitle-payment {
+	font-weight: 500;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	font-size: 2.1rem;
+	color: black;
 }
 
 .text {
@@ -254,29 +249,42 @@ if(!isset($_SESSION['banned'])AND(isset($_SESSION['auth']))){
 	margin-left: 50%;
 	height: 300px;
 	width: 50%;
-	margin-top: -237px;
+	margin-top: -310px;
+}
+
+.column-1-banned {
+	margin-left: 20px;
+	height: 300px;
+	width: 50%;
+}
+
+.column-2-banned {
+	margin-left: 50%;
+	height: 300px;
+	width: 50%;
+	margin-top: -310px;
 }
 
 .subtext1 {
-	font-weight: bold;
+	font-weight: 500;
 	font-size: 1.8rem;
 	color: #00c4ff;
 }
 
 .subtext2 {
-	font-weight: bold;
+	font-weight: 500;
 	font-size: 1.2rem;
 	color: #00c4ff;
 }
 
 
 .subtitle-chat {
-	font-weight: bold;
+	font-weight: 500;
 	margin-top: 20px;
 	margin-bottom: 5px;
 	margin-left: 20px;
-	font-size: 1.8rem;
-	color: #00c4ff;
+	font-size: 2.1rem;
+	color: black;
 }
 
 .chat-text {
@@ -290,55 +298,52 @@ if(!isset($_SESSION['banned'])AND(isset($_SESSION['auth']))){
 	margin-left: 20px;
 	background-color: #2b80ff;
 	border: 0;
-	padding: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 200px;
 	border-radius: 0.325rem;
-	font-weight: bold;
-	font-size: 1.02rem;
+	font-weight: 500;
+	font-size: 1.25rem;
 	color: white;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	transition: transform .2s;
+	transition: background-color 0.2s;
 }
 
 .chat-button:hover {
-	background-color: #00c4ff;
-	-ms-transform: scale(1.05); /* IE 9 */
-	-webkit-transform: scale(1.05); /* Safari 3-8 */
-	transform: scale(1.05); 
+	background-color: #00c4ff; 
 }
 
-.chat-button:hover + .phone-hidden {
-	display: inline;
-	margin-left: 10px;
-	border: 1px solid #2b80ff;
-	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-	padding: 5px;
-	border-radius: 0.325rem;
-}
-
-.phone-hidden {
+.date-type2 {
 	display: none;
-}
-
-.phone-text {
-	font-weight: 500;
 }
 
 .payment {
 	margin-top: -554px;
+	height: 544px;
 	margin-left: 51%;
-	margin-bottom: 80px;
 	width: 49%;
-	height: 552px;
+	padding-bottom: 8px;
 	border-radius: 0.425rem;
 	background-color: #fcfcfc;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	border: 1px solid #00c4ff;
+	margin-bottom: 100px;
 }
 
 
 .select-method {
 	padding: 20px;
 	width: calc(100% - 40px);
+}
+
+.select-method-title {
+	width: calc(100% - 40px);
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 0px;
+	margin-bottom: -20px;
+	margin-top: -18px;
 }
 
 .payment-method-box {
@@ -365,21 +370,27 @@ if(!isset($_SESSION['banned'])AND(isset($_SESSION['auth']))){
 	color: white;
 }
 
+.payment-address {
+	color: #3d91e0;
+	margin-top: -15px;
+	overflow: scroll;
+}
+
+
 .payment-box-title {
-	font-weight: bold;
+	font-weight: 500;
 	font-size: 1.35rem;
 	color: #2b80ff;
 }
 
 .payment-box-bold {
-	font-weight: bold;
+	font-weight: 500;
 	color: #2b80ff;
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 }
 
 .input-container {
 	width: 50%;
-	margin-top: 50px;
 }
 
 .input {
@@ -412,8 +423,8 @@ if(!isset($_SESSION['banned'])AND(isset($_SESSION['auth']))){
 	background-color: #2b80ff;
 	color: white;
 	padding-left: 7px;
-	font-size: 1.02rem;
-	font-weight: bold;
+	font-size: 1.15rem;
+	font-weight: 500;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 	transition: transform 0.2s;
 }
@@ -426,10 +437,17 @@ if(!isset($_SESSION['banned'])AND(isset($_SESSION['auth']))){
 	transform: scale(1.05); 
 }
 
-
+.error {
+	margin-top: 20px;
+	color: white;
+	background-color: #00c4ff;
+	text-align: center;
+	border-radius: 0.325rem;
+	font-weight: 500;
+}
 
 .success {
-	margin-top: 40px;
+	margin-top: 20px;
 	color: white;
 	background-color: #12d400;
 	border: 1px solid #12d400;
@@ -441,162 +459,673 @@ if(!isset($_SESSION['banned'])AND(isset($_SESSION['auth']))){
 
 </style>
 
+<style>
+
+@media screen and (max-width: 1896px) {
+	
+	.chat-button {
+		margin-top: -30px;
+	}
+	
+}
+
+@media screen and (max-width: 1750px) {
+	
+	.main	{
+		width: 85%;
+		margin-left: 7.5%;
+	}
+	
+}
+
+@media screen and (max-width: 1600px) {
+	
+	.main	{
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+}
+
+@media screen and (max-width: 1400px) {
+	
+	.main	{
+		width: 96%;
+		margin-left: 2%;
+	}
+	
+}
+
+
+@media screen and (max-width: 1255px) {
+	
+	.loan-recap {
+		width: 44%;
+	}
+
+	.chat-div {
+		width: calc(44% - 5px);
+	}
+	
+	.payment {
+		margin-left: 46%;
+		width: 54%;
+	}
+	
+	.column-1-banned {
+		width: 42%;
+	}
+	
+	.column-2-banned {
+		width: 45%;
+	}
+	
+	.banned {
+		height: 290px;
+	}
+	
+}
+
+@media screen and (max-width: 1150px) {
+	
+	.main {
+		width: 80%;
+		margin-left: 10%;
+	}
+	
+	.loan-recap {
+		width: 100%;
+		height: 265px;
+		margin-top: 30px;
+	}
+
+	.chat-div {
+		margin-top: 30px;
+		width: calc(100% - 5px);
+	}
+	
+	.payment {
+		margin-top: 30px;
+		margin-left: 0%;
+		width: 100%;
+	}
+	
+	.chat-button {
+		margin-top: 0px;
+	}
+	
+	.column-1-banned {
+		height: 257px;
+	}
+	
+	.column-2-banned {
+		margin-top: -28.px;
+	}
+	
+}
+
+@media screen and (max-width: 1059px) {
+	
+	.chat-button {
+		margin-top: -30px;
+	}
+	
+}
+
+@media screen and (max-width: 950px) {
+	
+	.main {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+	
+}
+
+
+@media screen and (max-width: 950px) {
+	
+	.main {
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+	.chat-button {
+		margin-top: 0px;
+	}
+	
+}
+
+@media screen and (max-width: 926px) {
+	
+	.chat-button {
+		margin-top: -30px;
+	}
+	
+}
+
+@media screen and (max-width: 850px) {
+	
+	.main {
+		width: 96%;
+		margin-left: 2%;
+	}
+	
+}
+
+@media screen and (max-width: 810px) {
+	
+	.column-1-banned {
+		width: calc(100% - 40px);
+		height: 410px;
+	}
+	
+	.column-2-banned {
+		width: calc(100% - 40px);
+		margin-left: 20px;
+	}
+	
+	.banned {
+		height: 380px;
+	}
+	
+}
+
+@media screen and (max-width: 772px) {
+	
+	.chat-div {
+		height: 220px;
+	}
+	
+}
+
+@media screen and (max-width: 705px) {
+	
+	.main {
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+}
+
+@media screen and (max-width: 665px) {
+	
+	.main {
+		width: calc(96% - 2px);
+		margin-left: 2%;
+	}
+	
+}
+
+@media screen and (max-width: 625px) {
+	
+	.payment {
+		height: 652px;
+	}
+	
+	.button-container {
+		width: 100%;
+		margin-left: 0px;
+		margin-top: 30px;
+	}
+	
+	.warning {
+		margin-top: 13px;
+	}
+	
+	.main {
+		margin-top: 50px;
+	}
+	
+}
+
+@media screen and (max-width: 563px) {
+	
+	.banned {
+		height: 400px;
+	}
+	
+}
+
+@media screen and (max-width: 551px) {
+	
+	.subtext1 {
+		font-weight: 500;
+		font-size: 1.8rem;
+		color: #00c4ff;
+	}
+
+	.subtext2 {
+		font-weight: 500;
+		font-size: 1.2rem;
+		color: #00c4ff;
+	}
+
+	.subtext2-username {
+		font-weight: 500;
+		font-size: 1.2rem;
+		color: #00c4ff;
+		margin-top: 0px;
+	}
+	
+}
+
+
+@media screen and (max-width: 500px) {
+
+	.phone-number-div {
+		width: calc(90% - 40px);
+		text-align: center;
+		margin-left: calc(5%);
+		margin-top: calc(50vh - 220px);
+		border-radius: 0.325rem;
+		padding: 20px;
+	}
+	
+}
+
+@media screen and (max-width: 465px) {
+	
+	.subtitle {
+		font-size: 1.9rem;
+	}
+	
+	.subtitle-chat {
+		font-size: 1.9rem;
+	}
+	
+	.confirmed-div {
+		height: 320px; 
+		width: calc(90% - 16px);
+		margin-left: 5%;
+	}
+	
+	.confirmed-image {
+		width: 135px;
+	}
+	
+	.subtitle-confirmed {
+		font-size: 1.9rem;
+	}
+	
+}
+
+
+@media screen and (max-width: 462px) {
+
+	.payment {
+		height: 678px;
+	}
+	
+}
+
+
+
+@media screen and (max-width: 450px) {
+
+	.subtext2-username {
+		overflow: scroll;
+		margin-right: 10px;
+	}
+
+}
+
+@media screen and (max-width: 428px) {
+	
+	.chat-div {
+		height: 235px;
+	}
+	
+}
+
+@media screen and (max-width: 425px) {
+	
+	.subtitle {
+		font-size: 1.7rem;
+	}
+	
+	.subtitle-chat {
+		font-size: 1.7rem;
+	}
+	
+	
+	.subtitle-confirmed {
+		font-size: 1.7rem;
+	}
+
+	
+}
+
+@media screen and (max-width: 410px) {
+	
+	.main {
+		margin-top: 35px;
+	}
+	
+	.subtitle {
+		font-size: 1.6rem;
+	}
+	
+	.subtitle-chat {
+		font-size: 1.6rem;
+	}
+	
+	.subtitle-popup {
+		margin-top: 5px;
+		font-size: 1.9rem;
+	}
+	
+}
+
+@media screen and (max-width: 400px) {
+	
+	.select-method {
+		overflow: scroll;
+		width: 80%;
+		padding-left: 0px;
+		border-left: 20px solid white;
+	}
+
+	
+	.column-2 {
+		margin-left: 60%;
+		width: 40%;
+	}
+	
+	.chat-button {
+		width: calc(100% - 40px);
+	}
+	
+	.date-type1 {
+		display: none;
+	}
+
+	.date-type2 {
+		display: block;
+	}
+	
+	.repayment-word {
+		display: none;
+	}
+
+}
+
+@media screen and (max-width: 385px) {
+	
+	.subtitle {
+		font-size: 1.6rem;
+	}
+	
+	.subtitle-chat {
+		font-size: 1.6rem;
+	}
+	
+	.close-button {
+		margin-top: 40px;
+		height: 50px;
+		width: 90%;
+	}
+	
+	.text {
+		font-size: 1.05rem;
+	}
+	
+	.confirmed-button {
+		width: 90%;
+	}	
+	
+	.subtitle-confirmed {
+		font-size: 1.6rem;
+	}
+	
+}
+
+@media screen and (max-width: 370px) {
+	
+	.subtitle {
+		font-size: 1.5rem;
+	}
+	
+	.subtitle-chat {
+		font-size: 1.5rem;
+	}
+	
+}
+
+@media screen and (max-width: 365px) {
+	
+	.chat-div {
+		height: 220px;
+	}
+	
+	.loan-recap {
+		width: calc(100% - 2px);
+		padding-right: 2px;
+	}
+	
+}
+
+@media screen and (max-width: 362px) {
+
+	
+	.subtitle-confirmed {
+		font-size: 1.5rem;
+	}
+}
+
+@media screen and (max-width: 355px) {
+
+	.recap-text {
+		display: none;
+	}
+	
+	.column-2 {
+		margin-left: 60%;
+		width: 40%;
+	}
+	
+	.select-text {
+		display: none;
+	}
+	
+	.submit-text {
+		font-size: 1.02rem;
+	}
+	
+	.payment {
+		height: 685px;
+	}
+
+}
+
+@media screen and (max-width: 345px) {
+
+	.phone-number-div {
+		width: calc(90% - 20px);
+		margin-left: calc(5%);
+		margin-top: calc(50vh - 210px);
+		padding: 10px;
+	}
+	
+	.subtitle-popup {
+		font-size: 1.8rem;
+	}
+	
+	.chat-text {
+		font-size: 1.01rem;
+	}
+	
+	.subtitle-confirmed {
+		font-size: 1.45rem;
+	}
+	
+}
+
+
+@media screen and (max-width: 330px) {
+
+	.subtitle-confirmed {
+		font-size: 1.4rem;
+	}
+
+}
+
+</style>
+
 </head>
 
 
 <body style="margin: 0px; font-family: 'Poppins', sans-serif; background-color: #f7f7f7;">
 
-
-
 <div class="everything-except-header">
+
+<div class="popup-phone-number" id="popup-phone-number">
+	<div class="phone-number-div" id="phone-number-div">
+		<div class="subtitle-popup"><span>Contact Lender</span></div>
+		<p class="popup-text">Phone Number:</p>
+		<p class="popup-phone-text"><?= mb_strimwidth($phone_number_display, 0, 26, "..."); ?></p>
+		<div class="popup-text"><span style="color: red;">Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
+		<button class="close-button" onclick="ClosePopup()">Close</button>
+	</div>	
+</div>
+
+<?php
+if(isset($success_message)){ echo $success_message;}
+?>
 
 <div class="main">
 	
 	<div class="banned">
-	<p class="subtitle" style="margin-left: 20px;">You Have been Banned From Instant Borrow</p>
-	<div class="column-1">
+	<p class="subtitle">Account Suspended</p>
+	<div class="column-1-banned">
 	<p class="text">Reason:</br><span class="subtext1" style="color: red;"><?= $reason_public; ?></span></p>
-	<p class="text"><span style="color: #2b80ff; font-weight: 500;"><?= $username_lender; ?></span> Now Has Access to All your Personal Information.</p>
+	<p class="text"><span style="color: #2b80ff; font-weight: 500;"><?= mb_strimwidth($username_lender, 0, 13, "..."); ?></span> Now Has Access to All your Personal Information.</p>
 	</div>
-	<div class="column-2" style="margin-top: -267px;">
-	<p class="text"><span style="color: red; font-weight: 500;">You Must still Repay</span> and Chat with <span style="color: #2b80ff; font-weight: 500;"><?= $username_lender; ?></span>.</p>
-	<p class="text">You Will not be Able to Create another Instant Borrow Account.</p>
+	<div class="column-2-banned" style="margin-top: -267px;">
+	<p class="text"><span style="color: red; font-weight: 500;">You Must still Repay</span> and Communicate with the Lender.</p>
+	<p class="text" style="font-weight: 500;">You Will not be Able to Create another Instant Borrow Account.</p>
 	</div>
 	</div>
 	
 	<div class="loan-recap">
-		<div class="column-1">
 		<div class="subtitle"><span>Repayment Recap</span></div>
+		<div class="column-1">
 		<div class="text">You Repay</br><span class="subtext1"><?= $repayment_amount; ?>$</span></div>
-		<div class="text">You Lent</br><span class="subtext1"><?= $loan_amount; ?>$</span></div>
+		<div class="text">You Borrowed</br><span class="subtext1"><?= $loan_amount; ?>$</span></div>
 		</div>
 		<div class="column-2">
-		<div class="text">Repayment Deadline</br><span class="subtext2" style="color: red;"><?= date('M jS, Y', strtotime($repayment_date)); ?></span></div>
-		<div class="text"  style="margin-top: 24px;">Lender</br><span class="subtext2"><?= $username_lender; ?></span>></div>
+		<div class="text"><span class="repayment-word">Repayment </span>Deadline</br><span class="subtext2" style="color: red;"><span class="date-type1"><?= date('M jS, Y', strtotime($repayment_date)); ?></span><span class="date-type2"><?= date('j M y', strtotime($repayment_date)); ?></span></span></div>
+		<div class="text"  style="margin-top: 24px;">Lender</br><span class="subtext2"><?= mb_strimwidth($username_lender, 0, 13, "..."); ?></span></div>
 		</div>
 	</div>
 	
 	<div class="chat-div">
-		<div class="subtitle-chat"><span>Contact <span style="color: #560296;"><?= $username_lender; ?></span></span></div>
-		<div class="chat-text"><span>Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
-		<button class="chat-button">Contact <span><?= $username_lender; ?></span></button><span class="phone-hidden">Phone Number: <span class="phone-text"><?=$phone_number?></span></span>
+		<div class="subtitle-chat"><span>Contact <span style="color: #00c4ff;"><?= mb_strimwidth($username_lender, 0, 9, "..."); ?></span></span></div>
+		<div class="chat-text"><span style="color: red;">Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
+		<button class="chat-button" onclick="OpenPopup()">Contact</button>
 	</div>
 	
-<div class="payment">
-		
+	<div class="payment">
+				<div class="select-method-title">
+				<p class="subtitle-payment"><span class="select-text">Select </span>Payment Method</p>
+				</div>
 				<div class="select-method">
-					<p class="subtitle" style="margin-top: 0px;">Select Payment Method</p>
 					<span class="payment-method-box" id="paypal-select" onclick="ShowPaypal()" style="display: <?= $paypal_notset; ?>;">Paypal</span><span class="payment-method-box" id="cashapp-select" onclick="ShowCashapp()" style="display: <?= $cashapp_notset; ?>;">Cashapp</span><span class="payment-method-box" id="venmo-select" onclick="ShowVenmo()" style="display: <?= $venmo_notset; ?>;">Venmo</span><span class="payment-method-box" id="zelle-select" onclick="ShowZelle()" style="display: <?= $zelle_notset; ?>;">Zelle</span><span class="payment-method-box" id="chime-select" onclick="ShowChime()" style="display: <?= $chime_notset; ?>;">Chime</span>
 				</div>
 				
 				<div class="payment-box" id="paypal">
 					<span class="payment-box-title">Paypal</span>
-					<p><span style="color: #3d91e0;"><?= $username_lender; ?>'s</span> Paypal Address: <span style="color: #3d91e0;"><?= $paypal; ?></span></p>
+					<p>Lender's Paypal Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= mb_strimwidth($paypal, 0, 80, "..."); ?></span></p>
 					<p>Amount to Send:</br><span class="payment-box-bold"><?= $repayment_amount; ?>$</span></p>
 					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
 					<form method="post">
-					<div class="input-container">
+					<div style="input-container">
 					<span>Paypal Transaction ID</span>
 					</br>
 					<input class="input" type="input" placeholder="Enter Paypal Transaction ID" name="paypal_id" required autocomplete="off">
 					</div>
 					<div class="button-container">
-					<span class="submit-text">Confirm Repayment Has Been Sent</span>
+					<span class="submit-text">Confirm Payment Has Been Sent</span>
 					</br>
-					<input class="submit-button" type="submit" value="Repayment Sent" name="payment_paypal">
+					<input class="submit-button" type="submit" value="Payment Sent" name="payment_paypal">
 					</div>
 					</form>
-				
-				
-				<?php
-				if(isset($error_message_paypal)){ 
-				echo $error_message_paypal;
-				}
-				?>
 				</div>
 				
 				<div class="payment-box" id="cashapp">
 					<span class="payment-box-title">Cashapp</span>
-					<p><span style="color: #3d91e0;"><?= $username_lender; ?>'s</span> Cashapp Address: <span style="color: #3d91e0;"><?= $cashapp; ?></span></p>
+					<p>Lender's Cashapp Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= mb_strimwidth($cashapp, 0, 80, "..."); ?></span></p>
 					<p>Amount to Send:</br><span class="payment-box-bold"><?= $repayment_amount; ?>$</span></p>
 					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
 					<form method="post">
-					<div class="input-container">
+					<div style="input-container">
 					<span>Cashapp Transaction ID</span>
 					</br>
 					<input class="input" type="input" placeholder="Enter Cashapp Transaction ID" required name="cashapp_id" autocomplete="off">
 					</div>
 					<div class="button-container">
-					<span class="submit-text">Confirm Repayment Has Been Sent</span>
+					<span class="submit-text">Confirm Payment Has Been Sent</span>
 					</br>
-					<input class="submit-button" type="submit" value="Repayment Sent" name="payment_cashapp">
+					<input class="submit-button" type="submit" value="Payment Sent" name="payment_cashapp">
 					</div>
 					</form>
 				</div>
 				
 				<div class="payment-box" id="venmo">
 					<span class="payment-box-title">Venmo</span>
-					<p><span style="color: #3d91e0;"><?= $username_lender; ?>'s</span> Venmo Address: <span style="color: #3d91e0;"><?= $venmo; ?></span></p>
+					<p>Lender's Venmo Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= mb_strimwidth($venmo, 0, 80, "..."); ?></span></p>
 					<p>Amount to Send:</br><span class="payment-box-bold"><?= $repayment_amount; ?>$</span></p>
 					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
 					<form method="post">
-					<div class="input-container">
+					<div style="input-container">
 					<span>Venmo Transaction ID</span>
 					</br>
 					<input class="input" type="input" placeholder="Enter Venmo Transaction ID" required name="venmo_id" autocomplete="off">
 					</div>
 					<div class="button-container">
-					<span class="submit-text">Confirm Repayment Has Been Sent</span>
+					<span class="submit-text">Confirm Payment Has Been Sent</span>
 					</br>
-					<input class="submit-button" type="submit" value="Repayment Sent" name="payment_venmo">
+					<input class="submit-button" type="submit" value="Payment Sent" name="payment_venmo">
 					</div>
 					</form>
 				</div>
 				
 				<div class="payment-box" id="zelle">
 					<span class="payment-box-title">Zelle</span>
-					<p><span style="color: #3d91e0;"><?= $username_lender; ?>'s</span> Zelle Address: <span style="color: #3d91e0;"><?= $zelle; ?></span></p>
+					<p>Lender's Zelle Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= mb_strimwidth($zelle, 0, 80, "..."); ?></span></p>
 					<p>Amount to Send:</br><span class="payment-box-bold"><?= $repayment_amount; ?>$</span></p>
 					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
 					<form method="post">
-					<div class="input-container">
+					<div style="input-container">
 					<span>Zelle Transaction ID</span>
 					</br>
 					<input class="input" type="input" placeholder="Enter Zelle Transaction ID" required name="zelle_id" autocomplete="off">
 					</div>
 					<div class="button-container">
-					<span class="submit-text">Confirm Repayment Has Been Sent</span>
+					<span class="submit-text">Confirm Payment Has Been Sent</span>
 					</br>
-					<input class="submit-button" type="submit" value="Repayment Sent" name="payment_zelle"> 
+					<input class="submit-button" type="submit" value="Payment Sent" name="payment_zelle"> 
 					</div>
 					</form>
 				</div>
 				
 				<div class="payment-box" id="chime">
 					<span class="payment-box-title">Chime</span>
-					<p><span style="color: #3d91e0;"><?= $username_lender; ?>'s</span> Chime Address: <span style="color: #3d91e0;"><?= $chime; ?></span></p>
+					<p>Lender's Chime Address: <span class="payment-address" style="overflow-wrap: break-word;"><?= mb_strimwidth($chime, 0, 80, "..."); ?></span></p>
 					<p>Amount to Send:</br><span class="payment-box-bold"><?= $repayment_amount; ?>$</span></p>
 					<p>Instant Borrow Fee:</br><span class="payment-box-bold">0$</span></p>
 					<form method="post">
-					<div class="input-container">
+					<div style="input-container">
 					<span>Chime Transaction ID</span>
 					</br>
 					<input class="input" type="input" placeholder="Enter Chime Transaction ID" required name="chime_id" autocomplete="off">
 					</div>
 					<div class="button-container">
-					<span class="submit-text">Confirm Repayment Has Been Sent</span>
+					<span class="submit-text">Confirm Payment Has Been Sent</span>
 					</br>
-					<input class="submit-button" type="submit" value="Repayment Sent" name="payment_chime">
+					<input class="submit-button" type="submit" value="Payment Sent" name="payment_chime">
 					</div>
 					</form>
 				</div>
-			
-				
-				<?php
-				if(isset($success_message)){ 
-				echo $success_message;
-				}
-				?>
 	</div>
 	
 
@@ -714,6 +1243,21 @@ function ShowChime() {
   document.getElementById("venmo-select").style.color = "black";
   document.getElementById("zelle-select").style.color = "black";
   document.getElementById("chime-select").style.color = "white";
+}
+
+</script>
+
+<script>
+function ClosePopup() {
+  document.getElementById("phone-number-div").style.display = "none";
+  document.getElementById("popup-phone-number").style.display = "none";
+}
+</script>
+
+<script>
+function OpenPopup() {
+  document.getElementById("phone-number-div").style.display = "block";
+  document.getElementById("popup-phone-number").style.display = "block";
 }
 </script>
 

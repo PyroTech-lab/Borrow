@@ -641,6 +641,18 @@ if(!isset($_SESSION['auth'])){
 	display: none;
 }
 
+.lender-name-2 {
+	display: none;
+}
+
+.lender-name-3 {
+	display: none;
+}
+
+.lender-name-4 {
+	display: none;
+}
+
 .error-message {
 	font-weight: 500;
 	font-size: 1.05rem;
@@ -938,6 +950,26 @@ if(!isset($_SESSION['auth'])){
 	
 }
 
+@media screen and (max-width: 1180px) {
+
+	.lender-name-1 {
+		display: none;
+	}
+
+	.lender-name-2 {
+		display: block;
+	}
+
+	.lender-name-3 {
+		display: none;
+	}
+	
+	.lender-name-4 {
+		display: none;
+	}
+
+}
+
 @media screen and (max-width: 910px) {
 
 	.transaction-details {
@@ -1020,6 +1052,26 @@ if(!isset($_SESSION['auth'])){
 		display: block;
 	}
 	
+}
+
+@media screen and (max-width: 880px) {
+
+	.lender-name-1 {
+		display: none;
+	}
+
+	.lender-name-2 {
+		display: none;
+	}
+
+	.lender-name-3 {
+		display: block;
+	}
+	
+	.lender-name-4 {
+		display: none;
+	}
+
 }
 
 @media screen and (max-width: 730px) {
@@ -1237,6 +1289,22 @@ if(!isset($_SESSION['auth'])){
 		margin-top: -17px;
 		font-size: 0.95rem;
 		margin-bottom: -8px;
+	}
+	
+	.lender-name-1 {
+		display: none;
+	}
+
+	.lender-name-2 {
+		display: none;
+	}
+
+	.lender-name-3 {
+		display: none;
+	}
+	
+	.lender-name-4 {
+		display: block;
 	}
 	
 }
@@ -1852,16 +1920,16 @@ if(!isset($_SESSION['auth'])){
 						$image_status = "<img class='status-image' src='assets/images/status-active.png'>";
 					}elseif(($question['status'] == "paid_afterban_notseen")OR($question['status'] == "paid_afterban")){
 						$status_color = "orange";
-						$status_public = "Paid After ban";
+						$status_public = "Paid Late";
 						$image_status = "<img class='status-image' src='assets/images/status-paidlate.png'>";
 					}
 				}
 				
-				if($question['feedback_given'] == "positive"){
+				if($question['feedback_given'] == "Positive"){
 					$feedback = "Positive";
 					$feedback_color ="green";
 					$feedback_image ="<img src='assets/images/positive.png' class='image-positive'>";
-				}elseif($question['feedback_given'] == "negative"){
+				}elseif($question['feedback_given'] == "Negative"){
 					$feedback = "Negative";
 					$feedback_color ="red";
 					$feedback_image ="<img src='assets/images/negative.png' class='image-negative'>";
@@ -1879,7 +1947,7 @@ if(!isset($_SESSION['auth'])){
 				<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
 				<div class="interest-rate"><span class="time-format1"><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span><span class="time-format2"><?= date('j M y', strtotime($question['repayment_date'])); ?></span></div>
 				<div class="repay-date"><span style="color: <?= $status_color; ?>;"><?= $status_public; ?></span></div>
-				<div class="feedback"><a style="text-decoration: none; color: #3d91e0;" href="profile-user.php?id=<?= $question['id_lender']; ?>"><span><?= mb_strimwidth($question['username_lender'], 0, 9, "..."); ?></span></a></div>
+				<div class="feedback"><a style="text-decoration: none; color: #3d91e0;" href="profile-user.php?id=<?= $question['id_lender']; ?>"><span class="lender-name-1"><?= mb_strimwidth($question['username_lender'], 0, 18, "..."); ?></span><span class="lender-name-2"><?= mb_strimwidth($question['username_lender'], 0, 12, "..."); ?></span><span class="lender-name-3"><?= mb_strimwidth($question['username_lender'], 0, 9, "..."); ?></span><span class="lender-name-4"><?= mb_strimwidth($question['username_lender'], 0, 6, "."); ?></span></a></div>
 				<div class="payment-method"><span style="color: <?= $feedback_color; ?>;"><?= $feedback; ?></span></div>
 				<div class="display-bottom">
 				<div class="feedback-bottom-visible">Feedback: <span class="feedback-type-1" style="color: <?= $feedback_color; ?>;"><?= $feedback; ?></span><span class="feedback-type-2"><?= $feedback_image; ?></span></div>

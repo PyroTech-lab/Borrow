@@ -322,6 +322,148 @@ require('actions/users/bannedAction.php');
 	background-color: #00c4ff;
 }
 
+
+.popup-incorrectid {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+}
+
+.incorrectid-div {
+	background-color:  white;
+	color: black;
+	height: 160px; 
+	width: 370px;
+	text-align: center;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 110px);
+	border-radius: 0.325rem;
+	padding: 15px;
+}
+
+.incorrectid-text {
+	font-weight: 500;
+	font-size: 1.15rem;
+	color: red;
+}
+
+.incorrectid-button {
+	margin-top: 10px;
+	height: 50px;
+	width: 300px;
+	background-color: #2b80ff;
+	color: white;
+	font-weight: 500;
+	font-size: 1.35rem;
+	border-radius: 0.325rem;
+	border: 0px;
+	outline: 0px;
+	transition: background-color 0.2s;
+}
+
+.incorrectid-button:hover {
+	background-color: #00c4ff;
+}
+
+
+
+.popup-correctid {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+}
+
+.correctid-div {
+	background-color:  white;
+	color: black;
+	height: 210px; 
+	width: 370px;
+	text-align: center;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 110px);
+	border-radius: 0.325rem;
+	padding: 15px;
+}
+
+.correctid-text {
+	font-weight: 500;
+	font-size: 1rem;
+	color: #009c2c;
+}
+
+.correctid-button {
+	margin-top: 10px;
+	height: 50px;
+	width: 300px;
+	background-color: #2b80ff;
+	color: white;
+	font-weight: 500;
+	font-size: 1.35rem;
+	border-radius: 0.325rem;
+	border: 0px;
+	outline: 0px;
+	transition: background-color 0.2s;
+}
+
+.correctid-button:hover {
+	background-color: #00c4ff;
+}
+
+
+
+.popup-fileformat {
+	background-color:  rgba(0, 0, 0, 0.76);
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+}
+
+.fileformat-div {
+	background-color:  white;
+	color: black;
+	height: 140px; 
+	width: 370px;
+	text-align: center;
+	margin-left: calc(50% - 200px);
+	margin-top: calc(50vh - 110px);
+	border-radius: 0.325rem;
+	padding: 15px;
+}
+
+.fileformat-text {
+	font-weight: 500;
+	font-size: 1rem;
+	color: red;
+}
+
+.fileformat-button {
+	margin-top: 10px;
+	height: 50px;
+	width: 300px;
+	background-color: #2b80ff;
+	color: white;
+	font-weight: 500;
+	font-size: 1.35rem;
+	border-radius: 0.325rem;
+	border: 0px;
+	outline: 0px;
+	transition: background-color 0.2s;
+}
+
+.fileformat-button:hover {
+	background-color: #00c4ff;
+}
+
+
+
 .main {
 	margin-top: 160px;
 	margin-left: 20%;
@@ -526,27 +668,6 @@ require('actions/users/bannedAction.php');
 .upload-input {
 	margin-top: 8px;
 	margin-left: 18px;
-	font-weight: 500;
-}
-
-.error-message {
-	margin-top: -90px;
-	width: 49%;
-	color: white;
-	background-color: red;
-	border: 1px solid red;
-	text-align: center;
-	border-radius: 0.325rem;
-	font-weight: 500;
-}
-
-.success-message {
-	margin-top: 10px;
-	color: white;
-	background-color: #12d400;
-	border: 1px solid #12d400;
-	text-align: center;
-	border-radius: 0.325rem;
 	font-weight: 500;
 }
 
@@ -870,10 +991,25 @@ require('actions/users/bannedAction.php');
 	.phone-number-div {
 		width: calc(90% - 40px);
 		text-align: center;
-		margin-left: calc(5%);
+		margin-left:5%;
 		margin-top: calc(50vh - 220px);
 		border-radius: 0.325rem;
 		padding: 20px;
+	}
+	
+	.correctid-div {
+		width: calc(90% - 30px);
+		margin-left:5%;
+	}
+	
+	.incorrectid-div {
+		width: calc(90% - 30px);
+		margin-left:5%;
+	}
+	
+	.fileformat-div {
+		width: calc(90% - 30px);
+		margin-left:5%;
 	}
 	
 }
@@ -1000,7 +1136,28 @@ require('actions/users/bannedAction.php');
 		width: 90%;
 	}
 	
+	.correctid-button {
+		width: 90%;
+	}
+	
+	.incorrectid-button {
+		width: 90%;
+	}
+	
+	.fileformat-button {
+		width: 90%;
+	}
+	
 }
+
+@media screen and (max-width: 369px) {
+	
+	.confirm-repayment-2 {
+		height: 320px;
+	}
+	
+}
+
 
 @media screen and (max-width: 365px) {
 	
@@ -1020,7 +1177,10 @@ require('actions/users/bannedAction.php');
 		margin-top: 50px;
 	}
 	
-	
+	.subtitle-popup {
+		font-size: 1.9rem;
+	}
+		
 }
 
 @media screen and (max-width: 357px) {
@@ -1535,15 +1695,26 @@ require('actions/users/bannedAction.php');
 <div class="everything-except-header">
 
 <div class="popup-phone-number" id="popup-phone-number">
-	
 	<div class="phone-number-div" id="phone-number-div">
 		<div class="subtitle-popup"><span>Contact Lender</span></div>
 		<p class="popup-text">Phone Number:</p>
-		<p class="popup-phone-text"><?= $phone_number_display; ?></p>
+		<p class="popup-phone-text"><?= mb_strimwidth($phone_number_display, 0, 26, "..."); ?></p>
 		<div class="popup-text"><span style="color: red;">Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
 		<button class="close-button" onclick="ClosePopup()">Close</button>
 	</div>	
 </div>
+
+<?php 
+if(isset($CorrectIdMessage)){ echo $CorrectIdMessage; }
+?>
+
+<?php
+if(isset($IncorrectIdMessage)){echo $IncorrectIdMessage; }
+?>
+
+<?php 
+if(isset($file_error_message)){echo $file_error_message; }
+?>
 
 <div class="main">
 	
@@ -1552,13 +1723,13 @@ require('actions/users/bannedAction.php');
 	
 	<div class="loan-recap">
 		<div class="subtitle"><span><span class="payment-text-1">Repayment </span><span class="payment-text-2">Payment </span>Not Received</span></div>
-		<div class="recap-text"><span style="color: #2b80ff;"><?= $username_lender; ?></span> Reported not Receiving the Following Payment from You:</div>
+		<div class="recap-text"><span style="color: #2b80ff;"><?= mb_strimwidth($username_lender, 0, 13, "..."); ?></span> Reported not Receiving the Following Payment from You:</div>
 		<div class="column-1">
 		<div class="text">Repayment Amount</br><span class="subtext1"><?= $repayment_amount; ?>$</span></div>
 		<div class="text">Repayment Date</br><span class="subtext1-date" style="color: red;"><?= date('M jS, Y', strtotime($repaid_date)); ?></span></div>
 		</div>
 		<div class="column-2">
-		<div class="text">Lender</br><a href="profile-user.php?id=<?= $id_lender; ?>" target="blank" style="text-decoration: none;"><span class="subtext2"><?= $username_lender; ?></span></a></div>
+		<div class="text">Lender</br><a href="profile-user.php?id=<?= $id_lender; ?>" target="blank" style="text-decoration: none;"><span class="subtext2"><?= mb_strimwidth($username_lender, 0, 13, "..."); ?></span></a></div>
 		<div class="text">Payment Method</br><span class="subtext2"><?= $payment_method_repayment; ?></span></div>
 		</div>
 	</div>
@@ -1584,7 +1755,7 @@ require('actions/users/bannedAction.php');
 	
 	<form method="post" class="confirm-form" enctype="multipart/form-data">
 		<div>
-		<p style="margin-bottom: 5px; color: black;">Upload Proof of Payment from <?= $payment_method_repayment; ?></p>
+		<p class="upload-text" style="margin-bottom: 5px; color: black;">Upload Proof of Payment from <?= $payment_method_repayment; ?></p>
 		<div class="input-container"><label for="file-upload"><span class="label-text">Select File</span><input type="file" id="file-upload" name="repayment_receipt_confirmation" class="upload-input" required></label></div>
 		</div>
 		<div>
@@ -1593,33 +1764,11 @@ require('actions/users/bannedAction.php');
 	</form>
 	</div>
 	
-		<?php 
-		if(isset($CorrectIdMessage)){ 
-                echo ''.$CorrectIdMessage.''; 
-            }
-        ?>
-	
-	
 	<div class="chat-div">
-		<div class="subtitle-chat"><span>Contact <a href="profile-user.php?id=<?= $id_lender; ?>" style="text-decoration: none;" target="blank"><span style="color: #00c4ff;"><?= $username_lender; ?></span></a></span></div>
+		<div class="subtitle-chat"><span>Contact <a href="profile-user.php?id=<?= $id_lender; ?>" style="text-decoration: none;" target="blank"><span style="color: #00c4ff;"><?= mb_strimwidth($username_lender, 0, 9, "..."); ?></span></a></span></div>
 		<div class="chat-text"><span style="color: red;">Extensive Communication between the Lender and Borrower is highly Recommended.</span></div>
 		<button class="chat-button" onclick="OpenPopup()">Contact</button>
 	</div>
-	
-
-		<?php 
-		if(isset($IncorrectIdMessage)){ 
-                echo ''.$IncorrectIdMessage.''; 
-            }
-        ?>
-		
-		<?php 
-		if(isset($file_error_message)){ 
-                echo ''.$file_error_message.''; 
-            }
-        ?>
-		
-		
 
 </div>
 

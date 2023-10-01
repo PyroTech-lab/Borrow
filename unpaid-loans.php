@@ -657,6 +657,18 @@ if(!isset($_SESSION['auth'])){
 	display: none;
 }
 
+.lender-name-2 {
+	display: none;
+}
+
+.lender-name-3 {
+	display: none;
+}
+
+.lender-name-4 {
+	display: none;
+}
+
 .error-message {
 	font-weight: 500;
 	font-size: 1.05rem;
@@ -990,6 +1002,27 @@ if(!isset($_SESSION['auth'])){
 	}
 }
 
+@media screen and (max-width: 1180px) {
+
+	.lender-name-1 {
+		display: none;
+	}
+
+	.lender-name-2 {
+		display: block;
+	}
+
+	.lender-name-3 {
+		display: none;
+	}
+	
+	.lender-name-4 {
+		display: none;
+	}
+
+}
+
+
 @media screen and (max-width: 1060px) {
 
 	.repay-button {
@@ -1088,6 +1121,26 @@ if(!isset($_SESSION['auth'])){
 		display: block;
 	}
 	
+}
+
+@media screen and (max-width: 880px) {
+
+	.lender-name-1 {
+		display: none;
+	}
+
+	.lender-name-2 {
+		display: none;
+	}
+
+	.lender-name-3 {
+		display: block;
+	}
+	
+	.lender-name-4 {
+		display: none;
+	}
+
 }
 
 @media screen and (max-width: 760px) {
@@ -1326,7 +1379,23 @@ if(!isset($_SESSION['auth'])){
 		width: 160px;
 		margin-left: 7px;
 	}
+
+	.lender-name-1 {
+		display: none;
+	}
+
+	.lender-name-2 {
+		display: none;
+	}
+
+	.lender-name-3 {
+		display: none;
+	}
 	
+	.lender-name-4 {
+		display: block;
+	}
+
 }
 
 @media screen and (max-width: 405px) {
@@ -1963,7 +2032,7 @@ if(!isset($_SESSION['auth'])){
 				<div class="repay-amount"><span><?= $question['repayment_amount']; ?>$</span></div>
 				<div class="interest-rate"><span class="time-format1"><?= date('M jS, Y', strtotime($question['repayment_date'])); ?></span><span class="time-format2"><?= date('j M y', strtotime($question['repayment_date'])); ?></span></div>
 				<div class="repay-date"><span style="color: <?= $status_color; ?>;"><?= $status_public; ?></span></div>
-				<div class="feedback"><a style="text-decoration: none; color: #3d91e0;" href="profile-user.php?id=<?= $question['id_lender']; ?>"><span><?= mb_strimwidth($question['username_lender'], 0, 9, "..."); ?></span></a></div>
+				<div class="feedback"><a style="text-decoration: none; color: #3d91e0;" href="profile-user.php?id=<?= $question['id_lender']; ?>"><span class="lender-name-1"><?= mb_strimwidth($question['username_lender'], 0, 18, "..."); ?></span><span class="lender-name-2"><?= mb_strimwidth($question['username_lender'], 0, 12, "..."); ?></span><span class="lender-name-3"><?= mb_strimwidth($question['username_lender'], 0, 9, "..."); ?></span><span class="lender-name-4"><?= mb_strimwidth($question['username_lender'], 0, 6, "."); ?></span></a></div>
 				<div class="payment-method"><a href="repay-panel.php?id=<?= $question['id']; ?>"><?php if(isset($RepayLoan)){echo '<button class="repay-button">'.$RepayLoan.'</button>';} ?></a></div>
 				<div class="display-bottom">
 					<div class="button-bottom"><a href="repay-panel.php?id=<?= $question['id']; ?>"><?php if(isset($RepayLoan)){echo '<button class="repay-button">'.$RepayLoan.'</button>';} ?></a></div>
@@ -1988,15 +2057,15 @@ if(!isset($_SESSION['auth'])){
 		<div class="explain">
 		<p class="explain-title">Manage unpaid Loans</p>
 		
-		<p class="explain-text" style="font-weight: 500;">A Loan is marked as <span style="color: red; font-weight: bold;">Unpaid</span> when the Repayment hasn't been made on the Agreed Upon Date.
-		</br>If the Borrower does not send Funds to the Lender <b>7 days</b> after the Repayment date, the Borrower will be <span style="color: red; font-weight: bold;">Banned</span> and his Personnal Information will be Given to the lender.
+		<p class="explain-text" style="font-weight: 500;">A Loan is marked as <span style="color: red; font-weight: 500;">Unpaid</span> when the Repayment hasn't been made on the Agreed Upon Date.
+		</br>If the Borrower does not send Funds to the Lender <b>7 days</b> after the Repayment date, the Borrower will be <span style="color: red; font-weight: 500;">Banned</span> and his Personnal Information will be Given to the lender.
 		</br>Additionaly, the Borrower's information will be Published on Instant Borrow's Social media Accounts to Warn others about the User.</p>
 
 	
 		<div>
-		<p class="explain-text">If the Borrower sends Funds to the Lender less than 7 days after the repayment date, the Borrower will not be Banned but Personnal Information will be sent to the Lender and the Loan will be marked as <span style="color: orange; font-weight: bold;">Paid Late</span>.</p>
+		<p class="explain-text">If the Borrower sends Funds to the Lender less than 7 days after the repayment date, the Borrower will not be Banned but Personnal Information will be sent to the Lender and the Loan will be marked as <span style="color: orange; font-weight: 500;">Paid Late</span>.</p>
 		
-		<p class="explain-text">The punctuality of repayments plays a big part in the calculation of the Truscscore, and a Loan <span style="color: orange; font-weight: bold;">Paid Late</span> will negatively affect it.</p>
+		<p class="explain-text">The punctuality of repayments plays a big part in the calculation of the Truscscore, and a Loan <span style="color: orange; font-weight: 500;">Paid Late</span> will negatively affect it.</p>
 		
 		<p class="explain-text" style="font-weight: 500; margin-top: 40px;">If you Have any Questions about Loans, Refer to the <a href="borrower-guide.php" style="text-decoration: none; color: #3d91e0;">Borrower's Guide</a> Or <a href="contact-us.php" style="text-decoration: none; color: #3d91e0;">Contact our Support team.</a></p>
 		</div>
