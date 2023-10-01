@@ -34,6 +34,12 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 		$country = $BorrowerInfos['country'];
 		$borrower_picture = $BorrowerInfos['picture'];
 		
+		if (strlen($phone_number) !== 0) {
+		$phone_number_display = $phone_number;	
+		}else{
+		$phone_number_display = "Unknown";
+		}
+		
 		$UpdateStatus = $bdd->prepare('UPDATE loan SET status="unpaid_banned_archived" WHERE id = ? AND id_lender= ? AND status="unpaid_banned"');
 		$UpdateStatus->execute(array($idOfLoan, $_SESSION['id']));
 			

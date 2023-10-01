@@ -2,7 +2,7 @@
 
 session_start();
 require('actions/database.php');
-
+use PHPMailer\PHPMailer\PHPMailer;
 
 
 
@@ -37,6 +37,12 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	
 	$lender_email = $DisplayEmail['email'];
 	$phone_number = $DisplayEmail['phone_number'];
+	
+	if (strlen($phone_number) !== 0) {
+	$phone_number_display = $phone_number;	
+	}else{
+	$phone_number_display = "Unknown";
+	}
 		
 		
 	$GeBannedDetails = $bdd->prepare('SELECT reason FROM banned_users WHERE id_user = ?');
@@ -313,8 +319,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 						Funds have Been Sent to your Paypal Account. They may take a few Minutes to arrive.
 						Log Into Instant Borrow for more details at www.instant-borrow.com';
 	$phpmailer->send();
-	
-	$success_message = "<div class='success'>Repayment Successfull!</div>";
+
 	header("location: actions/users/logoutAction.php");
 	}
 
@@ -517,7 +522,6 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 						Log Into Instant Borrow for more details at www.instant-borrow.com';
 	$phpmailer->send();
 	
-	$success_message = "<div class='success'>Repayment Successfull!</div>";
 	header("location: actions/users/logoutAction.php");
 	}
 
@@ -719,8 +723,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 						Log Into Instant Borrow for more details at www.instant-borrow.com';
 	$phpmailer->send();
 	
-	$success_message = "<div class='success'>Repayment Successfull!</div>";
-	hheader("location: actions/users/logoutAction.php");
+	header("location: actions/users/logoutAction.php");
 	}
 
 	
@@ -922,7 +925,6 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 						Log Into Instant Borrow for more details at www.instant-borrow.com';
 	$phpmailer->send();
 	
-	$success_message = "<div class='success'>Repayment Successfull!</div>";
 	header("location: actions/users/logoutAction.php");
 	}
 
@@ -1121,7 +1123,6 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 						Log Into Instant Borrow for more details at www.instant-borrow.com';
 	$phpmailer->send();
 	
-	$success_message = "<div class='success'>Repayment Successfull!</div>";
 	header("location: actions/users/logoutAction.php");
 	}
 	

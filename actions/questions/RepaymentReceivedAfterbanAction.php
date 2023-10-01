@@ -9,8 +9,8 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
     $idOfLoan = $_GET['id'];
 
 		
-	$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ?');
-    $checkIfLoanExists->execute(array($idOfLoan));
+	$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ? AND id_lender= ?');
+    $checkIfLoanExists->execute(array($idOfLoan, $_SESSION['id']));
 
 		if($checkIfLoanExists->rowCount() > 0){
 		
@@ -25,8 +25,6 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 		$username_borrower = $LoanInfos['username_borrower'];
 		$payment_method_repayment = $LoanInfos['payment_method_repayment'];
 		$repayment_transaction_id = $LoanInfos['repayment_transaction_id'];
-		
-		
 		
 		}else {$Loannotfound ="yes";}
 

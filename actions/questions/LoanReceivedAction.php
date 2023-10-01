@@ -9,8 +9,8 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
     $idOfLoan = $_GET['id'];
 
 		
-	$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ?');
-    $checkIfLoanExists->execute(array($idOfLoan));
+	$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ? AND id_borrower= ?');
+    $checkIfLoanExists->execute(array($idOfLoan, $_SESSION['id']));
 
 		if($checkIfLoanExists->rowCount() > 0){
 		
@@ -34,6 +34,12 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 		$GetNumber = $getPhoneNumber->fetch();
 		
 		$phone_number = $GetNumber['phone_number'];
+	
+		if (strlen($phone_number) !== 0) {
+		$phone_number_display = $phone_number;	
+		}else{
+		$phone_number_display = "Unknown";
+		}
 		
 		
 		}else {$Loannotfound ="yes";}

@@ -4,13 +4,13 @@ use PHPMailer\PHPMailer\PHPMailer;
 require('actions/database.php');
 
 if(isset($_GET['id']) AND !empty($_GET['id'])){
-
-
 	
-	$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ?');
-    $checkIfLoanExists->execute(array($_GET['id']));
+	$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ? AND id_borrower = ? AND (status="active" OR status="unpaid" OR status="unpaid_notseen")');
+    $checkIfLoanExists->execute(array($_GET['id'], $_SESSION['id']));
 	
 	if($checkIfLoanExists->rowCount() > 0){
+		
+	$success_display = "none";
 		
 	$LoanInfos = $checkIfLoanExists->fetch();
 		
@@ -42,7 +42,14 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	$DisplayEmail = $GetLenderEmail->fetch();
 	
 	$lender_email = $DisplayEmail['email'];
+	
 	$phone_number = $DisplayEmail['phone_number'];
+	
+	if (strlen($phone_number) !== 0) {
+	$phone_number_display = $phone_number;	
+	}else{
+	$phone_number_display = "Unknown";
+	}
 	
 	
 	$getStatus = $bdd->prepare('SELECT repayment_date FROM loan WHERE id= ?');
@@ -110,6 +117,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	
 	if($checkIfPaymentConnected->rowCount() == 0){
 		
+	$paypal_address_display  = "block";
 	
 	if(isset($_POST['payment_paypal'])){
 		
@@ -119,7 +127,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
     $loanRepayed = $bdd->prepare('UPDATE loan SET repaid_date = ?, status = ?, payment_method_repayment="Paypal", repayment_transaction_id=? WHERE id= ?');
 	$loanRepayed->execute(array($repaid_date, $status, $transactionId, $idOfTheQuestion));
 	
-	$success_message = "<div class='success'>Repayment Successfull!</div>";
+	$success_display = "block";
 	
 	require_once 'vendor/autoload.php';
 
@@ -307,7 +315,8 @@ $phpmailer->Body = '<html>
 	}
 	
 	}else{
-	$error_message_paypal = "<a href='set-payment-method.php' style='text-decoration: none;'><div class='error'>Connect your Paypal Account to Repay with Paypal.</div></a>";
+	$error_message_paypal = "<a href='set-payment-method.php' style='text-decoration: none;' target='blank'><div class='connect'>Connect Paypal Before Repaying&nbsp;<span class='link-round'>🡕</span></div></a>";
+	$paypal_address_display  = "none";
 	}
 	
 	
@@ -319,6 +328,8 @@ $phpmailer->Body = '<html>
 	$checkIfPaymentConnected = $bdd->prepare('SELECT * FROM payment_method WHERE id_user = ? AND cashapp =""');
     $checkIfPaymentConnected->execute(array($_SESSION['id']));
 	
+	$cashapp_address_display  = "block";
+	
 	if($checkIfPaymentConnected->rowCount() == 0){
 	
 	if(isset($_POST['payment_cashapp'])){
@@ -329,7 +340,7 @@ $phpmailer->Body = '<html>
     $loanRepayed = $bdd->prepare('UPDATE loan SET repaid_date = ?, status = ?, payment_method_repayment="Cashapp", repayment_transaction_id= ? WHERE id= ?');
 	$loanRepayed->execute(array($repaid_date, $status, $transactionId, $idOfTheQuestion));
 	
-	$success_message = "<div class='success'>Repayment Successfull!</div>";
+	$success_display = "block";
 	
 	require_once 'vendor/autoload.php';
 
@@ -517,7 +528,8 @@ $phpmailer->Body = '<html>
 	}
 	
 	}else{
-		$error_message_cashapp = "<a href='set-payment-method.php' style='text-decoration: none;'><div class='error'>Connect your Cashapp Account to Repay with Cashapp.</div></a>";
+		$error_message_cashapp = "<a href='set-payment-method.php' style='text-decoration: none;' target='blank'><div class='connect'>Connect Cashapp Before Repaying&nbsp;<span class='link-round'>🡕</span></div></a>";
+		$cashapp_address_display  = "none";
 	}
 	
 	
@@ -529,6 +541,8 @@ $phpmailer->Body = '<html>
 	$checkIfPaymentConnected = $bdd->prepare('SELECT * FROM payment_method WHERE id_user = ? AND venmo =""');
     $checkIfPaymentConnected->execute(array($_SESSION['id']));
 	
+	$venmo_address_display  = "block";
+	
 	if($checkIfPaymentConnected->rowCount() == 0){
 	
 	if(isset($_POST['payment_venmo'])){
@@ -539,7 +553,7 @@ $phpmailer->Body = '<html>
     $loanRepayed = $bdd->prepare('UPDATE loan SET repaid_date = ?, status = ?, payment_method_repayment="Venmo", repayment_transaction_id = ? WHERE id= ?');
 	$loanRepayed->execute(array($repaid_date, $status, $transactionId, $idOfTheQuestion));
 	
-	$success_message = "<div class='success'>Repayment Successfull!</div>";
+	$success_display = "block";
 	
 	require_once 'vendor/autoload.php';
 
@@ -727,7 +741,8 @@ $phpmailer->Body = '<html>
 	}
 	
 	}else{
-		$error_message_venmo = "<a href='set-payment-method.php' style='text-decoration: none;'><div class='error'>Connect your Venmo Account to Repay with Venmo.</div></a>";
+		$error_message_venmo = "<a href='set-payment-method.php' style='text-decoration: none;' target='blank'><div class='connect'>Connect Venmo Before Repaying&nbsp;<span class='link-round'>🡕</span></div></a>";
+		$venmo_address_display  = "none";
 	}
 	
 	
@@ -737,6 +752,8 @@ $phpmailer->Body = '<html>
 	
 	$checkIfPaymentConnected = $bdd->prepare('SELECT * FROM payment_method WHERE id_user = ? AND zelle =""');
     $checkIfPaymentConnected->execute(array($_SESSION['id']));
+	
+	$zelle_address_display  = "block";
 	
 	if($checkIfPaymentConnected->rowCount() == 0){
 	
@@ -748,7 +765,7 @@ $phpmailer->Body = '<html>
     $loanRepayed = $bdd->prepare('UPDATE loan SET repaid_date = ?, status = ?, payment_method_repayment="Zelle", repayment_transaction_id = ? WHERE id= ?');
 	$loanRepayed->execute(array($repaid_date, $status, $transactionId, $idOfTheQuestion));
 	
-	$success_message = "<div class='success'>Repayment Successfull!</div>";
+	$success_display = "block";
 	
 	require_once 'vendor/autoload.php';
 
@@ -936,7 +953,8 @@ $phpmailer->Body = '<html>
 	}
 	
 	}else{
-		$error_message_zelle = "<a href='set-payment-method.php' style='text-decoration: none;'><div class='error'>Connect your Zelle Account to Repay with Zelle.</div></a>";
+		$error_message_zelle = "<a href='set-payment-method.php' style='text-decoration: none;' target='blank'><div class='connect'>Connect Zelle Before Repaying&nbsp;<span class='link-round'>🡕</span></div></a>";
+		$zelle_address_display  = "none";
 	}
 	
 	
@@ -945,6 +963,8 @@ $phpmailer->Body = '<html>
 	
 	$checkIfPaymentConnected = $bdd->prepare('SELECT * FROM payment_method WHERE id_user = ? AND chime =""');
     $checkIfPaymentConnected->execute(array($_SESSION['id']));
+	
+	$chime_address_display  = "block";
 	
 	if($checkIfPaymentConnected->rowCount() == 0){
 	
@@ -956,7 +976,7 @@ $phpmailer->Body = '<html>
     $loanRepayed = $bdd->prepare('UPDATE loan SET repaid_date = ?, status = ?, payment_method_repayment="Chime", repayment_transaction_id WHERE id= ?');
 	$loanRepayed->execute(array($repaid_date, $status, $transactionId, $idOfTheQuestion));
 	
-	$success_message = "<div class='success'>Repayment Successfull!</div>";
+	$success_display = "block";
 	
 	require_once 'vendor/autoload.php';
 
@@ -1144,7 +1164,8 @@ $phpmailer->Body = '<html>
 	}
 	
 	}else{
-		$error_message_chime = "<a href='set-payment-method.php' style='text-decoration: none;'><div class='error'>Connect your Chime Account to Repay with Chime.</div></a>";
+		$error_message_chime = "<a href='set-payment-method.php' style='text-decoration: none;' target='blank'><div class='connect'>Connect Chime Before Repaying&nbsp;<span class='link-round'>🡕</span></div></a>";
+		$chime_address_display  = "none";
 	}
 	
 	

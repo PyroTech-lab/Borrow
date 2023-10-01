@@ -7,10 +7,13 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 
 
 	
-	$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ?');
+	$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ? AND status="request"');
     $checkIfLoanExists->execute(array($_GET['id']));
 	
 	if($checkIfLoanExists->rowCount() > 0){
+		
+	$error_display = "none";
+	$success_display = "none";
 		
 	$LoanInfos = $checkIfLoanExists->fetch();
 		
@@ -43,6 +46,12 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	
 	$borrower_email = $DisplayEmail['email'];
 	$borrower_phone = $DisplayEmail['phone_number'];
+	
+	if (strlen($borrower_phone) !== 0) {
+	$phone_number_display = $borrower_phone;	
+	}else{
+	$phone_number_display = "Unknown";
+	}
 	
 	
 	
@@ -91,6 +100,8 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	
 	if($checkIfPaymentConnected->rowCount() == 0){
 		
+	$paypal_address_display  = "block";
+		
 	
 	if(isset($_POST['payment_paypal'])){
 		
@@ -102,7 +113,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
     $loanGrant = $bdd->prepare('UPDATE loan SET granting_date = ?, id_lender = ?, username_lender = ?, status = ?, payment_method_payment="Paypal", payment_transaction_id=? WHERE id= ?');
 	$loanGrant->execute(array($granting_date, $id_lender, $username_lender, $status, $transactionId, $idOfTheQuestion));
 	
-	$success_message = "<div class='success'>Loan Confirmed!</div>";
+	$success_display = "block";
 	
 	require_once 'vendor/autoload.php';
 
@@ -291,13 +302,14 @@ $phpmailer->Body = '<html>
 	$phpmailer->send();
 	
 	}else{
-	$success_message = "<div class='error'>You cannot Lend money to Yourself!</div>";
+	$error_display = "block";
 	}
 	
 	}
 	
 	}else{
-	$error_message_paypal = "<a href='set-payment-method.php' style='text-decoration: none;'><div class='error'>Connect your Paypal Account Before Lending with Paypal.</div></a>";
+	$error_message_paypal = "<a href='set-payment-method.php' style='text-decoration: none;' target='blank'><div class='connect'>Connect Paypal Account Before Lending&nbsp;<span class='link-round'>🡕</span></div></a>";
+	$paypal_address_display  = "none";
 	}
 	
 	
@@ -310,6 +322,8 @@ $phpmailer->Body = '<html>
     $checkIfPaymentConnected->execute(array($_SESSION['id']));
 	
 	if($checkIfPaymentConnected->rowCount() == 0){
+		
+	$cashapp_address_display  = "block";
 	
 	if(isset($_POST['payment_cashapp'])){
 		
@@ -321,7 +335,7 @@ $phpmailer->Body = '<html>
     $loanGrant = $bdd->prepare('UPDATE loan SET granting_date = ?, id_lender = ?, username_lender = ?, status = ?, payment_method_payment="Cashapp", payment_transaction_id= ? WHERE id= ?');
 	$loanGrant->execute(array($granting_date, $id_lender, $username_lender, $status, $transactionId, $idOfTheQuestion));
 	
-	$success_message = "<div class='success'>Loan Confirmed!</div>";
+	$success_display = "block";
 	
 	require_once 'vendor/autoload.php';
 
@@ -509,13 +523,14 @@ $phpmailer->Body = '<html>
 	$phpmailer->send();
 	
 	}else{
-	$success_message = "<div class='error'>You cannot Lend money to Yourself!</div>";
+		$error_display = "block";
 	}
 	
 	}
 	
 	}else{
-		$error_message_cashapp = "<a href='set-payment-method.php' style='text-decoration: none;'><div class='error'>Connect your Cashapp Account Before Lending with Cashapp.</div></a>";
+		$error_message_cashapp = "<a href='set-payment-method.php' style='text-decoration: none;' target='blank'><div class='connect'>Connect Cashapp Account Before Lending&nbsp;<span class='link-round'>🡕</span></div></a>";
+		$cashapp_address_display  = "none";
 	}
 	
 	
@@ -528,6 +543,8 @@ $phpmailer->Body = '<html>
     $checkIfPaymentConnected->execute(array($_SESSION['id']));
 	
 	if($checkIfPaymentConnected->rowCount() == 0){
+		
+	$venmo_address_display  = "block";
 	
 	if(isset($_POST['payment_venmo'])){
 		
@@ -539,7 +556,7 @@ $phpmailer->Body = '<html>
     $loanGrant = $bdd->prepare('UPDATE loan SET granting_date = ?, id_lender = ?, username_lender = ?, status = ?, payment_method_payment="Venmo", payment_transaction_id = ? WHERE id= ?');
 	$loanGrant->execute(array($granting_date, $id_lender, $username_lender, $status, $transactionId, $idOfTheQuestion));
 	
-	$success_message = "<div class='success'>Loan Confirmed!</div>";
+	$success_display = "block";
 	
 	require_once 'vendor/autoload.php';
 
@@ -727,13 +744,14 @@ $phpmailer->Body = '<html>
 	$phpmailer->send();
 	
 	}else{
-	$success_message = "<div class='error'>You cannot Lend money to Yourself!</div>";
+		$error_display = "block";
 	}
 	
 	}
 	
 	}else{
-		$error_message_venmo = "<a href='set-payment-method.php' style='text-decoration: none;'><div class='error'>Connect your Venmo Account Before Lending with Venmo.</div></a>";
+		$error_message_venmo = "<a href='set-payment-method.php' style='text-decoration: none;' target='blank'><div class='connect'>Connect Venmo Account Before Lending&nbsp;<span class='link-round'>🡕</span></div></a>";
+		$venmo_address_display  = "none";
 	}
 	
 	
@@ -745,6 +763,8 @@ $phpmailer->Body = '<html>
     $checkIfPaymentConnected->execute(array($_SESSION['id']));
 	
 	if($checkIfPaymentConnected->rowCount() == 0){
+		
+	$zelle_address_display  = "block";
 	
 	if(isset($_POST['payment_zelle'])){
 		
@@ -756,7 +776,7 @@ $phpmailer->Body = '<html>
     $loanGrant = $bdd->prepare('UPDATE loan SET granting_date = ?, id_lender = ?, username_lender = ?, status = ?, payment_method_payment="Zelle", payment_transaction_id = ? WHERE id= ?');
 	$loanGrant->execute(array($granting_date, $id_lender, $username_lender, $status, $transactionId, $idOfTheQuestion));
 	
-	$success_message = "<div class='success'>Loan Confirmed!</div>";
+	$success_display = "block";
 	
 		require_once 'vendor/autoload.php';
 
@@ -944,13 +964,14 @@ $phpmailer->Body = '<html>
 	$phpmailer->send();
 	
 	}else{
-	$success_message = "<div class='error'>You cannot Lend money to Yourself!</div>";
+		$error_display = "block";
 	}
 	
 	}
 	
 	}else{
-		$error_message_zelle = "<a href='set-payment-method.php' style='text-decoration: none;'><div class='error'>Connect your Zelle Account Before Lending with Zelle.</div></a>";
+		$error_message_zelle = "<a href='set-payment-method.php' style='text-decoration: none;'><div class='connect' target='blank'>Connect Zelle Account Before Lending&nbsp;<span class='link-round'>🡕</span></div></a>";
+		$zelle_address_display  = "none";
 	}
 	
 	
@@ -961,6 +982,8 @@ $phpmailer->Body = '<html>
     $checkIfPaymentConnected->execute(array($_SESSION['id']));
 	
 	if($checkIfPaymentConnected->rowCount() == 0){
+		
+	$chime_address_display  = "block";
 	
 	if(isset($_POST['payment_chime'])){
 		
@@ -972,7 +995,7 @@ $phpmailer->Body = '<html>
     $loanGrant = $bdd->prepare('UPDATE loan SET granting_date = ?, id_lender = ?, username_lender = ?, status = ?, payment_method_payment="Chime", payment_transaction_id WHERE id= ?');
 	$loanGrant->execute(array($granting_date, $id_lender, $username_lender, $status, $transactionId, $idOfTheQuestion));
 	
-	$success_message = "<div class='success'>Loan Confirmed!</div>";
+	$success_display = "block";
 	
 		require_once 'vendor/autoload.php';
 
@@ -1160,13 +1183,14 @@ $phpmailer->Body = '<html>
 	$phpmailer->send();
 	
 	}else{
-	$success_message = "<div class='error'>You cannot Lend money to Yourself!</div>";
+		$error_display = "block";
 	}
 	
 	}
 	
 	}else{
-		$error_message_chime = "<a href='set-payment-method.php' style='text-decoration: none;'><div class='error'>Connect your Chime Account Before Lending with Chime.</div></a>";
+		$error_message_chime = "<a href='set-payment-method.php' style='text-decoration: none;' target='blank'><div class='connect'>Connect Chime Account Before Lending&nbsp;<span class='link-round'>🡕</span></div></a>";
+		$chime_address_display  = "none";
 	}
 	
 	

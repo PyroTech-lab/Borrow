@@ -2,7 +2,7 @@
 
 require('actions/database.php');
 
-
+	$requests_display = "none";
 	$limitLow = 0;
 	$limitHigh = 1;
 	$class1 = "load-more-visible";
@@ -41,6 +41,7 @@ require('actions/database.php');
 	$classButton = "borrow-button-container";
 
 if ((isset($_GET['load_more1']))OR(isset($_GET['sortby_newest2']))OR(isset($_GET['sortby_loan_amount2']))OR(isset($_GET['sortby_repayment_date2']))OR(isset($_GET['sortby_interest2']))OR(isset($_GET['loan_amount_search2']))OR(isset($_GET['interest_search2']))OR(isset($_GET['trustscore_search2']))OR(isset($_GET['repayment_date_search2']))) {
+	$requests_display = "inline";
 	$limitLow = 0;
 	$limitHigh = 30;
 	$class1 = "load-more-hidden";
@@ -79,6 +80,7 @@ if ((isset($_GET['load_more1']))OR(isset($_GET['sortby_newest2']))OR(isset($_GET
 	$classButton = "borrow-button-container";
 }
 if ((isset($_GET['load_more2']))OR(isset($_GET['sortby_newest3']))OR(isset($_GET['sortby_loan_amount3']))OR(isset($_GET['sortby_repayment_date3']))OR(isset($_GET['sortby_interest3']))OR(isset($_GET['loan_amount_search3']))OR(isset($_GET['interest_search3']))OR(isset($_GET['trustscore_search3']))OR(isset($_GET['repayment_date_search3']))) {
+	$requests_display = "inline";
 	$limitLow = 0;
 	$limitHigh = 60;
 	$class1 = "load-more-hidden";
@@ -117,6 +119,7 @@ if ((isset($_GET['load_more2']))OR(isset($_GET['sortby_newest3']))OR(isset($_GET
 	$classButton = "borrow-button-container";
 }
 if ((isset($_GET['load_more3']))OR(isset($_GET['sortby_newest4']))OR(isset($_GET['sortby_loan_amount4']))OR(isset($_GET['sortby_repayment_date4']))OR(isset($_GET['sortby_interest4']))OR(isset($_GET['loan_amount_search4']))OR(isset($_GET['interest_search4']))OR(isset($_GET['trustscore_search4']))OR(isset($_GET['repayment_date_search4']))) {
+	$requests_display = "inline";
 	$limitLow = 0;
 	$limitHigh = 90;
 	$class1 = "load-more-hidden";
@@ -155,6 +158,7 @@ if ((isset($_GET['load_more3']))OR(isset($_GET['sortby_newest4']))OR(isset($_GET
 	$classButton = "borrow-button-container";
 }
 if ((isset($_GET['load_more4']))OR(isset($_GET['sortby_newest5']))OR(isset($_GET['sortby_loan_amount5']))OR(isset($_GET['sortby_repayment_date5']))OR(isset($_GET['sortby_interest5']))OR(isset($_GET['loan_amount_search5']))OR(isset($_GET['interest_search5']))OR(isset($_GET['trustscore_search5']))OR(isset($_GET['repayment_date_search5']))) {
+	$requests_display = "inline";
 	$limitLow = 0;
 	$limitHigh = 120;
 	$class1 = "load-more-hidden";
@@ -193,6 +197,7 @@ if ((isset($_GET['load_more4']))OR(isset($_GET['sortby_newest5']))OR(isset($_GET
 	$classButton = "borrow-button-container";
 }
 if ((isset($_GET['load_more5']))OR(isset($_GET['sortby_newest6']))OR(isset($_GET['sortby_loan_amount6']))OR(isset($_GET['sortby_repayment_date6']))OR(isset($_GET['sortby_interest6']))OR(isset($_GET['loan_amount_search6']))OR(isset($_GET['interest_search6']))OR(isset($_GET['trustscore_search6']))OR(isset($_GET['repayment_date_search6']))) {
+	$requests_display = "inline";
 	$limitLow = 0;
 	$limitHigh = 180;
 	$class1 = "load-more-hidden";
@@ -231,6 +236,7 @@ if ((isset($_GET['load_more5']))OR(isset($_GET['sortby_newest6']))OR(isset($_GET
 	$classButton = "borrow-button-container";
 }
 if ((isset($_GET['load_more6']))OR(isset($_GET['sortby_newest7']))OR(isset($_GET['sortby_loan_amount7']))OR(isset($_GET['sortby_repayment_date7']))OR(isset($_GET['sortby_interest7']))OR(isset($_GET['loan_amount_search7']))OR(isset($_GET['interest_search7']))OR(isset($_GET['trustscore_search7']))OR(isset($_GET['repayment_date_search7']))) {
+	$requests_display = "inline";
 	$limitLow = 0;
 	$limitHigh = 210;
 	$class1 = "load-more-hidden";
@@ -269,6 +275,7 @@ if ((isset($_GET['load_more6']))OR(isset($_GET['sortby_newest7']))OR(isset($_GET
 	$classButton = "borrow-button-container";
 }
 if ((isset($_GET['load_more7']))OR(isset($_GET['sortby_newest8']))OR(isset($_GET['sortby_loan_amount8']))OR(isset($_GET['sortby_repayment_date8']))OR(isset($_GET['sortby_interest8']))OR(isset($_GET['loan_amount_search8']))OR(isset($_GET['interest_search8']))OR(isset($_GET['trustscore_search8']))OR(isset($_GET['repayment_date_search8']))) {
+	$requests_display = "inline";
 	$limitLow = 0;
 	$limitHigh = 210;
 	$class1 = "load-more-hidden";
@@ -307,6 +314,7 @@ if ((isset($_GET['load_more7']))OR(isset($_GET['sortby_newest8']))OR(isset($_GET
 	$classButton = "borrow-button-container";
 }
 if ((isset($_GET['load_more8']))OR(isset($_GET['sortby_newest9']))OR(isset($_GET['sortby_loan_amount9']))OR(isset($_GET['sortby_repayment_date9']))OR(isset($_GET['sortby_interest9']))OR(isset($_GET['loan_amount_search9']))OR(isset($_GET['interest_search9']))OR(isset($_GET['trustscore_search9']))OR(isset($_GET['repayment_date_search9']))) {
+	$requests_display = "inline";
 	$limitLow = 0;
 	$limitHigh = 210;
 	$class1 = "load-more-hidden";
@@ -345,6 +353,7 @@ if ((isset($_GET['load_more8']))OR(isset($_GET['sortby_newest9']))OR(isset($_GET
 	$classButton = "borrow-button-container";
 }
 if ((isset($_GET['load_more9']))OR(isset($_GET['sortby_newest10']))OR(isset($_GET['sortby_loan_amount10']))OR(isset($_GET['sortby_repayment_date10']))OR(isset($_GET['sortby_interest10']))OR(isset($_GET['loan_amount_search10']))OR(isset($_GET['interest_search10']))OR(isset($_GET['trustscore_search10']))OR(isset($_GET['repayment_date_search10']))) {
+	$requests_display = "inline";
 	$limitLow = 0;
 	$limitHigh = 210;
 	$class1 = "load-more-hidden";
@@ -398,7 +407,7 @@ if($getAllQuestions->rowCount() == 0){
 
 if(isset($_GET['loan_amount_search1']) AND !empty($_GET['loan_amount_search1'])){
 $usersSearch1 = $_GET['loan_amount_search1'];
-$getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*100) AS interest, id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, borrower_trustscore, borrower_positive_feedback, borrower_negative_feedback FROM loan WHERE status = "request" AND loan_amount >= '.$usersSearch1.' ORDER BY loan_amount DESC LIMIT '.$limitLow.','.$limitHigh.'');
+$getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*100) AS interest, id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, borrower_trustscore, borrower_positive_feedback, borrower_negative_feedback FROM loan WHERE status = "request" AND loan_amount >= '.$usersSearch1.' ORDER BY loan_amount DESC LIMIT '.$limitLow.', 30');
 	
 	if($getAllQuestions->rowCount() == 0){
 	$errorMsg = "No Requests Found. Please try different Filters.";
@@ -408,7 +417,7 @@ $getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*
 
 if(isset($_GET['interest_search1']) AND !empty($_GET['interest_search1'])){
 $usersSearch2 = $_GET['interest_search1'];
-$getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*100) AS interest, id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, borrower_trustscore, borrower_positive_feedback, borrower_negative_feedback FROM loan WHERE status = "request" AND (((repayment_amount/loan_amount)-1)*100) >= '.$usersSearch2.' ORDER BY interest DESC LIMIT '.$limitLow.','.$limitHigh.'');
+$getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*100) AS interest, id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, borrower_trustscore, borrower_positive_feedback, borrower_negative_feedback FROM loan WHERE status = "request" AND (((repayment_amount/loan_amount)-1)*100) >= '.$usersSearch2.' ORDER BY interest DESC LIMIT '.$limitLow.', 30');
 	
 	if($getAllQuestions->rowCount() == 0){
 	$errorMsg = "No Requests Found. Please try different Filters.";
@@ -420,7 +429,7 @@ if(isset($_GET['trustscore_search1']) AND !empty($_GET['trustscore_search1'])){
 
 	
 $usersSearch3 = $_GET['trustscore_search1'];
-$getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*100) AS interest, id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, borrower_trustscore, borrower_positive_feedback, borrower_negative_feedback FROM loan WHERE status = "request" AND borrower_trustscore >= '.$usersSearch3.' ORDER BY borrower_trustscore DESC LIMIT '.$limitLow.','.$limitHigh.'');
+$getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*100) AS interest, id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, borrower_trustscore, borrower_positive_feedback, borrower_negative_feedback FROM loan WHERE status = "request" AND borrower_trustscore >= '.$usersSearch3.' ORDER BY borrower_trustscore DESC LIMIT '.$limitLow.', 30');
 	
 	if($getAllQuestions->rowCount() == 0){
 	$errorMsg = "No Requests Found. Please try different Filters.";
@@ -430,7 +439,7 @@ $getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*
 
 if(isset($_GET['repayment_date_search1']) AND !empty($_GET['repayment_date_search1'])){
 $usersSearch4 = $_GET['repayment_date_search1'];
-$getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*100) AS interest, id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, borrower_trustscore, borrower_positive_feedback, borrower_negative_feedback FROM loan WHERE status = "request" AND (repayment_date BETWEEN "2000-10-10" AND "'.$usersSearch4.'") ORDER BY repayment_date DESC LIMIT '.$limitLow.','.$limitHigh.'');
+$getAllQuestions = $bdd->query('SELECT ROUND(((repayment_amount/loan_amount)-1)*100) AS interest, id, loan_amount, repayment_amount, repayment_date, request_date, id_borrower, username_borrower, borrower_trustscore, borrower_positive_feedback, borrower_negative_feedback FROM loan WHERE status = "request" AND (repayment_date BETWEEN "2000-10-10" AND "'.$usersSearch4.'") ORDER BY repayment_date DESC LIMIT '.$limitLow.', 30');
 	
 	if($getAllQuestions->rowCount() == 0){
 	$errorMsg = "No Requests Found. Please try different Filters.";

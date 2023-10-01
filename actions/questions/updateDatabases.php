@@ -467,7 +467,7 @@ $BanBorrowersFraudPayment->execute(array());
 			$deleteLoanRequests = $bdd->prepare('DELETE FROM loan WHERE id_borrower= ? AND status="request"');
 			$deleteLoanRequests->execute(array($idBorrower));
 			
-			$UpdateLoanStatus = $bdd->prepare('UPDATE loan SET status="unpaid_banned" WHERE id_borrower= ? AND (status="unpaid" OR status="unpaid_notseen")');
+			$UpdateLoanStatus = $bdd->prepare('UPDATE loan SET status="unpaid_banned", repayment_received="no_definitive" WHERE id_borrower= ? AND (repayment_received="no_notseen" OR repayment_received="no")');
 			$UpdateLoanStatus->execute(array($idBorrower));
 			
 			$deletePaymentMethods = $bdd->prepare('DELETE FROM payment_method WHERE id_user = ?');

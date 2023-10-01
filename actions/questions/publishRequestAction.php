@@ -4,6 +4,7 @@ require('actions/database.php');
 require('actions/users/showYourProfileAction.php');
 require('actions/users/yourFeedbackAction.php');
 
+$success_display = "none";
 
 if(isset($_POST['submit'])){
 	
@@ -64,7 +65,7 @@ if(isset($_POST['submit'])){
 								)
 							);
 							
-							$successMsg = "Your Request was Published Successfully!";
+							$success_display = "block";
 						
 		
 														$CheckVerifications = $bdd->prepare('SELECT email_verified, phone_number, address, identity_card, join_date FROM users WHERE id = ?');

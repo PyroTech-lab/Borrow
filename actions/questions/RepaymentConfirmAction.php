@@ -2,12 +2,13 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 require('actions/database.php');
+								
 
 if(isset($_GET['id']) AND !empty($_GET['id'])){
 
 
-	$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ? AND NOT repayment_received="yes"');
-    $checkIfLoanExists->execute(array($_GET['id']));
+	$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ? AND id_borrower = ? AND NOT (repayment_received="yes" OR repayment_received="no_correct_id")');
+    $checkIfLoanExists->execute(array($_GET['id'], $_SESSION['id']));
 	
 	if($checkIfLoanExists->rowCount() > 0){
 		
@@ -15,7 +16,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 		
 	$repaid_date = date('Y-m-d H:i:s');
 	$id_borrower = $_SESSION['id'];
-	$username_lender = $_SESSION['username'];
+	$username_lender = $LoanInfos['username_lender'];
 	$idOfTheQuestion = $_GET['id'];
 	$loan_amount = $LoanInfos['loan_amount'];
 	$repayment_amount = $LoanInfos['repayment_amount'];
@@ -32,12 +33,18 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 	$lender_email = $DisplayEmail['email'];
 	$phone_number = $DisplayEmail['phone_number'];
 	
+	if (strlen($phone_number) !== 0) {
+	$phone_number_display = $phone_number;	
+	}else{
+	$phone_number_display = "Unknown";
+	}
+	
 	
 	$display1 = "block";
 	$display2 = "none";
 	$margin_top = "-302px";
 	$margin_left = "51%";
-	$width = "49%";
+	$width = "calc(49% - 20px)";
 
 	
 
@@ -89,7 +96,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 												
 											if($TriesLeft == 1){$tries = "Try";}else{$tries = "Tries";}
 											
-											$IncorrectIdMessage = "<div class='error-message'>Incorrect Transaction ID. You Have $TriesLeft $tries left.</div>";
+											$IncorrectIdMessage = "<div class='popup-incorrectid'><div class='incorrectid-div'><p class='incorrectid-text'>Incorrect Transaction ID. You Have $TriesLeft $tries left.</p><a href=''><button class='incorrectid-button'>Close</button></a></div></div>";
 											
 											}else{
 											
@@ -326,7 +333,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 
 				$newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
-				$allowedfileExtensions = array('jpg','png','pdf');
+				$allowedfileExtensions = array('jpg','png','pdf','webp');
 				if (in_array($fileExtension, $allowedfileExtensions)){
 
 				  $uploadFileDir = 'assets/images/repayment-proof/';
@@ -336,10 +343,12 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 						$UpdateReceptionStatus = $bdd->prepare('UPDATE loan SET repayment_received ="no_correct_id", repayment_proof = ? WHERE id = ? AND id_borrower = ?');
 						$UpdateReceptionStatus->execute(array($newFileName, $idOfTheQuestion, $_SESSION['id']));
 					
-						$CorrectIdMessage = "<div class='success-message'>Information Uploaded Succesfully. Verification Process Started.</div>";
+						
+						$CorrectIdMessage = "<div class='popup-correctid'><div class='correctid-div'><p class='correctid-text'>Information uploaded Successfully. Verification Process Started.</br></br><span style='color: black;'>You will be updated By Email.</span></p><a href='dashboard.php'><button class='correctid-button'>Go Home</button></a></div></div>";
+
 						$margin_top = "10px";
 						$margin_left = "0%";
-						$width = "100%";
+						$width = "calc(100% - 20px)";
 						
 						$display1 = "none";
 						$display2 = "none";
@@ -530,7 +539,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 				  }
 			   
 				}else{
-				  $file_error_message = "<div class='error-message'>Only PNG, JPG and PDF files are Accepted.</div>";
+				  $file_error_message = "<div class='popup-fileformat'><div class='fileformat-div'><p class='fileformat-text'>Only JPG, PNG, WEBP and PDF Files Accepted</p><a href=''><button class='fileformat-button'>Close</button></a></div></div>";
 				}
 		
 

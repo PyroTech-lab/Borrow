@@ -27,7 +27,7 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 		if (strlen($notes) !==0){
 						$notes_display = $notes;
 						}else{
-						$notes_display = "No Notes from Borrower";
+						$notes_display = "<span style='color: #2b80ff'>No Notes from Borrower</span>";
 						}
         
 

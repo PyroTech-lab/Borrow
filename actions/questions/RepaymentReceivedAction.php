@@ -2,16 +2,15 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 require('actions/database.php');
-
+				
 
 if(isset($_GET['id']) AND !empty($_GET['id'])){
 
- 
     $idOfLoan = $_GET['id'];
 
 		
-	$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ?');
-    $checkIfLoanExists->execute(array($idOfLoan));
+	$checkIfLoanExists = $bdd->prepare('SELECT * FROM loan WHERE id = ? AND id_lender= ? AND (status="paid_ontime_notseen" OR status="paid_late_notseen" OR status="paid_ontime" OR status="paid_late")');
+    $checkIfLoanExists->execute(array($idOfLoan, $_SESSION['id']));
 
 		if($checkIfLoanExists->rowCount() > 0){
 		
@@ -26,6 +25,8 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 		$username_borrower = $LoanInfos['username_borrower'];
 		$payment_method_repayment = $LoanInfos['payment_method_repayment'];
 		$repayment_transaction_id = $LoanInfos['repayment_transaction_id'];
+		$PaymentMadeOrNot = $LoanInfos['repayment_received'];
+		$feedback_given = $LoanInfos['feedback_given'];
 		
 		$GetBorrowerEmail = $bdd->prepare('SELECT email, phone_number FROM users WHERE id = ?');
 		$GetBorrowerEmail->execute(array($id_borrower));
@@ -34,19 +35,31 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 		
 		$borrower_email = $DisplayEmail['email'];
 		$phone_number = $DisplayEmail['phone_number'];
+		
+		if (strlen($phone_number) !== 0) {
+		$phone_number_display = $phone_number;	
+		}else{
+		$phone_number_display = "Unknown";
+		}
 	
+	
+	
+		if(empty($PaymentMadeOrNot)){
+			
 		
 			if(isset($_POST['notification_receivedrepayment'])){
 				
+					if(!empty($feedback_given)){
 				
-				
-			$checkPaymentAlreadyReported = $bdd->prepare('SELECT repayment_received FROM loan WHERE id = ?');
-			$checkPaymentAlreadyReported->execute(array($idOfLoan));
-			
-			$PaymentCheck = $checkPaymentAlreadyReported->fetch();
-			$PaymentMadeOrNot = $PaymentCheck['repayment_received'];
+					$MarkSeenOntime= $bdd->prepare('UPDATE loan SET status="paid_ontime" WHERE id = ? AND status="paid_ontime_notseen"');
+					$MarkSeenOntime->execute(array($idOfLoan));
 
-			if(empty($PaymentMadeOrNot)){
+
+
+					$MarkSeenLate = $bdd->prepare('UPDATE loan SET status="paid_late" WHERE id = ? AND status="paid_late_notseen"');
+					$MarkSeenLate->execute(array($idOfLoan));
+					
+					}
 				
 				
 			$repayment = $_POST['repayment'];
@@ -57,17 +70,17 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 				$SetPaymentmade= $bdd->prepare('UPDATE loan SET repayment_received="yes" WHERE id = ?');
 				$SetPaymentmade->execute(array($idOfLoan));
 				
-				$confirmed_message = "<div class='payment-received'>Repayment Confirmed!</div>";
+				$popup_confirmed ="<div class='popup-confirmed'><div class='confirmed-div'><div class='subtitle-confirmed'><span>Repayment Confirmed</span></div><img class='confirmed-image' src='assets/images/success.jpg'><a href=''><button class='confirmed-button'>Close</button></a></div></div>";
+
 				}
 			
 			if($repayment == 'not_received'){
 				
 				$SetPaymentNotmade = $bdd->prepare('UPDATE loan SET repayment_received="no_notseen" WHERE id = ?');
 				$SetPaymentNotmade->execute(array($idOfLoan));
-				
-				$notreceived_message = "<div class='payment-notreceived'>Repayment Reported as Not Received. Borrower will Be Asked to Provide Extra Proof.</div>";
-				
-				
+			
+				$popup_notconfirmed = "<div class='popup-notconfirmed'><div class='notconfirmed-div'><div class='subtitle-notconfirmed'><span>Repayment Not Received</span></div><div class='notconfirmed-text'><span>Repayment Reported as Not Received. Borrower will Be Asked to Provide Extra Proof.</br>You will be Updated by Email.</span></div><a href=''><button class='notconfirmed-button'>Close</button></a></div></div>";
+					
 					require_once 'vendor/autoload.php';
 
 					$phpmailer = new PHPMailer();
@@ -253,18 +266,11 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 				$phpmailer->send();
 				}
 				
-				}else{
-					
-					if($PaymentMadeOrNot == "yes"){
-					$error_message_received = "<div class='error-message'>You Have Already Reported Receiving the Payment.</div>";
-					}
-					if(($PaymentMadeOrNot == "no")OR($PaymentMadeOrNot == "no_notseen")){
-					$error_message_not_received = "<div class='error-message'>You Have Already Reported not Receiving the Payment.</div>";
-					}
-					
 				}
 
-				}		
+				}else{
+					$confirmation_display ="none";
+				}
 		
 		
 		
