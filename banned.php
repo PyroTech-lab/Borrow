@@ -61,6 +61,56 @@ if(!isset($_SESSION['banned'])AND(isset($_SESSION['auth']))){
 
 <style>
 
+.header {
+	width: 100%;
+	height: 75px;
+	border-bottom: 1px solid #d6d6d6;
+	position: fixed;
+	background-color: white;
+	z-index: 10;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.header-text {
+	margin-left: 10%;
+	width: 80%;
+}
+
+.logo {
+	height: 23px;
+	margin-top: 26px;
+}
+
+.logo-image {
+	height: 62px;
+	width: auto;
+	margin-top: -20px;
+}
+
+.logo-image-footer {
+	height: 75px;
+	width: auto;
+	margin-top: 10px;
+}
+
+
+.signup {
+	margin-top: -22px;
+	margin-left: calc(100% - 22px);
+}
+
+.logout-button {
+	height: 20px;
+	width: auto;
+	transition: transform 0.2s;
+}
+
+.logout-button:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
+}
+
 .everything-except-header {
 	position: absolute;
 	width: 100%;
@@ -992,6 +1042,15 @@ if(!isset($_SESSION['banned'])AND(isset($_SESSION['auth']))){
 if(isset($success_message)){ echo $success_message;}
 ?>
 
+<div class="header">
+	<div class="header-text">
+		<div class="logo"><img src="assets/images/logo.png" class="logo-image"></div>
+		<div class="signup"><div><a href="actions/users/logoutAction.php" style="text-decoration: none; color: black;"><img src="assets/images/logout.png" class="logout-button"></a></div></div>
+	</div>
+</div>
+
+<div class="everything-except-header">
+	
 <div class="main">
 	
 	<div class="banned">
@@ -1135,6 +1194,7 @@ if(isset($success_message)){ echo $success_message;}
 
 </div>
 
+</div>
 
 <script>
 function ShowPaypal() {
